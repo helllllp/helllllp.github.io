@@ -170,7 +170,7 @@ branch: master
 <h3 id="使用其他主题"><a href="#使用其他主题" class="headerlink" title="使用其他主题"></a>使用其他主题</h3><p>在github上可以搜索Hexo的主题，下载下来放到theme文件夹，然后修改_config.yml中theme的名字即可</p>
 <h2 id="hexo问题处理"><a href="#hexo问题处理" class="headerlink" title="hexo问题处理"></a>hexo问题处理</h2><h3 id="图片无法显示问题"><a href="#图片无法显示问题" class="headerlink" title="图片无法显示问题"></a>图片无法显示问题</h3><p>hexo默认无法自动处理文章插入本地图片，需要通过扩展插件支持<br>配置_config.yml里面的post_asset_folder:false这个选项设置为true:<br><code>vim blog/_config.yml</code></p>
 <pre><code>post_asset_folder:true
-</code></pre><p>安装hexo-asset-image：<br><code>npm install https://github.com/CodeFalling/hexo-asset-image --save</code><br>在/source/_posts文件夹内新建一个与博客名称.md同名的文件夹，把图片放入该文件夹，然后使用<img src="/2020/09/30/hexo%E9%83%A8%E7%BD%B2%E5%88%B0github/xxx.png" alt>直接插入图片即可。<br>再次提交时，gihub就会自动生成相关文件夹和上传图片。</p>
+</code></pre><p>安装hexo-asset-image：<br><code>npm install https://github.com/CodeFalling/hexo-asset-image --save</code><br>在/source/_posts文件夹内新建一个与博客名称.md同名的文件夹，把图片放入该文件夹，然后使用<code>![](xxx.png)</code>直接插入图片即可。<br>再次提交时，gihub就会自动生成相关文件夹和上传图片。</p>
 <h3 id="markdown使用数学公式"><a href="#markdown使用数学公式" class="headerlink" title="markdown使用数学公式"></a>markdown使用数学公式</h3><p>hexo的默认md渲染器和标准不太一样，更接近与html格式，数学公式$之类的符号不能显示。同时使用的md语法可能在浏览器显示不正常。<br>首先更换新的渲染器：<br><code>npm uninstall hexo-renderer-marked --save</code><br><code>npm install hexo-renderer-kramed --save</code><br>在根目录下开始(node_modules\kramed\lib\rules\inline.js)<br>修改以下两处:</p>
 <pre><code>//escape: /^\\([\\`*&#123;&#125;\[\]()#$+\-.!_&gt;])/,
 escape: /^\\([`*\[\]()#$+\-.!_&gt;])/,
