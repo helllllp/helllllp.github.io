@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>hexo搭建到github | helllllp</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="hexo,nodejs" />
+    
+    <meta name="description" content="hexo搭建到github准备nodejs环境：hexo基于node.js，需要在该环境下进行操作本人在proxmox ve里面下载debain10-turnkey-nodejs模板，省去了搭建的烦恼使用ssh工具到创建的容器上执行修改npm为国内淘宝源：npm config set registry https:&#x2F;&#x2F;registry.npm.taobao.org更新npm版本npm insta">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo搭建到github">
+<meta property="og:url" content="https://blog.hellshan.top/2020/09/30/hexo%E9%83%A8%E7%BD%B2%E5%88%B0github/index.html">
+<meta property="og:site_name" content="helllllp">
+<meta property="og:description" content="hexo搭建到github准备nodejs环境：hexo基于node.js，需要在该环境下进行操作本人在proxmox ve里面下载debain10-turnkey-nodejs模板，省去了搭建的烦恼使用ssh工具到创建的容器上执行修改npm为国内淘宝源：npm config set registry https:&#x2F;&#x2F;registry.npm.taobao.org更新npm版本npm insta">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.hellshan.top/2020/09/30/hexo%E9%83%A8%E7%BD%B2%E5%88%B0github/hexo_git_3.PNG">
+<meta property="article:published_time" content="2020-09-30T07:44:05.000Z">
+<meta property="article:modified_time" content="2020-10-13T09:07:37.000Z">
+<meta property="article:author" content="Shan Yan">
+<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="nodejs">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.hellshan.top/2020/09/30/hexo%E9%83%A8%E7%BD%B2%E5%88%B0github/hexo_git_3.PNG">
+    
+
+    
+        <link rel="alternate" href="/" title="helllllp" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.png" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">主页</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95/">操作记录</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E8%BD%AC%E8%BD%BD%E7%9A%84/">转载的</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">关于</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-hexo部署到github" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        hexo搭建到github
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2020/09/30/hexo%E9%83%A8%E7%BD%B2%E5%88%B0github/" class="article-date">
+       <time datetime="2020-09-30T07:44:05.000Z" itemprop="datePublished">2020-09-30</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2020/09/30/hexo%E9%83%A8%E7%BD%B2%E5%88%B0github/" class="article-date">
+     <time datetime="2020-10-13T09:07:37.000Z" itemprop="dateModified">2020-10-13</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/hexo/" rel="tag">hexo</a>, <a class="tag-link-link" href="/tags/nodejs/" rel="tag">nodejs</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><img src="/2020/09/30/hexo%E9%83%A8%E7%BD%B2%E5%88%B0github/hexo_git_3.PNG" alt></p>
+<h1 id="hexo搭建到github"><a href="#hexo搭建到github" class="headerlink" title="hexo搭建到github"></a>hexo搭建到github</h1><h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><h3 id="nodejs环境："><a href="#nodejs环境：" class="headerlink" title="nodejs环境："></a>nodejs环境：</h3><p>hexo基于node.js，需要在该环境下进行操作<br>本人在proxmox ve里面下载debain10-turnkey-nodejs模板，省去了搭建的烦恼<br>使用ssh工具到创建的容器上执行<br>修改npm为国内淘宝源：<br><code>npm config set registry https://registry.npm.taobao.org</code><br>更新npm版本<br><code>npm install -g npm</code><br>查看npm和node版本<br><code>npm -v</code><br><code>node -v</code><br>安装hexo-cli<br><code>npm install -g hexo-cli</code><br>查看hexo版本：<br><code>hexo -v</code></p>
+<h3 id="github环境"><a href="#github环境" class="headerlink" title="github环境"></a>github环境</h3><p>注册github账号<br>新建仓库，仓库名应该为：用户名.github.io，以这种方式命名，github会自动认为是web项目，会自动建立custom_pages的选项，可以添加域名<br>回到容器上执行<br>设置user.name和user.email配置信息<br><code>git config --global user.name &quot;你的GitHub用户名&quot;</code><br><code>git config --global user.email &quot;你的GitHub注册邮箱&quot;</code><br>生成ssh密钥文件<br><code>ssh-keygen -t rsa -C &quot;你的GitHub注册邮箱&quot;</code><br>直接回车到最后<br>找到生成的.ssh的文件夹中的id_rsa.pub密钥，将内容全部复制<br>打开GitHub_Settings_keys 页面，新建new SSH Key<br>Title为标题，任意填即可，将刚刚复制的id_rsa.pub内容粘贴进去，最后点击Add SSH key。<br>在Git Bash中检测GitHub公钥设置是否成功，输入 ：<br><code>ssh git@github.com</code><br><img src="/2020/09/30/hexo%E9%83%A8%E7%BD%B2%E5%88%B0github/hexo_git_1.PNG" alt><br>如上则说明成功<br><a id="more"></a></p>
+<h3 id="域名"><a href="#域名" class="headerlink" title="域名"></a>域名</h3><p>部署到github上可以使用github自带的域名，需要自定义域名则需要到各大网站申请一个域名。默认可以用用户名.github.io来访问你的hexo博客。申请域名后，进行域名绑定：<br>如我的域名为blog.hellshan.top，添加解析为我的github用户名.github.io，登录GitHub，进入之前创建的仓库，点击settings，设置Custom domain，输入你的域名即可</p>
+<h2 id="hexo初始化"><a href="#hexo初始化" class="headerlink" title="hexo初始化"></a>hexo初始化</h2><p>执行<br><code>hexo init blog</code><br>会在当前目录下生成blog文件夹，也就是你hexo网站项目的名称<br>在blog根目录里的_config.yml文件称为站点配置文件，根目录里的themes文件夹，里面也有个_config.yml文件，这个称为主题配置文件<br>将我们的Hexo与GitHub关联起来：<br><code>cd blog/</code><br><code>vim _config.yml</code><br>最后一行修改为</p>
+<pre><code>deploy:
+type: git
+repo: git@gitee.com:xxx/xxx.git
+branch: master
+</code></pre><p>如图：<br><img src="/2020/09/30/hexo%E9%83%A8%E7%BD%B2%E5%88%B0github/hexo_git_2.PNG" alt><br>安装git部署插件：<br><code>npm install hexo-deployer-git --save</code><br>执行：<br><code>hexo clean</code><br><code>hexo g</code><br><code>hexo d</code><br>即提交成功，可以到你的github上看到</p>
+<h3 id="编辑博客文章"><a href="#编辑博客文章" class="headerlink" title="编辑博客文章"></a>编辑博客文章</h3><p>可以使用在线markdown编辑器编辑，可写即可见：<a target="_blank" rel="noopener" href="http://marxi.co/，编辑完保存md文件，然后传到blog/source/_posts/下在提交到github就行">http://marxi.co/，编辑完保存md文件，然后传到blog/source/_posts/下在提交到github就行</a><br>也可以使用markdown工具进行编辑如markdownpad2<br><strong>创建CNAME文件：</strong><br>上面在github上绑定了域名，还不会生效，需要在项目目录下建立CNAME文件才生效：<br><code>vim blog/source/CNAME</code><br>填上域名保存即可<br>再次运行<br><code>hexo clean</code><br><code>hexo g</code><br><code>hexo d</code><br>本地浏览：<br><code>hexo s</code><br>本地浏览器输入IP:4000即可浏览</p>
+<h3 id="使用其他主题"><a href="#使用其他主题" class="headerlink" title="使用其他主题"></a>使用其他主题</h3><p>在github上可以搜索Hexo的主题，下载下来放到theme文件夹，然后修改_config.yml中theme的名字即可</p>
+<h2 id="hexo问题处理"><a href="#hexo问题处理" class="headerlink" title="hexo问题处理"></a>hexo问题处理</h2><h3 id="图片无法显示问题"><a href="#图片无法显示问题" class="headerlink" title="图片无法显示问题"></a>图片无法显示问题</h3><p>hexo默认无法自动处理文章插入本地图片，需要通过扩展插件支持<br>配置_config.yml里面的post_asset_folder:false这个选项设置为true:<br><code>vim blog/_config.yml</code></p>
+<pre><code>post_asset_folder:true
+</code></pre><p>安装hexo-asset-image：<br><code>npm install https://github.com/CodeFalling/hexo-asset-image --save</code><br>在/source/_posts文件夹内新建一个与博客名称.md同名的文件夹，把图片放入该文件夹，然后使用<code>![](xxx.png)</code>直接插入图片即可。<br>再次提交时，gihub就会自动生成相关文件夹和上传图片。</p>
+<h3 id="markdown使用数学公式"><a href="#markdown使用数学公式" class="headerlink" title="markdown使用数学公式"></a>markdown使用数学公式</h3><p>hexo的默认md渲染器和标准不太一样，更接近与html格式，数学公式$之类的符号不能显示。同时使用的md语法可能在浏览器显示不正常。<br>首先更换新的渲染器：<br><code>npm uninstall hexo-renderer-marked --save</code><br><code>npm install hexo-renderer-kramed --save</code><br>在根目录下开始(node_modules\kramed\lib\rules\inline.js)<br>修改以下两处:</p>
+<pre><code>//escape: /^\\([\\`*&#123;&#125;\[\]()#$+\-.!_&gt;])/,
+escape: /^\\([`*\[\]()#$+\-.!_&gt;])/,
+//em: /^\b_((?:__|[\s\S])+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,
+em: /^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,
+</code></pre><h3 id="更换网站图标"><a href="#更换网站图标" class="headerlink" title="更换网站图标"></a>更换网站图标</h3><p>找到(next\source\images) 添加你选择的图片 注意最好是.ico格式<br>在主题的配置文件中搜索”favicon”</p>
+<pre><code>favicon:
+  small: /images/favicon16.ico
+  medium: /images/favicon32.ico
+  apple_touch_icon: /images/apple-touch-icon-next.png
+  safari_pinned_tab: /images/logo.svg
+  #android_manifest: /images/manifest.json
+  #ms_browserconfig: /images/browserconfig.xml
+</code></pre><p>将small,medium更换为你的图片,small是16x16 medium为32x32格式的。apple_touch_icon和safari_pinned_tab时ios上的识别图标，有需要也可以改</p>
+<h3 id="发布新的栏目"><a href="#发布新的栏目" class="headerlink" title="发布新的栏目"></a>发布新的栏目</h3><p>首先在gitbash发布栏目<br><code>hexo new page &quot;photos&quot;</code><br>在主题的配置文件里搜索“menue”，然后新添加一行<br>“||”的单词后是图标名</p>
+<pre><code>menu:
+  home: / || home
+  categories: /categories/ || th
+  tags: /tags/ || tags
+  archives: /archives/ || archive
+  相册: /photos/ || photo #新添加
+  about: /about/ || user
+  #schedule: /schedule/ || calendar
+  #sitemap: /sitemap.xml || sitemap
+  #commonweal: /404/ || heartbeat
+</code></pre><p>添加social链接<br>在主题的配置文件里搜索“social”，然后新添加一行。注意||后的图片一定要填正确，不知道可以去找网站搜一下，否则网站会打不开。</p>
+<pre><code>social:
+  GitHub: https://github.com/yourname || github
+  Codeforces: http://codeforces.com/profile/hello201999 || code
+  CSDN: https://blog.csdn.net/weixin_43769146 || csdn
+  b站: https://space.bilibili.com/99326686 || tv
+  QQ: 1003423057 || qq
+  WeChat: jjl1003423057 || wechat
+  #Google: https://plus.google.com/yourname || google
+  #Twitter: https://twitter.com/yourname || twitter
+  #FB Page: https://www.facebook.com/yourname || facebook
+  #StackOverflow: https://stackoverflow.com/yourname || stack-overflow
+  #YouTube: https://youtube.com/yourname || youtube
+  #Instagram: https://instagram.com/yourname || instagram
+  #Skype: skype:yourname?call|chat || skype
+</code></pre><h2 id="nodejs使用"><a href="#nodejs使用" class="headerlink" title="nodejs使用"></a>nodejs使用</h2><h3 id="npm-install-很慢或者出错"><a href="#npm-install-很慢或者出错" class="headerlink" title="npm install 很慢或者出错"></a>npm install 很慢或者出错</h3><p>手动下载安装包到~/.node-gyp/node版本号目录下再重新npm install就行</p>
+<p><em>参考出处：<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/26625249">https://zhuanlan.zhihu.com/p/26625249</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43769146/article/details/105066795">https://blog.csdn.net/weixin_43769146/article/details/105066795</a></em></p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://blog.hellshan.top/2020/09/30/hexo%E9%83%A8%E7%BD%B2%E5%88%B0github/" data-id="ckg7riyg100070tyeaapbbifl" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Shan Yan"
+        },
+        "headline": "hexo搭建到github",
+        "image": "https://blog.hellshan.top/2020/09/30/hexo%E9%83%A8%E7%BD%B2%E5%88%B0github/hexo_git_3.PNG",
+        "keywords": "hexo nodejs",
+        "genre": "学习记录",
+        "datePublished": "2020-09-30",
+        "dateCreated": "2020-09-30",
+        "dateModified": "2020-10-13",
+        "url": "https://blog.hellshan.top/2020/09/30/hexo部署到github/",
+        "description": "
+hexo搭建到github准备nodejs环境：hexo基于node.js，需要在该环境下进行操作本人在proxmox ve里面下载debain10-turnkey-nodejs模板，省去了搭建的烦恼使用ssh工具到创建的容器上执行修改npm为国内淘宝源：npm config set registry https://registry.npm.taobao.org更新npm版本npm install -g npm查看npm和node版本npm -vnode -v安装hexo-clinpm install -g hexo-cli查看hexo版本：hexo -v
+github环境注册github账号新建仓库，仓库名应该为：用户名.github.io，以这种方式命名，github会自动认为是web项目，会自动建立custom_pages的选项，可以添加域名回到容器上执行设置user.name和user.email配置信息git config --global user.name &quot;你的GitHub用户名&quot;git config --global user.email &quot;你的GitHub注册邮箱&quot;生成ssh密钥文件ssh-keygen -t rsa -C &quot;你的GitHub注册邮箱&quot;直接回车到最后找到生成的.ssh的文件夹中的id_rsa.pub密钥，将内容全部复制打开GitHub_Settings_keys 页面，新建new SSH KeyTitle为标题，任意填即可，将刚刚复制的id_rsa.pub内容粘贴进去，最后点击Add SSH key。在Git Bash中检测GitHub公钥设置是否成功，输入 ：ssh git@github.com如上则说明成功",
+        "wordCount": 279
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>关注我 :</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/helllllp" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2020/10/02/10%E5%88%86%E9%92%9F%E7%9C%8B%E6%87%82Docker%E5%92%8CK8S/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">下一篇</strong>
+        <p class="article-nav-title">
+        
+            干货满满！10分钟看懂Docker和K8S
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2020/09/29/PVE%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">上一篇</strong>
+        <p class="article-nav-title">PVE使用日志</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/10/10/nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86frp%E7%BC%93%E5%AD%98%E5%8A%A0%E9%80%9F/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/2020/10/10/nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86frp%E7%BC%93%E5%AD%98%E5%8A%A0%E9%80%9F/1.jpg)" alt="nginx反向代理frp缓存加速" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E8%BD%AC%E8%BD%BD%E7%9A%84/">转载的</a></p>
+                            <p class="item-title"><a href="/2020/10/10/nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86frp%E7%BC%93%E5%AD%98%E5%8A%A0%E9%80%9F/" class="title">nginx反向代理frp缓存加速</a></p>
+                            <p class="item-date"><time datetime="2020-10-10T01:58:30.000Z" itemprop="datePublished">2020-10-10</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/10/02/10%E5%88%86%E9%92%9F%E7%9C%8B%E6%87%82Docker%E5%92%8CK8S/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/2020/10/02/10%E5%88%86%E9%92%9F%E7%9C%8B%E6%87%82Docker%E5%92%8CK8S/10分钟看懂Docker和K8S-1.jpg)" alt="干货满满！10分钟看懂Docker和K8S" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E8%BD%AC%E8%BD%BD%E7%9A%84/">转载的</a></p>
+                            <p class="item-title"><a href="/2020/10/02/10%E5%88%86%E9%92%9F%E7%9C%8B%E6%87%82Docker%E5%92%8CK8S/" class="title">干货满满！10分钟看懂Docker和K8S</a></p>
+                            <p class="item-date"><time datetime="2020-10-02T05:44:05.000Z" itemprop="datePublished">2020-10-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/09/30/hexo%E9%83%A8%E7%BD%B2%E5%88%B0github/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/2020/09/30/hexo%E9%83%A8%E7%BD%B2%E5%88%B0github/hexo_git_3.PNG)" alt="hexo搭建到github" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a></p>
+                            <p class="item-title"><a href="/2020/09/30/hexo%E9%83%A8%E7%BD%B2%E5%88%B0github/" class="title">hexo搭建到github</a></p>
+                            <p class="item-date"><time datetime="2020-09-30T07:44:05.000Z" itemprop="datePublished">2020-09-30</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/09/29/PVE%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/2020/09/29/PVE%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/1.jpg)" alt="PVE使用日志" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95/">操作记录</a></p>
+                            <p class="item-title"><a href="/2020/09/29/PVE%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/" class="title">PVE使用日志</a></p>
+                            <p class="item-date"><time datetime="2020-09-29T08:45:05.000Z" itemprop="datePublished">2020-09-29</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95/">操作记录</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%BD%AC%E8%BD%BD%E7%9A%84/">转载的</a><span class="category-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a><span class="archive-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">标签</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/container/" rel="tag">container</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/k8s/" rel="tag">k8s</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kvm/" rel="tag">kvm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/proxy/" rel="tag">proxy</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/container/" style="font-size: 10px;">container</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/k8s/" style="font-size: 10px;">k8s</a> <a href="/tags/kvm/" style="font-size: 10px;">kvm</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/proxy/" style="font-size: 10px;">proxy</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">链接</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2020 Shan Yan</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://blog.hellshan.top/2020/09/30/hexo%E9%83%A8%E7%BD%B2%E5%88%B0github/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>

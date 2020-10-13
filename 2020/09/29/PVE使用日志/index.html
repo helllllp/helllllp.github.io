@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>PVE使用日志 | helllllp</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="kvm,linux" />
+    
+    <meta name="description" content="PVE使用日志安装1.下载proxmox 6.2镜像，基于dabain 10.5 buster（清华大学镜像站）：https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;proxmox&#x2F;iso&#x2F;2.使用rufus软件写入ISO镜像到U盘，使用DD方式写入 默认LVM分区处理pve删除lvm扩容根目录先备份虚拟机删除虚拟机删除local-lvmlvremove pve&#x2F;data查">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PVE使用日志">
+<meta property="og:url" content="https://blog.hellshan.top/2020/09/29/PVE%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/index.html">
+<meta property="og:site_name" content="helllllp">
+<meta property="og:description" content="PVE使用日志安装1.下载proxmox 6.2镜像，基于dabain 10.5 buster（清华大学镜像站）：https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;proxmox&#x2F;iso&#x2F;2.使用rufus软件写入ISO镜像到U盘，使用DD方式写入 默认LVM分区处理pve删除lvm扩容根目录先备份虚拟机删除虚拟机删除local-lvmlvremove pve&#x2F;data查">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.hellshan.top/2020/09/29/PVE%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/1.jpg">
+<meta property="article:published_time" content="2020-09-29T08:45:05.000Z">
+<meta property="article:modified_time" content="2020-10-12T13:46:57.000Z">
+<meta property="article:author" content="Shan Yan">
+<meta property="article:tag" content="kvm">
+<meta property="article:tag" content="linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.hellshan.top/2020/09/29/PVE%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/1.jpg">
+    
+
+    
+        <link rel="alternate" href="/" title="helllllp" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.png" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">主页</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95/">操作记录</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E8%BD%AC%E8%BD%BD%E7%9A%84/">转载的</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">关于</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95/">操作记录</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-PVE使用日志" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        PVE使用日志
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2020/09/29/PVE%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/" class="article-date">
+       <time datetime="2020-09-29T08:45:05.000Z" itemprop="datePublished">2020-09-29</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2020/09/29/PVE%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/" class="article-date">
+     <time datetime="2020-10-12T13:46:57.000Z" itemprop="dateModified">2020-10-12</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/kvm/" rel="tag">kvm</a>, <a class="tag-link-link" href="/tags/linux/" rel="tag">linux</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><img src="/2020/09/29/PVE%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/1.jpg" alt></p>
+<h1 id="PVE使用日志"><a href="#PVE使用日志" class="headerlink" title="PVE使用日志"></a>PVE使用日志</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>1.下载proxmox 6.2镜像，基于dabain 10.5 buster（清华大学镜像站）：<br><a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/proxmox/iso/">https://mirrors.tuna.tsinghua.edu.cn/proxmox/iso/</a><br>2.使用rufus软件写入ISO镜像到U盘，使用DD方式写入</p>
+<h2 id="默认LVM分区处理"><a href="#默认LVM分区处理" class="headerlink" title="默认LVM分区处理"></a>默认LVM分区处理</h2><h3 id="pve删除lvm扩容根目录"><a href="#pve删除lvm扩容根目录" class="headerlink" title="pve删除lvm扩容根目录"></a>pve删除lvm扩容根目录</h3><p>先备份虚拟机<br>删除虚拟机<br>删除local-lvm<br><code>lvremove pve/data</code><br>查看空闲空间<br><code>vgdisplay pve | grep Free</code><br>增加分区空间<br><code>lvextend -l +100%FREE -f pve/root</code><br><code>fsdisk -l</code><br>执行上边的扩容操作<br><code>resize2fs /dev/mapper/pve-root</code><br>恢复已经备份的虚拟机</p>
+<h2 id="更改为国内软件源"><a href="#更改为国内软件源" class="headerlink" title="更改为国内软件源"></a>更改为国内软件源</h2><h3 id="更改debain-apt源："><a href="#更改debain-apt源：" class="headerlink" title="更改debain apt源："></a>更改debain apt源：</h3><p><code>cp /etc/apt/source.list /etc/apt/source.list.bak</code><br><code>cat &gt; /etc/apt/source.list &lt;&lt;EOF</code></p>
+<pre><code>deb https://mirrors.tuna.tsinghua.edu.cn/debian/ buster main contrib non-free
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ buster main contrib non-free
+deb https://mirrors.tuna.tsinghua.edu.cn/debian/ buster-updates main contrib non-free
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ buster-updates main contrib non-free
+deb https://mirrors.tuna.tsinghua.edu.cn/debian/ buster-backports main contrib non-free
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ buster-backports main contrib non-free
+deb https://mirrors.tuna.tsinghua.edu.cn/debian-security buster/updates main contrib non-free
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian-security buster/updates main contrib non-free
+EOF
+</code></pre><h3 id="更改pve-apt源："><a href="#更改pve-apt源：" class="headerlink" title="更改pve apt源："></a>更改pve apt源：</h3><p><code>cp /etc/apt/sources.list.d/pve-enterprise.list /etc/apt/sources.list.d/pve-enterprise.list.bak</code><br><code>cat &gt; /etc/apt/sources.list.d/pve-enterprise.list&lt;&lt;EOF</code></p>
+<pre><code>deb https://mirrors.tuna.tsinghua.edu.cn/proxmox/debian buster pve-no-subscription
+EOF
+</code></pre><a id="more"></a>
+<h3 id="更改pve-lxc镜像源"><a href="#更改pve-lxc镜像源" class="headerlink" title="更改pve lxc镜像源"></a>更改pve lxc镜像源</h3><p>查找设定下载源的文件<br><code>grep -rn &quot;download.proxmox.com&quot; /usr/share/perl5/PVE/*</code><br><code>sed -i.bak &quot;s#http://download.proxmox.com/images#https://mirrors.ustc.edu.cn/proxmox/images#g&quot; /usr/share/perl5/PVE/APLInfo.pm</code><br><code>wget -O /var/lib/pve-manager/apl-info/mirrors.ustc.edu.cn https://mirrors.ustc.edu.cn/proxmox/images/aplinfo.dat</code></p>
+<h2 id="备份系统："><a href="#备份系统：" class="headerlink" title="备份系统："></a>备份系统：</h2><p><code>tar pczvf ./sysback.tgz --exclude=/lost+found --exclude=/mnt --exclude=/srv --exclude=/proc --exclude=/run --exclude=/tmp --exclude=/sys --exclude=/meida --exclude=/mnt --exclude=/pve-directory /</code><br>注意目标目录要在最后，排除目录要在前面</p>
+<h2 id="PVE开启直通"><a href="#PVE开启直通" class="headerlink" title="PVE开启直通"></a>PVE开启直通</h2><p><em>前提：硬件支持并在UEFI或BIOS里面开启VT-D虚拟化</em></p>
+<h3 id="打开直通"><a href="#打开直通" class="headerlink" title="打开直通"></a>打开直通</h3><p>修改grub文件<br><code>vim /etc/default/grub</code></p>
+<pre><code>GRUB_CMDLINE_LINUX_DEFAULT=&quot;quiet&quot;
+#改为
+GRUB_CMDLINE_LINUX_DEFAULT=&quot;quiet intel_iommu=on&quot;
+update-grub
+</code></pre><p>修改module文件<br><code>vim /etc/module</code><br>加入</p>
+<pre><code>vfio_iommu_type1
+vfio_virqfd
+vfio_pci
+vfio
+</code></pre><p>重启系统生效</p>
+<h3 id="win10设置显卡直通"><a href="#win10设置显卡直通" class="headerlink" title="win10设置显卡直通"></a>win10设置显卡直通</h3><p>以下截图是我的win10硬件配置：<br><img src="/2020/09/29/PVE%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/PVE_WIN10_CONFIG.PNG" alt><br>下载虚拟化驱动的iso，虚拟机win10的驱动靠它了<br><a target="_blank" rel="noopener" href="https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-virtio/">https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-virtio/</a><br>列出设备地址，确定显卡vendorID<br><code>lspci -nn</code></p>
+<blockquote>
+<p>00:02.0 VGA compatible controller [0300]: Intel Corporation HD Graphics 610 [8086:5902] (rev 04)</p>
+</blockquote>
+<p>定义为GPU直通vfio设备，并防止VGA仲裁<br><code>echo &quot;options vfio-pci ids=8086:5917 disable_vga&quot; &gt; /etc/modprobe.d/vfio.conf</code><br>禁止默认VGA驱动在启动时加载<br><code>echo &quot;blacklist nvidia&quot; &gt;&gt; /etc/modprobe.d/blacklist.conf</code><br><code>echo &quot;blacklist radeon&quot; &gt;&gt; /etc/modprobe.d/blacklist.conf</code><br><code>echo &quot;blacklist nouveau&quot; &gt;&gt; /etc/modprobe.d/blacklist.conf</code><br>启动进入虚拟机即可<br><em>参考：<a target="_blank" rel="noopener" href="https://star.us.org/Cs/win10-installation-and-gpu-passthrough-on-proxmox-6.html?replyTo=25">https://star.us.org/Cs/win10-installation-and-gpu-passthrough-on-proxmox-6.html?replyTo=25</a></em></p>
+<h2 id="LXC使用"><a href="#LXC使用" class="headerlink" title="LXC使用"></a>LXC使用</h2><p>在配置的存储目录中，点击模板，可以看到里面有很多system模板和turnkey的应用模板，这样可以大大减少应用的部署时间而专注于业务上。<br>配置模板很简单，最后设置密码后启动即可。如果忘记密码，可以通过PVE主机进入进行修改：<br><code>ptc enter 容器ID名</code><br>再使用<br><code>passwd 用户名</code>修改<br><strong>ubuntu container ssh的问题：</strong><br>默认ubuntu不允许root进行ssh，可以新建一个用户，把用户添加到sudoer里面就行：<br><code>useradd 用户名 -d -s /bin/bash</code><br>使用passwd更改密码<br>添加用户到sudoer：<br><code>vim /etc/sudoer</code><br>或者<br><code>visudoer</code></p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://blog.hellshan.top/2020/09/29/PVE%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/" data-id="ckg7riyfx00030tye3pd4cgia" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Shan Yan"
+        },
+        "headline": "PVE使用日志",
+        "image": "https://blog.hellshan.top/2020/09/29/PVE%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/1.jpg",
+        "keywords": "kvm linux",
+        "genre": "操作记录",
+        "datePublished": "2020-09-29",
+        "dateCreated": "2020-09-29",
+        "dateModified": "2020-10-12",
+        "url": "https://blog.hellshan.top/2020/09/29/PVE使用日志/",
+        "description": "
+PVE使用日志安装1.下载proxmox 6.2镜像，基于dabain 10.5 buster（清华大学镜像站）：https://mirrors.tuna.tsinghua.edu.cn/proxmox/iso/2.使用rufus软件写入ISO镜像到U盘，使用DD方式写入
+默认LVM分区处理pve删除lvm扩容根目录先备份虚拟机删除虚拟机删除local-lvmlvremove pve/data查看空闲空间vgdisplay pve | grep Free增加分区空间lvextend -l +100%FREE -f pve/rootfsdisk -l执行上边的扩容操作resize2fs /dev/mapper/pve-root恢复已经备份的虚拟机
+更改为国内软件源更改debain apt源：cp /etc/apt/source.list /etc/apt/source.list.bakcat &gt; /etc/apt/source.list &lt;&lt;EOF
+deb https://mirrors.tuna.tsinghua.edu.cn/debian/ buster main contrib non-free
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ buster main contrib non-free
+deb https://mirrors.tuna.tsinghua.edu.cn/debian/ buster-updates main contrib non-free
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ buster-updates main contrib non-free
+deb https://mirrors.tuna.tsinghua.edu.cn/debian/ buster-backports main contrib non-free
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ buster-backports main contrib non-free
+deb https://mirrors.tuna.tsinghua.edu.cn/debian-security buster/updates main contrib non-free
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian-security buster/updates main contrib non-free
+EOF
+更改pve apt源：cp /etc/apt/sources.list.d/pve-enterprise.list /etc/apt/sources.list.d/pve-enterprise.list.bakcat &gt; /etc/apt/sources.list.d/pve-enterprise.list&lt;&lt;EOF
+deb https://mirrors.tuna.tsinghua.edu.cn/proxmox/debian buster pve-no-subscription
+EOF
+",
+        "wordCount": 203
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>关注我 :</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/helllllp" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2020/09/30/hexo%E9%83%A8%E7%BD%B2%E5%88%B0github/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">下一篇</strong>
+        <p class="article-nav-title">
+        
+            hexo搭建到github
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/10/10/nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86frp%E7%BC%93%E5%AD%98%E5%8A%A0%E9%80%9F/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/2020/10/10/nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86frp%E7%BC%93%E5%AD%98%E5%8A%A0%E9%80%9F/1.jpg)" alt="nginx反向代理frp缓存加速" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E8%BD%AC%E8%BD%BD%E7%9A%84/">转载的</a></p>
+                            <p class="item-title"><a href="/2020/10/10/nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86frp%E7%BC%93%E5%AD%98%E5%8A%A0%E9%80%9F/" class="title">nginx反向代理frp缓存加速</a></p>
+                            <p class="item-date"><time datetime="2020-10-10T01:58:30.000Z" itemprop="datePublished">2020-10-10</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/10/02/10%E5%88%86%E9%92%9F%E7%9C%8B%E6%87%82Docker%E5%92%8CK8S/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/2020/10/02/10%E5%88%86%E9%92%9F%E7%9C%8B%E6%87%82Docker%E5%92%8CK8S/10分钟看懂Docker和K8S-1.jpg)" alt="干货满满！10分钟看懂Docker和K8S" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E8%BD%AC%E8%BD%BD%E7%9A%84/">转载的</a></p>
+                            <p class="item-title"><a href="/2020/10/02/10%E5%88%86%E9%92%9F%E7%9C%8B%E6%87%82Docker%E5%92%8CK8S/" class="title">干货满满！10分钟看懂Docker和K8S</a></p>
+                            <p class="item-date"><time datetime="2020-10-02T05:44:05.000Z" itemprop="datePublished">2020-10-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/09/30/hexo%E9%83%A8%E7%BD%B2%E5%88%B0github/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/2020/09/30/hexo%E9%83%A8%E7%BD%B2%E5%88%B0github/hexo_git_3.PNG)" alt="hexo搭建到github" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a></p>
+                            <p class="item-title"><a href="/2020/09/30/hexo%E9%83%A8%E7%BD%B2%E5%88%B0github/" class="title">hexo搭建到github</a></p>
+                            <p class="item-date"><time datetime="2020-09-30T07:44:05.000Z" itemprop="datePublished">2020-09-30</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/09/29/PVE%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/2020/09/29/PVE%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/1.jpg)" alt="PVE使用日志" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95/">操作记录</a></p>
+                            <p class="item-title"><a href="/2020/09/29/PVE%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/" class="title">PVE使用日志</a></p>
+                            <p class="item-date"><time datetime="2020-09-29T08:45:05.000Z" itemprop="datePublished">2020-09-29</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95/">操作记录</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%BD%AC%E8%BD%BD%E7%9A%84/">转载的</a><span class="category-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a><span class="archive-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">标签</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/container/" rel="tag">container</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/k8s/" rel="tag">k8s</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kvm/" rel="tag">kvm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/proxy/" rel="tag">proxy</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/container/" style="font-size: 10px;">container</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/k8s/" style="font-size: 10px;">k8s</a> <a href="/tags/kvm/" style="font-size: 10px;">kvm</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/proxy/" style="font-size: 10px;">proxy</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">链接</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2020 Shan Yan</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://blog.hellshan.top/2020/09/29/PVE%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
