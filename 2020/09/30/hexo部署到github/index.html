@@ -21,7 +21,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blog.hellshan.top/2020/09/30/hexo%E9%83%A8%E7%BD%B2%E5%88%B0github/hexo_git_3.PNG">
 <meta property="article:published_time" content="2020-09-30T07:44:05.000Z">
-<meta property="article:modified_time" content="2020-10-13T09:07:37.000Z">
+<meta property="article:modified_time" content="2020-10-14T06:52:25.000Z">
 <meta property="article:author" content="Shan Yan">
 <meta property="article:tag" content="hexo">
 <meta property="article:tag" content="nodejs">
@@ -187,7 +187,7 @@
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="/2020/09/30/hexo%E9%83%A8%E7%BD%B2%E5%88%B0github/" class="article-date">
-     <time datetime="2020-10-13T09:07:37.000Z" itemprop="dateModified">2020-10-13</time>
+     <time datetime="2020-10-14T06:52:25.000Z" itemprop="dateModified">2020-10-14</time>
   </a>
 </div>
 
@@ -270,6 +270,11 @@ em: /^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,
   #Instagram: https://instagram.com/yourname || instagram
   #Skype: skype:yourname?call|chat || skype
 </code></pre><h2 id="nodejs使用"><a href="#nodejs使用" class="headerlink" title="nodejs使用"></a>nodejs使用</h2><h3 id="npm-install-很慢或者出错"><a href="#npm-install-很慢或者出错" class="headerlink" title="npm install 很慢或者出错"></a>npm install 很慢或者出错</h3><p>手动下载安装包到~/.node-gyp/node版本号目录下再重新npm install就行</p>
+<h3 id="npm-手动安装"><a href="#npm-手动安装" class="headerlink" title="npm 手动安装"></a>npm 手动安装</h3><p>查看最新版本，为二进制包：<br><a target="_blank" rel="noopener" href="https://nodejs.org/dist/">https://nodejs.org/dist/</a><br>下载最新版本：<br><code>wget https://nodejs.org/dist/latest-v14.x/node-v14.13.1-linux-x64.tar.gz</code><br>解压<br><code>tar xf https://nodejs.org/dist/latest-v14.x/node-v14.13.1-linux-x64.tar.gz</code><br>创建软链接：<br><code>ln -s node-v14.13.1-linux-x64 node</code><br>添加系统环境变量：<br><code>vim /etc/profile</code><br>最后添加上：</p>
+<pre><code>#set for nodejs
+export NODE_HOME=/app/node
+export PATH=$NODE_HOME/bin:$PATH
+</code></pre><p>手动更新配置：<br><code>source /etc/profile</code><br>查看node版本<br><code>node -v</code><br><code>npm -v</code></p>
 <p><em>参考出处：<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/26625249">https://zhuanlan.zhihu.com/p/26625249</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43769146/article/details/105066795">https://blog.csdn.net/weixin_43769146/article/details/105066795</a></em></p>
 
         </div>
@@ -278,7 +283,7 @@ em: /^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,
 
 
 
-    <a data-url="https://blog.hellshan.top/2020/09/30/hexo%E9%83%A8%E7%BD%B2%E5%88%B0github/" data-id="ckg7riyg100070tyeaapbbifl" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://blog.hellshan.top/2020/09/30/hexo%E9%83%A8%E7%BD%B2%E5%88%B0github/" data-id="ckg94wov80007imye1hpg2ckz" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -354,12 +359,12 @@ em: /^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,
         "genre": "学习记录",
         "datePublished": "2020-09-30",
         "dateCreated": "2020-09-30",
-        "dateModified": "2020-10-13",
+        "dateModified": "2020-10-14",
         "url": "https://blog.hellshan.top/2020/09/30/hexo部署到github/",
         "description": "
 hexo搭建到github准备nodejs环境：hexo基于node.js，需要在该环境下进行操作本人在proxmox ve里面下载debain10-turnkey-nodejs模板，省去了搭建的烦恼使用ssh工具到创建的容器上执行修改npm为国内淘宝源：npm config set registry https://registry.npm.taobao.org更新npm版本npm install -g npm查看npm和node版本npm -vnode -v安装hexo-clinpm install -g hexo-cli查看hexo版本：hexo -v
 github环境注册github账号新建仓库，仓库名应该为：用户名.github.io，以这种方式命名，github会自动认为是web项目，会自动建立custom_pages的选项，可以添加域名回到容器上执行设置user.name和user.email配置信息git config --global user.name &quot;你的GitHub用户名&quot;git config --global user.email &quot;你的GitHub注册邮箱&quot;生成ssh密钥文件ssh-keygen -t rsa -C &quot;你的GitHub注册邮箱&quot;直接回车到最后找到生成的.ssh的文件夹中的id_rsa.pub密钥，将内容全部复制打开GitHub_Settings_keys 页面，新建new SSH KeyTitle为标题，任意填即可，将刚刚复制的id_rsa.pub内容粘贴进去，最后点击Add SSH key。在Git Bash中检测GitHub公钥设置是否成功，输入 ：ssh git@github.com如上则说明成功",
-        "wordCount": 279
+        "wordCount": 300
     }
 </script>
 
@@ -475,6 +480,26 @@ github环境注册github账号新建仓库，仓库名应该为：用户名.gith
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2020/10/14/nginx%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/2020/10/14/nginx%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/1.jpg)" alt="nginx使用日志" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a></p>
+                            <p class="item-title"><a href="/2020/10/14/nginx%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/" class="title">nginx使用日志</a></p>
+                            <p class="item-date"><time datetime="2020-10-14T07:51:05.000Z" itemprop="datePublished">2020-10-14</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2020/10/10/nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86frp%E7%BC%93%E5%AD%98%E5%8A%A0%E9%80%9F/" class="thumbnail">
     
     
@@ -561,7 +586,7 @@ github环境注册github账号新建仓库，仓库名应该为：用户名.gith
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95/">操作记录</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%BD%AC%E8%BD%BD%E7%9A%84/">转载的</a><span class="category-list-count">2</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95/">操作记录</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%BD%AC%E8%BD%BD%E7%9A%84/">转载的</a><span class="category-list-count">2</span></li></ul>
         </div>
     </div>
 
@@ -571,7 +596,7 @@ github环境注册github账号新建仓库，仓库名应该为：用户名.gith
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a><span class="archive-list-count">2</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a><span class="archive-list-count">2</span></li></ul>
         </div>
     </div>
 
@@ -581,7 +606,7 @@ github环境注册github账号新建仓库，仓库名应该为：用户名.gith
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/container/" rel="tag">container</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/k8s/" rel="tag">k8s</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kvm/" rel="tag">kvm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/proxy/" rel="tag">proxy</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/container/" rel="tag">container</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/k8s/" rel="tag">k8s</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kvm/" rel="tag">kvm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/proxy/" rel="tag">proxy</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -591,7 +616,7 @@ github环境注册github账号新建仓库，仓库名应该为：用户名.gith
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">标签云</h3>
         <div class="widget tagcloud">
-            <a href="/tags/container/" style="font-size: 10px;">container</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/k8s/" style="font-size: 10px;">k8s</a> <a href="/tags/kvm/" style="font-size: 10px;">kvm</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/proxy/" style="font-size: 10px;">proxy</a>
+            <a href="/tags/container/" style="font-size: 10px;">container</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/k8s/" style="font-size: 10px;">k8s</a> <a href="/tags/kvm/" style="font-size: 10px;">kvm</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/nginx/" style="font-size: 20px;">nginx</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/proxy/" style="font-size: 10px;">proxy</a>
         </div>
     </div>
 

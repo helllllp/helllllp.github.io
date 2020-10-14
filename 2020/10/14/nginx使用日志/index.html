@@ -6,20 +6,26 @@
     
 
     
-    <title>标签: linux | helllllp</title>
+    <title>nginx使用日志 | helllllp</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="description" content="hellshan&#39;s blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="helllllp">
-<meta property="og:url" content="https://blog.hellshan.top/tags/linux/index.html">
+    <meta name="keywords" content="nginx" />
+    
+    <meta name="description" content="nginx使用日志nginx编译安装安装configure编译环境：yum install -y gcc gcc-c++ openssl-devel make安装pcre库:yum install -y pcre pcre-develpcre兼容正则表达式，安装pcre为了使nginx支持具备URI重写功能的Rewrite模块，如果不安装pcre库，则nginx无法使用rewrite模块功能，n">
+<meta property="og:type" content="article">
+<meta property="og:title" content="nginx使用日志">
+<meta property="og:url" content="https://blog.hellshan.top/2020/10/14/nginx%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/index.html">
 <meta property="og:site_name" content="helllllp">
-<meta property="og:description" content="hellshan&#39;s blog">
+<meta property="og:description" content="nginx使用日志nginx编译安装安装configure编译环境：yum install -y gcc gcc-c++ openssl-devel make安装pcre库:yum install -y pcre pcre-develpcre兼容正则表达式，安装pcre为了使nginx支持具备URI重写功能的Rewrite模块，如果不安装pcre库，则nginx无法使用rewrite模块功能，n">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.hellshan.top/2020/10/14/nginx%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/1.jpg">
+<meta property="article:published_time" content="2020-10-14T07:51:05.000Z">
+<meta property="article:modified_time" content="2020-10-14T08:27:41.000Z">
 <meta property="article:author" content="Shan Yan">
-<meta property="article:tag" content="运维 linux">
+<meta property="article:tag" content="nginx">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.hellshan.top/2020/10/14/nginx%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/1.jpg">
     
 
     
@@ -148,89 +154,181 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    <i class="icon fa fa-tag"></i>标签: <em>linux</em>
+    <a class="page-title-link" href="/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a>
     </h1>
 </div>
 
                         <div class="main-body-content">
-                            
-
-    
-    
+                            <article id="post-nginx使用日志" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-        
-        <section class="archives-wrap">
-            <div class="archive-year-wrap">
-                <a href="/archives/2020" class="archive-year"><i class="icon fa fa-calendar-o"></i>2020</a>
-            </div>
-            <div class="archives">
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2020/09/29/PVE%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/2020/09/29/PVE%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/1.jpg)" alt="PVE使用日志" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://blog.hellshan.top/2020/09/29/PVE%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95/">操作记录</a>
-            </div>
-            <div class="date"><time datetime="2020-09-29T08:45:05.000Z" itemprop="datePublished">2020-09-29</time></div>
-        </div>
-        
+            <header class="article-header">
+                
     
         <h1 class="article-title" itemprop="name">
-        <a href="/2020/09/29/PVE%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/">PVE使用日志</a>
+        nginx使用日志
         </h1>
     
 
-        <p class="article-excerpt">
-            
-PVE使用日志安装1.下载proxmox 6.2镜像，基于dabain 10.5 buster（清华大学镜像站）：https://mirrors.tuna.tsinghua.edu.cn/proxmox/iso/2.使用rufus软件写入ISO镜像到U盘，使用DD方式写入
-默认LVM分区处理pve删除lvm扩容根目录先备份虚拟机删除虚拟机删除local-lvmlvremove pve/data查看空闲空间vgdisplay pve | grep Free增加分区空间lvextend -l +100%FREE -f pve/rootfsdisk -l执行上边的扩容操作resize2fs /dev/mapper/pve-root恢复已经备份的虚拟机
-更改为国内软件源更改debain apt源：cp /etc/apt/source.list /etc/apt/source.list.bakcat &gt; /etc/apt/source.list &lt;&lt;EOF
-deb https://mirrors.tuna.tsinghua.edu.cn/debian/ buster main contrib non-free
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ buster main contrib non-free
-deb https://mirrors.tuna.tsinghua.edu.cn/debian/ buster-updates main contrib non-free
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ buster-updates main contrib non-free
-deb https://mirrors.tuna.tsinghua.edu.cn/debian/ buster-backports main contrib non-free
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ buster-backports main contrib non-free
-deb https://mirrors.tuna.tsinghua.edu.cn/debian-security buster/updates main contrib non-free
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian-security buster/updates main contrib non-free
-EOF
-更改pve apt源：cp /etc/apt/sources.list.d/pve-enterprise.list /etc/apt/sources.list.d/pve-enterprise.list.bakcat &gt; /etc/apt/sources.list.d/pve-enterprise.list&lt;&lt;EOF
-deb https://mirrors.tuna.tsinghua.edu.cn/proxmox/debian buster pve-no-subscription
-EOF
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2020/10/14/nginx%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/" class="article-date">
+       <time datetime="2020-10-14T07:51:05.000Z" itemprop="datePublished">2020-10-14</time>
+    </a>
+  </div>
 
-        </p>
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2020/10/14/nginx%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/" class="article-date">
+     <time datetime="2020-10-14T08:27:41.000Z" itemprop="dateModified">2020-10-14</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/nginx/" rel="tag">nginx</a>
     </div>
-</article>
-    
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><img src="/2020/10/14/nginx%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/1.jpg" alt></p>
+<h1 id="nginx使用日志"><a href="#nginx使用日志" class="headerlink" title="nginx使用日志"></a>nginx使用日志</h1><h2 id="nginx编译安装"><a href="#nginx编译安装" class="headerlink" title="nginx编译安装"></a>nginx编译安装</h2><p>安装configure编译环境：<br><code>yum install -y gcc gcc-c++ openssl-devel make</code><br>安装pcre库:<br><code>yum install -y pcre pcre-devel</code><br>pcre兼容正则表达式，安装pcre为了使nginx支持具备URI重写功能的Rewrite模块，如果不安装pcre库，则nginx无法使用rewrite模块功能，nginx的rewrite模块功能几乎是企业应用必须。<br>编译参数：<br><code>./configure --help</code><br>按需安装，如：</p>
+<pre><code>--with-http_stub_status_module
+--with-http_ssl_module
+</code></pre><p>查看已安装的模块（安装在/app下）：<br><code>/app/nginx/sbin/nginx -V</code><br>如果编译安装后需要再添加模块，则重新运行./configure添加，然后make即可，注意不要make install，这样会覆盖原文件。</p>
+<h2 id="添加认证"><a href="#添加认证" class="headerlink" title="添加认证"></a>添加认证</h2><p>需要httpd-tools工具：<br><code>yum install -y httpd-tools</code><br>如果是debain或者ubuntu系统，则<br><code>apt install -y apache2-utils</code><br>添加密码文件：<br><code>htpasswd -cb /app/nginx/htpasswd abc 123456</code><br>在对应模块（server)下添加：</p>
+<pre><code>auth_basic &quot;Restricted Access&quot;;
+auth_basic_user_file /app/nginx/htpasswd;
+</code></pre><h2 id="nginx模块功能"><a href="#nginx模块功能" class="headerlink" title="nginx模块功能"></a>nginx模块功能</h2><h3 id="proxy代理模块"><a href="#proxy代理模块" class="headerlink" title="proxy代理模块"></a>proxy代理模块</h3><p>ngx_http_proxy_module proxy代理模块，用于把请求后抛给服务器节点或upstream服务器池，例：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">worker_processes</span>  <span class="number">1</span>;</span><br><span class="line"><span class="section">events</span> &#123;</span><br><span class="line">    <span class="attribute">worker_connections</span>  <span class="number">1024</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="section">http</span> &#123;</span><br><span class="line">    <span class="attribute">include</span>       mime.types;</span><br><span class="line">    <span class="attribute">default_type</span>  application/octet-stream;</span><br><span class="line">    <span class="attribute">sendfile</span>        <span class="literal">on</span>;</span><br><span class="line">    <span class="attribute">keepalive_timeout</span>  <span class="number">65</span>;</span><br><span class="line">    <span class="attribute">upstream</span> www_server_pools &#123;</span><br><span class="line">        <span class="attribute">server</span> <span class="number">10.0.0.7:80</span> weight=<span class="number">1</span>;</span><br><span class="line">        <span class="attribute">server</span> <span class="number">10.0.0.8:80</span> weight=<span class="number">5</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="section">server</span> &#123;</span><br><span class="line">        <span class="attribute">listen</span>       <span class="number">80</span>;</span><br><span class="line">        <span class="attribute">server_name</span>  localhost;</span><br><span class="line">        <span class="attribute">location</span> / &#123;</span><br><span class="line">            <span class="attribute">root</span>   html;</span><br><span class="line">            <span class="attribute">index</span>  index.html index.htm;</span><br><span class="line">            <span class="attribute">proxy_pass</span> http://www_server_pools;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="upstram负载均衡模块"><a href="#upstram负载均衡模块" class="headerlink" title="upstram负载均衡模块"></a>upstram负载均衡模块</h3><p>ngx_http_upstream_module 负载均衡模块，可以实现网站的负载均衡功能及节点的健康检查<br>看官网nginx document upstream模块</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">upstream</span> backend &#123;</span><br><span class="line">    <span class="attribute">server</span> backend1.example.com       weight=<span class="number">5</span>;</span><br><span class="line">    <span class="attribute">server</span> backend2.example.com:<span class="number">8080</span>;</span><br><span class="line">    <span class="attribute">server</span> unix:/tmp/backend3;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">server</span> backup1.example.com:<span class="number">8080</span>   backup;</span><br><span class="line">    <span class="attribute">server</span> backup2.example.com:<span class="number">8080</span>   backup;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">    <span class="attribute">location</span> / &#123;</span><br><span class="line">        proxy_pass http://backend; (uptream的标签名）</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>backend是模块名，随便起<br>server是http服务器<br>weight是权重，权重大的处理比例就多<br>backup是热备（高可用）</p>
+
         </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://blog.hellshan.top/2020/10/14/nginx%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/" data-id="ckg94wova0009imye7vh0gzk0" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Shan Yan"
+        },
+        "headline": "nginx使用日志",
+        "image": "https://blog.hellshan.top/2020/10/14/nginx%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/1.jpg",
+        "keywords": "nginx",
+        "genre": "学习记录",
+        "datePublished": "2020-10-14",
+        "dateCreated": "2020-10-14",
+        "dateModified": "2020-10-14",
+        "url": "https://blog.hellshan.top/2020/10/14/nginx使用日志/",
+        "description": "
+nginx使用日志nginx编译安装安装configure编译环境：yum install -y gcc gcc-c++ openssl-devel make安装pcre库:yum install -y pcre pcre-develpcre兼容正则表达式，安装pcre为了使nginx支持具备URI重写功能的Rewrite模块，如果不安装pcre库，则nginx无法使用rewrite模块功能，n",
+        "wordCount": 407
+    }
+</script>
+
+</article>
+
+    <section id="comments">
     
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
 
 
-    </div></section>
+    
+    </section>
 
 
 
@@ -292,6 +390,19 @@ EOF
             
         </ul>
     </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2020/10/10/nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86frp%E7%BC%93%E5%AD%98%E5%8A%A0%E9%80%9F/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">上一篇</strong>
+        <p class="article-nav-title">nginx反向代理frp缓存加速</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
     
     <div class="widgets-container">
         
@@ -503,11 +614,13 @@ EOF
     var disqus_shortname = 'hexo-theme-hueman';
     
     
+    var disqus_url = 'https://blog.hellshan.top/2020/10/14/nginx%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/';
+    
     (function() {
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
     </script>
