@@ -184,7 +184,7 @@
 
 
 
-    <a data-url="https://blog.hellshan.top/categories/index.html" data-id="ckgc0iv1k0002qaye7pwzfeyi" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://blog.hellshan.top/categories/index.html" data-id="ckgd5gz2p0006feyeg1y0262w" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -281,30 +281,6 @@
             
                 
                 <li>
-                    <a class="social-tooltip" title="twitter" href="/" target="_blank" rel="noopener">
-                        <i class="icon fa fa-twitter"></i>
-                    </a>
-                </li>
-                
-            
-                
-                <li>
-                    <a class="social-tooltip" title="facebook" href="/" target="_blank" rel="noopener">
-                        <i class="icon fa fa-facebook"></i>
-                    </a>
-                </li>
-                
-            
-                
-                <li>
-                    <a class="social-tooltip" title="stack-overflow" href="/" target="_blank" rel="noopener">
-                        <i class="icon fa fa-stack-overflow"></i>
-                    </a>
-                </li>
-                
-            
-                
-                <li>
                     <a class="social-tooltip" title="github" href="https://github.com/helllllp" target="_blank" rel="noopener">
                         <i class="icon fa fa-github"></i>
                     </a>
@@ -315,6 +291,22 @@
                 <li>
                     <a class="social-tooltip" title="weibo" href="/" target="_blank" rel="noopener">
                         <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="qq" href="/524311610" target="_blank" rel="noopener">
+                        <i class="icon fa fa-qq"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weixin" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weixin"></i>
                     </a>
                 </li>
                 
@@ -536,19 +528,25 @@
     </div>
     
     
+    <script src="//unpkg.com/valine"></script>
     <script>
-    var disqus_shortname = 'hexo-theme-hueman';
-    
-    
-    var disqus_url = 'https://blog.hellshan.top/categories/index.html';
-    
-    (function() {
-    var dsq = document.createElement('script');
-    dsq.type = 'text/javascript';
-    dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
+        var GUEST = ['nick','mail','link'];
+        var meta = '';
+        meta = meta.split(',').filter(function (item) {
+            return GUEST.indexOf(item)>-1;
+        });
+        var avatarcdn = 'https://gravatar.loli.net/avatar/' == true;
+        new Valine({
+            el: '.vcomments',
+            notify: "",
+            verify: "true",
+            appId: "4O7x2f71OT7FFlrdxFIAJn3v-gzGzoHsz",
+            appKey: "k2d5KmEjtQeLw5IuRficyYsN",
+            placeholder: "Just Do It",
+            avatar:"identicon",
+            recordIP:"",
+            visitor: "true"
+        });
     </script>
 
 
