@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>docker部署odoo14及postgresql</title>
+      <link href="2020/10/28/docker%E9%83%A8%E7%BD%B2odoo14%E5%8F%8Apostgresql/"/>
+      <url>2020/10/28/docker%E9%83%A8%E7%BD%B2odoo14%E5%8F%8Apostgresql/</url>
+      
+        <content type="html"><![CDATA[<p><img src="/2020/10/28/docker%E9%83%A8%E7%BD%B2odoo14%E5%8F%8Apostgresql/1.png" alt=" "></p><h2 id="odoo简介和部署方式"><a href="#odoo简介和部署方式" class="headerlink" title="odoo简介和部署方式"></a>odoo简介和部署方式</h2><p>OpenERP的前身，开源，功能强大，更新版本到14，官方有几种安装方法，使用docker方法部署更简单，而官方使用docker compose的方式启动，我希望postgressql能够提供给多个应用使用，可以通过外部方法来访问，所以我这里用portainer部署。</p><h2 id="部署postgres"><a href="#部署postgres" class="headerlink" title="部署postgres"></a>部署postgres</h2><h3 id="下载portgres镜像"><a href="#下载portgres镜像" class="headerlink" title="下载portgres镜像"></a>下载portgres镜像</h3><p>首先确定好postgresql的版本，这里使用postgres:12，直接执行<code>docker pull postgres:12</code>下载镜像</p><h3 id="portainer上配置postgres容器参数"><a href="#portainer上配置postgres容器参数" class="headerlink" title="portainer上配置postgres容器参数"></a>portainer上配置postgres容器参数</h3><p>postgres docker官方镜像有参数说明：<a href="https://hub.docker.com/_/postgres?tab=description">https://hub.docker.com/_/postgres?tab=description</a>，根据odoo docker官网镜像说明，其中的yaml配置上环境参数只配置了下面几个，所以potainer上也设置这几个参数即可</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">POSTGRES_DB=postgres</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">POSTGRES_PASSWORD=odoo</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">POSTGRES_USER=odoo</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">PGDATA=/var/lib/postgresql/data/pgdata</span></span><br><span class="line"><span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">odoo-db-data:/var/lib/postgresql/data/pgdata</span></span><br></pre></td></tr></table></figure><p>portainer对应配置：<br><img src="/2020/10/28/docker%E9%83%A8%E7%BD%B2odoo14%E5%8F%8Apostgresql/2.png" alt=" "></p><p>其中额外配置了port映射，postgres数据库端口默认是5432,使用宿主机的5432到docker主机的5432端口，PGDATA并没有配置，是默认生成的，与上面的有点不一样，手动配置了volume映射。<br>配置后生成container，可以在portainer上看到running。<br>使用navicat连接到数据库测试：<br><img src="/2020/10/28/docker%E9%83%A8%E7%BD%B2odoo14%E5%8F%8Apostgresql/3.png" alt=" "><br>测试成功！</p><h2 id="部署odoo"><a href="#部署odoo" class="headerlink" title="部署odoo"></a>部署odoo</h2><h3 id="下载odoo镜像"><a href="#下载odoo镜像" class="headerlink" title="下载odoo镜像"></a>下载odoo镜像</h3><p>使用最新镜像，最新版为14<br><code>docker pull odoo:latest</code></p><h3 id="portainer上配置odoo容器参数"><a href="#portainer上配置odoo容器参数" class="headerlink" title="portainer上配置odoo容器参数"></a>portainer上配置odoo容器参数</h3><p>官方docker-compose.yaml配置：</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">web:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">odoo:12.0</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">mydb</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;8069:8069&quot;</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">HOST=mydb</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">USER=odoo</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">PASSWORD=myodoo</span></span><br></pre></td></tr></table></figure><p>portainer对应配置：<br><img src="/2020/10/28/docker%E9%83%A8%E7%BD%B2odoo14%E5%8F%8Apostgresql/4.png" alt=" "><br>配置后生成container，在浏览器输入<a href="http://宿主ip:8069">http://宿主ip:8069</a>访问，出现500错误。从portainer上查看日志，发现这里配置的odoo数据库需要初始化，运行odoo -i base强制初始化。这一步搞了我很久，网上也没有详细的解决方法，这里记录下解决方法。</p><ol><li>拷贝容器内的odoo.conf配置文件到本机：<br>先进入映射的volume配置文件目录运行：<br><code>docker exec home_odoo cat /etc/odoo/odoo.conf &gt; odoo.conf</code></li><li><p>修改配置文件，手动修改数据库连接参数：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[options]</span><br><span class="line">db_host&#x3D;xxx</span><br><span class="line">db_port&#x3D;xxx</span><br><span class="line">db_name&#x3D;odoo_db</span><br><span class="line">db_user&#x3D;odoo</span><br><span class="line">db_password&#x3D;odoo</span><br></pre></td></tr></table></figure></li><li><p>从portainer进入odoo的容器执行：<br><code>odoo -i base -d odoo_db</code><br>这里没有指定用户执行，默认就是使用环境配置的odoo用户，也只有该用户执行才生效。</p></li></ol><p>执行完毕后，再次访问<a href="http://宿主ip:8069">http://宿主ip:8069</a>，就会出现登录界面啦。默认登陆用户名和密码都是admin，记得进入修改。</p><h2 id="odoo使用记录"><a href="#odoo使用记录" class="headerlink" title="odoo使用记录"></a>odoo使用记录</h2><h3 id="手动导入第三方安装包"><a href="#手动导入第三方安装包" class="headerlink" title="手动导入第三方安装包"></a>手动导入第三方安装包</h3><p>首先要启用开发者模式，点击设置，常规设置，到最下面，点击启用开发者模式<br><img src="/2020/10/28/docker%E9%83%A8%E7%BD%B2odoo14%E5%8F%8Apostgresql/5.png" alt=" "><br>启用后，进入应用，右上角取消搜索，就会显示全部的应用，在搜索base，可以见到base_import模块，安装下就会在菜单栏多一个导入模块，就可以手动导入第三方应用啦。<br><img src="/2020/10/28/docker%E9%83%A8%E7%BD%B2odoo14%E5%8F%8Apostgresql/6.png" alt=" "></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学而时习之 </category>
+          
+          <category> 实践验证真理 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> docker </tag>
+            
+            <tag> database </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>hueman主题使用补充</title>
       <link href="2020/10/16/hueman%E4%B8%BB%E9%A2%98%E4%BD%BF%E7%94%A8%E8%A1%A5%E5%85%85/"/>
       <url>2020/10/16/hueman%E4%B8%BB%E9%A2%98%E4%BD%BF%E7%94%A8%E8%A1%A5%E5%85%85/</url>
