@@ -6,27 +6,26 @@
     
 
     
-    <title>PVE使用日志 | helllllp</title>
+    <title>postgresql使用日志 | helllllp</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="keywords" content="kvm,linux" />
+    <meta name="keywords" content="database" />
     
-    <meta name="description" content="安装1.下载proxmox 6.2镜像，基于dabain 10.5 buster（清华大学镜像站）：https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;proxmox&#x2F;iso&#x2F;2.使用rufus软件写入ISO镜像到U盘，使用DD方式写入 默认LVM分区处理pve删除lvm扩容根目录先备份虚拟机删除虚拟机删除local-lvmlvremove pve&#x2F;data查看空闲空间vg">
+    <meta name="description" content="postgres安装postgres作为流行的关系型数据库，当然有多种安装方式，可以参考官方：https:&#x2F;&#x2F;www.postgresql.org&#x2F;download&#x2F;postgres初次安装后，默认生成一个名为postgres的数据库和一个名为postgres的数据库用户。这里需要注意的是，同时还生成了一个名为postgres的Linux系统用户。可以使用postgres用户来生成其他用户和新数">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PVE使用日志">
-<meta property="og:url" content="https://blog.hellshan.top/2020/09/29/PVE%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/index.html">
+<meta property="og:title" content="postgresql使用日志">
+<meta property="og:url" content="https://blog.hellshan.top/2020/10/29/postgresql%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/index.html">
 <meta property="og:site_name" content="helllllp">
-<meta property="og:description" content="安装1.下载proxmox 6.2镜像，基于dabain 10.5 buster（清华大学镜像站）：https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;proxmox&#x2F;iso&#x2F;2.使用rufus软件写入ISO镜像到U盘，使用DD方式写入 默认LVM分区处理pve删除lvm扩容根目录先备份虚拟机删除虚拟机删除local-lvmlvremove pve&#x2F;data查看空闲空间vg">
+<meta property="og:description" content="postgres安装postgres作为流行的关系型数据库，当然有多种安装方式，可以参考官方：https:&#x2F;&#x2F;www.postgresql.org&#x2F;download&#x2F;postgres初次安装后，默认生成一个名为postgres的数据库和一个名为postgres的数据库用户。这里需要注意的是，同时还生成了一个名为postgres的Linux系统用户。可以使用postgres用户来生成其他用户和新数">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://blog.hellshan.top/2020/09/29/PVE%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/1.jpg">
-<meta property="article:published_time" content="2020-09-29T08:45:05.000Z">
-<meta property="article:modified_time" content="2020-10-20T09:00:04.000Z">
+<meta property="og:image" content="https://blog.hellshan.top/2020/10/29/postgresql%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/1.jpg">
+<meta property="article:published_time" content="2020-10-29T01:07:05.000Z">
+<meta property="article:modified_time" content="2020-10-29T02:12:25.000Z">
 <meta property="article:author" content="Shan Yan">
-<meta property="article:tag" content="kvm">
-<meta property="article:tag" content="linux">
+<meta property="article:tag" content="database">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://blog.hellshan.top/2020/09/29/PVE%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/1.jpg">
+<meta name="twitter:image" content="https://blog.hellshan.top/2020/10/29/postgresql%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/1.jpg">
     
 
     
@@ -157,14 +156,14 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-PVE使用日志" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-postgresql使用日志" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        PVE使用日志
+        postgresql使用日志
         </h1>
     
 
@@ -175,8 +174,8 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
                 
     <div class="article-date">
       <i class="fa fa-calendar"></i>
-      <a href="/2020/09/29/PVE%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/" class="article-date">
-         <time datetime="2020-09-29T08:45:05.000Z" itemprop="datePublished">2020-09-29</time>
+      <a href="/2020/10/29/postgresql%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/" class="article-date">
+         <time datetime="2020-10-29T01:07:05.000Z" itemprop="datePublished">2020-10-29</time>
       </a>
     </div>
 
@@ -186,11 +185,11 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/kvm/" rel="tag">kvm</a>, <a class="tag-link-link" href="/tags/linux/" rel="tag">linux</a>
+        <a class="tag-link-link" href="/tags/database/" rel="tag">database</a>
     </div>
 
                 
-   <span id="/2020/09/29/PVE%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/" class="leancloud-visitors" data-flag-title="PVE使用日志">
+   <span id="/2020/10/29/postgresql%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/" class="leancloud-visitors" data-flag-title="postgresql使用日志">
    <i class="fa fa-eye"></i>
    <span class="post-meta-item-text">阅读次数: </span>
    <i class="leancloud-visitors-count">1000000</i>
@@ -209,38 +208,14 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
 
             
 
-            <p><img src="/2020/09/29/PVE%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/1.jpg" alt=" "></p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>1.下载proxmox 6.2镜像，基于dabain 10.5 buster（清华大学镜像站）：<br><a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/proxmox/iso/">https://mirrors.tuna.tsinghua.edu.cn/proxmox/iso/</a><br>2.使用rufus软件写入ISO镜像到U盘，使用DD方式写入</p>
-<h2 id="默认LVM分区处理"><a href="#默认LVM分区处理" class="headerlink" title="默认LVM分区处理"></a>默认LVM分区处理</h2><h3 id="pve删除lvm扩容根目录"><a href="#pve删除lvm扩容根目录" class="headerlink" title="pve删除lvm扩容根目录"></a>pve删除lvm扩容根目录</h3><p>先备份虚拟机<br>删除虚拟机<br>删除local-lvm<br><code>lvremove pve/data</code><br>查看空闲空间<br><code>vgdisplay pve | grep Free</code><br>增加分区空间<br><code>lvextend -l +100%FREE -f pve/root</code><br><code>fsdisk -l</code><br>执行上边的扩容操作<br><code>resize2fs /dev/mapper/pve-root</code><br>恢复已经备份的虚拟机</p>
-<h2 id="更改为国内软件源"><a href="#更改为国内软件源" class="headerlink" title="更改为国内软件源"></a>更改为国内软件源</h2><h3 id="更改debain-apt源"><a href="#更改debain-apt源" class="headerlink" title="更改debain apt源"></a>更改debain apt源</h3><p><code>cp /etc/apt/source.list /etc/apt/source.list.bak</code><br><code>cat &gt; /etc/apt/source.list &lt;&lt;EOF</code></p>
-<pre><code>deb https://mirrors.tuna.tsinghua.edu.cn/debian/ buster main contrib non-free
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ buster main contrib non-free
-deb https://mirrors.tuna.tsinghua.edu.cn/debian/ buster-updates main contrib non-free
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ buster-updates main contrib non-free
-deb https://mirrors.tuna.tsinghua.edu.cn/debian/ buster-backports main contrib non-free
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ buster-backports main contrib non-free
-deb https://mirrors.tuna.tsinghua.edu.cn/debian-security buster/updates main contrib non-free
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian-security buster/updates main contrib non-free
-EOF
-</code></pre><h3 id="更改pve-apt源"><a href="#更改pve-apt源" class="headerlink" title="更改pve apt源"></a>更改pve apt源</h3><p><code>cp /etc/apt/sources.list.d/pve-enterprise.list /etc/apt/sources.list.d/pve-enterprise.list.bak</code><br><code>cat &gt; /etc/apt/sources.list.d/pve-enterprise.list&lt;&lt;EOF</code><br><code>deb https://mirrors.tuna.tsinghua.edu.cn/proxmox/debian buster pve-no-subscription</code><br><code>EOF</code></p>
-<h3 id="更改pve-lxc镜像源"><a href="#更改pve-lxc镜像源" class="headerlink" title="更改pve lxc镜像源"></a>更改pve lxc镜像源</h3><p>查找设定下载源的文件<br><code>grep -rn &quot;download.proxmox.com&quot; /usr/share/perl5/PVE/*</code><br><code>sed -i.bak &quot;s#http://download.proxmox.com/images#https://mirrors.ustc.edu.cn/proxmox/images#g&quot; /usr/share/perl5/PVE/APLInfo.pm</code><br><code>wget -O /var/lib/pve-manager/apl-info/mirrors.ustc.edu.cn https://mirrors.ustc.edu.cn/proxmox/images/aplinfo.dat</code></p>
-<h2 id="备份系统"><a href="#备份系统" class="headerlink" title="备份系统"></a>备份系统</h2><p><code>tar pczvf ./sysback.tgz --exclude=/lost+found --exclude=/mnt --exclude=/srv --exclude=/proc --exclude=/run --exclude=/tmp --exclude=/sys --exclude=/meida --exclude=/mnt --exclude=/pve-directory /</code><br>注意目标目录要在最后，排除目录要在前面</p>
-<h2 id="PVE开启直通"><a href="#PVE开启直通" class="headerlink" title="PVE开启直通"></a>PVE开启直通</h2><h3 id="打开直通"><a href="#打开直通" class="headerlink" title="打开直通"></a>打开直通</h3><p><em>前提：硬件支持并在UEFI或BIOS里面开启VT-D虚拟化</em><br>修改grub文件<br><code>vim /etc/default/grub</code></p>
-<pre><code>GRUB_CMDLINE_LINUX_DEFAULT=&quot;quiet&quot;
-#改为
-GRUB_CMDLINE_LINUX_DEFAULT=&quot;quiet intel_iommu=on&quot;
-update-grub
-</code></pre><p>修改module文件<br><code>vim /etc/module</code><br>加入</p>
-<pre><code>vfio_iommu_type1
-vfio_virqfd
-vfio_pci
-vfio
-</code></pre><p>重启系统生效</p>
-<h3 id="win10设置显卡直通"><a href="#win10设置显卡直通" class="headerlink" title="win10设置显卡直通"></a>win10设置显卡直通</h3><p>以下截图是我的win10硬件配置：<br><img src="/2020/09/29/PVE%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/PVE_WIN10_CONFIG.PNG" alt=" "><br>下载虚拟化驱动的iso，虚拟机win10的驱动靠它了<br><a target="_blank" rel="noopener" href="https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-virtio/">https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-virtio/</a><br>列出设备地址，确定显卡vendorID<br><code>lspci -nn</code></p>
-<blockquote>
-<p>00:02.0 VGA compatible controller [0300]: Intel Corporation HD Graphics 610 [8086:5902] (rev 04)<br>定义为GPU直通vfio设备，并防止VGA仲裁<br><code>echo &quot;options vfio-pci ids=8086:5917 disable_vga&quot; &gt; /etc/modprobe.d/vfio.conf</code><br>禁止默认VGA驱动在启动时加载<br><code>echo &quot;blacklist nvidia&quot; &gt;&gt; /etc/modprobe.d/blacklist.conf</code><br><code>echo &quot;blacklist radeon&quot; &gt;&gt; /etc/modprobe.d/blacklist.conf</code><br><code>echo &quot;blacklist nouveau&quot; &gt;&gt; /etc/modprobe.d/blacklist.conf</code><br>启动进入虚拟机即可<br><em>参考：<a target="_blank" rel="noopener" href="https://star.us.org/Cs/win10-installation-and-gpu-passthrough-on-proxmox-6.html?replyTo=25">https://star.us.org/Cs/win10-installation-and-gpu-passthrough-on-proxmox-6.html?replyTo=25</a></em></p>
-</blockquote>
-<h2 id="LXC使用"><a href="#LXC使用" class="headerlink" title="LXC使用"></a>LXC使用</h2><p>在配置的存储目录中，点击模板，可以看到里面有很多system模板和turnkey的应用模板，这样可以大大减少应用的部署时间而专注于业务上。<br>配置模板很简单，最后设置密码后启动即可。如果忘记密码，可以通过PVE主机进入进行修改：<br><code>ptc enter 容器ID名</code><br>再使用<br><code>passwd 用户名</code>修改<br><strong>ubuntu container ssh的问题：</strong><br>默认ubuntu不允许root进行ssh，可以新建一个用户，把用户添加到sudoer里面就行：<br><code>useradd 用户名 -d -s /bin/bash</code><br>使用passwd更改密码<br>添加用户到sudoer：<br><code>vim /etc/sudoer</code><br>或者<br><code>visudoer</code></p>
+            <p><img src="/2020/10/29/postgresql%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/1.jpg" alt=" "></p>
+<h2 id="postgres安装"><a href="#postgres安装" class="headerlink" title="postgres安装"></a>postgres安装</h2><p>postgres作为流行的关系型数据库，当然有多种安装方式，可以参考官方：<a target="_blank" rel="noopener" href="https://www.postgresql.org/download/">https://www.postgresql.org/download/</a><br>postgres初次安装后，默认生成一个名为postgres的数据库和一个名为postgres的数据库用户。这里需要注意的是，同时还生成了一个名为postgres的Linux系统用户。可以使用postgres用户来生成其他用户和新数据库。</p>
+<h3 id="docker安装"><a href="#docker安装" class="headerlink" title="docker安装"></a>docker安装</h3><p>docker安装可以指定POSTGRES_DB，POSTGRES_USER，POSTGRES_PASSWORD（password必须指定，否则创建容器后会报错）等，详见<a target="_blank" rel="noopener" href="https://hub.docker.com/_/postgres">https://hub.docker.com/_/postgres</a>，如果不指定，则会跟常规安装一样，默认生成一个名为postgres的数据库和一个名为postgres的数据库用户，还有postgres系统用户。指定了POSTGRES-DB，创建的容器内会生成指定数据库用户名来替代默认的postgres（超级用户）。</p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>切换用户：<br><code>su postgres</code><br>进入postgresql：<br><code>psql</code><br>或直接使用用户名参数登录：<br><code>psql -U postgres -d postgres</code><br>U是大写，需要-d指定数据库</p>
+<h3 id="创建数据库用户和数据库并授权"><a href="#创建数据库用户和数据库并授权" class="headerlink" title="创建数据库用户和数据库并授权"></a>创建数据库用户和数据库并授权</h3><p>进入数据库控制台后：<br>创建用户<br><code>CREATE USER dbuser WITH PASSWORD &#39;password&#39;;</code><br>创建数据库<br><code>CREATE DATABASE exampledb OWNER dbuser;</code><br>授权<br><code>GRANT ALL PRIVILEGES ON DATABASE exampledb to dbuser;</code></p>
+<h3 id="使用shell命令行"><a href="#使用shell命令行" class="headerlink" title="使用shell命令行"></a>使用shell命令行</h3><p>创建数据库用户dbuser，并指定其为超级用户<br><code>sudo -u postgres createuser --superuser dbuser</code><br>在shell命令行下，创建数据库exampledb，并指定所有者为dbuser<br><code>sudo -u postgres createdb -O dbuser exampledb</code></p>
+<h3 id="控制台命令"><a href="#控制台命令" class="headerlink" title="控制台命令"></a>控制台命令</h3><p>\h：查看SQL命令的解释，比如\h select。<br>\?：查看psql命令列表。<br>\l：列出所有数据库。<br>\c [database_name]：连接其他数据库。<br>\d：列出当前数据库的所有表格。<br>\d [table_name]：列出某一张表格的结构。<br>\du：列出所有用户。<br>\e：打开文本编辑器。<br>\conninfo：列出当前数据库和连接的信息。<br>\password：修改当前用户密码<br>\q：退出</p>
+<h3 id="数据库操作"><a href="#数据库操作" class="headerlink" title="数据库操作"></a>数据库操作</h3><p>创建新表<br><code>CREATE TABLE user_tbl(name VARCHAR(20), signup_date DATE);</code><br>插入数据<br><code>INSERT INTO user_tbl(name, signup_date) VALUES(&#39;张三&#39;, &#39;2013-12-22&#39;);</code><br>选择记录<br><code>SELECT * FROM user_tbl;</code><br>更新数据<br><code>UPDATE user_tbl set name = &#39;李四&#39; WHERE name = &#39;张三&#39;;</code><br>删除记录<br><code>DELETE FROM user_tbl WHERE name = &#39;李四&#39; ;</code><br>添加栏位<br><code>ALTER TABLE user_tbl ADD email VARCHAR(40);</code><br>更新结构<br><code>ALTER TABLE user_tbl ALTER COLUMN signup_date SET NOT NULL;</code><br>更名栏位<br><code>ALTER TABLE user_tbl RENAME COLUMN signup_date TO signup;</code><br>删除栏位<br><code>ALTER TABLE user_tbl DROP COLUMN email;</code><br>表格更名<br><code>ALTER TABLE user_tbl RENAME TO backup_tbl;</code><br>删除表格<br><code>DROP TABLE IF EXISTS backup_tbl;</code></p>
 
         </div>
         <footer class="article-footer">
@@ -248,7 +223,7 @@ vfio
 
 
 
-    <a data-url="https://blog.hellshan.top/2020/09/29/PVE%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/" data-id="ckgu746vn0007glyeg39dbt6z" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://blog.hellshan.top/2020/10/29/postgresql%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/" data-id="ckgu746w0000jglyea5pi1pla" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -318,18 +293,17 @@ vfio
             "@type": "Person",
             "name": "Shan Yan"
         },
-        "headline": "PVE使用日志",
-        "image": "https://blog.hellshan.top/2020/09/29/PVE%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/1.jpg",
-        "keywords": "kvm linux",
+        "headline": "postgresql使用日志",
+        "image": "https://blog.hellshan.top/2020/10/29/postgresql%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/1.jpg",
+        "keywords": "database",
         "genre": "学而时习之 温故而知新",
-        "datePublished": "2020-09-29",
-        "dateCreated": "2020-09-29",
-        "dateModified": "2020-10-20",
-        "url": "https://blog.hellshan.top/2020/09/29/PVE使用日志/",
+        "datePublished": "2020-10-29",
+        "dateCreated": "2020-10-29",
+        "dateModified": "2020-10-29",
+        "url": "https://blog.hellshan.top/2020/10/29/postgresql使用日志/",
         "description": "
-安装1.下载proxmox 6.2镜像，基于dabain 10.5 buster（清华大学镜像站）：https://mirrors.tuna.tsinghua.edu.cn/proxmox/iso/2.使用rufus软件写入ISO镜像到U盘，使用DD方式写入
-默认LVM分区处理pve删除lvm扩容根目录先备份虚拟机删除虚拟机删除local-lvmlvremove pve/data查看空闲空间vg",
-        "wordCount": 200
+postgres安装postgres作为流行的关系型数据库，当然有多种安装方式，可以参考官方：https://www.postgresql.org/download/postgres初次安装后，默认生成一个名为postgres的数据库和一个名为postgres的数据库用户。这里需要注意的是，同时还生成了一个名为postgres的Linux系统用户。可以使用postgres用户来生成其他用户和新数",
+        "wordCount": 132
     }
 </script>
 
@@ -401,16 +375,12 @@ vfio
         
 <nav id="article-nav">
     
-        <a href="/2020/09/30/hexo%E9%83%A8%E7%BD%B2%E5%88%B0github/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">下一篇</strong>
-        <p class="article-nav-title">
-        
-            hexo使用记录
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
     
+        <a href="/2020/10/28/docker%E9%83%A8%E7%BD%B2odoo14%E5%8F%8Apostgresql/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">上一篇</strong>
+        <p class="article-nav-title">docker部署odoo14及postgresql</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
     
 </nav>
 
