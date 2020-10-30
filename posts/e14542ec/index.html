@@ -6,27 +6,26 @@
     
 
     
-    <title>PVE使用日志 | helllllp</title>
+    <title>使用denyhosts防止暴力破解ssh | helllllp</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="keywords" content="kvm,linux" />
+    <meta name="keywords" content="linux" />
     
-    <meta name="description" content="安装1.下载proxmox 6.2镜像，基于dabain 10.5 buster（清华大学镜像站）：https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;proxmox&#x2F;iso&#x2F;2.使用rufus软件写入ISO镜像到U盘，使用DD方式写入 默认LVM分区处理pve删除lvm扩容根目录先备份虚拟机删除虚拟机删除local-lvmlvremove pve&#x2F;data查看空闲空间vg">
+    <meta name="description" content="下载安装denyhostsgithub上有软件及安装说明，使用python开发的：https:&#x2F;&#x2F;github.com&#x2F;denyhosts&#x2F;denyhosts当前最新版提供deb包和rpm包，方便debain&#x2F;ubuntu和redhat&#x2F;centos系统安装这里我使用deb包：wget https:&#x2F;&#x2F;github.com&#x2F;denyhosts&#x2F;denyhosts&#x2F;releases&#x2F;downloa">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PVE使用日志">
-<meta property="og:url" content="https://blog.hellshan.top/posts/7c1819b2.html">
+<meta property="og:title" content="使用denyhosts防止暴力破解ssh">
+<meta property="og:url" content="https://blog.hellshan.top/posts/e14542ec/index.html">
 <meta property="og:site_name" content="helllllp">
-<meta property="og:description" content="安装1.下载proxmox 6.2镜像，基于dabain 10.5 buster（清华大学镜像站）：https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;proxmox&#x2F;iso&#x2F;2.使用rufus软件写入ISO镜像到U盘，使用DD方式写入 默认LVM分区处理pve删除lvm扩容根目录先备份虚拟机删除虚拟机删除local-lvmlvremove pve&#x2F;data查看空闲空间vg">
+<meta property="og:description" content="下载安装denyhostsgithub上有软件及安装说明，使用python开发的：https:&#x2F;&#x2F;github.com&#x2F;denyhosts&#x2F;denyhosts当前最新版提供deb包和rpm包，方便debain&#x2F;ubuntu和redhat&#x2F;centos系统安装这里我使用deb包：wget https:&#x2F;&#x2F;github.com&#x2F;denyhosts&#x2F;denyhosts&#x2F;releases&#x2F;downloa">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://blog.hellshan.top/posts/1.jpg">
-<meta property="article:published_time" content="2020-09-29T08:45:05.000Z">
-<meta property="article:modified_time" content="2020-10-30T03:34:30.884Z">
+<meta property="og:image" content="https://blog.hellshan.top/posts/e14542ec/1.jpg">
+<meta property="article:published_time" content="2020-10-16T07:49:30.000Z">
+<meta property="article:modified_time" content="2020-10-30T03:34:30.892Z">
 <meta property="article:author" content="Shan Yan">
-<meta property="article:tag" content="kvm">
 <meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://blog.hellshan.top/posts/1.jpg">
+<meta name="twitter:image" content="https://blog.hellshan.top/posts/e14542ec/1.jpg">
     
 
     
@@ -152,19 +151,19 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
                         <div class="main-body-header">
     <h1 class="header">
     
-    <a class="page-title-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E6%B8%A9%E6%95%85%E8%80%8C%E7%9F%A5%E6%96%B0/">温故而知新</a>
+    <a class="page-title-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E5%AE%9E%E8%B7%B5%E9%AA%8C%E8%AF%81%E7%9C%9F%E7%90%86/">实践验证真理</a>
     </h1>
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-PVE使用日志" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-使用denyhosts防止暴力破解ssh" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        PVE使用日志
+        使用denyhosts防止暴力破解ssh
         </h1>
     
 
@@ -175,8 +174,8 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
                 
     <div class="article-date">
       <i class="fa fa-calendar"></i>
-      <a href="/posts/7c1819b2.html" class="article-date">
-         <time datetime="2020-09-29T08:45:05.000Z" itemprop="datePublished">2020-09-29</time>
+      <a href="/posts/e14542ec/" class="article-date">
+         <time datetime="2020-10-16T07:49:30.000Z" itemprop="datePublished">2020-10-16</time>
       </a>
     </div>
 
@@ -186,11 +185,11 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/kvm/" rel="tag">kvm</a>, <a class="tag-link-link" href="/tags/linux/" rel="tag">linux</a>
+        <a class="tag-link-link" href="/tags/linux/" rel="tag">linux</a>
     </div>
 
                 
-   <span id="/posts/7c1819b2.html" class="leancloud-visitors" data-flag-title="PVE使用日志">
+   <span id="/posts/e14542ec/" class="leancloud-visitors" data-flag-title="使用denyhosts防止暴力破解ssh">
    <i class="fa fa-eye"></i>
    <span class="post-meta-item-text">阅读次数: </span>
    <i class="leancloud-visitors-count">1000000</i>
@@ -209,38 +208,16 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
 
             
 
-            <p><img src="/posts/1.jpg" alt=" "></p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>1.下载proxmox 6.2镜像，基于dabain 10.5 buster（清华大学镜像站）：<br><a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/proxmox/iso/">https://mirrors.tuna.tsinghua.edu.cn/proxmox/iso/</a><br>2.使用rufus软件写入ISO镜像到U盘，使用DD方式写入</p>
-<h2 id="默认LVM分区处理"><a href="#默认LVM分区处理" class="headerlink" title="默认LVM分区处理"></a>默认LVM分区处理</h2><h3 id="pve删除lvm扩容根目录"><a href="#pve删除lvm扩容根目录" class="headerlink" title="pve删除lvm扩容根目录"></a>pve删除lvm扩容根目录</h3><p>先备份虚拟机<br>删除虚拟机<br>删除local-lvm<br><code>lvremove pve/data</code><br>查看空闲空间<br><code>vgdisplay pve | grep Free</code><br>增加分区空间<br><code>lvextend -l +100%FREE -f pve/root</code><br><code>fsdisk -l</code><br>执行上边的扩容操作<br><code>resize2fs /dev/mapper/pve-root</code><br>恢复已经备份的虚拟机</p>
-<h2 id="更改为国内软件源"><a href="#更改为国内软件源" class="headerlink" title="更改为国内软件源"></a>更改为国内软件源</h2><h3 id="更改debain-apt源"><a href="#更改debain-apt源" class="headerlink" title="更改debain apt源"></a>更改debain apt源</h3><p><code>cp /etc/apt/source.list /etc/apt/source.list.bak</code><br><code>cat &gt; /etc/apt/source.list &lt;&lt;EOF</code></p>
-<pre><code>deb https://mirrors.tuna.tsinghua.edu.cn/debian/ buster main contrib non-free
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ buster main contrib non-free
-deb https://mirrors.tuna.tsinghua.edu.cn/debian/ buster-updates main contrib non-free
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ buster-updates main contrib non-free
-deb https://mirrors.tuna.tsinghua.edu.cn/debian/ buster-backports main contrib non-free
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ buster-backports main contrib non-free
-deb https://mirrors.tuna.tsinghua.edu.cn/debian-security buster/updates main contrib non-free
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian-security buster/updates main contrib non-free
-EOF
-</code></pre><h3 id="更改pve-apt源"><a href="#更改pve-apt源" class="headerlink" title="更改pve apt源"></a>更改pve apt源</h3><p><code>cp /etc/apt/sources.list.d/pve-enterprise.list /etc/apt/sources.list.d/pve-enterprise.list.bak</code><br><code>cat &gt; /etc/apt/sources.list.d/pve-enterprise.list&lt;&lt;EOF</code><br><code>deb https://mirrors.tuna.tsinghua.edu.cn/proxmox/debian buster pve-no-subscription</code><br><code>EOF</code></p>
-<h3 id="更改pve-lxc镜像源"><a href="#更改pve-lxc镜像源" class="headerlink" title="更改pve lxc镜像源"></a>更改pve lxc镜像源</h3><p>查找设定下载源的文件<br><code>grep -rn &quot;download.proxmox.com&quot; /usr/share/perl5/PVE/*</code><br><code>sed -i.bak &quot;s#http://download.proxmox.com/images#https://mirrors.ustc.edu.cn/proxmox/images#g&quot; /usr/share/perl5/PVE/APLInfo.pm</code><br><code>wget -O /var/lib/pve-manager/apl-info/mirrors.ustc.edu.cn https://mirrors.ustc.edu.cn/proxmox/images/aplinfo.dat</code></p>
-<h2 id="备份系统"><a href="#备份系统" class="headerlink" title="备份系统"></a>备份系统</h2><p><code>tar pczvf ./sysback.tgz --exclude=/lost+found --exclude=/mnt --exclude=/srv --exclude=/proc --exclude=/run --exclude=/tmp --exclude=/sys --exclude=/meida --exclude=/mnt --exclude=/pve-directory /</code><br>注意目标目录要在最后，排除目录要在前面</p>
-<h2 id="PVE开启直通"><a href="#PVE开启直通" class="headerlink" title="PVE开启直通"></a>PVE开启直通</h2><h3 id="打开直通"><a href="#打开直通" class="headerlink" title="打开直通"></a>打开直通</h3><p><em>前提：硬件支持并在UEFI或BIOS里面开启VT-D虚拟化</em><br>修改grub文件<br><code>vim /etc/default/grub</code></p>
-<pre><code>GRUB_CMDLINE_LINUX_DEFAULT=&quot;quiet&quot;
-#改为
-GRUB_CMDLINE_LINUX_DEFAULT=&quot;quiet intel_iommu=on&quot;
-update-grub
-</code></pre><p>修改module文件<br><code>vim /etc/module</code><br>加入</p>
-<pre><code>vfio_iommu_type1
-vfio_virqfd
-vfio_pci
-vfio
-</code></pre><p>重启系统生效</p>
-<h3 id="win10设置显卡直通"><a href="#win10设置显卡直通" class="headerlink" title="win10设置显卡直通"></a>win10设置显卡直通</h3><p>以下截图是我的win10硬件配置：<br><img src="/posts/PVE_WIN10_CONFIG.PNG" alt=" "><br>下载虚拟化驱动的iso，虚拟机win10的驱动靠它了<br><a target="_blank" rel="noopener" href="https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-virtio/">https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-virtio/</a><br>列出设备地址，确定显卡vendorID<br><code>lspci -nn</code></p>
-<blockquote>
-<p>00:02.0 VGA compatible controller [0300]: Intel Corporation HD Graphics 610 [8086:5902] (rev 04)<br>定义为GPU直通vfio设备，并防止VGA仲裁<br><code>echo &quot;options vfio-pci ids=8086:5917 disable_vga&quot; &gt; /etc/modprobe.d/vfio.conf</code><br>禁止默认VGA驱动在启动时加载<br><code>echo &quot;blacklist nvidia&quot; &gt;&gt; /etc/modprobe.d/blacklist.conf</code><br><code>echo &quot;blacklist radeon&quot; &gt;&gt; /etc/modprobe.d/blacklist.conf</code><br><code>echo &quot;blacklist nouveau&quot; &gt;&gt; /etc/modprobe.d/blacklist.conf</code><br>启动进入虚拟机即可<br><em>参考：<a target="_blank" rel="noopener" href="https://star.us.org/Cs/win10-installation-and-gpu-passthrough-on-proxmox-6.html?replyTo=25">https://star.us.org/Cs/win10-installation-and-gpu-passthrough-on-proxmox-6.html?replyTo=25</a></em></p>
-</blockquote>
-<h2 id="LXC使用"><a href="#LXC使用" class="headerlink" title="LXC使用"></a>LXC使用</h2><p>在配置的存储目录中，点击模板，可以看到里面有很多system模板和turnkey的应用模板，这样可以大大减少应用的部署时间而专注于业务上。<br>配置模板很简单，最后设置密码后启动即可。如果忘记密码，可以通过PVE主机进入进行修改：<br><code>ptc enter 容器ID名</code><br>再使用<br><code>passwd 用户名</code>修改<br><strong>ubuntu container ssh的问题：</strong><br>默认ubuntu不允许root进行ssh，可以新建一个用户，把用户添加到sudoer里面就行：<br><code>useradd 用户名 -d -s /bin/bash</code><br>使用passwd更改密码<br>添加用户到sudoer：<br><code>vim /etc/sudoer</code><br>或者<br><code>visudoer</code></p>
+            <p><img src="/posts/e14542ec/1.jpg" alt=" "></p>
+<h2 id="下载安装denyhosts"><a href="#下载安装denyhosts" class="headerlink" title="下载安装denyhosts"></a>下载安装denyhosts</h2><p>github上有软件及安装说明，使用python开发的：<br><a target="_blank" rel="noopener" href="https://github.com/denyhosts/denyhosts">https://github.com/denyhosts/denyhosts</a><br>当前最新版提供deb包和rpm包，方便debain/ubuntu和redhat/centos系统安装<br>这里我使用deb包：<br><code>wget https://github.com/denyhosts/denyhosts/releases/download/v3.1/denyhosts_3.1.2-2_all.deb</code><br>安装<br><code>dpkg -i denyhosts_3.1.2-2_all.deb</code></p>
+<h3 id="路径说明"><a href="#路径说明" class="headerlink" title="路径说明"></a>路径说明</h3><p>默认安装路径：<br>配置文件denyhost.conf：/etc/denyhost.conf<br>执行文件denyhost.py: /usr/local/bin/denyhost.py<br>控制文件daemon-control-dist: /usr/local/bin/daemon-control-dist</p>
+<h3 id="修改denyhost-conf"><a href="#修改denyhost-conf" class="headerlink" title="修改denyhost.conf"></a>修改denyhost.conf</h3><p><code>egrep -v &quot;^$|#&quot; /etc/denyhosts.conf</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">SECURE_LOG &#x3D; &#x2F;var&#x2F;log&#x2F;auth.log</span><br><span class="line">HOSTS_DENY &#x3D; &#x2F;etc&#x2F;hosts.deny</span><br><span class="line">PURGE_DENY &#x3D;</span><br><span class="line">BLOCK_SERVICE  &#x3D; sshd</span><br><span class="line">DENY_THRESHOLD_INVALID &#x3D; 5</span><br><span class="line">DENY_THRESHOLD_VALID &#x3D; 10</span><br><span class="line">DENY_THRESHOLD_ROOT &#x3D; 1</span><br><span class="line">DENY_THRESHOLD_RESTRICTED &#x3D; 1</span><br><span class="line">DETECT_DOVECOT_LOGIN_ATTEMPTS &#x3D; NO</span><br><span class="line">WORK_DIR &#x3D; &#x2F;var&#x2F;lib&#x2F;denyhosts</span><br><span class="line">ETC_DIR &#x3D; &#x2F;etc</span><br><span class="line">SUSPICIOUS_LOGIN_REPORT_ALLOWED_HOSTS&#x3D;YES</span><br><span class="line">HOSTNAME_LOOKUP&#x3D;NO</span><br><span class="line">LOCK_FILE &#x3D; &#x2F;run&#x2F;denyhosts.pid</span><br><span class="line">IPTABLES &#x3D; &#x2F;sbin&#x2F;iptables</span><br><span class="line">ALLOWED_HOSTS_HOSTNAME_LOOKUP&#x3D;NO</span><br><span class="line">AGE_RESET_VALID&#x3D;5d</span><br><span class="line">AGE_RESET_ROOT&#x3D;25d</span><br><span class="line">AGE_RESET_RESTRICTED&#x3D;25d</span><br><span class="line">AGE_RESET_INVALID&#x3D;10d</span><br><span class="line">DAEMON_LOG &#x3D; &#x2F;var&#x2F;log&#x2F;denyhosts</span><br><span class="line">DAEMON_SLEEP &#x3D; 30s</span><br><span class="line">DAEMON_PURGE &#x3D; 1h</span><br><span class="line">SYNC_UPLOAD &#x3D; no</span><br><span class="line">SYNC_DOWNLOAD &#x3D; no</span><br></pre></td></tr></table></figure>
+<h3 id="修改daemon-control-dist"><a href="#修改daemon-control-dist" class="headerlink" title="修改daemon-control-dist"></a>修改daemon-control-dist</h3><p><code>vim /usr/local/bin/daemon-control-dist</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">DENYHOSTS_BIN &#x3D; &quot;&#x2F;usr&#x2F;local&#x2F;bin&#x2F;denyhosts.py&quot;</span><br><span class="line">DENYHOSTS_LOCK &#x3D; &quot;&#x2F;run&#x2F;denyhosts.pid&quot;</span><br><span class="line">DENYHOSTS_CFG &#x3D; &quot;&#x2F;etc&#x2F;denyhosts.conf&quot;</span><br><span class="line"></span><br><span class="line">PYTHON_BIN &#x3D; &quot;&#x2F;usr&#x2F;bin&#x2F;env python&quot;</span><br></pre></td></tr></table></figure>
+<p>新版本默认使用python3，这里改为python</p>
+<h3 id="运行daemon-control-dist"><a href="#运行daemon-control-dist" class="headerlink" title="运行daemon-control-dist"></a>运行daemon-control-dist</h3><p>默认denyhost.py使用daemon-control-dist来控制，可以加入开机自动启动，这里先手动启动：<br><code>daemon-control-dist start</code><br>如果报module xxx not found，是python没有安装对应的库，需要手动安装下：<br><code>pip install xxx</code><br>使用python3的话就执行<br><code>pip3 install xxx</code><br>然后重新运行下就行</p>
+<h3 id="查看hosts-deny"><a href="#查看hosts-deny" class="headerlink" title="查看hosts.deny"></a>查看hosts.deny</h3><p>被block的IP地址会放到/etc/hosts.deny里面，可以查看。</p>
 
         </div>
         <footer class="article-footer">
@@ -248,7 +225,7 @@ vfio
 
 
 
-    <a data-url="https://blog.hellshan.top/posts/7c1819b2.html" data-id="ckgvpxlyy00078aye7j7wdzs3" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://blog.hellshan.top/posts/e14542ec/" data-id="ckgvpza3d000n9hye72ws3u79" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -318,18 +295,17 @@ vfio
             "@type": "Person",
             "name": "Shan Yan"
         },
-        "headline": "PVE使用日志",
-        "image": "https://blog.hellshan.top/posts/1.jpg",
-        "keywords": "kvm linux",
-        "genre": "学而时习之 温故而知新",
-        "datePublished": "2020-09-29",
-        "dateCreated": "2020-09-29",
+        "headline": "使用denyhosts防止暴力破解ssh",
+        "image": "https://blog.hellshan.top/posts/e14542ec/1.jpg",
+        "keywords": "linux",
+        "genre": "学而时习之 实践验证真理",
+        "datePublished": "2020-10-16",
+        "dateCreated": "2020-10-16",
         "dateModified": "2020-10-30",
-        "url": "https://blog.hellshan.top/posts/7c1819b2.html",
+        "url": "https://blog.hellshan.top/posts/e14542ec/",
         "description": "
-安装1.下载proxmox 6.2镜像，基于dabain 10.5 buster（清华大学镜像站）：https://mirrors.tuna.tsinghua.edu.cn/proxmox/iso/2.使用rufus软件写入ISO镜像到U盘，使用DD方式写入
-默认LVM分区处理pve删除lvm扩容根目录先备份虚拟机删除虚拟机删除local-lvmlvremove pve/data查看空闲空间vg",
-        "wordCount": 200
+下载安装denyhostsgithub上有软件及安装说明，使用python开发的：https://github.com/denyhosts/denyhosts当前最新版提供deb包和rpm包，方便debain/ubuntu和redhat/centos系统安装这里我使用deb包：wget https://github.com/denyhosts/denyhosts/releases/downloa",
+        "wordCount": 159
     }
 </script>
 
@@ -401,16 +377,22 @@ vfio
         
 <nav id="article-nav">
     
-        <a href="/posts/5018439d.html" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/posts/9040e6a2/" id="article-nav-newer" class="article-nav-link-wrap">
         <strong class="article-nav-caption">下一篇</strong>
         <p class="article-nav-title">
         
-            hexo使用记录
+            hueman主题使用补充
         
         </p>
         <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
     </a>
     
+    
+        <a href="/posts/459ed231/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">上一篇</strong>
+        <p class="article-nav-title">ELK使用日志</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
     
 </nav>
 
@@ -430,10 +412,10 @@ vfio
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/posts/15b0611c.html" class="thumbnail">
+                            <a href="/posts/15b0611c/" class="thumbnail">
     
     
-        <span style="background-image:url(/posts/1.png)" alt="据说爱恩斯坦是中等学生，你享看看真实的史料么" class="thumbnail-image"></span>
+        <span style="background-image:url(/posts/15b0611c/1.png)" alt="据说爱恩斯坦是中等学生，你享看看真实的史料么" class="thumbnail-image"></span>
     
     
 </a>
@@ -442,7 +424,7 @@ vfio
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/%E6%96%87%E6%91%98/">文摘</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E6%96%87%E6%91%98/%E4%BA%BA%E7%89%A9/">人物</a></p>
-                            <p class="item-title"><a href="/posts/15b0611c.html" class="title">据说爱恩斯坦是中等学生，你享看看真实的史料么</a></p>
+                            <p class="item-title"><a href="/posts/15b0611c/" class="title">据说爱恩斯坦是中等学生，你享看看真实的史料么</a></p>
                             <p class="item-date"><time datetime="2020-10-29T06:03:30.000Z" itemprop="datePublished">2020-10-29</time></p>
                         </div>
                     </li>
@@ -450,10 +432,10 @@ vfio
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/posts/c6ba0622.html" class="thumbnail">
+                            <a href="/posts/c6ba0622/" class="thumbnail">
     
     
-        <span style="background-image:url(/posts/1.jpg)" alt="postgresql使用日志" class="thumbnail-image"></span>
+        <span style="background-image:url(/posts/c6ba0622/1.jpg)" alt="postgresql使用日志" class="thumbnail-image"></span>
     
     
 </a>
@@ -462,7 +444,7 @@ vfio
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E6%B8%A9%E6%95%85%E8%80%8C%E7%9F%A5%E6%96%B0/">温故而知新</a></p>
-                            <p class="item-title"><a href="/posts/c6ba0622.html" class="title">postgresql使用日志</a></p>
+                            <p class="item-title"><a href="/posts/c6ba0622/" class="title">postgresql使用日志</a></p>
                             <p class="item-date"><time datetime="2020-10-29T01:07:05.000Z" itemprop="datePublished">2020-10-29</time></p>
                         </div>
                     </li>
@@ -470,10 +452,10 @@ vfio
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/posts/18899723.html" class="thumbnail">
+                            <a href="/posts/18899723/" class="thumbnail">
     
     
-        <span style="background-image:url(/posts/1.png)" alt="docker部署odoo14及postgresql" class="thumbnail-image"></span>
+        <span style="background-image:url(/posts/18899723/1.png)" alt="docker部署odoo14及postgresql" class="thumbnail-image"></span>
     
     
 </a>
@@ -482,7 +464,7 @@ vfio
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E5%AE%9E%E8%B7%B5%E9%AA%8C%E8%AF%81%E7%9C%9F%E7%90%86/">实践验证真理</a></p>
-                            <p class="item-title"><a href="/posts/18899723.html" class="title">docker部署odoo14及postgresql</a></p>
+                            <p class="item-title"><a href="/posts/18899723/" class="title">docker部署odoo14及postgresql</a></p>
                             <p class="item-date"><time datetime="2020-10-28T07:45:05.000Z" itemprop="datePublished">2020-10-28</time></p>
                         </div>
                     </li>
@@ -490,10 +472,10 @@ vfio
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/posts/9040e6a2.html" class="thumbnail">
+                            <a href="/posts/9040e6a2/" class="thumbnail">
     
     
-        <span style="background-image:url(/posts/4.jpg)" alt="hueman主题使用补充" class="thumbnail-image"></span>
+        <span style="background-image:url(/posts/9040e6a2/4.jpg)" alt="hueman主题使用补充" class="thumbnail-image"></span>
     
     
 </a>
@@ -502,7 +484,7 @@ vfio
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E5%AE%9E%E8%B7%B5%E9%AA%8C%E8%AF%81%E7%9C%9F%E7%90%86/">实践验证真理</a></p>
-                            <p class="item-title"><a href="/posts/9040e6a2.html" class="title">hueman主题使用补充</a></p>
+                            <p class="item-title"><a href="/posts/9040e6a2/" class="title">hueman主题使用补充</a></p>
                             <p class="item-date"><time datetime="2020-10-16T07:49:30.000Z" itemprop="datePublished">2020-10-16</time></p>
                         </div>
                     </li>
@@ -510,10 +492,10 @@ vfio
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/posts/e14542ec.html" class="thumbnail">
+                            <a href="/posts/e14542ec/" class="thumbnail">
     
     
-        <span style="background-image:url(/posts/1.jpg)" alt="使用denyhosts防止暴力破解ssh" class="thumbnail-image"></span>
+        <span style="background-image:url(/posts/e14542ec/1.jpg)" alt="使用denyhosts防止暴力破解ssh" class="thumbnail-image"></span>
     
     
 </a>
@@ -522,7 +504,7 @@ vfio
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E5%AE%9E%E8%B7%B5%E9%AA%8C%E8%AF%81%E7%9C%9F%E7%90%86/">实践验证真理</a></p>
-                            <p class="item-title"><a href="/posts/e14542ec.html" class="title">使用denyhosts防止暴力破解ssh</a></p>
+                            <p class="item-title"><a href="/posts/e14542ec/" class="title">使用denyhosts防止暴力破解ssh</a></p>
                             <p class="item-date"><time datetime="2020-10-16T07:49:30.000Z" itemprop="datePublished">2020-10-16</time></p>
                         </div>
                     </li>
