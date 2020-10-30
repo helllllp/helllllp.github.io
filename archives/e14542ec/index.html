@@ -6,28 +6,26 @@
     
 
     
-    <title>干货满满！10分钟看懂Docker和K8S | helllllp</title>
+    <title>使用denyhosts防止暴力破解ssh | helllllp</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="keywords" content="docker,k8s,container" />
+    <meta name="keywords" content="linux" />
     
-    <meta name="description" content="2010年，几个搞IT的年轻人，在美国旧金山成立了一家名叫“dotCloud”的公司。这家公司主要提供基于PaaS的云计算技术服务。具体来说，是和LXC有关的容器技术。LXC，就是Linux容器虚拟技术（Linux container）后来，dotCloud公司将自己的容器技术进行了简化和标准化，并命名为——Docker。Docker技术诞生之后，并没有引起行业的关注。而dotCloud公司，作为">
+    <meta name="description" content="下载安装denyhostsgithub上有软件及安装说明，使用python开发的：https:&#x2F;&#x2F;github.com&#x2F;denyhosts&#x2F;denyhosts当前最新版提供deb包和rpm包，方便debain&#x2F;ubuntu和redhat&#x2F;centos系统安装这里我使用deb包：wget https:&#x2F;&#x2F;github.com&#x2F;denyhosts&#x2F;denyhosts&#x2F;releases&#x2F;downloa">
 <meta property="og:type" content="article">
-<meta property="og:title" content="干货满满！10分钟看懂Docker和K8S">
-<meta property="og:url" content="https://blog.hellshan.top/posts/9915ca90/index.html">
+<meta property="og:title" content="使用denyhosts防止暴力破解ssh">
+<meta property="og:url" content="https://blog.hellshan.top/archives/e14542ec/index.html">
 <meta property="og:site_name" content="helllllp">
-<meta property="og:description" content="2010年，几个搞IT的年轻人，在美国旧金山成立了一家名叫“dotCloud”的公司。这家公司主要提供基于PaaS的云计算技术服务。具体来说，是和LXC有关的容器技术。LXC，就是Linux容器虚拟技术（Linux container）后来，dotCloud公司将自己的容器技术进行了简化和标准化，并命名为——Docker。Docker技术诞生之后，并没有引起行业的关注。而dotCloud公司，作为">
+<meta property="og:description" content="下载安装denyhostsgithub上有软件及安装说明，使用python开发的：https:&#x2F;&#x2F;github.com&#x2F;denyhosts&#x2F;denyhosts当前最新版提供deb包和rpm包，方便debain&#x2F;ubuntu和redhat&#x2F;centos系统安装这里我使用deb包：wget https:&#x2F;&#x2F;github.com&#x2F;denyhosts&#x2F;denyhosts&#x2F;releases&#x2F;downloa">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://blog.hellshan.top/posts/9915ca90/10分钟看懂Docker和K8S-1.jpg">
-<meta property="article:published_time" content="2020-10-02T05:44:05.000Z">
-<meta property="article:modified_time" content="2020-10-30T03:34:30.880Z">
+<meta property="og:image" content="https://blog.hellshan.top/archives/e14542ec/1.jpg">
+<meta property="article:published_time" content="2020-10-16T07:49:30.000Z">
+<meta property="article:modified_time" content="2020-10-30T03:34:30.892Z">
 <meta property="article:author" content="Shan Yan">
-<meta property="article:tag" content="docker">
-<meta property="article:tag" content="k8s">
-<meta property="article:tag" content="container">
+<meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://blog.hellshan.top/posts/9915ca90/10分钟看懂Docker和K8S-1.jpg">
+<meta name="twitter:image" content="https://blog.hellshan.top/archives/e14542ec/1.jpg">
     
 
     
@@ -153,19 +151,19 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
                         <div class="main-body-header">
     <h1 class="header">
     
-    <a class="page-title-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E6%8B%BF%E6%9D%A5%E4%B8%BB%E4%B9%89/">拿来主义</a>
+    <a class="page-title-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E5%AE%9E%E8%B7%B5%E9%AA%8C%E8%AF%81%E7%9C%9F%E7%90%86/">实践验证真理</a>
     </h1>
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-10分钟看懂Docker和K8S" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-使用denyhosts防止暴力破解ssh" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        干货满满！10分钟看懂Docker和K8S
+        使用denyhosts防止暴力破解ssh
         </h1>
     
 
@@ -176,8 +174,8 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
                 
     <div class="article-date">
       <i class="fa fa-calendar"></i>
-      <a href="/posts/9915ca90/" class="article-date">
-         <time datetime="2020-10-02T05:44:05.000Z" itemprop="datePublished">2020-10-02</time>
+      <a href="/archives/e14542ec/" class="article-date">
+         <time datetime="2020-10-16T07:49:30.000Z" itemprop="datePublished">2020-10-16</time>
       </a>
     </div>
 
@@ -187,11 +185,11 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/container/" rel="tag">container</a>, <a class="tag-link-link" href="/tags/docker/" rel="tag">docker</a>, <a class="tag-link-link" href="/tags/k8s/" rel="tag">k8s</a>
+        <a class="tag-link-link" href="/tags/linux/" rel="tag">linux</a>
     </div>
 
                 
-   <span id="/posts/9915ca90/" class="leancloud-visitors" data-flag-title="干货满满！10分钟看懂Docker和K8S">
+   <span id="/archives/e14542ec/" class="leancloud-visitors" data-flag-title="使用denyhosts防止暴力破解ssh">
    <i class="fa fa-eye"></i>
    <span class="post-meta-item-text">阅读次数: </span>
    <i class="leancloud-visitors-count">1000000</i>
@@ -210,90 +208,16 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
 
             
 
-            <p>2010年，几个搞IT的年轻人，在美国旧金山成立了一家名叫“dotCloud”的公司。<br><img src="/posts/9915ca90/10分钟看懂Docker和K8S-1.jpg" alt=" "><br>这家公司主要提供基于PaaS的云计算技术服务。具体来说，是和LXC有关的容器技术。<br><img src="/posts/9915ca90/10分钟看懂Docker和K8S-2.jpg" alt=" "><br>LXC，就是Linux容器虚拟技术（Linux container）<br>后来，dotCloud公司将自己的容器技术进行了简化和标准化，并命名为——Docker。<br><img src="/posts/9915ca90/10分钟看懂Docker和K8S-3.jpg" alt=" "><br>Docker技术诞生之后，并没有引起行业的关注。而dotCloud公司，作为一家小型创业企业，在激烈的竞争之下，也步履维艰。</p>
-<p>正当他们快要坚持不下去的时候，脑子里蹦出了“开源”的想法。</p>
-<p>什么是“开源”？开源，就是开放源代码。也就是将原来内部保密的程序源代码开放给所有人，然后让大家一起参与进来，贡献代码和意见。<br>! <a href="10分钟看懂Docker和K8S-4.jpg"></a><br>Open Source，开源</p>
-<p>有的软件是一开始就开源的。也有的软件，是混不下去，创造者又不想放弃，所以选择开源。自己养不活，就吃“百家饭”嘛。</p>
-<p>2013年3月，dotCloud公司的创始人之一，Docker之父，28岁的Solomon Hykes正式决定，将Docker项目开源。<br><img src="/posts/9915ca90/10分钟看懂Docker和K8S-5.jpg" alt=" "><br>Solomon Hykes（今年刚从Docker离职）</p>
-<p>不开则已，一开惊人。</p>
-<p>越来越多的IT工程师发现了Docker的优点，然后蜂拥而至，加入Docker开源社区。</p>
-<p>Docker的人气迅速攀升，速度之快，令人瞠目结舌。</p>
-<p>开源当月，Docker 0.1版本发布。此后的每一个月，Docker都会发布一个版本。到2014年6月9日，Docker 1.0版本正式发布。</p>
-<p>此时的Docker，已经成为行业里人气最火爆的开源技术，没有之一。甚至像Google、微软、Amazon、VMware这样的巨头，都对它青睐有加，表示将全力支持。</p>
-<p>Docker火了之后，dotCloud公司干脆把公司名字也改成了Docker Inc.。</p>
-<p>Docker和容器技术为什么会这么火爆？说白了，就是因为它“轻”。</p>
-<p>在容器技术之前，业界的网红是虚拟机。虚拟机技术的代表，是VMWare和OpenStack。<br><img src="/posts/9915ca90/10分钟看懂Docker和K8S-6.jpg" alt=" "><br>相信很多人都用过虚拟机。虚拟机，就是在你的操作系统里面，装一个软件，然后通过这个软件，再模拟一台甚至多台“子电脑”出来。<br><img src="/posts/9915ca90/10分钟看懂Docker和K8S-7.jpg" alt=" "><br>虚拟机，类似于“子电脑”</p>
-<p>在“子电脑”里，你可以和正常电脑一样运行程序，例如开QQ。如果你愿意，你可以变出好几个“子电脑”，里面都开上QQ。“子电脑”和“子电脑”之间，是相互隔离的，互不影响。</p>
-<p>虚拟机属于虚拟化技术。而Docker这样的容器技术，也是虚拟化技术，属于轻量级的虚拟化。</p>
-<p>虚拟机虽然可以隔离出很多“子电脑”，但占用空间更大，启动更慢，虚拟机软件可能还要花钱（例如VMWare）。</p>
-<p>而容器技术恰好没有这些缺点。它不需要虚拟出整个操作系统，只需要虚拟一个小规模的环境（类似“沙箱”）。<br><img src="/posts/9915ca90/10分钟看懂Docker和K8S-8.jpg" alt=" "><br>沙箱</p>
-<p>它启动时间很快，几秒钟就能完成。而且，它对资源的利用率很高（一台主机可以同时运行几千个Docker容器）。此外，它占的空间很小，虚拟机一般要几GB到几十GB的空间，而容器只需要MB级甚至KB级。<br><img src="/posts/9915ca90/10分钟看懂Docker和K8S-9.jpg" alt=" "><br>容器和虚拟机的对比</p>
-<p>正因为如此，容器技术受到了热烈的欢迎和追捧，发展迅速。</p>
-<p>我们具体来看看Docker。</p>
-<p>大家需要注意，Docker本身并不是容器，它是创建容器的工具，是应用容器引擎。</p>
-<p>想要搞懂Docker，其实看它的两句口号就行。</p>
-<p>第一句，是“Build, Ship and Run”。<br><img src="/posts/9915ca90/10分钟看懂Docker和K8S-10.jpg" alt=" "><br>也就是，“搭建、发送、运行”，三板斧。</p>
-<p>举个例子：</p>
-<p>我来到一片空地，想建个房子，于是我搬石头、砍木头、画图纸，一顿操作，终于把这个房子盖好了。<br><img src="/posts/9915ca90/10分钟看懂Docker和K8S-11.jpg" alt=" "><br>结果，我住了一段时间，想搬到另一片空地去。这时候，按以往的办法，我只能再次搬石头、砍木头、画图纸、盖房子。</p>
-<p>但是，跑来一个老巫婆，教会我一种魔法。</p>
-<p>这种魔法，可以把我盖好的房子复制一份，做成“镜像”，放在我的背包里。<br><img src="/posts/9915ca90/10分钟看懂Docker和K8S-12.jpg" alt=" "><br>等我到了另一片空地，就用这个“镜像”，复制一套房子，摆在那边，拎包入住。<br><img src="/posts/9915ca90/10分钟看懂Docker和K8S-13.jpg" alt=" "><br>怎么样？是不是很神奇？</p>
-<p>所以，Docker的第二句口号就是：“Build once，Run anywhere（搭建一次，到处能用）”。</p>
-<p>Docker技术的三大核心概念，分别是：</p>
-<p><strong>镜像（Image）</strong><br><strong>容器（Container）</strong><br><strong>仓库（Repository）</strong></p>
-<p>我刚才例子里面，那个放在包里的“镜像”，就是Docker镜像。而我的背包，就是Docker仓库。我在空地上，用魔法造好的房子，就是一个Docker容器。</p>
-<p>说白了，这个Docker镜像，是一个特殊的文件系统。它除了提供容器运行时所需的程序、库、资源、配置等文件外，还包含了一些为运行时准备的一些配置参数（例如环境变量）。镜像不包含任何动态数据，其内容在构建之后也不会被改变。</p>
-<p>也就是说，每次变出房子，房子是一样的，但生活用品之类的，都是不管的。谁住谁负责添置。</p>
-<p>每一个镜像可以变出一种房子。那么，我可以有多个镜像呀！</p>
-<p>也就是说，我盖了一个欧式别墅，生成了镜像。另一个哥们可能盖了一个中国四合院，也生成了镜像。还有哥们，盖了一个非洲茅草屋，也生成了镜像。。。</p>
-<p>这么一来，我们可以交换镜像，你用我的，我用你的，岂不是很爽？<br><img src="/posts/9915ca90/10分钟看懂Docker和K8S-14.jpg" alt=" "><br>于是乎，就变成了一个大的公共仓库。</p>
-<p>负责对Docker镜像进行管理的，是Docker Registry服务（类似仓库管理员）。</p>
-<p>不是任何人建的任何镜像都是合法的。万一有人盖了一个有问题的房子呢？</p>
-<p>所以，Docker Registry服务对镜像的管理是非常严格的。</p>
-<p>最常使用的Registry公开服务，是官方的Docker Hub，这也是默认的Registry，并拥有大量的高质量的官方镜像。</p>
-<p>好了，说完了Docker，我们再把目光转向K8S。</p>
-<p>就在Docker容器技术被炒得热火朝天之时，大家发现，如果想要将Docker应用于具体的业务实现，是存在困难的——编排、管理和调度等各个方面，都不容易。于是，人们迫切需要一套管理系统，对Docker及容器进行更高级更灵活的管理。</p>
-<p>就在这个时候，K8S出现了。</p>
-<p><strong>K8S，就是基于容器的集群管理平台，它的全称，是kubernetes。</strong><br><img src="/posts/9915ca90/10分钟看懂Docker和K8S-15.jpg" alt=" "><br>Kubernetes这个单词来自于希腊语，含义是舵手或领航员。K8S是它的缩写，用“8”字替代了“ubernete”这8个字符。</p>
-<p>和Docker不同，K8S的创造者，是众人皆知的行业巨头——Google。</p>
-<p>然而，K8S并不是一件全新的发明。它的前身，是Google自己捣鼓了十多年的Borg系统。</p>
-<p>K8S是2014年6月由Google公司正式公布出来并宣布开源的。</p>
-<p>同年7月，微软、Red Hat、IBM、Docker、CoreOS、Mesosphere和Saltstack等公司，相继加入K8S。</p>
-<p>之后的一年内，VMware、HP、Intel等公司，也陆续加入。</p>
-<p>2015年7月，Google正式加入OpenStack基金会。与此同时，Kuberentes v1.0正式发布。</p>
-<p>目前，kubernetes的版本已经发展到V1.13。</p>
-<p>K8S的架构，略微有一点复杂，我们简单来看一下。</p>
-<p>一个K8S系统，通常称为一个<strong>K8S集群（Cluster）</strong>。</p>
-<p>这个集群主要包括两个部分：</p>
-<p><strong>一个Master节点（主节点）</strong><br><strong>一群Node节点（计算节点）</strong><br><img src="/posts/9915ca90/10分钟看懂Docker和K8S-16.jpg" alt=" "><br>一看就明白：Master节点主要还是负责管理和控制。Node节点是工作负载节点，里面是具体的容器。</p>
-<p>深入来看这两种节点。</p>
-<p>首先是Master节点。<br><img src="/posts/9915ca90/10分钟看懂Docker和K8S-17.jpg" alt=" "><br>Master节点包括API Server、Scheduler、Controller manager、etcd。</p>
-<p>API Server是整个系统的对外接口，供客户端和其它组件调用，相当于“营业厅”。</p>
-<p>Scheduler负责对集群内部的资源进行调度，相当于“调度室”。</p>
-<p>Controller manager负责管理控制器，相当于“大总管”。</p>
-<p>然后是Node节点。<br><img src="/posts/9915ca90/10分钟看懂Docker和K8S-18.jpg" alt=" "><br>Node节点包括Docker、kubelet、kube-proxy、Fluentd、kube-dns（可选），还有就是Pod。</p>
-<blockquote>
-<p>Pod是Kubernetes最基本的操作单元。一个Pod代表着集群中运行的一个进程，它内部封装了一个或多个紧密相关的容器。除了Pod之外，K8S还有一个Service的概念，一个Service可以看作一组提供相同服务的Pod的对外访问接口。这段不太好理解，跳过吧。</p>
-</blockquote>
-<p>Docker，不用说了，创建容器的。</p>
-<p>Kubelet，主要负责监视指派到它所在Node上的Pod，包括创建、修改、监控、删除等。</p>
-<p>Kube-proxy，主要负责为Pod对象提供代理。</p>
-<p>Fluentd，主要负责日志收集、存储与查询。</p>
-<p>是不是有点懵？唉，三言两语真的很难讲清楚，继续跳过吧。</p>
-<p>Docker和K8S都介绍完了，然而文章并没有结束。</p>
-<p>接下来的部分，是写给核心网工程师甚至所有通信工程师看的。</p>
-<p>从几十年前的1G，到现在的4G，再到将来的5G，移动通信发生了翻天覆地的变化，核心网亦是如此。</p>
-<p>但是，如果你仔细洞察这些变化，会发现，所谓的核心网，其实本质上并没有发生改变，无非就是很多的服务器而已。不同的核心网网元，就是不同的服务器，不同的计算节点。</p>
-<p>变化的，是这些“服务器”的形态和接口：形态，从机柜单板，变成机柜刀片，从机柜刀片，变成X86通用刀片服务器；接口，从中继线缆，变成网线，从网线，变成光纤。</p>
-<p>就算变来变去，还是服务器，是计算节点，是CPU。</p>
-<p>既然是服务器，那么就势必会和IT云计算一样，走上虚拟化的道路。毕竟，虚拟化有太多的优势，例如前文所说的低成本、高利用率、充分灵活、动态调度，等等。</p>
-<p>前几年，大家以为虚拟机是核心网的终极形态。目前看来，更有可能是容器化。这几年经常说的NFV（网元功能虚拟化），也有可能改口为NFC（网元功能容器化）。</p>
-<p>以VoLTE为例，如果按以前2G/3G的方式，那需要大量的专用设备，分别充当EPC和IMS的不同网元。<br><img src="/posts/9915ca90/10分钟看懂Docker和K8S-19.jpg" alt=" "><br>VoLTE相关的网元</p>
-<p>而采用容器之后，很可能只需要一台服务器，创建十几个容器，用不同的容器，来分别运行不同网元的服务程序。<br><img src="/posts/9915ca90/10分钟看懂Docker和K8S-20.jpg" alt=" "><br>这些容器，随时可以创建，也可以随时销毁。还能够在不停机的情况下，随意变大，随意变小，随意变强，随意变弱，在性能和功耗之间动态平衡。</p>
-<p>简直完美！</p>
-<p>5G时代，核心网采用微服务架构，也是和容器完美搭配——单体式架构（Monolithic）变成微服务架构（Microservices），相当于一个全能型变成N个专能型。每个专能型，分配给一个隔离的容器，赋予了最大程度的灵活。<br><img src="/posts/9915ca90/10分钟看懂Docker和K8S-21.jpg" alt=" "><br>精细化分工</p>
-<p>按照这样的发展趋势，在移动通信系统中，除了天线，剩下的部分都有可能虚拟化。核心网是第一个，但不是最后一个。虚拟化之后的核心网，与其说属于通信，实际上更应该归为IT。核心网的功能，只是容器中普通一个软件功能而已。</p>
-<p>至于说在座的各位核心网工程师，恭喜你们，马上就要成功转型啦！<br><img src="/posts/9915ca90/10分钟看懂Docker和K8S-22.jpg" alt=" "></p>
-<p><em>转自：<a target="_blank" rel="noopener" href="https://my.oschina.net/jamesview/blog/2994112">https://my.oschina.net/jamesview/blog/2994112</a></em></p>
+            <p><img src="/archives/e14542ec/1.jpg" alt=" "></p>
+<h2 id="下载安装denyhosts"><a href="#下载安装denyhosts" class="headerlink" title="下载安装denyhosts"></a>下载安装denyhosts</h2><p>github上有软件及安装说明，使用python开发的：<br><a target="_blank" rel="noopener" href="https://github.com/denyhosts/denyhosts">https://github.com/denyhosts/denyhosts</a><br>当前最新版提供deb包和rpm包，方便debain/ubuntu和redhat/centos系统安装<br>这里我使用deb包：<br><code>wget https://github.com/denyhosts/denyhosts/releases/download/v3.1/denyhosts_3.1.2-2_all.deb</code><br>安装<br><code>dpkg -i denyhosts_3.1.2-2_all.deb</code></p>
+<h3 id="路径说明"><a href="#路径说明" class="headerlink" title="路径说明"></a>路径说明</h3><p>默认安装路径：<br>配置文件denyhost.conf：/etc/denyhost.conf<br>执行文件denyhost.py: /usr/local/bin/denyhost.py<br>控制文件daemon-control-dist: /usr/local/bin/daemon-control-dist</p>
+<h3 id="修改denyhost-conf"><a href="#修改denyhost-conf" class="headerlink" title="修改denyhost.conf"></a>修改denyhost.conf</h3><p><code>egrep -v &quot;^$|#&quot; /etc/denyhosts.conf</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">SECURE_LOG &#x3D; &#x2F;var&#x2F;log&#x2F;auth.log</span><br><span class="line">HOSTS_DENY &#x3D; &#x2F;etc&#x2F;hosts.deny</span><br><span class="line">PURGE_DENY &#x3D;</span><br><span class="line">BLOCK_SERVICE  &#x3D; sshd</span><br><span class="line">DENY_THRESHOLD_INVALID &#x3D; 5</span><br><span class="line">DENY_THRESHOLD_VALID &#x3D; 10</span><br><span class="line">DENY_THRESHOLD_ROOT &#x3D; 1</span><br><span class="line">DENY_THRESHOLD_RESTRICTED &#x3D; 1</span><br><span class="line">DETECT_DOVECOT_LOGIN_ATTEMPTS &#x3D; NO</span><br><span class="line">WORK_DIR &#x3D; &#x2F;var&#x2F;lib&#x2F;denyhosts</span><br><span class="line">ETC_DIR &#x3D; &#x2F;etc</span><br><span class="line">SUSPICIOUS_LOGIN_REPORT_ALLOWED_HOSTS&#x3D;YES</span><br><span class="line">HOSTNAME_LOOKUP&#x3D;NO</span><br><span class="line">LOCK_FILE &#x3D; &#x2F;run&#x2F;denyhosts.pid</span><br><span class="line">IPTABLES &#x3D; &#x2F;sbin&#x2F;iptables</span><br><span class="line">ALLOWED_HOSTS_HOSTNAME_LOOKUP&#x3D;NO</span><br><span class="line">AGE_RESET_VALID&#x3D;5d</span><br><span class="line">AGE_RESET_ROOT&#x3D;25d</span><br><span class="line">AGE_RESET_RESTRICTED&#x3D;25d</span><br><span class="line">AGE_RESET_INVALID&#x3D;10d</span><br><span class="line">DAEMON_LOG &#x3D; &#x2F;var&#x2F;log&#x2F;denyhosts</span><br><span class="line">DAEMON_SLEEP &#x3D; 30s</span><br><span class="line">DAEMON_PURGE &#x3D; 1h</span><br><span class="line">SYNC_UPLOAD &#x3D; no</span><br><span class="line">SYNC_DOWNLOAD &#x3D; no</span><br></pre></td></tr></table></figure>
+<h3 id="修改daemon-control-dist"><a href="#修改daemon-control-dist" class="headerlink" title="修改daemon-control-dist"></a>修改daemon-control-dist</h3><p><code>vim /usr/local/bin/daemon-control-dist</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">DENYHOSTS_BIN &#x3D; &quot;&#x2F;usr&#x2F;local&#x2F;bin&#x2F;denyhosts.py&quot;</span><br><span class="line">DENYHOSTS_LOCK &#x3D; &quot;&#x2F;run&#x2F;denyhosts.pid&quot;</span><br><span class="line">DENYHOSTS_CFG &#x3D; &quot;&#x2F;etc&#x2F;denyhosts.conf&quot;</span><br><span class="line"></span><br><span class="line">PYTHON_BIN &#x3D; &quot;&#x2F;usr&#x2F;bin&#x2F;env python&quot;</span><br></pre></td></tr></table></figure>
+<p>新版本默认使用python3，这里改为python</p>
+<h3 id="运行daemon-control-dist"><a href="#运行daemon-control-dist" class="headerlink" title="运行daemon-control-dist"></a>运行daemon-control-dist</h3><p>默认denyhost.py使用daemon-control-dist来控制，可以加入开机自动启动，这里先手动启动：<br><code>daemon-control-dist start</code><br>如果报module xxx not found，是python没有安装对应的库，需要手动安装下：<br><code>pip install xxx</code><br>使用python3的话就执行<br><code>pip3 install xxx</code><br>然后重新运行下就行</p>
+<h3 id="查看hosts-deny"><a href="#查看hosts-deny" class="headerlink" title="查看hosts.deny"></a>查看hosts.deny</h3><p>被block的IP地址会放到/etc/hosts.deny里面，可以查看。</p>
 
         </div>
         <footer class="article-footer">
@@ -301,7 +225,7 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
 
 
 
-    <a data-url="https://blog.hellshan.top/posts/9915ca90/" data-id="ckgvpza2q00019hyegbz6dzmg" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://blog.hellshan.top/archives/e14542ec/" data-id="ckgvq2gqn000kaoye60qrfhxc" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -371,16 +295,17 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
             "@type": "Person",
             "name": "Shan Yan"
         },
-        "headline": "干货满满！10分钟看懂Docker和K8S",
-        "image": "https://blog.hellshan.top/posts/9915ca90/10分钟看懂Docker和K8S-1.jpg",
-        "keywords": "docker k8s container",
-        "genre": "学而时习之 拿来主义",
-        "datePublished": "2020-10-02",
-        "dateCreated": "2020-10-02",
+        "headline": "使用denyhosts防止暴力破解ssh",
+        "image": "https://blog.hellshan.top/archives/e14542ec/1.jpg",
+        "keywords": "linux",
+        "genre": "学而时习之 实践验证真理",
+        "datePublished": "2020-10-16",
+        "dateCreated": "2020-10-16",
         "dateModified": "2020-10-30",
-        "url": "https://blog.hellshan.top/posts/9915ca90/",
-        "description": "2010年，几个搞IT的年轻人，在美国旧金山成立了一家名叫“dotCloud”的公司。这家公司主要提供基于PaaS的云计算技术服务。具体来说，是和LXC有关的容器技术。LXC，就是Linux容器虚拟技术（Linux container）后来，dotCloud公司将自己的容器技术进行了简化和标准化，并命名为——Docker。Docker技术诞生之后，并没有引起行业的关注。而dotCloud公司，作为",
-        "wordCount": 84
+        "url": "https://blog.hellshan.top/archives/e14542ec/",
+        "description": "
+下载安装denyhostsgithub上有软件及安装说明，使用python开发的：https://github.com/denyhosts/denyhosts当前最新版提供deb包和rpm包，方便debain/ubuntu和redhat/centos系统安装这里我使用deb包：wget https://github.com/denyhosts/denyhosts/releases/downloa",
+        "wordCount": 159
     }
 </script>
 
@@ -452,20 +377,20 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
         
 <nav id="article-nav">
     
-        <a href="/posts/dd6b12a/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/archives/9040e6a2/" id="article-nav-newer" class="article-nav-link-wrap">
         <strong class="article-nav-caption">下一篇</strong>
         <p class="article-nav-title">
         
-            nginx反向代理frp缓存加速
+            hueman主题使用补充
         
         </p>
         <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
     </a>
     
     
-        <a href="/posts/5018439d/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/archives/459ed231/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">上一篇</strong>
-        <p class="article-nav-title">hexo使用记录</p>
+        <p class="article-nav-title">ELK使用日志</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
@@ -487,10 +412,10 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/posts/15b0611c/" class="thumbnail">
+                            <a href="/archives/15b0611c/" class="thumbnail">
     
     
-        <span style="background-image:url(/posts/15b0611c/1.png)" alt="据说爱恩斯坦是中等学生，你享看看真实的史料么" class="thumbnail-image"></span>
+        <span style="background-image:url(/archives/15b0611c/1.png)" alt="据说爱恩斯坦是中等学生，你享看看真实的史料么" class="thumbnail-image"></span>
     
     
 </a>
@@ -499,7 +424,7 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/%E6%96%87%E6%91%98/">文摘</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E6%96%87%E6%91%98/%E4%BA%BA%E7%89%A9/">人物</a></p>
-                            <p class="item-title"><a href="/posts/15b0611c/" class="title">据说爱恩斯坦是中等学生，你享看看真实的史料么</a></p>
+                            <p class="item-title"><a href="/archives/15b0611c/" class="title">据说爱恩斯坦是中等学生，你享看看真实的史料么</a></p>
                             <p class="item-date"><time datetime="2020-10-29T06:03:30.000Z" itemprop="datePublished">2020-10-29</time></p>
                         </div>
                     </li>
@@ -507,10 +432,10 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/posts/c6ba0622/" class="thumbnail">
+                            <a href="/archives/c6ba0622/" class="thumbnail">
     
     
-        <span style="background-image:url(/posts/c6ba0622/1.jpg)" alt="postgresql使用日志" class="thumbnail-image"></span>
+        <span style="background-image:url(/archives/c6ba0622/1.jpg)" alt="postgresql使用日志" class="thumbnail-image"></span>
     
     
 </a>
@@ -519,7 +444,7 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E6%B8%A9%E6%95%85%E8%80%8C%E7%9F%A5%E6%96%B0/">温故而知新</a></p>
-                            <p class="item-title"><a href="/posts/c6ba0622/" class="title">postgresql使用日志</a></p>
+                            <p class="item-title"><a href="/archives/c6ba0622/" class="title">postgresql使用日志</a></p>
                             <p class="item-date"><time datetime="2020-10-29T01:07:05.000Z" itemprop="datePublished">2020-10-29</time></p>
                         </div>
                     </li>
@@ -527,10 +452,10 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/posts/18899723/" class="thumbnail">
+                            <a href="/archives/18899723/" class="thumbnail">
     
     
-        <span style="background-image:url(/posts/18899723/1.png)" alt="docker部署odoo14及postgresql" class="thumbnail-image"></span>
+        <span style="background-image:url(/archives/18899723/1.png)" alt="docker部署odoo14及postgresql" class="thumbnail-image"></span>
     
     
 </a>
@@ -539,7 +464,7 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E5%AE%9E%E8%B7%B5%E9%AA%8C%E8%AF%81%E7%9C%9F%E7%90%86/">实践验证真理</a></p>
-                            <p class="item-title"><a href="/posts/18899723/" class="title">docker部署odoo14及postgresql</a></p>
+                            <p class="item-title"><a href="/archives/18899723/" class="title">docker部署odoo14及postgresql</a></p>
                             <p class="item-date"><time datetime="2020-10-28T07:45:05.000Z" itemprop="datePublished">2020-10-28</time></p>
                         </div>
                     </li>
@@ -547,10 +472,10 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/posts/9040e6a2/" class="thumbnail">
+                            <a href="/archives/9040e6a2/" class="thumbnail">
     
     
-        <span style="background-image:url(/posts/9040e6a2/4.jpg)" alt="hueman主题使用补充" class="thumbnail-image"></span>
+        <span style="background-image:url(/archives/9040e6a2/4.jpg)" alt="hueman主题使用补充" class="thumbnail-image"></span>
     
     
 </a>
@@ -559,7 +484,7 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E5%AE%9E%E8%B7%B5%E9%AA%8C%E8%AF%81%E7%9C%9F%E7%90%86/">实践验证真理</a></p>
-                            <p class="item-title"><a href="/posts/9040e6a2/" class="title">hueman主题使用补充</a></p>
+                            <p class="item-title"><a href="/archives/9040e6a2/" class="title">hueman主题使用补充</a></p>
                             <p class="item-date"><time datetime="2020-10-16T07:49:30.000Z" itemprop="datePublished">2020-10-16</time></p>
                         </div>
                     </li>
@@ -567,10 +492,10 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/posts/e14542ec/" class="thumbnail">
+                            <a href="/archives/e14542ec/" class="thumbnail">
     
     
-        <span style="background-image:url(/posts/e14542ec/1.jpg)" alt="使用denyhosts防止暴力破解ssh" class="thumbnail-image"></span>
+        <span style="background-image:url(/archives/e14542ec/1.jpg)" alt="使用denyhosts防止暴力破解ssh" class="thumbnail-image"></span>
     
     
 </a>
@@ -579,7 +504,7 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E5%AE%9E%E8%B7%B5%E9%AA%8C%E8%AF%81%E7%9C%9F%E7%90%86/">实践验证真理</a></p>
-                            <p class="item-title"><a href="/posts/e14542ec/" class="title">使用denyhosts防止暴力破解ssh</a></p>
+                            <p class="item-title"><a href="/archives/e14542ec/" class="title">使用denyhosts防止暴力破解ssh</a></p>
                             <p class="item-date"><time datetime="2020-10-16T07:49:30.000Z" itemprop="datePublished">2020-10-16</time></p>
                         </div>
                     </li>

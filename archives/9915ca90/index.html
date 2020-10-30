@@ -6,27 +6,28 @@
     
 
     
-    <title>docker部署odoo14及postgresql | helllllp</title>
+    <title>干货满满！10分钟看懂Docker和K8S | helllllp</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="keywords" content="docker,database" />
+    <meta name="keywords" content="docker,k8s,container" />
     
-    <meta name="description" content="odoo简介和部署方式OpenERP的前身，开源，功能强大，更新版本到14，官方有几种安装方法，使用docker方法部署更简单，而官方使用docker compose的方式启动，我希望postgressql能够提供给多个应用使用，可以通过外部方法来访问，所以我这里用portainer部署。 部署postgres下载portgres镜像首先确定好postgresql的版本，这里使用postgres">
+    <meta name="description" content="2010年，几个搞IT的年轻人，在美国旧金山成立了一家名叫“dotCloud”的公司。这家公司主要提供基于PaaS的云计算技术服务。具体来说，是和LXC有关的容器技术。LXC，就是Linux容器虚拟技术（Linux container）后来，dotCloud公司将自己的容器技术进行了简化和标准化，并命名为——Docker。Docker技术诞生之后，并没有引起行业的关注。而dotCloud公司，作为">
 <meta property="og:type" content="article">
-<meta property="og:title" content="docker部署odoo14及postgresql">
-<meta property="og:url" content="https://blog.hellshan.top/posts/18899723/index.html">
+<meta property="og:title" content="干货满满！10分钟看懂Docker和K8S">
+<meta property="og:url" content="https://blog.hellshan.top/archives/9915ca90/index.html">
 <meta property="og:site_name" content="helllllp">
-<meta property="og:description" content="odoo简介和部署方式OpenERP的前身，开源，功能强大，更新版本到14，官方有几种安装方法，使用docker方法部署更简单，而官方使用docker compose的方式启动，我希望postgressql能够提供给多个应用使用，可以通过外部方法来访问，所以我这里用portainer部署。 部署postgres下载portgres镜像首先确定好postgresql的版本，这里使用postgres">
+<meta property="og:description" content="2010年，几个搞IT的年轻人，在美国旧金山成立了一家名叫“dotCloud”的公司。这家公司主要提供基于PaaS的云计算技术服务。具体来说，是和LXC有关的容器技术。LXC，就是Linux容器虚拟技术（Linux container）后来，dotCloud公司将自己的容器技术进行了简化和标准化，并命名为——Docker。Docker技术诞生之后，并没有引起行业的关注。而dotCloud公司，作为">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://blog.hellshan.top/posts/18899723/1.png">
-<meta property="article:published_time" content="2020-10-28T07:45:05.000Z">
-<meta property="article:modified_time" content="2020-10-30T03:34:30.888Z">
+<meta property="og:image" content="https://blog.hellshan.top/archives/9915ca90/10分钟看懂Docker和K8S-1.jpg">
+<meta property="article:published_time" content="2020-10-02T05:44:05.000Z">
+<meta property="article:modified_time" content="2020-10-30T03:34:30.880Z">
 <meta property="article:author" content="Shan Yan">
 <meta property="article:tag" content="docker">
-<meta property="article:tag" content="database">
+<meta property="article:tag" content="k8s">
+<meta property="article:tag" content="container">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://blog.hellshan.top/posts/18899723/1.png">
+<meta name="twitter:image" content="https://blog.hellshan.top/archives/9915ca90/10分钟看懂Docker和K8S-1.jpg">
     
 
     
@@ -152,19 +153,19 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
                         <div class="main-body-header">
     <h1 class="header">
     
-    <a class="page-title-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E5%AE%9E%E8%B7%B5%E9%AA%8C%E8%AF%81%E7%9C%9F%E7%90%86/">实践验证真理</a>
+    <a class="page-title-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E6%8B%BF%E6%9D%A5%E4%B8%BB%E4%B9%89/">拿来主义</a>
     </h1>
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-docker部署odoo14及postgresql" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-10分钟看懂Docker和K8S" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        docker部署odoo14及postgresql
+        干货满满！10分钟看懂Docker和K8S
         </h1>
     
 
@@ -175,8 +176,8 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
                 
     <div class="article-date">
       <i class="fa fa-calendar"></i>
-      <a href="/posts/18899723/" class="article-date">
-         <time datetime="2020-10-28T07:45:05.000Z" itemprop="datePublished">2020-10-28</time>
+      <a href="/archives/9915ca90/" class="article-date">
+         <time datetime="2020-10-02T05:44:05.000Z" itemprop="datePublished">2020-10-02</time>
       </a>
     </div>
 
@@ -186,11 +187,11 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/database/" rel="tag">database</a>, <a class="tag-link-link" href="/tags/docker/" rel="tag">docker</a>
+        <a class="tag-link-link" href="/tags/container/" rel="tag">container</a>, <a class="tag-link-link" href="/tags/docker/" rel="tag">docker</a>, <a class="tag-link-link" href="/tags/k8s/" rel="tag">k8s</a>
     </div>
 
                 
-   <span id="/posts/18899723/" class="leancloud-visitors" data-flag-title="docker部署odoo14及postgresql">
+   <span id="/archives/9915ca90/" class="leancloud-visitors" data-flag-title="干货满满！10分钟看懂Docker和K8S">
    <i class="fa fa-eye"></i>
    <span class="post-meta-item-text">阅读次数: </span>
    <i class="leancloud-visitors-count">1000000</i>
@@ -209,28 +210,90 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
 
             
 
-            <p><img src="/posts/18899723/1.png" alt=" "></p>
-<h2 id="odoo简介和部署方式"><a href="#odoo简介和部署方式" class="headerlink" title="odoo简介和部署方式"></a>odoo简介和部署方式</h2><p>OpenERP的前身，开源，功能强大，更新版本到14，官方有几种安装方法，使用docker方法部署更简单，而官方使用docker compose的方式启动，我希望postgressql能够提供给多个应用使用，可以通过外部方法来访问，所以我这里用portainer部署。</p>
-<h2 id="部署postgres"><a href="#部署postgres" class="headerlink" title="部署postgres"></a>部署postgres</h2><h3 id="下载portgres镜像"><a href="#下载portgres镜像" class="headerlink" title="下载portgres镜像"></a>下载portgres镜像</h3><p>首先确定好postgresql的版本，这里使用postgres:12，直接执行<code>docker pull postgres:12</code>下载镜像</p>
-<h3 id="portainer上配置postgres容器参数"><a href="#portainer上配置postgres容器参数" class="headerlink" title="portainer上配置postgres容器参数"></a>portainer上配置postgres容器参数</h3><p>postgres docker官方镜像有参数说明：<a target="_blank" rel="noopener" href="https://hub.docker.com/_/postgres?tab=description">https://hub.docker.com/_/postgres?tab=description</a>，根据odoo docker官网镜像说明，其中的yaml配置上环境参数只配置了下面几个，所以potainer上也设置这几个参数即可</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">POSTGRES_DB=postgres</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">POSTGRES_PASSWORD=odoo</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">POSTGRES_USER=odoo</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">PGDATA=/var/lib/postgresql/data/pgdata</span></span><br><span class="line"><span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">odoo-db-data:/var/lib/postgresql/data/pgdata</span></span><br></pre></td></tr></table></figure>
-<p>portainer对应配置：<br><img src="/posts/18899723/2.png" alt=" "></p>
-<p>其中额外配置了port映射，postgres数据库端口默认是5432,使用宿主机的5432到docker主机的5432端口，PGDATA并没有配置，是默认生成的，与上面的有点不一样，手动配置了volume映射。<br>配置后生成container，可以在portainer上看到running。<br>使用navicat连接到数据库测试：<br><img src="/posts/18899723/3.png" alt=" "><br>测试成功！</p>
-<h2 id="部署odoo"><a href="#部署odoo" class="headerlink" title="部署odoo"></a>部署odoo</h2><h3 id="下载odoo镜像"><a href="#下载odoo镜像" class="headerlink" title="下载odoo镜像"></a>下载odoo镜像</h3><p>使用最新镜像，最新版为14<br><code>docker pull odoo:latest</code></p>
-<h3 id="portainer上配置odoo容器参数"><a href="#portainer上配置odoo容器参数" class="headerlink" title="portainer上配置odoo容器参数"></a>portainer上配置odoo容器参数</h3><p>官方docker-compose.yaml配置：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">web:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">odoo:12.0</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">mydb</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;8069:8069&quot;</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">HOST=mydb</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">USER=odoo</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">PASSWORD=myodoo</span></span><br></pre></td></tr></table></figure>
-<p>portainer对应配置：<br><img src="/posts/18899723/4.png" alt=" "><br>配置后生成container，在浏览器输入<a target="_blank" rel="noopener" href="http://宿主ip:8069">http://宿主ip:8069</a>访问，出现500错误。从portainer上查看日志，发现这里配置的odoo数据库需要初始化，需要运行odoo -i base强制初始化。这一步搞了我很久，网上也没有详细的解决方法，这里记录下解决方法。</p>
-<ol>
-<li>拷贝容器内的odoo.conf配置文件到本机：<br>先进入映射的volume配置文件目录运行：<br><code>docker exec home_odoo cat /etc/odoo/odoo.conf &gt; odoo.conf</code></li>
-<li><p>修改配置文件，手动修改数据库连接参数：<br><code>vim odoo.conf</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[options]</span><br><span class="line">db_host&#x3D;xxx</span><br><span class="line">db_port&#x3D;xxx</span><br><span class="line">db_name&#x3D;odoo_db</span><br><span class="line">db_user&#x3D;odoo</span><br><span class="line">db_password&#x3D;odoo</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>从portainer进入odoo的容器执行：<br><code>odoo -i base -d odoo_db</code><br>这里没有指定用户执行，默认就是使用环境配置的odoo用户，也只有该用户执行才生效。</p>
-</li>
-</ol>
-<p>执行完毕后，再次访问<a target="_blank" rel="noopener" href="http://宿主ip:8069">http://宿主ip:8069</a>，就会出现登录界面啦。默认登陆用户名和密码都是admin，记得进入修改。</p>
-<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>这里有必要记录下docker容器目录映射到宿主目录的权限问题，以免映射后出现权限报错。一般来说，生成容器后，里面的应用目录有固定的用户权限。如postgres，生成容器后，默认数据库目录属主和属组都是postgres，而查看其ID为999<br><img src="/posts/18899723/7.png" alt=" "><br>而回到宿主的对应映射目录，可以看到其ID是跟容器的用户ID一样的。<br><img src="/posts/18899723/8.png" alt=" "><br>其ID对应宿主的用户名字不一样，其实是LINUX使用ID号作为唯一权限代码。但宿主机上如果没有对应的ID号，则会显示容器的ID号。宿主机建立目录后且映射后，不要修改其属主和属组，不然权限就乱套了。也可以在宿主机上新建一个ID号如<code>useradd postgres -u 1000 -g 1000 -M -s /sbin/nologin</code>，专门给容器使用，在配置容器时，添加其environment参数如PUID=1000，PGID=1000，其参数名要看官方给出的名字来指定，让容器指定使用该ID号生成用户。这样无论从容器看还是宿主机看，都是postgres的名字了。</p>
-<h2 id="odoo使用记录"><a href="#odoo使用记录" class="headerlink" title="odoo使用记录"></a>odoo使用记录</h2><h3 id="手动导入第三方安装包"><a href="#手动导入第三方安装包" class="headerlink" title="手动导入第三方安装包"></a>手动导入第三方安装包</h3><p>首先要启用开发者模式，点击设置，常规设置，到最下面，点击启用开发者模式<br><img src="/posts/18899723/5.png" alt=" "><br>启用后，进入应用，右上角取消搜索，就会显示全部的应用，在搜索base，可以见到base_import模块，安装下就会在菜单栏多一个导入模块，就可以手动导入第三方应用啦。<br><img src="/posts/18899723/6.png" alt=" "></p>
+            <p>2010年，几个搞IT的年轻人，在美国旧金山成立了一家名叫“dotCloud”的公司。<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-1.jpg" alt=" "><br>这家公司主要提供基于PaaS的云计算技术服务。具体来说，是和LXC有关的容器技术。<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-2.jpg" alt=" "><br>LXC，就是Linux容器虚拟技术（Linux container）<br>后来，dotCloud公司将自己的容器技术进行了简化和标准化，并命名为——Docker。<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-3.jpg" alt=" "><br>Docker技术诞生之后，并没有引起行业的关注。而dotCloud公司，作为一家小型创业企业，在激烈的竞争之下，也步履维艰。</p>
+<p>正当他们快要坚持不下去的时候，脑子里蹦出了“开源”的想法。</p>
+<p>什么是“开源”？开源，就是开放源代码。也就是将原来内部保密的程序源代码开放给所有人，然后让大家一起参与进来，贡献代码和意见。<br>! <a href="10分钟看懂Docker和K8S-4.jpg"></a><br>Open Source，开源</p>
+<p>有的软件是一开始就开源的。也有的软件，是混不下去，创造者又不想放弃，所以选择开源。自己养不活，就吃“百家饭”嘛。</p>
+<p>2013年3月，dotCloud公司的创始人之一，Docker之父，28岁的Solomon Hykes正式决定，将Docker项目开源。<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-5.jpg" alt=" "><br>Solomon Hykes（今年刚从Docker离职）</p>
+<p>不开则已，一开惊人。</p>
+<p>越来越多的IT工程师发现了Docker的优点，然后蜂拥而至，加入Docker开源社区。</p>
+<p>Docker的人气迅速攀升，速度之快，令人瞠目结舌。</p>
+<p>开源当月，Docker 0.1版本发布。此后的每一个月，Docker都会发布一个版本。到2014年6月9日，Docker 1.0版本正式发布。</p>
+<p>此时的Docker，已经成为行业里人气最火爆的开源技术，没有之一。甚至像Google、微软、Amazon、VMware这样的巨头，都对它青睐有加，表示将全力支持。</p>
+<p>Docker火了之后，dotCloud公司干脆把公司名字也改成了Docker Inc.。</p>
+<p>Docker和容器技术为什么会这么火爆？说白了，就是因为它“轻”。</p>
+<p>在容器技术之前，业界的网红是虚拟机。虚拟机技术的代表，是VMWare和OpenStack。<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-6.jpg" alt=" "><br>相信很多人都用过虚拟机。虚拟机，就是在你的操作系统里面，装一个软件，然后通过这个软件，再模拟一台甚至多台“子电脑”出来。<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-7.jpg" alt=" "><br>虚拟机，类似于“子电脑”</p>
+<p>在“子电脑”里，你可以和正常电脑一样运行程序，例如开QQ。如果你愿意，你可以变出好几个“子电脑”，里面都开上QQ。“子电脑”和“子电脑”之间，是相互隔离的，互不影响。</p>
+<p>虚拟机属于虚拟化技术。而Docker这样的容器技术，也是虚拟化技术，属于轻量级的虚拟化。</p>
+<p>虚拟机虽然可以隔离出很多“子电脑”，但占用空间更大，启动更慢，虚拟机软件可能还要花钱（例如VMWare）。</p>
+<p>而容器技术恰好没有这些缺点。它不需要虚拟出整个操作系统，只需要虚拟一个小规模的环境（类似“沙箱”）。<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-8.jpg" alt=" "><br>沙箱</p>
+<p>它启动时间很快，几秒钟就能完成。而且，它对资源的利用率很高（一台主机可以同时运行几千个Docker容器）。此外，它占的空间很小，虚拟机一般要几GB到几十GB的空间，而容器只需要MB级甚至KB级。<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-9.jpg" alt=" "><br>容器和虚拟机的对比</p>
+<p>正因为如此，容器技术受到了热烈的欢迎和追捧，发展迅速。</p>
+<p>我们具体来看看Docker。</p>
+<p>大家需要注意，Docker本身并不是容器，它是创建容器的工具，是应用容器引擎。</p>
+<p>想要搞懂Docker，其实看它的两句口号就行。</p>
+<p>第一句，是“Build, Ship and Run”。<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-10.jpg" alt=" "><br>也就是，“搭建、发送、运行”，三板斧。</p>
+<p>举个例子：</p>
+<p>我来到一片空地，想建个房子，于是我搬石头、砍木头、画图纸，一顿操作，终于把这个房子盖好了。<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-11.jpg" alt=" "><br>结果，我住了一段时间，想搬到另一片空地去。这时候，按以往的办法，我只能再次搬石头、砍木头、画图纸、盖房子。</p>
+<p>但是，跑来一个老巫婆，教会我一种魔法。</p>
+<p>这种魔法，可以把我盖好的房子复制一份，做成“镜像”，放在我的背包里。<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-12.jpg" alt=" "><br>等我到了另一片空地，就用这个“镜像”，复制一套房子，摆在那边，拎包入住。<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-13.jpg" alt=" "><br>怎么样？是不是很神奇？</p>
+<p>所以，Docker的第二句口号就是：“Build once，Run anywhere（搭建一次，到处能用）”。</p>
+<p>Docker技术的三大核心概念，分别是：</p>
+<p><strong>镜像（Image）</strong><br><strong>容器（Container）</strong><br><strong>仓库（Repository）</strong></p>
+<p>我刚才例子里面，那个放在包里的“镜像”，就是Docker镜像。而我的背包，就是Docker仓库。我在空地上，用魔法造好的房子，就是一个Docker容器。</p>
+<p>说白了，这个Docker镜像，是一个特殊的文件系统。它除了提供容器运行时所需的程序、库、资源、配置等文件外，还包含了一些为运行时准备的一些配置参数（例如环境变量）。镜像不包含任何动态数据，其内容在构建之后也不会被改变。</p>
+<p>也就是说，每次变出房子，房子是一样的，但生活用品之类的，都是不管的。谁住谁负责添置。</p>
+<p>每一个镜像可以变出一种房子。那么，我可以有多个镜像呀！</p>
+<p>也就是说，我盖了一个欧式别墅，生成了镜像。另一个哥们可能盖了一个中国四合院，也生成了镜像。还有哥们，盖了一个非洲茅草屋，也生成了镜像。。。</p>
+<p>这么一来，我们可以交换镜像，你用我的，我用你的，岂不是很爽？<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-14.jpg" alt=" "><br>于是乎，就变成了一个大的公共仓库。</p>
+<p>负责对Docker镜像进行管理的，是Docker Registry服务（类似仓库管理员）。</p>
+<p>不是任何人建的任何镜像都是合法的。万一有人盖了一个有问题的房子呢？</p>
+<p>所以，Docker Registry服务对镜像的管理是非常严格的。</p>
+<p>最常使用的Registry公开服务，是官方的Docker Hub，这也是默认的Registry，并拥有大量的高质量的官方镜像。</p>
+<p>好了，说完了Docker，我们再把目光转向K8S。</p>
+<p>就在Docker容器技术被炒得热火朝天之时，大家发现，如果想要将Docker应用于具体的业务实现，是存在困难的——编排、管理和调度等各个方面，都不容易。于是，人们迫切需要一套管理系统，对Docker及容器进行更高级更灵活的管理。</p>
+<p>就在这个时候，K8S出现了。</p>
+<p><strong>K8S，就是基于容器的集群管理平台，它的全称，是kubernetes。</strong><br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-15.jpg" alt=" "><br>Kubernetes这个单词来自于希腊语，含义是舵手或领航员。K8S是它的缩写，用“8”字替代了“ubernete”这8个字符。</p>
+<p>和Docker不同，K8S的创造者，是众人皆知的行业巨头——Google。</p>
+<p>然而，K8S并不是一件全新的发明。它的前身，是Google自己捣鼓了十多年的Borg系统。</p>
+<p>K8S是2014年6月由Google公司正式公布出来并宣布开源的。</p>
+<p>同年7月，微软、Red Hat、IBM、Docker、CoreOS、Mesosphere和Saltstack等公司，相继加入K8S。</p>
+<p>之后的一年内，VMware、HP、Intel等公司，也陆续加入。</p>
+<p>2015年7月，Google正式加入OpenStack基金会。与此同时，Kuberentes v1.0正式发布。</p>
+<p>目前，kubernetes的版本已经发展到V1.13。</p>
+<p>K8S的架构，略微有一点复杂，我们简单来看一下。</p>
+<p>一个K8S系统，通常称为一个<strong>K8S集群（Cluster）</strong>。</p>
+<p>这个集群主要包括两个部分：</p>
+<p><strong>一个Master节点（主节点）</strong><br><strong>一群Node节点（计算节点）</strong><br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-16.jpg" alt=" "><br>一看就明白：Master节点主要还是负责管理和控制。Node节点是工作负载节点，里面是具体的容器。</p>
+<p>深入来看这两种节点。</p>
+<p>首先是Master节点。<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-17.jpg" alt=" "><br>Master节点包括API Server、Scheduler、Controller manager、etcd。</p>
+<p>API Server是整个系统的对外接口，供客户端和其它组件调用，相当于“营业厅”。</p>
+<p>Scheduler负责对集群内部的资源进行调度，相当于“调度室”。</p>
+<p>Controller manager负责管理控制器，相当于“大总管”。</p>
+<p>然后是Node节点。<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-18.jpg" alt=" "><br>Node节点包括Docker、kubelet、kube-proxy、Fluentd、kube-dns（可选），还有就是Pod。</p>
+<blockquote>
+<p>Pod是Kubernetes最基本的操作单元。一个Pod代表着集群中运行的一个进程，它内部封装了一个或多个紧密相关的容器。除了Pod之外，K8S还有一个Service的概念，一个Service可以看作一组提供相同服务的Pod的对外访问接口。这段不太好理解，跳过吧。</p>
+</blockquote>
+<p>Docker，不用说了，创建容器的。</p>
+<p>Kubelet，主要负责监视指派到它所在Node上的Pod，包括创建、修改、监控、删除等。</p>
+<p>Kube-proxy，主要负责为Pod对象提供代理。</p>
+<p>Fluentd，主要负责日志收集、存储与查询。</p>
+<p>是不是有点懵？唉，三言两语真的很难讲清楚，继续跳过吧。</p>
+<p>Docker和K8S都介绍完了，然而文章并没有结束。</p>
+<p>接下来的部分，是写给核心网工程师甚至所有通信工程师看的。</p>
+<p>从几十年前的1G，到现在的4G，再到将来的5G，移动通信发生了翻天覆地的变化，核心网亦是如此。</p>
+<p>但是，如果你仔细洞察这些变化，会发现，所谓的核心网，其实本质上并没有发生改变，无非就是很多的服务器而已。不同的核心网网元，就是不同的服务器，不同的计算节点。</p>
+<p>变化的，是这些“服务器”的形态和接口：形态，从机柜单板，变成机柜刀片，从机柜刀片，变成X86通用刀片服务器；接口，从中继线缆，变成网线，从网线，变成光纤。</p>
+<p>就算变来变去，还是服务器，是计算节点，是CPU。</p>
+<p>既然是服务器，那么就势必会和IT云计算一样，走上虚拟化的道路。毕竟，虚拟化有太多的优势，例如前文所说的低成本、高利用率、充分灵活、动态调度，等等。</p>
+<p>前几年，大家以为虚拟机是核心网的终极形态。目前看来，更有可能是容器化。这几年经常说的NFV（网元功能虚拟化），也有可能改口为NFC（网元功能容器化）。</p>
+<p>以VoLTE为例，如果按以前2G/3G的方式，那需要大量的专用设备，分别充当EPC和IMS的不同网元。<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-19.jpg" alt=" "><br>VoLTE相关的网元</p>
+<p>而采用容器之后，很可能只需要一台服务器，创建十几个容器，用不同的容器，来分别运行不同网元的服务程序。<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-20.jpg" alt=" "><br>这些容器，随时可以创建，也可以随时销毁。还能够在不停机的情况下，随意变大，随意变小，随意变强，随意变弱，在性能和功耗之间动态平衡。</p>
+<p>简直完美！</p>
+<p>5G时代，核心网采用微服务架构，也是和容器完美搭配——单体式架构（Monolithic）变成微服务架构（Microservices），相当于一个全能型变成N个专能型。每个专能型，分配给一个隔离的容器，赋予了最大程度的灵活。<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-21.jpg" alt=" "><br>精细化分工</p>
+<p>按照这样的发展趋势，在移动通信系统中，除了天线，剩下的部分都有可能虚拟化。核心网是第一个，但不是最后一个。虚拟化之后的核心网，与其说属于通信，实际上更应该归为IT。核心网的功能，只是容器中普通一个软件功能而已。</p>
+<p>至于说在座的各位核心网工程师，恭喜你们，马上就要成功转型啦！<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-22.jpg" alt=" "></p>
+<p><em>转自：<a target="_blank" rel="noopener" href="https://my.oschina.net/jamesview/blog/2994112">https://my.oschina.net/jamesview/blog/2994112</a></em></p>
 
         </div>
         <footer class="article-footer">
@@ -238,7 +301,7 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
 
 
 
-    <a data-url="https://blog.hellshan.top/posts/18899723/" data-id="ckgvpza3100099hye868o4ft1" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://blog.hellshan.top/archives/9915ca90/" data-id="ckgvq2gq10001aoye5szz32kd" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -308,18 +371,16 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
             "@type": "Person",
             "name": "Shan Yan"
         },
-        "headline": "docker部署odoo14及postgresql",
-        "image": "https://blog.hellshan.top/posts/18899723/1.png",
-        "keywords": "docker database",
-        "genre": "学而时习之 实践验证真理",
-        "datePublished": "2020-10-28",
-        "dateCreated": "2020-10-28",
+        "headline": "干货满满！10分钟看懂Docker和K8S",
+        "image": "https://blog.hellshan.top/archives/9915ca90/10分钟看懂Docker和K8S-1.jpg",
+        "keywords": "docker k8s container",
+        "genre": "学而时习之 拿来主义",
+        "datePublished": "2020-10-02",
+        "dateCreated": "2020-10-02",
         "dateModified": "2020-10-30",
-        "url": "https://blog.hellshan.top/posts/18899723/",
-        "description": "
-odoo简介和部署方式OpenERP的前身，开源，功能强大，更新版本到14，官方有几种安装方法，使用docker方法部署更简单，而官方使用docker compose的方式启动，我希望postgressql能够提供给多个应用使用，可以通过外部方法来访问，所以我这里用portainer部署。
-部署postgres下载portgres镜像首先确定好postgresql的版本，这里使用postgres",
-        "wordCount": 263
+        "url": "https://blog.hellshan.top/archives/9915ca90/",
+        "description": "2010年，几个搞IT的年轻人，在美国旧金山成立了一家名叫“dotCloud”的公司。这家公司主要提供基于PaaS的云计算技术服务。具体来说，是和LXC有关的容器技术。LXC，就是Linux容器虚拟技术（Linux container）后来，dotCloud公司将自己的容器技术进行了简化和标准化，并命名为——Docker。Docker技术诞生之后，并没有引起行业的关注。而dotCloud公司，作为",
+        "wordCount": 84
     }
 </script>
 
@@ -391,20 +452,20 @@ odoo简介和部署方式OpenERP的前身，开源，功能强大，更新版本
         
 <nav id="article-nav">
     
-        <a href="/posts/c6ba0622/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/archives/dd6b12a/" id="article-nav-newer" class="article-nav-link-wrap">
         <strong class="article-nav-caption">下一篇</strong>
         <p class="article-nav-title">
         
-            postgresql使用日志
+            nginx反向代理frp缓存加速
         
         </p>
         <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
     </a>
     
     
-        <a href="/posts/9040e6a2/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/archives/5018439d/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">上一篇</strong>
-        <p class="article-nav-title">hueman主题使用补充</p>
+        <p class="article-nav-title">hexo使用记录</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
@@ -426,10 +487,10 @@ odoo简介和部署方式OpenERP的前身，开源，功能强大，更新版本
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/posts/15b0611c/" class="thumbnail">
+                            <a href="/archives/15b0611c/" class="thumbnail">
     
     
-        <span style="background-image:url(/posts/15b0611c/1.png)" alt="据说爱恩斯坦是中等学生，你享看看真实的史料么" class="thumbnail-image"></span>
+        <span style="background-image:url(/archives/15b0611c/1.png)" alt="据说爱恩斯坦是中等学生，你享看看真实的史料么" class="thumbnail-image"></span>
     
     
 </a>
@@ -438,7 +499,7 @@ odoo简介和部署方式OpenERP的前身，开源，功能强大，更新版本
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/%E6%96%87%E6%91%98/">文摘</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E6%96%87%E6%91%98/%E4%BA%BA%E7%89%A9/">人物</a></p>
-                            <p class="item-title"><a href="/posts/15b0611c/" class="title">据说爱恩斯坦是中等学生，你享看看真实的史料么</a></p>
+                            <p class="item-title"><a href="/archives/15b0611c/" class="title">据说爱恩斯坦是中等学生，你享看看真实的史料么</a></p>
                             <p class="item-date"><time datetime="2020-10-29T06:03:30.000Z" itemprop="datePublished">2020-10-29</time></p>
                         </div>
                     </li>
@@ -446,10 +507,10 @@ odoo简介和部署方式OpenERP的前身，开源，功能强大，更新版本
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/posts/c6ba0622/" class="thumbnail">
+                            <a href="/archives/c6ba0622/" class="thumbnail">
     
     
-        <span style="background-image:url(/posts/c6ba0622/1.jpg)" alt="postgresql使用日志" class="thumbnail-image"></span>
+        <span style="background-image:url(/archives/c6ba0622/1.jpg)" alt="postgresql使用日志" class="thumbnail-image"></span>
     
     
 </a>
@@ -458,7 +519,7 @@ odoo简介和部署方式OpenERP的前身，开源，功能强大，更新版本
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E6%B8%A9%E6%95%85%E8%80%8C%E7%9F%A5%E6%96%B0/">温故而知新</a></p>
-                            <p class="item-title"><a href="/posts/c6ba0622/" class="title">postgresql使用日志</a></p>
+                            <p class="item-title"><a href="/archives/c6ba0622/" class="title">postgresql使用日志</a></p>
                             <p class="item-date"><time datetime="2020-10-29T01:07:05.000Z" itemprop="datePublished">2020-10-29</time></p>
                         </div>
                     </li>
@@ -466,10 +527,10 @@ odoo简介和部署方式OpenERP的前身，开源，功能强大，更新版本
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/posts/18899723/" class="thumbnail">
+                            <a href="/archives/18899723/" class="thumbnail">
     
     
-        <span style="background-image:url(/posts/18899723/1.png)" alt="docker部署odoo14及postgresql" class="thumbnail-image"></span>
+        <span style="background-image:url(/archives/18899723/1.png)" alt="docker部署odoo14及postgresql" class="thumbnail-image"></span>
     
     
 </a>
@@ -478,7 +539,7 @@ odoo简介和部署方式OpenERP的前身，开源，功能强大，更新版本
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E5%AE%9E%E8%B7%B5%E9%AA%8C%E8%AF%81%E7%9C%9F%E7%90%86/">实践验证真理</a></p>
-                            <p class="item-title"><a href="/posts/18899723/" class="title">docker部署odoo14及postgresql</a></p>
+                            <p class="item-title"><a href="/archives/18899723/" class="title">docker部署odoo14及postgresql</a></p>
                             <p class="item-date"><time datetime="2020-10-28T07:45:05.000Z" itemprop="datePublished">2020-10-28</time></p>
                         </div>
                     </li>
@@ -486,10 +547,10 @@ odoo简介和部署方式OpenERP的前身，开源，功能强大，更新版本
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/posts/9040e6a2/" class="thumbnail">
+                            <a href="/archives/9040e6a2/" class="thumbnail">
     
     
-        <span style="background-image:url(/posts/9040e6a2/4.jpg)" alt="hueman主题使用补充" class="thumbnail-image"></span>
+        <span style="background-image:url(/archives/9040e6a2/4.jpg)" alt="hueman主题使用补充" class="thumbnail-image"></span>
     
     
 </a>
@@ -498,7 +559,7 @@ odoo简介和部署方式OpenERP的前身，开源，功能强大，更新版本
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E5%AE%9E%E8%B7%B5%E9%AA%8C%E8%AF%81%E7%9C%9F%E7%90%86/">实践验证真理</a></p>
-                            <p class="item-title"><a href="/posts/9040e6a2/" class="title">hueman主题使用补充</a></p>
+                            <p class="item-title"><a href="/archives/9040e6a2/" class="title">hueman主题使用补充</a></p>
                             <p class="item-date"><time datetime="2020-10-16T07:49:30.000Z" itemprop="datePublished">2020-10-16</time></p>
                         </div>
                     </li>
@@ -506,10 +567,10 @@ odoo简介和部署方式OpenERP的前身，开源，功能强大，更新版本
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/posts/e14542ec/" class="thumbnail">
+                            <a href="/archives/e14542ec/" class="thumbnail">
     
     
-        <span style="background-image:url(/posts/e14542ec/1.jpg)" alt="使用denyhosts防止暴力破解ssh" class="thumbnail-image"></span>
+        <span style="background-image:url(/archives/e14542ec/1.jpg)" alt="使用denyhosts防止暴力破解ssh" class="thumbnail-image"></span>
     
     
 </a>
@@ -518,7 +579,7 @@ odoo简介和部署方式OpenERP的前身，开源，功能强大，更新版本
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E5%AE%9E%E8%B7%B5%E9%AA%8C%E8%AF%81%E7%9C%9F%E7%90%86/">实践验证真理</a></p>
-                            <p class="item-title"><a href="/posts/e14542ec/" class="title">使用denyhosts防止暴力破解ssh</a></p>
+                            <p class="item-title"><a href="/archives/e14542ec/" class="title">使用denyhosts防止暴力破解ssh</a></p>
                             <p class="item-date"><time datetime="2020-10-16T07:49:30.000Z" itemprop="datePublished">2020-10-16</time></p>
                         </div>
                     </li>
