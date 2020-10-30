@@ -2,14 +2,14 @@
 <search>
   <entry>
     <title>hueman主题使用补充</title>
-    <url>/archives/9040e6a2/9040e6a2.html</url>
-    <content><![CDATA[<p><img src="/archives/9040e6a2/4.jpg" alt=" "></p>
+    <url>/archives/hueman%E4%B8%BB%E9%A2%98%E4%BD%BF%E7%94%A8%E8%A1%A5%E5%85%85.html</url>
+    <content><![CDATA[<p><img src="/archives/4.jpg" alt=" "></p>
 <h2 id="config-yml说明"><a href="#config-yml说明" class="headerlink" title="_config.yml说明"></a>_config.yml说明</h2><h3 id="Customize"><a href="#Customize" class="headerlink" title="Customize"></a>Customize</h3><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">customize:</span></span><br><span class="line">    <span class="attr">logo:</span></span><br><span class="line">        <span class="attr">width:</span> <span class="number">165</span></span><br><span class="line">        <span class="attr">height:</span> <span class="number">60</span></span><br><span class="line">        <span class="attr">url:</span> <span class="string">images/logo-header.png</span></span><br><span class="line">    <span class="attr">theme_color:</span> <span class="string">&#x27;#4169E1&#x27;</span></span><br><span class="line">    <span class="attr">highlight:</span> <span class="string">tomorrow-night-eighties</span></span><br><span class="line">    <span class="attr">sidebar:</span> <span class="string">left</span> <span class="comment"># sidebar position, options: left, right</span></span><br><span class="line">    <span class="attr">thumbnail:</span> <span class="literal">true</span> <span class="comment"># enable posts thumbnail, options: true, false</span></span><br><span class="line">    <span class="attr">favicon:</span> <span class="string">css/images/favicon.png</span> <span class="comment"># path to favicon</span></span><br><span class="line">    <span class="attr">social_links:</span> <span class="comment"># for more icons, please see http://fontawesome.io/icons/#brand</span></span><br><span class="line">        <span class="attr">github:</span> <span class="string">https://github.com/helllllp</span></span><br><span class="line">        <span class="attr">weibo:</span> <span class="string">/</span></span><br><span class="line">        <span class="attr">qq:</span> <span class="string">/524311610</span></span><br><span class="line">        <span class="attr">weixin:</span> <span class="string">/</span></span><br><span class="line">        <span class="attr">rss:</span> <span class="string">/</span></span><br></pre></td></tr></table></figure>
 <p>定义了自定义选项：<br><strong>logo</strong>：网站头部和脚部的logo，width和height是显示在网页上的大小，图片路径按照images/xxx.png来获取<br><strong>theme_color</strong>：主题色，影响关注我的banner颜色，超链接颜色和侧边栏文章标题颜色<br><strong>highlight</strong>: 代码高亮，可以<code>ls themes/hueman/source/css/_highlight/</code>查看有多少个主题样式，效果可以到highlightjs官网根据预览效果来选取：<a href="https://highlightjs.org/static/demo/">https://highlightjs.org/static/demo/</a><br><strong>favicon</strong>：网站图标，图片路径按照css/images/xxx.png来获取</p>
 <h2 id="Search"><a href="#Search" class="headerlink" title="Search"></a>Search</h2><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">search:</span></span><br><span class="line">    <span class="attr">insight:</span> <span class="literal">false</span> <span class="comment"># you need to install `hexo-generator-json-content` before using Insight Search</span></span><br><span class="line">    <span class="attr">swiftype:</span> <span class="string">xxxxxxxxxx</span> <span class="comment"># enter swiftype install key here</span></span><br><span class="line">    <span class="attr">baidu:</span> <span class="literal">false</span> <span class="comment"># you need to disable other search engines to use Baidu search, options: true, false</span></span><br></pre></td></tr></table></figure>
-<p>搜索引擎，当前版本配置了三个搜索引擎，insight需要npm安装hexo-generator-json-content，我这里安装后没有效果，故使用swiftype，百度官方不推荐<br>1、申请swiftype账号：<a href="https://app.swiftype.com/">https://app.swiftype.com/</a><br>使用邮箱注册，貌似使用qq和139邮箱申请不行，我用了自己阿里云域名的邮箱才行：crontab@hellshan.top<br>2、点击create new engine，创建新引擎，填上你的域名，进入后点击Setup and integration，复制install key到配置文件就OK<br><img src="/archives/9040e6a2/1.PNG" alt=" "></p>
+<p>搜索引擎，当前版本配置了三个搜索引擎，insight需要npm安装hexo-generator-json-content，我这里安装后没有效果，故使用swiftype，百度官方不推荐<br>1、申请swiftype账号：<a href="https://app.swiftype.com/">https://app.swiftype.com/</a><br>使用邮箱注册，貌似使用qq和139邮箱申请不行，我用了自己阿里云域名的邮箱才行：crontab@hellshan.top<br>2、点击create new engine，创建新引擎，填上你的域名，进入后点击Setup and integration，复制install key到配置文件就OK<br><img src="/archives/1.PNG" alt=" "></p>
 <h2 id="Comment"><a href="#Comment" class="headerlink" title="Comment"></a>Comment</h2><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">comment:</span></span><br><span class="line">    <span class="attr">disqus:</span> <span class="comment"># enter disqus shortname here</span></span><br><span class="line">    <span class="attr">duoshuo:</span> <span class="comment"># enter duoshuo shortname here</span></span><br><span class="line">    <span class="attr">youyan:</span> <span class="comment"># enter youyan uid here</span></span><br><span class="line">    <span class="attr">facebook:</span> <span class="comment"># enter true to enable</span></span><br><span class="line">    <span class="attr">isso:</span> <span class="comment"># options for isso.</span></span><br><span class="line">    <span class="attr">changyan:</span></span><br><span class="line">    <span class="attr">valine:</span> <span class="comment"># Valine Comment System https://github.com/xCss/Valine</span></span><br><span class="line">        <span class="attr">on:</span>  <span class="literal">true</span> <span class="comment"># enter true to enable valine</span></span><br><span class="line">        <span class="attr">appId:</span> <span class="string">4O7x2fxxxxxxrdxFIAJn3v-gzGzoHsz</span> <span class="comment"># enter the leancloud application appId here</span></span><br><span class="line">        <span class="attr">appKey:</span> <span class="string">k2d5KmEjtQeLw5IuRficyYsN</span> <span class="comment"># enter the leancloud application appKey here</span></span><br><span class="line">        <span class="attr">notify:</span> <span class="comment"># enter true to enable &lt;Mail notifier&gt;, default: false; https://github.com/xCss/Valine/wiki/Valine-%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E9%82%AE%E4%BB%B6%E6%8F%90%E9%86%92%E8%AE%BE%E7%BD%AE</span></span><br><span class="line">        <span class="attr">verify:</span> <span class="literal">true</span> <span class="comment"># enter true to enable &lt;Validation code&gt;, default: false</span></span><br><span class="line">        <span class="attr">placeholder:</span> <span class="string">Just</span> <span class="string">Do</span> <span class="string">It</span> <span class="comment"># enter the comment box placeholder</span></span><br><span class="line">        <span class="attr">avatar:</span> <span class="string">identicon</span> <span class="comment"># (&#x27;&#x27;/mm/identicon/monsterid/wavatar/retro/hide), more to see https://valine.js.org/avatar.html</span></span><br><span class="line">        <span class="attr">avatar_cdn:</span> <span class="string">https://gravatar.loli.net/avatar/</span> <span class="comment"># avatar CDN address, default gravatar.cat.net</span></span><br><span class="line">        <span class="attr">pageSize:</span> <span class="number">10</span> <span class="comment"># comments of one page</span></span><br><span class="line">        <span class="attr">visitor:</span> <span class="literal">true</span> <span class="comment"># count reading numbers; If true, the numbers will also show below the title of every post</span></span><br><span class="line">        <span class="attr">recordip:</span> <span class="comment">#false # If true, record commenter&#x27;s ip, which is shown in LeanCloud pannel</span></span><br><span class="line">    <span class="attr">gitalk:</span></span><br></pre></td></tr></table></figure>
-<p>评论系统，这里使用了valine，详见<a href="https://valine.js.org/avatar.html">https://valine.js.org/avatar.html</a>操作指引<br>1、请先登录或注册 LeanCloud, 进入控制台后点击左下角创建应用：<br><img src="/archives/9040e6a2/2.PNG" alt=" "><br>2、应用创建好以后，进入刚刚创建的应用，选择左下角的设置&gt;应用Key，然后就能看到你的APP ID和APP Key了：<br><img src="/archives/9040e6a2/3.PNG" alt=" "><br>3、把ID和KEY复制到配置文件即可</p>
+<p>评论系统，这里使用了valine，详见<a href="https://valine.js.org/avatar.html">https://valine.js.org/avatar.html</a>操作指引<br>1、请先登录或注册 LeanCloud, 进入控制台后点击左下角创建应用：<br><img src="/archives/2.PNG" alt=" "><br>2、应用创建好以后，进入刚刚创建的应用，选择左下角的设置&gt;应用Key，然后就能看到你的APP ID和APP Key了：<br><img src="/archives/3.PNG" alt=" "><br>3、把ID和KEY复制到配置文件即可</p>
 <h2 id="其他配置"><a href="#其他配置" class="headerlink" title="其他配置"></a>其他配置</h2><h3 id="source-css-style-styl"><a href="#source-css-style-styl" class="headerlink" title="source/css/style.styl"></a>source/css/style.styl</h3><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">code</span></span><br><span class="line">    <span class="attr">margin:</span> <span class="number">0</span> <span class="string">2px</span></span><br><span class="line">    <span class="attr">color:</span> <span class="comment">#3CB371</span></span><br><span class="line">    <span class="attr">padding:</span> <span class="string">3px</span> <span class="string">5px</span></span><br><span class="line">    <span class="attr">font-size:</span> <span class="number">0.</span><span class="string">8em</span></span><br><span class="line">    <span class="attr">border-radius:</span> <span class="string">2px</span></span><br><span class="line">    <span class="attr">font-family:</span> <span class="string">font-mono</span></span><br><span class="line">    <span class="attr">background-color:</span> <span class="comment">#F0F8FF</span></span><br></pre></td></tr></table></figure>
 <p>定义了代码的颜色，大小和边距，以及背景色</p>
 <h3 id="source-css-variables-styl"><a href="#source-css-variables-styl" class="headerlink" title="source/css/_variables.styl"></a>source/css/_variables.styl</h3><figure class="highlight"><table><tr><td class="code"><pre><span class="line">// Colors</span><br><span class="line">color-default = #555</span><br><span class="line"><span class="selector-tag">if</span> <span class="selector-tag">hexo-config</span>(&quot;<span class="selector-tag">customize</span><span class="selector-class">.theme_color</span>&quot;)</span><br><span class="line">    color-theme = convert(hexo-config(&quot;customize.theme_color&quot;))</span><br><span class="line"><span class="selector-tag">else</span></span><br><span class="line">    color-theme = #3b8dbd</span><br><span class="line">color-grey = #aaa</span><br><span class="line">color-header-background = #2F4F4F</span><br><span class="line">color-main-background = #fff</span><br><span class="line">color-background = #eaeaea</span><br><span class="line">color-mobile-nav-background = #191919</span><br><span class="line">color-border = #ddd</span><br><span class="line">color-border-light = #eee</span><br><span class="line">color-nav-foreground = rgba(255,255,255,0.7)</span><br><span class="line">color-nav-background = #33363b</span><br><span class="line">color-nav-hover-background = rgba(0,0,0,0.1)</span><br><span class="line">color-sidebar-background = #f0f0f0</span><br><span class="line">color-sidebar-text = #777</span><br><span class="line">color-sidebar-text-dark = #444</span><br><span class="line">color-footer-background = #2F4F4F</span><br><span class="line"></span><br><span class="line">// Fonts</span><br><span class="line">font-sans = &quot;Titillium Web&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, &quot;Microsoft Yahei&quot;, sans-serif</span><br><span class="line">font-serif = Georgia, &quot;Times New Roman&quot;, serif</span><br><span class="line">font-mono = &quot;Source Code Pro&quot;, Consolas, Monaco, Menlo, Consolas, monospace</span><br><span class="line">font-icon-profile-size = 24px</span><br><span class="line">font-size = 14px</span><br><span class="line">font-size-article = 16px</span><br><span class="line">line-height = 1.6em</span><br><span class="line">line-height-title = 1.3em</span><br></pre></td></tr></table></figure>
@@ -26,17 +26,17 @@
   </entry>
   <entry>
     <title>Hexo博客之后续SEO优化</title>
-    <url>/archives/efed9114/efed9114.html</url>
-    <content><![CDATA[<p><img src="/archives/efed9114/4.png" alt=" "><br>SEO (Search Engine Optimization)，即搜索引擎优化。简单来说，SEO就是您可以使用提升网站排名的所有方法的总称，SEO用于确保您的网站及其内容在搜索引擎结果页面（SERP）上的可见性。</p>
+    <url>/archives/Hexo%E5%8D%9A%E5%AE%A2%E4%B9%8B%E5%90%8E%E7%BB%ADSEO%E4%BC%98%E5%8C%96.html</url>
+    <content><![CDATA[<p><img src="/archives/4.png" alt=" "><br>SEO (Search Engine Optimization)，即搜索引擎优化。简单来说，SEO就是您可以使用提升网站排名的所有方法的总称，SEO用于确保您的网站及其内容在搜索引擎结果页面（SERP）上的可见性。</p>
 <h2 id="验证你的网站-让你博客被搜索引擎找到"><a href="#验证你的网站-让你博客被搜索引擎找到" class="headerlink" title="验证你的网站(让你博客被搜索引擎找到)"></a>验证你的网站(让你博客被搜索引擎找到)</h2><h3 id="查看你的博客是否被收入"><a href="#查看你的博客是否被收入" class="headerlink" title="查看你的博客是否被收入"></a>查看你的博客是否被收入</h3><p>在谷歌或者百度的搜索链接中，使用以下格式可以直接搜索自己的域名， 如果能搜索到就说明已经被收录，反之则没有。可以直接搜索自己的域名，或者加一些关键词来更好地判断，例如：<br><code>site: https://blog.hellshan.top</code></p>
-<h3 id="提交我们的网站"><a href="#提交我们的网站" class="headerlink" title="提交我们的网站"></a>提交我们的网站</h3><p>若未被搜索引擎收录，则需进行以下配置，首先要让搜索引擎先验证我们对网站的所有权，两个搜索引擎提交的入口分别为：<br><a href="https://www.google.com/webmasters/tools/home?hl=zh-CN">Google Search Console</a><br><img src="/archives/efed9114/1.png" alt=" "><br><a href="https://ziyuan.baidu.com">百度站长平台</a><br><img src="/archives/efed9114/2.png" alt=" "><br>有多种验证方式，这里推荐 HTML 文件上传方式。下载 HTML 验证文件，拷贝到 Hexo/sources/ 文件夹下,为了使 hexo 不处理这两个验证文件，并且不生成关于这两个文件的 sitemap，我们需要打开验证文件，在最上面添加以下代码：</p>
+<h3 id="提交我们的网站"><a href="#提交我们的网站" class="headerlink" title="提交我们的网站"></a>提交我们的网站</h3><p>若未被搜索引擎收录，则需进行以下配置，首先要让搜索引擎先验证我们对网站的所有权，两个搜索引擎提交的入口分别为：<br><a href="https://www.google.com/webmasters/tools/home?hl=zh-CN">Google Search Console</a><br><img src="/archives/1.png" alt=" "><br><a href="https://ziyuan.baidu.com">百度站长平台</a><br><img src="/archives/2.png" alt=" "><br>有多种验证方式，这里推荐 HTML 文件上传方式。下载 HTML 验证文件，拷贝到 Hexo/sources/ 文件夹下,为了使 hexo 不处理这两个验证文件，并且不生成关于这两个文件的 sitemap，我们需要打开验证文件，在最上面添加以下代码：</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line">layout: false</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
 <p>然后执行 hexo 部署命令<br><code>hexo clean</code><br><code>hexo g</code><br><code>hexo d</code><br>最后返回验证页面，就可以查看验证是否通过了</p>
 <h2 id="生成Sitemap"><a href="#生成Sitemap" class="headerlink" title="生成Sitemap"></a>生成Sitemap</h2><p>Sitemap即网站地图，它的作用在于便于搜索引擎更加智能地抓取网站。最简单和常见的sitemap形式，是XML文件，在其中列出网站中的网址以及关于每个网址的其他元数据</p>
 <h3 id="安装sitemap生成插件"><a href="#安装sitemap生成插件" class="headerlink" title="安装sitemap生成插件"></a>安装sitemap生成插件</h3><p><code>npm install hexo-generator-sitemap --save</code><br><code>npm install hexo-generator-baidu-sitemap --save</code></p>
 <h3 id="编辑站点目录下的-config-yml，添加一下字段"><a href="#编辑站点目录下的-config-yml，添加一下字段" class="headerlink" title="编辑站点目录下的_config.yml，添加一下字段"></a>编辑站点目录下的_config.yml，添加一下字段</h3><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment">#hexo sitemap</span></span><br><span class="line"><span class="attr">sitemap:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">sitemap.xml</span></span><br><span class="line"><span class="attr">baidusitemap:</span></span><br></pre></td></tr></table></figure>
 <p>之后在执行 hexo g 后， public目录下发现生成了 sitemap.xml和baidusitemap.xml 就表示配置成功了。</p>
-<h2 id="提交sitemap"><a href="#提交sitemap" class="headerlink" title="提交sitemap"></a>提交sitemap</h2><h3 id="向谷歌提交"><a href="#向谷歌提交" class="headerlink" title="向谷歌提交"></a>向谷歌提交</h3><p>向谷歌提交 sitemap 比较简单，登录 Google Search Console ，选择已经验证过的站点，在抓取 -&gt; 站点地图 中，右上角可看到 添加 / 测试站点地图，添加 sitemap.xml 的链接即可，谷歌效率较高，一般当天或者第二天就能搜到微博了。如图：<br><img src="/archives/efed9114/3.png" alt=" "></p>
+<h2 id="提交sitemap"><a href="#提交sitemap" class="headerlink" title="提交sitemap"></a>提交sitemap</h2><h3 id="向谷歌提交"><a href="#向谷歌提交" class="headerlink" title="向谷歌提交"></a>向谷歌提交</h3><p>向谷歌提交 sitemap 比较简单，登录 Google Search Console ，选择已经验证过的站点，在抓取 -&gt; 站点地图 中，右上角可看到 添加 / 测试站点地图，添加 sitemap.xml 的链接即可，谷歌效率较高，一般当天或者第二天就能搜到微博了。如图：<br><img src="/archives/3.png" alt=" "></p>
 <h3 id="向百度提交"><a href="#向百度提交" class="headerlink" title="向百度提交"></a>向百度提交</h3><p>与谷歌类似，我们可以直接向百度交 sitemap，登录 百度站长平台，点击 网页抓取-&gt; 链接提交，在 自动提交中选择 sitemap，输入自己的域名加 baidusitemap.xml 即可，之后可查看 url 提取是否成功。<br>由于 GitHub 屏蔽了百度的爬虫，即使提交成功，百度知道这里有可供抓取的链接，也不一定能抓取成功。 首先我们先检测一下百度爬虫是否可以抓取网页。在百度站长平台网页抓取-&gt;抓取诊断 中，选择PC UA点击抓取 , 查看抓取状态， 如果显示 抓取失败， 则需要进一步的配置。</p>
 <h3 id="主动推送和自动推送"><a href="#主动推送和自动推送" class="headerlink" title="主动推送和自动推送"></a>主动推送和自动推送</h3><p>百度提供了多种链接提交的方式，可以综合使用，互为补充。<br>    如何选择链接提交方式<br>    1、主动推送：最为快速的提交方式，推荐您将站点当天新产出链接立即通过此方式推送给百度，以保证新链接可以及时被百度收录。<br>    2、自动推送：最为便捷的提交方式，请将自动推送的 JS 代码部署在站点的每一个页面源代码中，部署代码的页面在每次被浏览时，链接会被自动推送给百度。可以与主动推送配合使用。<br>    3、sitemap：您可以定期将网站链接放到 sitemap 中，然后将 sitemap 提交给百度。百度会周期性的抓取检查您提交的 sitemap，对其中的链接进行处理，但收录速度慢于主动推送。<br>    4、手动提交：一次性提交链接给百度，可以使用此种方式</p>
 <p><strong>自动推送</strong><br>我这里用的python自动推送脚本（Mac环境）如下所示：</p>
@@ -83,9 +83,9 @@
   </entry>
   <entry>
     <title>据说爱恩斯坦是中等学生，你享看看真实的史料么</title>
-    <url>/archives/15b0611c/15b0611c.html</url>
+    <url>/archives/%E6%8D%AE%E8%AF%B4%E7%88%B1%E6%81%A9%E6%96%AF%E5%9D%A6%E6%98%AF%E4%B8%AD%E7%AD%89%E5%AD%A6%E7%94%9F%EF%BC%8C%E4%BD%A0%E4%BA%AB%E7%9C%8B%E7%9C%8B%E7%9C%9F%E5%AE%9E%E7%9A%84%E5%8F%B2%E6%96%99%E4%B9%88.html</url>
     <content><![CDATA[<p>原创 一棵青木 远方青木 10月13日</p>
-<p><img src="/archives/15b0611c/1.png" alt=" "></p>
+<p><img src="/archives/1.png" alt=" "></p>
 <p>就是数学那么差的爱因斯坦，经过自身的不懈努力，后来居然成为了举世闻名的大科学家，被列为20世纪人类科学家之首。</p>
 <p>多么励志的一个故事。</p>
 <p>这个故事在中国流传的如此之广，<strong>以至于连我小时候都听过并相信这就是事实。</strong></p>
@@ -106,10 +106,10 @@
 <p>横行中国数十年的谣言，如今被诺贝尔奖官方给戳破了。</p>
 <p>近日，诺贝尔奖官方公布了爱因斯坦1896年就读于瑞士阿劳市高中的成绩单。</p>
 <p>那一年，爱因斯坦17岁。</p>
-<p><img src="/archives/15b0611c/2.png" alt=" "></p>
+<p><img src="/archives/2.png" alt=" "></p>
 <p>瑞士的成绩制，6分是最高分，1分是最低分。</p>
 <p>爱因斯坦有5科拿下了满分，也就是6分，分别是<strong>代数，几何，画法几何，物理和历史。</strong></p>
-<p><img src="/archives/15b0611c/3.png" alt=" "></p>
+<p><img src="/archives/3.png" alt=" "></p>
 <p>从成绩单中可以看到，爱因斯坦的文科确实不太好，法语甚至只拿了3分，但理科是爆炸强。</p>
 <p>爱因斯坦的高中数学，不仅及格了，还拿下了满分。</p>
 <p>我从小就很纳闷，既然爱因斯坦的物理和数学那么好，为什么考试会不及格。</p>
@@ -122,7 +122,7 @@
 <h2 id="空间是可以扭曲的"><a href="#空间是可以扭曲的" class="headerlink" title="空间是可以扭曲的"></a>空间是可以扭曲的</h2><p>在正常人的认知中，空间是永恒不变的。</p>
 <p>空间就是空间，只是一个概念而已，还能有啥？</p>
 <p>但爱因斯坦说，空间是扭曲的，大质量的天体，会“压弯”周围的空间，导致附近的空间出现弯曲的现象。</p>
-<p><img src="/archives/15b0611c/4.png" alt=" "></p>
+<p><img src="/archives/4.png" alt=" "></p>
 <p>凭这个理论，爱因斯坦完善了牛顿的万有引力。</p>
 <p>但这个结论，实在是太荒谬了，严重超出正常人的认知。</p>
 <p>太阳扭曲了它周围的空间，你也扭曲了你周围的空间，我们周围的空间都是在不断波动的。</p>
@@ -210,8 +210,8 @@
   </entry>
   <entry>
     <title>postgresql使用日志</title>
-    <url>/archives/c6ba0622/c6ba0622.html</url>
-    <content><![CDATA[<p><img src="/archives/c6ba0622/1.jpg" alt=" "></p>
+    <url>/archives/postgresql%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97.html</url>
+    <content><![CDATA[<p><img src="/archives/1.jpg" alt=" "></p>
 <h2 id="postgres安装"><a href="#postgres安装" class="headerlink" title="postgres安装"></a>postgres安装</h2><p>postgres作为流行的关系型数据库，当然有多种安装方式，可以参考官方：<a href="https://www.postgresql.org/download/">https://www.postgresql.org/download/</a><br>postgres初次安装后，默认生成一个名为postgres的数据库和一个名为postgres的数据库用户。这里需要注意的是，同时还生成了一个名为postgres的Linux系统用户。可以使用postgres用户来生成其他用户和新数据库。</p>
 <h3 id="docker安装"><a href="#docker安装" class="headerlink" title="docker安装"></a>docker安装</h3><p>docker安装可以指定POSTGRES_DB，POSTGRES_USER，POSTGRES_PASSWORD（password必须指定，否则创建容器后会报错）等，详见<a href="https://hub.docker.com/_/postgres">https://hub.docker.com/_/postgres</a>，如果不指定，则会跟常规安装一样，默认生成一个名为postgres的数据库和一个名为postgres的数据库用户，还有postgres系统用户。指定了POSTGRES-DB，创建的容器内会生成指定数据库用户名来替代默认的postgres（超级用户）。</p>
 <h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>切换用户：<br><code>su postgres</code><br>进入postgresql：<br><code>psql</code><br>或直接使用用户名参数登录：<br><code>psql -U postgres -d postgres</code><br>U是大写，需要-d指定数据库</p>
@@ -230,18 +230,18 @@
   </entry>
   <entry>
     <title>docker部署odoo14及postgresql</title>
-    <url>/archives/18899723/18899723.html</url>
-    <content><![CDATA[<p><img src="/archives/18899723/1.png" alt=" "></p>
+    <url>/archives/docker%E9%83%A8%E7%BD%B2odoo14%E5%8F%8Apostgresql.html</url>
+    <content><![CDATA[<p><img src="/archives/1.png" alt=" "></p>
 <h2 id="odoo简介和部署方式"><a href="#odoo简介和部署方式" class="headerlink" title="odoo简介和部署方式"></a>odoo简介和部署方式</h2><p>OpenERP的前身，开源，功能强大，更新版本到14，官方有几种安装方法，使用docker方法部署更简单，而官方使用docker compose的方式启动，我希望postgressql能够提供给多个应用使用，可以通过外部方法来访问，所以我这里用portainer部署。</p>
 <h2 id="部署postgres"><a href="#部署postgres" class="headerlink" title="部署postgres"></a>部署postgres</h2><h3 id="下载portgres镜像"><a href="#下载portgres镜像" class="headerlink" title="下载portgres镜像"></a>下载portgres镜像</h3><p>首先确定好postgresql的版本，这里使用postgres:12，直接执行<code>docker pull postgres:12</code>下载镜像</p>
 <h3 id="portainer上配置postgres容器参数"><a href="#portainer上配置postgres容器参数" class="headerlink" title="portainer上配置postgres容器参数"></a>portainer上配置postgres容器参数</h3><p>postgres docker官方镜像有参数说明：<a href="https://hub.docker.com/_/postgres?tab=description">https://hub.docker.com/_/postgres?tab=description</a>，根据odoo docker官网镜像说明，其中的yaml配置上环境参数只配置了下面几个，所以potainer上也设置这几个参数即可</p>
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">POSTGRES_DB=postgres</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">POSTGRES_PASSWORD=odoo</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">POSTGRES_USER=odoo</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">PGDATA=/var/lib/postgresql/data/pgdata</span></span><br><span class="line"><span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">odoo-db-data:/var/lib/postgresql/data/pgdata</span></span><br></pre></td></tr></table></figure>
-<p>portainer对应配置：<br><img src="/archives/18899723/2.png" alt=" "></p>
-<p>其中额外配置了port映射，postgres数据库端口默认是5432,使用宿主机的5432到docker主机的5432端口，PGDATA并没有配置，是默认生成的，与上面的有点不一样，手动配置了volume映射。<br>配置后生成container，可以在portainer上看到running。<br>使用navicat连接到数据库测试：<br><img src="/archives/18899723/3.png" alt=" "><br>测试成功！</p>
+<p>portainer对应配置：<br><img src="/archives/2.png" alt=" "></p>
+<p>其中额外配置了port映射，postgres数据库端口默认是5432,使用宿主机的5432到docker主机的5432端口，PGDATA并没有配置，是默认生成的，与上面的有点不一样，手动配置了volume映射。<br>配置后生成container，可以在portainer上看到running。<br>使用navicat连接到数据库测试：<br><img src="/archives/3.png" alt=" "><br>测试成功！</p>
 <h2 id="部署odoo"><a href="#部署odoo" class="headerlink" title="部署odoo"></a>部署odoo</h2><h3 id="下载odoo镜像"><a href="#下载odoo镜像" class="headerlink" title="下载odoo镜像"></a>下载odoo镜像</h3><p>使用最新镜像，最新版为14<br><code>docker pull odoo:latest</code></p>
 <h3 id="portainer上配置odoo容器参数"><a href="#portainer上配置odoo容器参数" class="headerlink" title="portainer上配置odoo容器参数"></a>portainer上配置odoo容器参数</h3><p>官方docker-compose.yaml配置：</p>
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">web:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">odoo:12.0</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">mydb</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;8069:8069&quot;</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">HOST=mydb</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">USER=odoo</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">PASSWORD=myodoo</span></span><br></pre></td></tr></table></figure>
-<p>portainer对应配置：<br><img src="/archives/18899723/4.png" alt=" "><br>配置后生成container，在浏览器输入<a href="http://宿主ip:8069">http://宿主ip:8069</a>访问，出现500错误。从portainer上查看日志，发现这里配置的odoo数据库需要初始化，需要运行odoo -i base强制初始化。这一步搞了我很久，网上也没有详细的解决方法，这里记录下解决方法。</p>
+<p>portainer对应配置：<br><img src="/archives/4.png" alt=" "><br>配置后生成container，在浏览器输入<a href="http://宿主ip:8069">http://宿主ip:8069</a>访问，出现500错误。从portainer上查看日志，发现这里配置的odoo数据库需要初始化，需要运行odoo -i base强制初始化。这一步搞了我很久，网上也没有详细的解决方法，这里记录下解决方法。</p>
 <ol>
 <li>拷贝容器内的odoo.conf配置文件到本机：<br>先进入映射的volume配置文件目录运行：<br><code>docker exec home_odoo cat /etc/odoo/odoo.conf &gt; odoo.conf</code></li>
 <li><p>修改配置文件，手动修改数据库连接参数：<br><code>vim odoo.conf</code></p>
@@ -251,8 +251,8 @@
 </li>
 </ol>
 <p>执行完毕后，再次访问<a href="http://宿主ip:8069">http://宿主ip:8069</a>，就会出现登录界面啦。默认登陆用户名和密码都是admin，记得进入修改。</p>
-<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>这里有必要记录下docker容器目录映射到宿主目录的权限问题，以免映射后出现权限报错。一般来说，生成容器后，里面的应用目录有固定的用户权限。如postgres，生成容器后，默认数据库目录属主和属组都是postgres，而查看其ID为999<br><img src="/archives/18899723/7.png" alt=" "><br>而回到宿主的对应映射目录，可以看到其ID是跟容器的用户ID一样的。<br><img src="/archives/18899723/8.png" alt=" "><br>其ID对应宿主的用户名字不一样，其实是LINUX使用ID号作为唯一权限代码。但宿主机上如果没有对应的ID号，则会显示容器的ID号。宿主机建立目录后且映射后，不要修改其属主和属组，不然权限就乱套了。也可以在宿主机上新建一个ID号如<code>useradd postgres -u 1000 -g 1000 -M -s /sbin/nologin</code>，专门给容器使用，在配置容器时，添加其environment参数如PUID=1000，PGID=1000，其参数名要看官方给出的名字来指定，让容器指定使用该ID号生成用户。这样无论从容器看还是宿主机看，都是postgres的名字了。</p>
-<h2 id="odoo使用记录"><a href="#odoo使用记录" class="headerlink" title="odoo使用记录"></a>odoo使用记录</h2><h3 id="手动导入第三方安装包"><a href="#手动导入第三方安装包" class="headerlink" title="手动导入第三方安装包"></a>手动导入第三方安装包</h3><p>首先要启用开发者模式，点击设置，常规设置，到最下面，点击启用开发者模式<br><img src="/archives/18899723/5.png" alt=" "><br>启用后，进入应用，右上角取消搜索，就会显示全部的应用，在搜索base，可以见到base_import模块，安装下就会在菜单栏多一个导入模块，就可以手动导入第三方应用啦。<br><img src="/archives/18899723/6.png" alt=" "></p>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>这里有必要记录下docker容器目录映射到宿主目录的权限问题，以免映射后出现权限报错。一般来说，生成容器后，里面的应用目录有固定的用户权限。如postgres，生成容器后，默认数据库目录属主和属组都是postgres，而查看其ID为999<br><img src="/archives/7.png" alt=" "><br>而回到宿主的对应映射目录，可以看到其ID是跟容器的用户ID一样的。<br><img src="/archives/8.png" alt=" "><br>其ID对应宿主的用户名字不一样，其实是LINUX使用ID号作为唯一权限代码。但宿主机上如果没有对应的ID号，则会显示容器的ID号。宿主机建立目录后且映射后，不要修改其属主和属组，不然权限就乱套了。也可以在宿主机上新建一个ID号如<code>useradd postgres -u 1000 -g 1000 -M -s /sbin/nologin</code>，专门给容器使用，在配置容器时，添加其environment参数如PUID=1000，PGID=1000，其参数名要看官方给出的名字来指定，让容器指定使用该ID号生成用户。这样无论从容器看还是宿主机看，都是postgres的名字了。</p>
+<h2 id="odoo使用记录"><a href="#odoo使用记录" class="headerlink" title="odoo使用记录"></a>odoo使用记录</h2><h3 id="手动导入第三方安装包"><a href="#手动导入第三方安装包" class="headerlink" title="手动导入第三方安装包"></a>手动导入第三方安装包</h3><p>首先要启用开发者模式，点击设置，常规设置，到最下面，点击启用开发者模式<br><img src="/archives/5.png" alt=" "><br>启用后，进入应用，右上角取消搜索，就会显示全部的应用，在搜索base，可以见到base_import模块，安装下就会在菜单栏多一个导入模块，就可以手动导入第三方应用啦。<br><img src="/archives/6.png" alt=" "></p>
 ]]></content>
       <categories>
         <category>学而时习之</category>
@@ -265,8 +265,8 @@
   </entry>
   <entry>
     <title>使用denyhosts防止暴力破解ssh</title>
-    <url>/archives/e14542ec/e14542ec.html</url>
-    <content><![CDATA[<p><img src="/archives/e14542ec/1.jpg" alt=" "></p>
+    <url>/archives/%E4%BD%BF%E7%94%A8denyhosts%E9%98%B2%E6%AD%A2%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3ssh.html</url>
+    <content><![CDATA[<p><img src="/archives/1.jpg" alt=" "></p>
 <h2 id="下载安装denyhosts"><a href="#下载安装denyhosts" class="headerlink" title="下载安装denyhosts"></a>下载安装denyhosts</h2><p>github上有软件及安装说明，使用python开发的：<br><a href="https://github.com/denyhosts/denyhosts">https://github.com/denyhosts/denyhosts</a><br>当前最新版提供deb包和rpm包，方便debain/ubuntu和redhat/centos系统安装<br>这里我使用deb包：<br><code>wget https://github.com/denyhosts/denyhosts/releases/download/v3.1/denyhosts_3.1.2-2_all.deb</code><br>安装<br><code>dpkg -i denyhosts_3.1.2-2_all.deb</code></p>
 <h3 id="路径说明"><a href="#路径说明" class="headerlink" title="路径说明"></a>路径说明</h3><p>默认安装路径：<br>配置文件denyhost.conf：/etc/denyhost.conf<br>执行文件denyhost.py: /usr/local/bin/denyhost.py<br>控制文件daemon-control-dist: /usr/local/bin/daemon-control-dist</p>
 <h3 id="修改denyhost-conf"><a href="#修改denyhost-conf" class="headerlink" title="修改denyhost.conf"></a>修改denyhost.conf</h3><p><code>egrep -v &quot;^$|#&quot; /etc/denyhosts.conf</code></p>
@@ -287,17 +287,17 @@
   </entry>
   <entry>
     <title>ELK使用日志</title>
-    <url>/archives/459ed231/459ed231.html</url>
-    <content><![CDATA[<p><img src="/archives/459ed231/1.png" alt=" "></p>
+    <url>/archives/ELK%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97.html</url>
+    <content><![CDATA[<p><img src="/archives/1.png" alt=" "></p>
 <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>ELK是三个开源软件的缩写，分别表示：Elasticsearch , Logstash, Kibana , 它们都是开源软件。新增了一个FileBeat，它是一个轻量级的日志收集处理工具(Agent)，Filebeat占用资源少，适合于在各个服务器上搜集日志后传输给Logstash，官方也推荐此工具。</p>
 <p>Elasticsearch是个开源分布式搜索引擎，提供搜集、分析、存储数据三大功能。它的特点有：分布式，零配置，自动发现，索引自动分片，索引副本机制，restful风格接口，多数据源，自动搜索负载等。详细可参考Elasticsearch权威指南<br>Logstash 主要是用来日志的搜集、分析、过滤日志的工具，支持大量的数据获取方式。一般工作方式为c/s架构，client端安装在需要收集日志的主机上，server端负责将收到的各节点日志进行过滤、修改等操作在一并发往elasticsearch上去。<br>Kibana 也是一个开源和免费的工具，Kibana可以为 Logstash 和 ElasticSearch 提供的日志分析友好的 Web 界面，可以帮助汇总、分析和搜索重要数据日志。<br>Beats在这里是一个轻量级日志采集器，其实Beats家族有6个成员，早期的ELK架构中使用Logstash收集、解析日志，但是Logstash对内存、cpu、io等资源消耗比较高。相比 Logstash，Beats所占系统的CPU和内存几乎可以忽略不计<br>Redis是一个高性能的内存key-value数据库,非必需安装,可以防止数据丢失。缓存。</p>
 <p>ELK Stack （5.0版本之后）—&gt; Elastic Stack == （ELK Stack + Beats）。目前Beats包含六种工具：</p>
 <p>Packetbeat： 网络数据（收集网络流量数据）<br>Metricbeat： 指标 （收集系统、进程和文件系统级别的 CPU 和内存使用情况等数据）<br>Filebeat： 日志文件（收集文件数据）<br>Winlogbeat： windows事件日志（收集 Windows 事件日志数据）<br>Auditbeat：审计数据 （收集审计日志）<br>Heartbeat：运行时间监控 （收集系统运行时的数据）</p>
-<h2 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h2><h3 id="单机架构（适合少量日志）"><a href="#单机架构（适合少量日志）" class="headerlink" title="单机架构（适合少量日志）"></a>单机架构（适合少量日志）</h3><p><img src="/archives/459ed231/2.png" alt=" "><br>elasticsearch新版本已经可以对日志文件进行预处理，不用添加臃肿的logstash，filebeat直接输出到elasticsearch，使用ingest pipeline来解析日志文件，再保存索引。但该ingest process处理能力有限，只适合单机架构的少量日志。<br>详见官方文档：<br><a href="https://www.elastic.co/guide/en/beats/filebeat/7.9/load-ingest-pipelines.html">https://www.elastic.co/guide/en/beats/filebeat/7.9/load-ingest-pipelines.html</a><br>官方给出比较简单直接粗暴的模板来生成索引，包含多个字段，已经完全满足你想要的一切信息，而且能根据索引快速生成漂亮的dashboard<br><strong>配置filebeat.yml</strong><br>只需在默认配置上module模块和output模块</p>
+<h2 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h2><h3 id="单机架构（适合少量日志）"><a href="#单机架构（适合少量日志）" class="headerlink" title="单机架构（适合少量日志）"></a>单机架构（适合少量日志）</h3><p><img src="/archives/2.png" alt=" "><br>elasticsearch新版本已经可以对日志文件进行预处理，不用添加臃肿的logstash，filebeat直接输出到elasticsearch，使用ingest pipeline来解析日志文件，再保存索引。但该ingest process处理能力有限，只适合单机架构的少量日志。<br>详见官方文档：<br><a href="https://www.elastic.co/guide/en/beats/filebeat/7.9/load-ingest-pipelines.html">https://www.elastic.co/guide/en/beats/filebeat/7.9/load-ingest-pipelines.html</a><br>官方给出比较简单直接粗暴的模板来生成索引，包含多个字段，已经完全满足你想要的一切信息，而且能根据索引快速生成漂亮的dashboard<br><strong>配置filebeat.yml</strong><br>只需在默认配置上module模块和output模块</p>
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># ============================== Filebeat modules ==============================</span></span><br><span class="line"></span><br><span class="line"><span class="attr">filebeat.config.modules:</span></span><br><span class="line">  <span class="comment"># Glob pattern for configuration loading</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">$&#123;path.config&#125;/modules.d/*.yml</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Set to true to enable config reloading</span></span><br><span class="line">  <span class="attr">reload.enabled:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Period on which files under path should be checked for changes</span></span><br><span class="line">  <span class="comment">#reload.period: 10s</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ---------------------------- Elasticsearch Output ----------------------------</span></span><br><span class="line"><span class="attr">output.elasticsearch:</span></span><br><span class="line">  <span class="comment"># Array of hosts to connect to.</span></span><br><span class="line">  <span class="attr">hosts:</span> [<span class="string">&quot;elasticsearch服务器地址+端口&quot;</span>]</span><br><span class="line">  <span class="attr">pipeline:</span> <span class="string">geoip-info</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Protocol - either `http` (default) or `https`.</span></span><br><span class="line">  <span class="comment">#protocol: &quot;https&quot;</span></span><br></pre></td></tr></table></figure>
 <p>ouput到elasticsearch的配置中添加pipeline: geoip-info，意味着使用elasticsearch的geoip pipeline，默认elasticsearch不存在这个pipeline，需要手动在kibana上添加。</p>
 <figure class="highlight json"><table><tr><td class="code"><pre><span class="line">PUT _ingest/pipeline/geoip-info</span><br><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;description&quot;</span>: <span class="string">&quot;Add geoip info&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;processors&quot;</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">&quot;geoip&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;field&quot;</span>: <span class="string">&quot;client.ip&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;target_field&quot;</span>: <span class="string">&quot;client.geo&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;ignore_missing&quot;</span>: <span class="literal">true</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">&quot;geoip&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;field&quot;</span>: <span class="string">&quot;source.ip&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;target_field&quot;</span>: <span class="string">&quot;source.geo&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;ignore_missing&quot;</span>: <span class="literal">true</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">&quot;geoip&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;field&quot;</span>: <span class="string">&quot;destination.ip&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;target_field&quot;</span>: <span class="string">&quot;destination.geo&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;ignore_missing&quot;</span>: <span class="literal">true</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">&quot;geoip&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;field&quot;</span>: <span class="string">&quot;server.ip&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;target_field&quot;</span>: <span class="string">&quot;server.geo&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;ignore_missing&quot;</span>: <span class="literal">true</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">&quot;geoip&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;field&quot;</span>: <span class="string">&quot;host.ip&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;target_field&quot;</span>: <span class="string">&quot;host.geo&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;ignore_missing&quot;</span>: <span class="literal">true</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/archives/459ed231/3.png" alt=" "><br>官方说明：<br><a href="https://www.elastic.co/guide/en/beats/filebeat/7.9/filebeat-geoip.html">https://www.elastic.co/guide/en/beats/filebeat/7.9/filebeat-geoip.html</a></p>
+<p><img src="/archives/3.png" alt=" "><br>官方说明：<br><a href="https://www.elastic.co/guide/en/beats/filebeat/7.9/filebeat-geoip.html">https://www.elastic.co/guide/en/beats/filebeat/7.9/filebeat-geoip.html</a></p>
 <p><strong>命令行配置开启对应模块</strong><br><code>filebeat modules enable nginx,system</code><br>这样就开启了nginx和system的模块，相当于修改了/etc/filebeat/modules.d/下的nginx.yml.disable，去掉.disable</p>
 <p><strong>修改模块配置文件</strong><br><code>vim /etc/filebeat/modules.d/nginx.yml</code></p>
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="attr">module:</span> <span class="string">nginx</span></span><br><span class="line">  <span class="comment"># Access logs</span></span><br><span class="line">  <span class="attr">access:</span></span><br><span class="line">    <span class="attr">enabled:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Set custom paths for the log files. If left empty,</span></span><br><span class="line">    <span class="comment"># Filebeat will choose the paths depending on your OS.</span></span><br><span class="line">    <span class="attr">var.paths:</span> [<span class="string">&quot;/app/nginx/logs/access.log&quot;</span>]</span><br><span class="line"></span><br><span class="line">  <span class="comment"># Error logs</span></span><br><span class="line">  <span class="attr">error:</span></span><br><span class="line">    <span class="attr">enabled:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Set custom paths for the log files. If left empty,</span></span><br><span class="line">    <span class="comment"># Filebeat will choose the paths depending on your OS.</span></span><br><span class="line">    <span class="attr">var.paths:</span> [<span class="string">&quot;/app/nginx/logs/error.log&quot;</span>]</span><br><span class="line"></span><br><span class="line">  <span class="comment"># Ingress-nginx controller logs. This is disabled by default. It could be used in Kubernetes environments to parse ingress-nginx logs</span></span><br><span class="line">  <span class="attr">ingress_controller:</span></span><br><span class="line">    <span class="attr">enabled:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
@@ -310,14 +310,14 @@
 <p><code>filebeat test output</code></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">elasticsearch: http:&#x2F;&#x2F;elastics.xxx.com...</span><br><span class="line">  parse url... OK</span><br><span class="line">  connection...</span><br><span class="line">    parse host... OK</span><br><span class="line">    dns lookup... OK</span><br><span class="line">    addresses: 127.0.0.1</span><br><span class="line">    dial up... OK</span><br><span class="line">  TLS... WARN secure connection disabled</span><br><span class="line">  talk to server... OK</span><br><span class="line">  version: 7.9.2</span><br></pre></td></tr></table></figure>
 <p>运行filebeat并输出屏幕<br><code>filebeat -e -d &quot;publish&quot;</code></p>
-<p>从屏幕可以看出详细的输出信息，最后到kibana上就会看到创建的pipeline<br><img src="/archives/459ed231/4.png" alt=" "><br>每个日志文件对应一个pipeline来处理，是通过filebeat的field.yml配置文件来生成的。<br>建立索引后，可以看到，从模板配置处理的索引含有非常多的字段（有4839个），完全满足我们想要的<br><img src="/archives/459ed231/5.png" alt=" "><br>打开discover，可以看到生成了geoip的相关信息，可以直接点击查看访问的IP分布<br><img src="/archives/459ed231/6.png" alt=" "><br><img src="/archives/459ed231/7.png" alt=" "></p>
+<p>从屏幕可以看出详细的输出信息，最后到kibana上就会看到创建的pipeline<br><img src="/archives/4.png" alt=" "><br>每个日志文件对应一个pipeline来处理，是通过filebeat的field.yml配置文件来生成的。<br>建立索引后，可以看到，从模板配置处理的索引含有非常多的字段（有4839个），完全满足我们想要的<br><img src="/archives/5.png" alt=" "><br>打开discover，可以看到生成了geoip的相关信息，可以直接点击查看访问的IP分布<br><img src="/archives/6.png" alt=" "><br><img src="/archives/7.png" alt=" "></p>
 <p><strong>配置dashboard</strong><br>filebeat提供很多官方的dashboard，通过修改配置文件来打开dashboard，前提需要kibana服务器可达。<br>修改filebeat.yml</p>
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># ================================= Dashboards =================================</span></span><br><span class="line"><span class="comment"># These settings control loading the sample dashboards to the Kibana index. Loading</span></span><br><span class="line"><span class="comment"># the dashboards is disabled by default and can be enabled either by setting the</span></span><br><span class="line"><span class="comment"># options here or by using the `setup` command.</span></span><br><span class="line"><span class="attr">setup.dashboards.enabled:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># =================================== Kibana ===================================</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Starting with Beats version 6.0.0, the dashboards are loaded via the Kibana API.</span></span><br><span class="line"><span class="comment"># This requires a Kibana endpoint configuration.</span></span><br><span class="line"><span class="attr">setup.kibana:</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Kibana Host</span></span><br><span class="line">  <span class="comment"># Scheme and port can be left out and will be set to the default (http and 5601)</span></span><br><span class="line">  <span class="comment"># In case you specify and additional path, the scheme is required: http://localhost:5601/path</span></span><br><span class="line">  <span class="comment"># IPv6 addresses should always be defined as: https://[2001:db8::1]:5601</span></span><br><span class="line">  <span class="attr">host:</span> <span class="string">&quot;http://kibana.xxx.com:xxx&quot;</span></span><br><span class="line">  <span class="attr">username:</span> <span class="string">&quot;xxxx&quot;</span></span><br><span class="line">  <span class="attr">password:</span> <span class="string">&quot;xxxx&quot;</span></span><br></pre></td></tr></table></figure>
-<p>执行setup<br><code>filebeat setup --dashboards</code><br>回到kibana，打开dashboard，就会看到生成了很多dashboard模板<br><img src="/archives/459ed231/12.png" alt=" "><br>搜索nginx，就能生成nginx的dashboard<br><img src="/archives/459ed231/13.png" alt=" "></p>
+<p>执行setup<br><code>filebeat setup --dashboards</code><br>回到kibana，打开dashboard，就会看到生成了很多dashboard模板<br><img src="/archives/12.png" alt=" "><br>搜索nginx，就能生成nginx的dashboard<br><img src="/archives/13.png" alt=" "></p>
 <p>使用这种架构是方便，但是可以看到，索引的名字并不好分类和修改，都是默认生成的，而且不能自定义解析的字段，全部索引到到一个索引文件了，好在kibana的筛选功能够强大。如果用logstash的grok就不会有这个问题。</p>
-<h3 id="中等量日志架构"><a href="#中等量日志架构" class="headerlink" title="中等量日志架构"></a>中等量日志架构</h3><p>先用logstash读取Nginx日志和系统日志写入kafka，再用logstash读取出来写入elasticsearch，适合日志量不是太多的架构。<br>其实用redis也可以，redis没必要开快照和持久化，数据写入es后redis的作用就完成了。当然很耗redis内存，一般8-16G。<br>后端可能几十台logstash往kafka写入，如果kafka内存居高不下，也就是前端的logstash读的太慢，要加logstash。直到平衡。<br><img src="/archives/459ed231/9.png" alt=" "></p>
-<h3 id="海量日志架构"><a href="#海量日志架构" class="headerlink" title="海量日志架构"></a>海量日志架构</h3><p>官方传统，使用filebeat输出到kafka，再用logstasha读取处理写入elasticsearch，如果觉得卡，则可以用第二种<br><img src="/archives/459ed231/8.png" alt=" "><br><img src="/archives/459ed231/10.png" alt=" "></p>
-<p>如果还是遇到性能瓶颈<br>使用filebeat收集日志，先转发到beat端的logstash1，然后logstash1转发到kafka，然后再由logstash2从kafka读取写到elasticsearch。<br><img src="/archives/459ed231/11.png" alt=" "></p>
+<h3 id="中等量日志架构"><a href="#中等量日志架构" class="headerlink" title="中等量日志架构"></a>中等量日志架构</h3><p>先用logstash读取Nginx日志和系统日志写入kafka，再用logstash读取出来写入elasticsearch，适合日志量不是太多的架构。<br>其实用redis也可以，redis没必要开快照和持久化，数据写入es后redis的作用就完成了。当然很耗redis内存，一般8-16G。<br>后端可能几十台logstash往kafka写入，如果kafka内存居高不下，也就是前端的logstash读的太慢，要加logstash。直到平衡。<br><img src="/archives/9.png" alt=" "></p>
+<h3 id="海量日志架构"><a href="#海量日志架构" class="headerlink" title="海量日志架构"></a>海量日志架构</h3><p>官方传统，使用filebeat输出到kafka，再用logstasha读取处理写入elasticsearch，如果觉得卡，则可以用第二种<br><img src="/archives/8.png" alt=" "><br><img src="/archives/10.png" alt=" "></p>
+<p>如果还是遇到性能瓶颈<br>使用filebeat收集日志，先转发到beat端的logstash1，然后logstash1转发到kafka，然后再由logstash2从kafka读取写到elasticsearch。<br><img src="/archives/11.png" alt=" "></p>
 <p><a href="https://mp.weixin.qq.com/s/F8TVva8tDgN0tNsUcLoySg">https://mp.weixin.qq.com/s/F8TVva8tDgN0tNsUcLoySg</a></p>
 <p>整个系统一共含有10台主机（filebeat部署在客户端，不计算在内），其中Logstash有四台，Elasticsearch有二台，Kafka集群三台，kibana一台并配置Nginx代理。</p>
 <p>架构解释：</p>
@@ -337,8 +337,8 @@
   </entry>
   <entry>
     <title>nginx使用日志</title>
-    <url>/archives/f65250ef/f65250ef.html</url>
-    <content><![CDATA[<p><img src="/archives/f65250ef/1.jpg" alt=" "></p>
+    <url>/archives/nginx%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97.html</url>
+    <content><![CDATA[<p><img src="/archives/1.jpg" alt=" "></p>
 <h2 id="nginx编译安装"><a href="#nginx编译安装" class="headerlink" title="nginx编译安装"></a>nginx编译安装</h2><p>安装configure编译环境：<br><code>yum install -y gcc gcc-c++ openssl-devel make</code><br>安装pcre库:<br><code>yum install -y pcre pcre-devel</code><br>pcre兼容正则表达式，安装pcre为了使nginx支持具备URI重写功能的Rewrite模块，如果不安装pcre库，则nginx无法使用rewrite模块功能，nginx的rewrite模块功能几乎是企业应用必须。<br>编译参数：<br><code>./configure --help</code><br>按需安装，如：</p>
 <blockquote>
 <p>—with-http_stub_status_module<br>—with-http_ssl_module</p>
@@ -362,8 +362,8 @@
   </entry>
   <entry>
     <title>nginx反向代理frp缓存加速</title>
-    <url>/archives/dd6b12a/dd6b12a.html</url>
-    <content><![CDATA[<p><img src="/archives/dd6b12a/1.jpg" alt=" "></p>
+    <url>/archives/nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86frp%E7%BC%93%E5%AD%98%E5%8A%A0%E9%80%9F.html</url>
+    <content><![CDATA[<p><img src="/archives/1.jpg" alt=" "></p>
 <h2 id="背景描述"><a href="#背景描述" class="headerlink" title="背景描述"></a>背景描述</h2><p>由于frp的http和https，都是从用户的服务中完整输出数据的，这对于一些使用frp的用户，网络比较差/上传低，打开自己的这些服务，要加载大半天的。<br>我们可以使用nginx的反代缓存，把frp用户的http和https中的静态资源缓存到服务器本地，从而减少frp用户本身的网络资源请求访问，直接略过大部分，从而在服务器加速。<br>效果是拔群的！</p>
 <h2 id="nginx反向代理缓存配置"><a href="#nginx反向代理缓存配置" class="headerlink" title="nginx反向代理缓存配置"></a>nginx反向代理缓存配置</h2><p>本例编译安装nginx，安装路径为/app/nginx<br>新建缓存目录<br><code>mkdir -pv /app/nginx/cache</code><br>赋予权限<br><code>chmod -R 775 /app/nginx/cache</code><br>修改nginx.conf<br><code>vim /app/nginx/conf/nginx.conf</code><br>在http{}模块里面添加</p>
 <figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">include</span>  extra/<span class="regexp">*.conf</span>;</span><br></pre></td></tr></table></figure>
@@ -397,12 +397,12 @@
   </entry>
   <entry>
     <title>干货满满！10分钟看懂Docker和K8S</title>
-    <url>/archives/9915ca90/9915ca90.html</url>
-    <content><![CDATA[<p>2010年，几个搞IT的年轻人，在美国旧金山成立了一家名叫“dotCloud”的公司。<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-1.jpg" alt=" "><br>这家公司主要提供基于PaaS的云计算技术服务。具体来说，是和LXC有关的容器技术。<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-2.jpg" alt=" "><br>LXC，就是Linux容器虚拟技术（Linux container）<br>后来，dotCloud公司将自己的容器技术进行了简化和标准化，并命名为——Docker。<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-3.jpg" alt=" "><br>Docker技术诞生之后，并没有引起行业的关注。而dotCloud公司，作为一家小型创业企业，在激烈的竞争之下，也步履维艰。</p>
+    <url>/archives/10%E5%88%86%E9%92%9F%E7%9C%8B%E6%87%82Docker%E5%92%8CK8S.html</url>
+    <content><![CDATA[<p>2010年，几个搞IT的年轻人，在美国旧金山成立了一家名叫“dotCloud”的公司。<br><img src="/archives/10分钟看懂Docker和K8S-1.jpg" alt=" "><br>这家公司主要提供基于PaaS的云计算技术服务。具体来说，是和LXC有关的容器技术。<br><img src="/archives/10分钟看懂Docker和K8S-2.jpg" alt=" "><br>LXC，就是Linux容器虚拟技术（Linux container）<br>后来，dotCloud公司将自己的容器技术进行了简化和标准化，并命名为——Docker。<br><img src="/archives/10分钟看懂Docker和K8S-3.jpg" alt=" "><br>Docker技术诞生之后，并没有引起行业的关注。而dotCloud公司，作为一家小型创业企业，在激烈的竞争之下，也步履维艰。</p>
 <p>正当他们快要坚持不下去的时候，脑子里蹦出了“开源”的想法。</p>
 <p>什么是“开源”？开源，就是开放源代码。也就是将原来内部保密的程序源代码开放给所有人，然后让大家一起参与进来，贡献代码和意见。<br>! <a href="10分钟看懂Docker和K8S-4.jpg"></a><br>Open Source，开源</p>
 <p>有的软件是一开始就开源的。也有的软件，是混不下去，创造者又不想放弃，所以选择开源。自己养不活，就吃“百家饭”嘛。</p>
-<p>2013年3月，dotCloud公司的创始人之一，Docker之父，28岁的Solomon Hykes正式决定，将Docker项目开源。<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-5.jpg" alt=" "><br>Solomon Hykes（今年刚从Docker离职）</p>
+<p>2013年3月，dotCloud公司的创始人之一，Docker之父，28岁的Solomon Hykes正式决定，将Docker项目开源。<br><img src="/archives/10分钟看懂Docker和K8S-5.jpg" alt=" "><br>Solomon Hykes（今年刚从Docker离职）</p>
 <p>不开则已，一开惊人。</p>
 <p>越来越多的IT工程师发现了Docker的优点，然后蜂拥而至，加入Docker开源社区。</p>
 <p>Docker的人气迅速攀升，速度之快，令人瞠目结舌。</p>
@@ -410,21 +410,21 @@
 <p>此时的Docker，已经成为行业里人气最火爆的开源技术，没有之一。甚至像Google、微软、Amazon、VMware这样的巨头，都对它青睐有加，表示将全力支持。</p>
 <p>Docker火了之后，dotCloud公司干脆把公司名字也改成了Docker Inc.。</p>
 <p>Docker和容器技术为什么会这么火爆？说白了，就是因为它“轻”。</p>
-<p>在容器技术之前，业界的网红是虚拟机。虚拟机技术的代表，是VMWare和OpenStack。<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-6.jpg" alt=" "><br>相信很多人都用过虚拟机。虚拟机，就是在你的操作系统里面，装一个软件，然后通过这个软件，再模拟一台甚至多台“子电脑”出来。<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-7.jpg" alt=" "><br>虚拟机，类似于“子电脑”</p>
+<p>在容器技术之前，业界的网红是虚拟机。虚拟机技术的代表，是VMWare和OpenStack。<br><img src="/archives/10分钟看懂Docker和K8S-6.jpg" alt=" "><br>相信很多人都用过虚拟机。虚拟机，就是在你的操作系统里面，装一个软件，然后通过这个软件，再模拟一台甚至多台“子电脑”出来。<br><img src="/archives/10分钟看懂Docker和K8S-7.jpg" alt=" "><br>虚拟机，类似于“子电脑”</p>
 <p>在“子电脑”里，你可以和正常电脑一样运行程序，例如开QQ。如果你愿意，你可以变出好几个“子电脑”，里面都开上QQ。“子电脑”和“子电脑”之间，是相互隔离的，互不影响。</p>
 <p>虚拟机属于虚拟化技术。而Docker这样的容器技术，也是虚拟化技术，属于轻量级的虚拟化。</p>
 <p>虚拟机虽然可以隔离出很多“子电脑”，但占用空间更大，启动更慢，虚拟机软件可能还要花钱（例如VMWare）。</p>
-<p>而容器技术恰好没有这些缺点。它不需要虚拟出整个操作系统，只需要虚拟一个小规模的环境（类似“沙箱”）。<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-8.jpg" alt=" "><br>沙箱</p>
-<p>它启动时间很快，几秒钟就能完成。而且，它对资源的利用率很高（一台主机可以同时运行几千个Docker容器）。此外，它占的空间很小，虚拟机一般要几GB到几十GB的空间，而容器只需要MB级甚至KB级。<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-9.jpg" alt=" "><br>容器和虚拟机的对比</p>
+<p>而容器技术恰好没有这些缺点。它不需要虚拟出整个操作系统，只需要虚拟一个小规模的环境（类似“沙箱”）。<br><img src="/archives/10分钟看懂Docker和K8S-8.jpg" alt=" "><br>沙箱</p>
+<p>它启动时间很快，几秒钟就能完成。而且，它对资源的利用率很高（一台主机可以同时运行几千个Docker容器）。此外，它占的空间很小，虚拟机一般要几GB到几十GB的空间，而容器只需要MB级甚至KB级。<br><img src="/archives/10分钟看懂Docker和K8S-9.jpg" alt=" "><br>容器和虚拟机的对比</p>
 <p>正因为如此，容器技术受到了热烈的欢迎和追捧，发展迅速。</p>
 <p>我们具体来看看Docker。</p>
 <p>大家需要注意，Docker本身并不是容器，它是创建容器的工具，是应用容器引擎。</p>
 <p>想要搞懂Docker，其实看它的两句口号就行。</p>
-<p>第一句，是“Build, Ship and Run”。<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-10.jpg" alt=" "><br>也就是，“搭建、发送、运行”，三板斧。</p>
+<p>第一句，是“Build, Ship and Run”。<br><img src="/archives/10分钟看懂Docker和K8S-10.jpg" alt=" "><br>也就是，“搭建、发送、运行”，三板斧。</p>
 <p>举个例子：</p>
-<p>我来到一片空地，想建个房子，于是我搬石头、砍木头、画图纸，一顿操作，终于把这个房子盖好了。<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-11.jpg" alt=" "><br>结果，我住了一段时间，想搬到另一片空地去。这时候，按以往的办法，我只能再次搬石头、砍木头、画图纸、盖房子。</p>
+<p>我来到一片空地，想建个房子，于是我搬石头、砍木头、画图纸，一顿操作，终于把这个房子盖好了。<br><img src="/archives/10分钟看懂Docker和K8S-11.jpg" alt=" "><br>结果，我住了一段时间，想搬到另一片空地去。这时候，按以往的办法，我只能再次搬石头、砍木头、画图纸、盖房子。</p>
 <p>但是，跑来一个老巫婆，教会我一种魔法。</p>
-<p>这种魔法，可以把我盖好的房子复制一份，做成“镜像”，放在我的背包里。<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-12.jpg" alt=" "><br>等我到了另一片空地，就用这个“镜像”，复制一套房子，摆在那边，拎包入住。<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-13.jpg" alt=" "><br>怎么样？是不是很神奇？</p>
+<p>这种魔法，可以把我盖好的房子复制一份，做成“镜像”，放在我的背包里。<br><img src="/archives/10分钟看懂Docker和K8S-12.jpg" alt=" "><br>等我到了另一片空地，就用这个“镜像”，复制一套房子，摆在那边，拎包入住。<br><img src="/archives/10分钟看懂Docker和K8S-13.jpg" alt=" "><br>怎么样？是不是很神奇？</p>
 <p>所以，Docker的第二句口号就是：“Build once，Run anywhere（搭建一次，到处能用）”。</p>
 <p>Docker技术的三大核心概念，分别是：</p>
 <p><strong>镜像（Image）</strong><br><strong>容器（Container）</strong><br><strong>仓库（Repository）</strong></p>
@@ -433,7 +433,7 @@
 <p>也就是说，每次变出房子，房子是一样的，但生活用品之类的，都是不管的。谁住谁负责添置。</p>
 <p>每一个镜像可以变出一种房子。那么，我可以有多个镜像呀！</p>
 <p>也就是说，我盖了一个欧式别墅，生成了镜像。另一个哥们可能盖了一个中国四合院，也生成了镜像。还有哥们，盖了一个非洲茅草屋，也生成了镜像。。。</p>
-<p>这么一来，我们可以交换镜像，你用我的，我用你的，岂不是很爽？<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-14.jpg" alt=" "><br>于是乎，就变成了一个大的公共仓库。</p>
+<p>这么一来，我们可以交换镜像，你用我的，我用你的，岂不是很爽？<br><img src="/archives/10分钟看懂Docker和K8S-14.jpg" alt=" "><br>于是乎，就变成了一个大的公共仓库。</p>
 <p>负责对Docker镜像进行管理的，是Docker Registry服务（类似仓库管理员）。</p>
 <p>不是任何人建的任何镜像都是合法的。万一有人盖了一个有问题的房子呢？</p>
 <p>所以，Docker Registry服务对镜像的管理是非常严格的。</p>
@@ -441,7 +441,7 @@
 <p>好了，说完了Docker，我们再把目光转向K8S。</p>
 <p>就在Docker容器技术被炒得热火朝天之时，大家发现，如果想要将Docker应用于具体的业务实现，是存在困难的——编排、管理和调度等各个方面，都不容易。于是，人们迫切需要一套管理系统，对Docker及容器进行更高级更灵活的管理。</p>
 <p>就在这个时候，K8S出现了。</p>
-<p><strong>K8S，就是基于容器的集群管理平台，它的全称，是kubernetes。</strong><br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-15.jpg" alt=" "><br>Kubernetes这个单词来自于希腊语，含义是舵手或领航员。K8S是它的缩写，用“8”字替代了“ubernete”这8个字符。</p>
+<p><strong>K8S，就是基于容器的集群管理平台，它的全称，是kubernetes。</strong><br><img src="/archives/10分钟看懂Docker和K8S-15.jpg" alt=" "><br>Kubernetes这个单词来自于希腊语，含义是舵手或领航员。K8S是它的缩写，用“8”字替代了“ubernete”这8个字符。</p>
 <p>和Docker不同，K8S的创造者，是众人皆知的行业巨头——Google。</p>
 <p>然而，K8S并不是一件全新的发明。它的前身，是Google自己捣鼓了十多年的Borg系统。</p>
 <p>K8S是2014年6月由Google公司正式公布出来并宣布开源的。</p>
@@ -452,13 +452,13 @@
 <p>K8S的架构，略微有一点复杂，我们简单来看一下。</p>
 <p>一个K8S系统，通常称为一个<strong>K8S集群（Cluster）</strong>。</p>
 <p>这个集群主要包括两个部分：</p>
-<p><strong>一个Master节点（主节点）</strong><br><strong>一群Node节点（计算节点）</strong><br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-16.jpg" alt=" "><br>一看就明白：Master节点主要还是负责管理和控制。Node节点是工作负载节点，里面是具体的容器。</p>
+<p><strong>一个Master节点（主节点）</strong><br><strong>一群Node节点（计算节点）</strong><br><img src="/archives/10分钟看懂Docker和K8S-16.jpg" alt=" "><br>一看就明白：Master节点主要还是负责管理和控制。Node节点是工作负载节点，里面是具体的容器。</p>
 <p>深入来看这两种节点。</p>
-<p>首先是Master节点。<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-17.jpg" alt=" "><br>Master节点包括API Server、Scheduler、Controller manager、etcd。</p>
+<p>首先是Master节点。<br><img src="/archives/10分钟看懂Docker和K8S-17.jpg" alt=" "><br>Master节点包括API Server、Scheduler、Controller manager、etcd。</p>
 <p>API Server是整个系统的对外接口，供客户端和其它组件调用，相当于“营业厅”。</p>
 <p>Scheduler负责对集群内部的资源进行调度，相当于“调度室”。</p>
 <p>Controller manager负责管理控制器，相当于“大总管”。</p>
-<p>然后是Node节点。<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-18.jpg" alt=" "><br>Node节点包括Docker、kubelet、kube-proxy、Fluentd、kube-dns（可选），还有就是Pod。</p>
+<p>然后是Node节点。<br><img src="/archives/10分钟看懂Docker和K8S-18.jpg" alt=" "><br>Node节点包括Docker、kubelet、kube-proxy、Fluentd、kube-dns（可选），还有就是Pod。</p>
 <blockquote>
 <p>Pod是Kubernetes最基本的操作单元。一个Pod代表着集群中运行的一个进程，它内部封装了一个或多个紧密相关的容器。除了Pod之外，K8S还有一个Service的概念，一个Service可以看作一组提供相同服务的Pod的对外访问接口。这段不太好理解，跳过吧。</p>
 </blockquote>
@@ -475,12 +475,12 @@
 <p>就算变来变去，还是服务器，是计算节点，是CPU。</p>
 <p>既然是服务器，那么就势必会和IT云计算一样，走上虚拟化的道路。毕竟，虚拟化有太多的优势，例如前文所说的低成本、高利用率、充分灵活、动态调度，等等。</p>
 <p>前几年，大家以为虚拟机是核心网的终极形态。目前看来，更有可能是容器化。这几年经常说的NFV（网元功能虚拟化），也有可能改口为NFC（网元功能容器化）。</p>
-<p>以VoLTE为例，如果按以前2G/3G的方式，那需要大量的专用设备，分别充当EPC和IMS的不同网元。<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-19.jpg" alt=" "><br>VoLTE相关的网元</p>
-<p>而采用容器之后，很可能只需要一台服务器，创建十几个容器，用不同的容器，来分别运行不同网元的服务程序。<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-20.jpg" alt=" "><br>这些容器，随时可以创建，也可以随时销毁。还能够在不停机的情况下，随意变大，随意变小，随意变强，随意变弱，在性能和功耗之间动态平衡。</p>
+<p>以VoLTE为例，如果按以前2G/3G的方式，那需要大量的专用设备，分别充当EPC和IMS的不同网元。<br><img src="/archives/10分钟看懂Docker和K8S-19.jpg" alt=" "><br>VoLTE相关的网元</p>
+<p>而采用容器之后，很可能只需要一台服务器，创建十几个容器，用不同的容器，来分别运行不同网元的服务程序。<br><img src="/archives/10分钟看懂Docker和K8S-20.jpg" alt=" "><br>这些容器，随时可以创建，也可以随时销毁。还能够在不停机的情况下，随意变大，随意变小，随意变强，随意变弱，在性能和功耗之间动态平衡。</p>
 <p>简直完美！</p>
-<p>5G时代，核心网采用微服务架构，也是和容器完美搭配——单体式架构（Monolithic）变成微服务架构（Microservices），相当于一个全能型变成N个专能型。每个专能型，分配给一个隔离的容器，赋予了最大程度的灵活。<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-21.jpg" alt=" "><br>精细化分工</p>
+<p>5G时代，核心网采用微服务架构，也是和容器完美搭配——单体式架构（Monolithic）变成微服务架构（Microservices），相当于一个全能型变成N个专能型。每个专能型，分配给一个隔离的容器，赋予了最大程度的灵活。<br><img src="/archives/10分钟看懂Docker和K8S-21.jpg" alt=" "><br>精细化分工</p>
 <p>按照这样的发展趋势，在移动通信系统中，除了天线，剩下的部分都有可能虚拟化。核心网是第一个，但不是最后一个。虚拟化之后的核心网，与其说属于通信，实际上更应该归为IT。核心网的功能，只是容器中普通一个软件功能而已。</p>
-<p>至于说在座的各位核心网工程师，恭喜你们，马上就要成功转型啦！<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-22.jpg" alt=" "></p>
+<p>至于说在座的各位核心网工程师，恭喜你们，马上就要成功转型啦！<br><img src="/archives/10分钟看懂Docker和K8S-22.jpg" alt=" "></p>
 <p><em>转自：<a href="https://my.oschina.net/jamesview/blog/2994112">https://my.oschina.net/jamesview/blog/2994112</a></em></p>
 ]]></content>
       <categories>
@@ -495,14 +495,14 @@
   </entry>
   <entry>
     <title>hexo使用记录</title>
-    <url>/archives/5018439d/5018439d.html</url>
-    <content><![CDATA[<p><img src="/archives/5018439d/hexo_git_3.PNG" alt=" "></p>
+    <url>/archives/hexo%E9%83%A8%E7%BD%B2%E5%88%B0github.html</url>
+    <content><![CDATA[<p><img src="/archives/hexo_git_3.PNG" alt=" "></p>
 <h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><h3 id="nodejs环境"><a href="#nodejs环境" class="headerlink" title="nodejs环境"></a>nodejs环境</h3><p>hexo基于node.js，需要在该环境下进行操作<br>本人在proxmox ve里面下载debain10-turnkey-nodejs模板，省去了搭建的烦恼<br>使用ssh工具到创建的容器上执行<br>修改npm为国内淘宝源：<br><code>npm config set registry https://registry.npm.taobao.org</code><br>更新npm版本<br><code>npm install -g npm</code><br>查看npm和node版本<br><code>npm -v</code><br><code>node -v</code><br>安装hexo-cli<br><code>npm install -g hexo-cli</code><br>查看hexo版本：<br><code>hexo -v</code></p>
-<h3 id="github环境"><a href="#github环境" class="headerlink" title="github环境"></a>github环境</h3><p>注册github账号<br>新建仓库，仓库名应该为：用户名.github.io，以这种方式命名，github会自动认为是web项目，会自动建立custom_pages的选项，可以添加域名<br>回到容器上执行<br>设置user.name和user.email配置信息<br><code>git config --global user.name &quot;你的GitHub用户名&quot;</code><br><code>git config --global user.email &quot;你的GitHub注册邮箱&quot;</code><br>生成ssh密钥文件<br><code>ssh-keygen -t rsa -C &quot;你的GitHub注册邮箱&quot;</code><br>直接回车到最后<br>找到生成的.ssh的文件夹中的id_rsa.pub密钥，将内容全部复制<br>打开GitHub_Settings_keys 页面，新建new SSH Key<br>Title为标题，任意填即可，将刚刚复制的id_rsa.pub内容粘贴进去，最后点击Add SSH key。<br>在Git Bash中检测GitHub公钥设置是否成功，输入 ：<br><code>ssh git@github.com</code><br><img src="/archives/5018439d/hexo_git_1.PNG" alt=" "><br>如上则说明成功</p>
+<h3 id="github环境"><a href="#github环境" class="headerlink" title="github环境"></a>github环境</h3><p>注册github账号<br>新建仓库，仓库名应该为：用户名.github.io，以这种方式命名，github会自动认为是web项目，会自动建立custom_pages的选项，可以添加域名<br>回到容器上执行<br>设置user.name和user.email配置信息<br><code>git config --global user.name &quot;你的GitHub用户名&quot;</code><br><code>git config --global user.email &quot;你的GitHub注册邮箱&quot;</code><br>生成ssh密钥文件<br><code>ssh-keygen -t rsa -C &quot;你的GitHub注册邮箱&quot;</code><br>直接回车到最后<br>找到生成的.ssh的文件夹中的id_rsa.pub密钥，将内容全部复制<br>打开GitHub_Settings_keys 页面，新建new SSH Key<br>Title为标题，任意填即可，将刚刚复制的id_rsa.pub内容粘贴进去，最后点击Add SSH key。<br>在Git Bash中检测GitHub公钥设置是否成功，输入 ：<br><code>ssh git@github.com</code><br><img src="/archives/hexo_git_1.PNG" alt=" "><br>如上则说明成功</p>
 <h3 id="域名"><a href="#域名" class="headerlink" title="域名"></a>域名</h3><p>部署到github上可以使用github自带的域名，需要自定义域名则需要到各大网站申请一个域名。默认可以用用户名.github.io来访问你的hexo博客。申请域名后，进行域名绑定：<br>如我的域名为blog.hellshan.top，添加解析为我的github用户名.github.io，登录GitHub，进入之前创建的仓库，点击settings，设置Custom domain，输入你的域名即可</p>
 <h2 id="hexo初始化"><a href="#hexo初始化" class="headerlink" title="hexo初始化"></a>hexo初始化</h2><p>执行<br><code>hexo init blog</code><br>会在当前目录下生成blog文件夹，也就是你hexo网站项目的名称<br>在blog根目录里的_config.yml文件称为站点配置文件，根目录里的themes文件夹，里面也有个_config.yml文件，这个称为主题配置文件<br>将我们的Hexo与GitHub关联起来：<br><code>cd blog/</code><br><code>vim _config.yml</code><br>最后一行修改为</p>
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">repo:</span> <span class="string">git@gitee.com:xxx/xxx.git</span></span><br><span class="line"><span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
-<p>如图：<br><img src="/archives/5018439d/hexo_git_2.PNG" alt=" "><br>安装git部署插件：<br><code>npm install hexo-deployer-git --save</code><br>执行：<br><code>hexo clean</code><br><code>hexo g</code><br><code>hexo d</code><br>即提交成功，可以到你的github上看到</p>
+<p>如图：<br><img src="/archives/hexo_git_2.PNG" alt=" "><br>安装git部署插件：<br><code>npm install hexo-deployer-git --save</code><br>执行：<br><code>hexo clean</code><br><code>hexo g</code><br><code>hexo d</code><br>即提交成功，可以到你的github上看到</p>
 <h3 id="编辑博客文章"><a href="#编辑博客文章" class="headerlink" title="编辑博客文章"></a>编辑博客文章</h3><p>可以使用在线markdown编辑器编辑，可写即可见：<a href="http://marxi.co/">http://marxi.co/</a>，编辑完保存md文件，然后传到blog/source/_posts/下在提交到github就行<br>也可以使用markdown工具进行编辑如vscode<br><strong>创建CNAME文件：</strong><br>上面在github上绑定了域名，还不会生效，需要在项目目录下建立CNAME文件才生效：<br><code>vim blog/source/CNAME</code><br>填上域名保存即可<br>再次运行<br><code>hexo clean</code><br><code>hexo g</code><br><code>hexo d</code><br>本地浏览：<br><code>hexo s</code><br>本地浏览器输入IP:4000即可浏览</p>
 <h3 id="使用其他主题"><a href="#使用其他主题" class="headerlink" title="使用其他主题"></a>使用其他主题</h3><p>在github上可以搜索Hexo的主题，下载下来放到theme文件夹，然后修改_config.yml中theme的名字即可</p>
 <h2 id="hexo问题处理"><a href="#hexo问题处理" class="headerlink" title="hexo问题处理"></a>hexo问题处理</h2><h3 id="图片无法显示问题"><a href="#图片无法显示问题" class="headerlink" title="图片无法显示问题"></a>图片无法显示问题</h3><p>hexo默认无法自动处理文章插入本地图片，需要通过扩展插件支持<br>配置_config.yml里面的post_asset_folder:false这个选项设置为true:<br><code>vim blog/_config.yml</code></p>
@@ -535,8 +535,8 @@
   </entry>
   <entry>
     <title>PVE使用日志</title>
-    <url>/archives/7c1819b2/7c1819b2.html</url>
-    <content><![CDATA[<p><img src="/archives/7c1819b2/1.jpg" alt=" "></p>
+    <url>/archives/PVE%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97.html</url>
+    <content><![CDATA[<p><img src="/archives/1.jpg" alt=" "></p>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>1.下载proxmox 6.2镜像，基于dabain 10.5 buster（清华大学镜像站）：<br><a href="https://mirrors.tuna.tsinghua.edu.cn/proxmox/iso/">https://mirrors.tuna.tsinghua.edu.cn/proxmox/iso/</a><br>2.使用rufus软件写入ISO镜像到U盘，使用DD方式写入</p>
 <h2 id="默认LVM分区处理"><a href="#默认LVM分区处理" class="headerlink" title="默认LVM分区处理"></a>默认LVM分区处理</h2><h3 id="pve删除lvm扩容根目录"><a href="#pve删除lvm扩容根目录" class="headerlink" title="pve删除lvm扩容根目录"></a>pve删除lvm扩容根目录</h3><p>先备份虚拟机<br>删除虚拟机<br>删除local-lvm<br><code>lvremove pve/data</code><br>查看空闲空间<br><code>vgdisplay pve | grep Free</code><br>增加分区空间<br><code>lvextend -l +100%FREE -f pve/root</code><br><code>fsdisk -l</code><br>执行上边的扩容操作<br><code>resize2fs /dev/mapper/pve-root</code><br>恢复已经备份的虚拟机</p>
 <h2 id="更改为国内软件源"><a href="#更改为国内软件源" class="headerlink" title="更改为国内软件源"></a>更改为国内软件源</h2><h3 id="更改debain-apt源"><a href="#更改debain-apt源" class="headerlink" title="更改debain apt源"></a>更改debain apt源</h3><p><code>cp /etc/apt/source.list /etc/apt/source.list.bak</code><br><code>cat &gt; /etc/apt/source.list &lt;&lt;EOF</code></p>
@@ -563,7 +563,7 @@ vfio_virqfd
 vfio_pci
 vfio
 </code></pre><p>重启系统生效</p>
-<h3 id="win10设置显卡直通"><a href="#win10设置显卡直通" class="headerlink" title="win10设置显卡直通"></a>win10设置显卡直通</h3><p>以下截图是我的win10硬件配置：<br><img src="/archives/7c1819b2/PVE_WIN10_CONFIG.PNG" alt=" "><br>下载虚拟化驱动的iso，虚拟机win10的驱动靠它了<br><a href="https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-virtio/">https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-virtio/</a><br>列出设备地址，确定显卡vendorID<br><code>lspci -nn</code></p>
+<h3 id="win10设置显卡直通"><a href="#win10设置显卡直通" class="headerlink" title="win10设置显卡直通"></a>win10设置显卡直通</h3><p>以下截图是我的win10硬件配置：<br><img src="/archives/PVE_WIN10_CONFIG.PNG" alt=" "><br>下载虚拟化驱动的iso，虚拟机win10的驱动靠它了<br><a href="https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-virtio/">https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-virtio/</a><br>列出设备地址，确定显卡vendorID<br><code>lspci -nn</code></p>
 <blockquote>
 <p>00:02.0 VGA compatible controller [0300]: Intel Corporation HD Graphics 610 [8086:5902] (rev 04)<br>定义为GPU直通vfio设备，并防止VGA仲裁<br><code>echo &quot;options vfio-pci ids=8086:5917 disable_vga&quot; &gt; /etc/modprobe.d/vfio.conf</code><br>禁止默认VGA驱动在启动时加载<br><code>echo &quot;blacklist nvidia&quot; &gt;&gt; /etc/modprobe.d/blacklist.conf</code><br><code>echo &quot;blacklist radeon&quot; &gt;&gt; /etc/modprobe.d/blacklist.conf</code><br><code>echo &quot;blacklist nouveau&quot; &gt;&gt; /etc/modprobe.d/blacklist.conf</code><br>启动进入虚拟机即可<br><em>参考：<a href="https://star.us.org/Cs/win10-installation-and-gpu-passthrough-on-proxmox-6.html?replyTo=25">https://star.us.org/Cs/win10-installation-and-gpu-passthrough-on-proxmox-6.html?replyTo=25</a></em></p>
 </blockquote>
