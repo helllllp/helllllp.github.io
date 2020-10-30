@@ -6,26 +6,27 @@
     
 
     
-    <title>nginx使用日志 | helllllp</title>
+    <title>hueman主题使用补充 | helllllp</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="keywords" content="nginx" />
+    <meta name="keywords" content="hexo,nodejs" />
     
-    <meta name="description" content="nginx编译安装安装configure编译环境：yum install -y gcc gcc-c++ openssl-devel make安装pcre库:yum install -y pcre pcre-develpcre兼容正则表达式，安装pcre为了使nginx支持具备URI重写功能的Rewrite模块，如果不安装pcre库，则nginx无法使用rewrite模块功能，nginx的rewr">
+    <meta name="description" content="_config.yml说明Customize12345678910111213141516customize:    logo:        width: 165        height: 60        url: images&#x2F;logo-header.png    theme_color: &amp;#x27;#4169E1&amp;#x27;    highlight: tomorrow-nigh">
 <meta property="og:type" content="article">
-<meta property="og:title" content="nginx使用日志">
-<meta property="og:url" content="https://blog.hellshan.top/archives/f65250ef/index.html">
+<meta property="og:title" content="hueman主题使用补充">
+<meta property="og:url" content="https://blog.hellshan.top/9040e6a2/index.html">
 <meta property="og:site_name" content="helllllp">
-<meta property="og:description" content="nginx编译安装安装configure编译环境：yum install -y gcc gcc-c++ openssl-devel make安装pcre库:yum install -y pcre pcre-develpcre兼容正则表达式，安装pcre为了使nginx支持具备URI重写功能的Rewrite模块，如果不安装pcre库，则nginx无法使用rewrite模块功能，nginx的rewr">
+<meta property="og:description" content="_config.yml说明Customize12345678910111213141516customize:    logo:        width: 165        height: 60        url: images&#x2F;logo-header.png    theme_color: &amp;#x27;#4169E1&amp;#x27;    highlight: tomorrow-nigh">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://blog.hellshan.top/archives/f65250ef/1.jpg">
-<meta property="article:published_time" content="2020-10-14T07:51:05.000Z">
+<meta property="og:image" content="https://blog.hellshan.top/9040e6a2/4.jpg">
+<meta property="article:published_time" content="2020-10-16T07:49:30.000Z">
 <meta property="article:modified_time" content="2020-10-30T06:37:14.864Z">
 <meta property="article:author" content="Shan Yan">
-<meta property="article:tag" content="nginx">
+<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="nodejs">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://blog.hellshan.top/archives/f65250ef/1.jpg">
+<meta name="twitter:image" content="https://blog.hellshan.top/9040e6a2/4.jpg">
     
 
     
@@ -106,35 +107,41 @@
                         <nav id="sub-nav">
                             <div id="search-form-wrap">
 
-    <div class="search-form">
-        <input type="text" class="st-default-search-input search-form-input" placeholder="搜索" />
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
     </div>
-    <script type="text/javascript">
-(function(w,d,t,u,n,s,e) {w['SwiftypeObject']=n;w[n]=w[n]||function() {
-(w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
-e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
-})(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
-
-_st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
 </script>
-<style>
-    .st-ui-injected-overlay-container,
-    .st-ui-injected-overlay-container *:not(select) {
-        font-family: inherit !important;
-    }
-    section.st-ui-content.st-search-results a.st-ui-result .st-ui-type-heading {
-        color: #4169E1 !important;
-    }
-    .st-ui-injected-overlay-container .st-ui-header input[type="text"]:focus {
-        border-bottom: 2px solid #4169E1;
-    }
-    .st-ui-injected-overlay-container .st-ui-footer a.st-ui-pagination-link {
-        color: #4169E1;
-    }
-    .st-ui-injected-overlay-container .st-ui-footer a.st-ui-pagination-link span.st-ui-arrow {
-        border-color: #4169E1;
-    }
-</style>
+
+<script src="/js/insight.js"></script>
+
 
 </div>
                         </nav>
@@ -151,19 +158,19 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
                         <div class="main-body-header">
     <h1 class="header">
     
-    <a class="page-title-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E6%B8%A9%E6%95%85%E8%80%8C%E7%9F%A5%E6%96%B0/">温故而知新</a>
+    <a class="page-title-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E5%AE%9E%E8%B7%B5%E9%AA%8C%E8%AF%81%E7%9C%9F%E7%90%86/">实践验证真理</a>
     </h1>
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-nginx使用日志" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-hueman主题使用补充" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        nginx使用日志
+        hueman主题使用补充
         </h1>
     
 
@@ -174,8 +181,8 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
                 
     <div class="article-date">
       <i class="fa fa-calendar"></i>
-      <a href="/archives/f65250ef/" class="article-date">
-         <time datetime="2020-10-14T07:51:05.000Z" itemprop="datePublished">2020-10-14</time>
+      <a href="/9040e6a2/" class="article-date">
+         <time datetime="2020-10-16T07:49:30.000Z" itemprop="datePublished">2020-10-16</time>
       </a>
     </div>
 
@@ -185,11 +192,11 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/nginx/" rel="tag">nginx</a>
+        <a class="tag-link-link" href="/tags/hexo/" rel="tag">hexo</a>, <a class="tag-link-link" href="/tags/nodejs/" rel="tag">nodejs</a>
     </div>
 
                 
-   <span id="/archives/f65250ef/" class="leancloud-visitors" data-flag-title="nginx使用日志">
+   <span id="/9040e6a2/" class="leancloud-visitors" data-flag-title="hueman主题使用补充">
    <i class="fa fa-eye"></i>
    <span class="post-meta-item-text">阅读次数: </span>
    <i class="leancloud-visitors-count">1000000</i>
@@ -208,19 +215,17 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
 
             
 
-            <p><img src="/archives/f65250ef/1.jpg" alt=" "></p>
-<h2 id="nginx编译安装"><a href="#nginx编译安装" class="headerlink" title="nginx编译安装"></a>nginx编译安装</h2><p>安装configure编译环境：<br><code>yum install -y gcc gcc-c++ openssl-devel make</code><br>安装pcre库:<br><code>yum install -y pcre pcre-devel</code><br>pcre兼容正则表达式，安装pcre为了使nginx支持具备URI重写功能的Rewrite模块，如果不安装pcre库，则nginx无法使用rewrite模块功能，nginx的rewrite模块功能几乎是企业应用必须。<br>编译参数：<br><code>./configure --help</code><br>按需安装，如：</p>
-<blockquote>
-<p>—with-http_stub_status_module<br>—with-http_ssl_module</p>
-</blockquote>
-<p>查看已安装的模块（安装在/app下）：<br><code>/app/nginx/sbin/nginx -V</code><br>如果编译安装后需要再添加模块，则重新运行./configure添加，然后make即可，注意不要make install，这样会覆盖原文件。</p>
-<h2 id="添加认证"><a href="#添加认证" class="headerlink" title="添加认证"></a>添加认证</h2><p>需要httpd-tools工具：<br><code>yum install -y httpd-tools</code><br>如果是debain或者ubuntu系统，则<br><code>apt install -y apache2-utils</code><br>添加密码文件：<br><code>htpasswd -cb /app/nginx/htpasswd abc 123456</code><br>在对应模块（server)下添加：</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">auth_basic</span> <span class="string">&quot;Restricted Access&quot;</span>;</span><br><span class="line"><span class="attribute">auth_basic_user_file</span> /app/nginx/htpasswd;</span><br></pre></td></tr></table></figure>
-<h2 id="nginx模块功能"><a href="#nginx模块功能" class="headerlink" title="nginx模块功能"></a>nginx模块功能</h2><h3 id="proxy代理模块"><a href="#proxy代理模块" class="headerlink" title="proxy代理模块"></a>proxy代理模块</h3><p>ngx_http_proxy_module proxy代理模块，用于把请求后抛给服务器节点或upstream服务器池，例：</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">worker_processes</span>  <span class="number">1</span>;</span><br><span class="line"><span class="section">events</span> &#123;</span><br><span class="line">    <span class="attribute">worker_connections</span>  <span class="number">1024</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="section">http</span> &#123;</span><br><span class="line">    <span class="attribute">include</span>       mime.types;</span><br><span class="line">    <span class="attribute">default_type</span>  application/octet-stream;</span><br><span class="line">    <span class="attribute">sendfile</span>        <span class="literal">on</span>;</span><br><span class="line">    <span class="attribute">keepalive_timeout</span>  <span class="number">65</span>;</span><br><span class="line">    <span class="attribute">upstream</span> www_server_pools &#123;</span><br><span class="line">        <span class="attribute">server</span> <span class="number">10.0.0.7:80</span> weight=<span class="number">1</span>;</span><br><span class="line">        <span class="attribute">server</span> <span class="number">10.0.0.8:80</span> weight=<span class="number">5</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="section">server</span> &#123;</span><br><span class="line">        <span class="attribute">listen</span>       <span class="number">80</span>;</span><br><span class="line">        <span class="attribute">server_name</span>  localhost;</span><br><span class="line">        <span class="attribute">location</span> / &#123;</span><br><span class="line">            <span class="attribute">root</span>   html;</span><br><span class="line">            <span class="attribute">index</span>  index.html index.htm;</span><br><span class="line">            <span class="attribute">proxy_pass</span> http://www_server_pools;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="upstram负载均衡模块"><a href="#upstram负载均衡模块" class="headerlink" title="upstram负载均衡模块"></a>upstram负载均衡模块</h3><p>ngx_http_upstream_module 负载均衡模块，可以实现网站的负载均衡功能及节点的健康检查<br>看官网nginx document upstream模块</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">upstream</span> backend &#123;</span><br><span class="line">    <span class="attribute">server</span> backend1.example.com       weight=<span class="number">5</span>;</span><br><span class="line">    <span class="attribute">server</span> backend2.example.com:<span class="number">8080</span>;</span><br><span class="line">    <span class="attribute">server</span> unix:/tmp/backend3;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">server</span> backup1.example.com:<span class="number">8080</span>   backup;</span><br><span class="line">    <span class="attribute">server</span> backup2.example.com:<span class="number">8080</span>   backup;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">    <span class="attribute">location</span> / &#123;</span><br><span class="line">        proxy_pass http://backend; (uptream的标签名）</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>backend是模块名，随便起<br>server是http服务器<br>weight是权重，权重大的处理比例就多<br>backup是热备（高可用）</p>
+            <p><img src="/9040e6a2/4.jpg" alt=" "></p>
+<h2 id="config-yml说明"><a href="#config-yml说明" class="headerlink" title="_config.yml说明"></a>_config.yml说明</h2><h3 id="Customize"><a href="#Customize" class="headerlink" title="Customize"></a>Customize</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">customize:</span></span><br><span class="line">    <span class="attr">logo:</span></span><br><span class="line">        <span class="attr">width:</span> <span class="number">165</span></span><br><span class="line">        <span class="attr">height:</span> <span class="number">60</span></span><br><span class="line">        <span class="attr">url:</span> <span class="string">images/logo-header.png</span></span><br><span class="line">    <span class="attr">theme_color:</span> <span class="string">&#x27;#4169E1&#x27;</span></span><br><span class="line">    <span class="attr">highlight:</span> <span class="string">tomorrow-night-eighties</span></span><br><span class="line">    <span class="attr">sidebar:</span> <span class="string">left</span> <span class="comment"># sidebar position, options: left, right</span></span><br><span class="line">    <span class="attr">thumbnail:</span> <span class="literal">true</span> <span class="comment"># enable posts thumbnail, options: true, false</span></span><br><span class="line">    <span class="attr">favicon:</span> <span class="string">css/images/favicon.png</span> <span class="comment"># path to favicon</span></span><br><span class="line">    <span class="attr">social_links:</span> <span class="comment"># for more icons, please see http://fontawesome.io/icons/#brand</span></span><br><span class="line">        <span class="attr">github:</span> <span class="string">https://github.com/helllllp</span></span><br><span class="line">        <span class="attr">weibo:</span> <span class="string">/</span></span><br><span class="line">        <span class="attr">qq:</span> <span class="string">/524311610</span></span><br><span class="line">        <span class="attr">weixin:</span> <span class="string">/</span></span><br><span class="line">        <span class="attr">rss:</span> <span class="string">/</span></span><br></pre></td></tr></table></figure>
+<p>定义了自定义选项：<br><strong>logo</strong>：网站头部和脚部的logo，width和height是显示在网页上的大小，图片路径按照images/xxx.png来获取<br><strong>theme_color</strong>：主题色，影响关注我的banner颜色，超链接颜色和侧边栏文章标题颜色<br><strong>highlight</strong>: 代码高亮，可以<code>ls themes/hueman/source/css/_highlight/</code>查看有多少个主题样式，效果可以到highlightjs官网根据预览效果来选取：<a target="_blank" rel="noopener" href="https://highlightjs.org/static/demo/">https://highlightjs.org/static/demo/</a><br><strong>favicon</strong>：网站图标，图片路径按照css/images/xxx.png来获取</p>
+<h2 id="Search"><a href="#Search" class="headerlink" title="Search"></a>Search</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">search:</span></span><br><span class="line">    <span class="attr">insight:</span> <span class="literal">false</span> <span class="comment"># you need to install `hexo-generator-json-content` before using Insight Search</span></span><br><span class="line">    <span class="attr">swiftype:</span> <span class="string">xxxxxxxxxx</span> <span class="comment"># enter swiftype install key here</span></span><br><span class="line">    <span class="attr">baidu:</span> <span class="literal">false</span> <span class="comment"># you need to disable other search engines to use Baidu search, options: true, false</span></span><br></pre></td></tr></table></figure>
+<p>搜索引擎，当前版本配置了三个搜索引擎，insight需要npm安装hexo-generator-json-content，我这里安装后没有效果，故使用swiftype，百度官方不推荐<br>1、申请swiftype账号：<a target="_blank" rel="noopener" href="https://app.swiftype.com/">https://app.swiftype.com/</a><br>使用邮箱注册，貌似使用qq和139邮箱申请不行，我用了自己阿里云域名的邮箱才行：crontab@hellshan.top<br>2、点击create new engine，创建新引擎，填上你的域名，进入后点击Setup and integration，复制install key到配置文件就OK<br><img src="/9040e6a2/1.PNG" alt=" "></p>
+<h2 id="Comment"><a href="#Comment" class="headerlink" title="Comment"></a>Comment</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">comment:</span></span><br><span class="line">    <span class="attr">disqus:</span> <span class="comment"># enter disqus shortname here</span></span><br><span class="line">    <span class="attr">duoshuo:</span> <span class="comment"># enter duoshuo shortname here</span></span><br><span class="line">    <span class="attr">youyan:</span> <span class="comment"># enter youyan uid here</span></span><br><span class="line">    <span class="attr">facebook:</span> <span class="comment"># enter true to enable</span></span><br><span class="line">    <span class="attr">isso:</span> <span class="comment"># options for isso.</span></span><br><span class="line">    <span class="attr">changyan:</span></span><br><span class="line">    <span class="attr">valine:</span> <span class="comment"># Valine Comment System https://github.com/xCss/Valine</span></span><br><span class="line">        <span class="attr">on:</span>  <span class="literal">true</span> <span class="comment"># enter true to enable valine</span></span><br><span class="line">        <span class="attr">appId:</span> <span class="string">4O7x2fxxxxxxrdxFIAJn3v-gzGzoHsz</span> <span class="comment"># enter the leancloud application appId here</span></span><br><span class="line">        <span class="attr">appKey:</span> <span class="string">k2d5KmEjtQeLw5IuRficyYsN</span> <span class="comment"># enter the leancloud application appKey here</span></span><br><span class="line">        <span class="attr">notify:</span> <span class="comment"># enter true to enable &lt;Mail notifier&gt;, default: false; https://github.com/xCss/Valine/wiki/Valine-%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E9%82%AE%E4%BB%B6%E6%8F%90%E9%86%92%E8%AE%BE%E7%BD%AE</span></span><br><span class="line">        <span class="attr">verify:</span> <span class="literal">true</span> <span class="comment"># enter true to enable &lt;Validation code&gt;, default: false</span></span><br><span class="line">        <span class="attr">placeholder:</span> <span class="string">Just</span> <span class="string">Do</span> <span class="string">It</span> <span class="comment"># enter the comment box placeholder</span></span><br><span class="line">        <span class="attr">avatar:</span> <span class="string">identicon</span> <span class="comment"># (&#x27;&#x27;/mm/identicon/monsterid/wavatar/retro/hide), more to see https://valine.js.org/avatar.html</span></span><br><span class="line">        <span class="attr">avatar_cdn:</span> <span class="string">https://gravatar.loli.net/avatar/</span> <span class="comment"># avatar CDN address, default gravatar.cat.net</span></span><br><span class="line">        <span class="attr">pageSize:</span> <span class="number">10</span> <span class="comment"># comments of one page</span></span><br><span class="line">        <span class="attr">visitor:</span> <span class="literal">true</span> <span class="comment"># count reading numbers; If true, the numbers will also show below the title of every post</span></span><br><span class="line">        <span class="attr">recordip:</span> <span class="comment">#false # If true, record commenter&#x27;s ip, which is shown in LeanCloud pannel</span></span><br><span class="line">    <span class="attr">gitalk:</span></span><br></pre></td></tr></table></figure>
+<p>评论系统，这里使用了valine，详见<a target="_blank" rel="noopener" href="https://valine.js.org/avatar.html">https://valine.js.org/avatar.html</a>操作指引<br>1、请先登录或注册 LeanCloud, 进入控制台后点击左下角创建应用：<br><img src="/9040e6a2/2.PNG" alt=" "><br>2、应用创建好以后，进入刚刚创建的应用，选择左下角的设置&gt;应用Key，然后就能看到你的APP ID和APP Key了：<br><img src="/9040e6a2/3.PNG" alt=" "><br>3、把ID和KEY复制到配置文件即可</p>
+<h2 id="其他配置"><a href="#其他配置" class="headerlink" title="其他配置"></a>其他配置</h2><h3 id="source-css-style-styl"><a href="#source-css-style-styl" class="headerlink" title="source/css/style.styl"></a>source/css/style.styl</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">code</span></span><br><span class="line">    <span class="attr">margin:</span> <span class="number">0</span> <span class="string">2px</span></span><br><span class="line">    <span class="attr">color:</span> <span class="comment">#3CB371</span></span><br><span class="line">    <span class="attr">padding:</span> <span class="string">3px</span> <span class="string">5px</span></span><br><span class="line">    <span class="attr">font-size:</span> <span class="number">0.</span><span class="string">8em</span></span><br><span class="line">    <span class="attr">border-radius:</span> <span class="string">2px</span></span><br><span class="line">    <span class="attr">font-family:</span> <span class="string">font-mono</span></span><br><span class="line">    <span class="attr">background-color:</span> <span class="comment">#F0F8FF</span></span><br></pre></td></tr></table></figure>
+<p>定义了代码的颜色，大小和边距，以及背景色</p>
+<h3 id="source-css-variables-styl"><a href="#source-css-variables-styl" class="headerlink" title="source/css/_variables.styl"></a>source/css/_variables.styl</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">// Colors</span><br><span class="line">color-default = #555</span><br><span class="line"><span class="selector-tag">if</span> <span class="selector-tag">hexo-config</span>(&quot;<span class="selector-tag">customize</span><span class="selector-class">.theme_color</span>&quot;)</span><br><span class="line">    color-theme = convert(hexo-config(&quot;customize.theme_color&quot;))</span><br><span class="line"><span class="selector-tag">else</span></span><br><span class="line">    color-theme = #3b8dbd</span><br><span class="line">color-grey = #aaa</span><br><span class="line">color-header-background = #2F4F4F</span><br><span class="line">color-main-background = #fff</span><br><span class="line">color-background = #eaeaea</span><br><span class="line">color-mobile-nav-background = #191919</span><br><span class="line">color-border = #ddd</span><br><span class="line">color-border-light = #eee</span><br><span class="line">color-nav-foreground = rgba(255,255,255,0.7)</span><br><span class="line">color-nav-background = #33363b</span><br><span class="line">color-nav-hover-background = rgba(0,0,0,0.1)</span><br><span class="line">color-sidebar-background = #f0f0f0</span><br><span class="line">color-sidebar-text = #777</span><br><span class="line">color-sidebar-text-dark = #444</span><br><span class="line">color-footer-background = #2F4F4F</span><br><span class="line"></span><br><span class="line">// Fonts</span><br><span class="line">font-sans = &quot;Titillium Web&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, &quot;Microsoft Yahei&quot;, sans-serif</span><br><span class="line">font-serif = Georgia, &quot;Times New Roman&quot;, serif</span><br><span class="line">font-mono = &quot;Source Code Pro&quot;, Consolas, Monaco, Menlo, Consolas, monospace</span><br><span class="line">font-icon-profile-size = 24px</span><br><span class="line">font-size = 14px</span><br><span class="line">font-size-article = 16px</span><br><span class="line">line-height = 1.6em</span><br><span class="line">line-height-title = 1.3em</span><br></pre></td></tr></table></figure>
+<p>定义头部背景色，脚背景色，主页背景色，字体大小等。</p>
 
         </div>
         <footer class="article-footer">
@@ -228,7 +233,7 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
 
 
 
-    <a data-url="https://blog.hellshan.top/archives/f65250ef/" data-id="ckgvw9r3w000j1tyeh5rm8e23" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://blog.hellshan.top/9040e6a2/" data-id="ckgw03ui0000glwye74vm6xxz" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -298,17 +303,17 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
             "@type": "Person",
             "name": "Shan Yan"
         },
-        "headline": "nginx使用日志",
-        "image": "https://blog.hellshan.top/archives/f65250ef/1.jpg",
-        "keywords": "nginx",
-        "genre": "学而时习之 温故而知新",
-        "datePublished": "2020-10-14",
-        "dateCreated": "2020-10-14",
+        "headline": "hueman主题使用补充",
+        "image": "https://blog.hellshan.top/9040e6a2/4.jpg",
+        "keywords": "hexo nodejs",
+        "genre": "学而时习之 实践验证真理",
+        "datePublished": "2020-10-16",
+        "dateCreated": "2020-10-16",
         "dateModified": "2020-10-30",
-        "url": "https://blog.hellshan.top/archives/f65250ef/",
+        "url": "https://blog.hellshan.top/9040e6a2/",
         "description": "
-nginx编译安装安装configure编译环境：yum install -y gcc gcc-c++ openssl-devel make安装pcre库:yum install -y pcre pcre-develpcre兼容正则表达式，安装pcre为了使nginx支持具备URI重写功能的Rewrite模块，如果不安装pcre库，则nginx无法使用rewrite模块功能，nginx的rewr",
-        "wordCount": 415
+_config.yml说明Customize12345678910111213141516customize:    logo:        width: 165        height: 60        url: images/logo-header.png    theme_color: &#x27;#4169E1&#x27;    highlight: tomorrow-nigh",
+        "wordCount": 889
     }
 </script>
 
@@ -380,20 +385,20 @@ nginx编译安装安装configure编译环境：yum install -y gcc gcc-c++ openss
         
 <nav id="article-nav">
     
-        <a href="/archives/459ed231/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/18899723/" id="article-nav-newer" class="article-nav-link-wrap">
         <strong class="article-nav-caption">下一篇</strong>
         <p class="article-nav-title">
         
-            ELK使用日志
+            docker部署odoo14及postgresql
         
         </p>
         <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
     </a>
     
     
-        <a href="/archives/dd6b12a/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/e14542ec/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">上一篇</strong>
-        <p class="article-nav-title">nginx反向代理frp缓存加速</p>
+        <p class="article-nav-title">使用denyhosts防止暴力破解ssh</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
@@ -415,10 +420,10 @@ nginx编译安装安装configure编译环境：yum install -y gcc gcc-c++ openss
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/archives/efed9114/" class="thumbnail">
+                            <a href="/efed9114/" class="thumbnail">
     
     
-        <span style="background-image:url(/archives/efed9114/4.png)" alt="Hexo博客之后续SEO优化" class="thumbnail-image"></span>
+        <span style="background-image:url(/efed9114/4.png)" alt="Hexo博客之后续SEO优化" class="thumbnail-image"></span>
     
     
 </a>
@@ -427,7 +432,7 @@ nginx编译安装安装configure编译环境：yum install -y gcc gcc-c++ openss
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E6%8B%BF%E6%9D%A5%E4%B8%BB%E4%B9%89/">拿来主义</a></p>
-                            <p class="item-title"><a href="/archives/efed9114/" class="title">Hexo博客之后续SEO优化</a></p>
+                            <p class="item-title"><a href="/efed9114/" class="title">Hexo博客之后续SEO优化</a></p>
                             <p class="item-date"><time datetime="2020-10-30T05:44:05.000Z" itemprop="datePublished">2020-10-30</time></p>
                         </div>
                     </li>
@@ -435,10 +440,10 @@ nginx编译安装安装configure编译环境：yum install -y gcc gcc-c++ openss
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/archives/15b0611c/" class="thumbnail">
+                            <a href="/15b0611c/" class="thumbnail">
     
     
-        <span style="background-image:url(/archives/15b0611c/1.png)" alt="据说爱恩斯坦是中等学生，你享看看真实的史料么" class="thumbnail-image"></span>
+        <span style="background-image:url(/15b0611c/1.png)" alt="据说爱恩斯坦是中等学生，你享看看真实的史料么" class="thumbnail-image"></span>
     
     
 </a>
@@ -447,7 +452,7 @@ nginx编译安装安装configure编译环境：yum install -y gcc gcc-c++ openss
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/%E6%96%87%E6%91%98/">文摘</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E6%96%87%E6%91%98/%E4%BA%BA%E7%89%A9/">人物</a></p>
-                            <p class="item-title"><a href="/archives/15b0611c/" class="title">据说爱恩斯坦是中等学生，你享看看真实的史料么</a></p>
+                            <p class="item-title"><a href="/15b0611c/" class="title">据说爱恩斯坦是中等学生，你享看看真实的史料么</a></p>
                             <p class="item-date"><time datetime="2020-10-29T06:03:30.000Z" itemprop="datePublished">2020-10-29</time></p>
                         </div>
                     </li>
@@ -455,10 +460,10 @@ nginx编译安装安装configure编译环境：yum install -y gcc gcc-c++ openss
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/archives/c6ba0622/" class="thumbnail">
+                            <a href="/c6ba0622/" class="thumbnail">
     
     
-        <span style="background-image:url(/archives/c6ba0622/1.jpg)" alt="postgresql使用日志" class="thumbnail-image"></span>
+        <span style="background-image:url(/c6ba0622/1.jpg)" alt="postgresql使用日志" class="thumbnail-image"></span>
     
     
 </a>
@@ -467,7 +472,7 @@ nginx编译安装安装configure编译环境：yum install -y gcc gcc-c++ openss
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E6%B8%A9%E6%95%85%E8%80%8C%E7%9F%A5%E6%96%B0/">温故而知新</a></p>
-                            <p class="item-title"><a href="/archives/c6ba0622/" class="title">postgresql使用日志</a></p>
+                            <p class="item-title"><a href="/c6ba0622/" class="title">postgresql使用日志</a></p>
                             <p class="item-date"><time datetime="2020-10-29T01:07:05.000Z" itemprop="datePublished">2020-10-29</time></p>
                         </div>
                     </li>
@@ -475,10 +480,10 @@ nginx编译安装安装configure编译环境：yum install -y gcc gcc-c++ openss
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/archives/18899723/" class="thumbnail">
+                            <a href="/18899723/" class="thumbnail">
     
     
-        <span style="background-image:url(/archives/18899723/1.png)" alt="docker部署odoo14及postgresql" class="thumbnail-image"></span>
+        <span style="background-image:url(/18899723/1.png)" alt="docker部署odoo14及postgresql" class="thumbnail-image"></span>
     
     
 </a>
@@ -487,7 +492,7 @@ nginx编译安装安装configure编译环境：yum install -y gcc gcc-c++ openss
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E5%AE%9E%E8%B7%B5%E9%AA%8C%E8%AF%81%E7%9C%9F%E7%90%86/">实践验证真理</a></p>
-                            <p class="item-title"><a href="/archives/18899723/" class="title">docker部署odoo14及postgresql</a></p>
+                            <p class="item-title"><a href="/18899723/" class="title">docker部署odoo14及postgresql</a></p>
                             <p class="item-date"><time datetime="2020-10-28T07:45:05.000Z" itemprop="datePublished">2020-10-28</time></p>
                         </div>
                     </li>
@@ -495,10 +500,10 @@ nginx编译安装安装configure编译环境：yum install -y gcc gcc-c++ openss
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/archives/9040e6a2/" class="thumbnail">
+                            <a href="/9040e6a2/" class="thumbnail">
     
     
-        <span style="background-image:url(/archives/9040e6a2/4.jpg)" alt="hueman主题使用补充" class="thumbnail-image"></span>
+        <span style="background-image:url(/9040e6a2/4.jpg)" alt="hueman主题使用补充" class="thumbnail-image"></span>
     
     
 </a>
@@ -507,7 +512,7 @@ nginx编译安装安装configure编译环境：yum install -y gcc gcc-c++ openss
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E5%AE%9E%E8%B7%B5%E9%AA%8C%E8%AF%81%E7%9C%9F%E7%90%86/">实践验证真理</a></p>
-                            <p class="item-title"><a href="/archives/9040e6a2/" class="title">hueman主题使用补充</a></p>
+                            <p class="item-title"><a href="/9040e6a2/" class="title">hueman主题使用补充</a></p>
                             <p class="item-date"><time datetime="2020-10-16T07:49:30.000Z" itemprop="datePublished">2020-10-16</time></p>
                         </div>
                     </li>

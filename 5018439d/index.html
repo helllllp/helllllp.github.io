@@ -15,18 +15,18 @@
     <meta name="description" content="准备nodejs环境hexo基于node.js，需要在该环境下进行操作本人在proxmox ve里面下载debain10-turnkey-nodejs模板，省去了搭建的烦恼使用ssh工具到创建的容器上执行修改npm为国内淘宝源：npm config set registry https:&#x2F;&#x2F;registry.npm.taobao.org更新npm版本npm install -g npm查看npm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo使用记录">
-<meta property="og:url" content="https://blog.hellshan.top/archives/5018439d/index.html">
+<meta property="og:url" content="https://blog.hellshan.top/5018439d/index.html">
 <meta property="og:site_name" content="helllllp">
 <meta property="og:description" content="准备nodejs环境hexo基于node.js，需要在该环境下进行操作本人在proxmox ve里面下载debain10-turnkey-nodejs模板，省去了搭建的烦恼使用ssh工具到创建的容器上执行修改npm为国内淘宝源：npm config set registry https:&#x2F;&#x2F;registry.npm.taobao.org更新npm版本npm install -g npm查看npm">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://blog.hellshan.top/archives/5018439d/hexo_git_3.PNG">
+<meta property="og:image" content="https://blog.hellshan.top/5018439d/hexo_git_3.PNG">
 <meta property="article:published_time" content="2020-09-30T07:44:05.000Z">
 <meta property="article:modified_time" content="2020-10-30T06:37:14.864Z">
 <meta property="article:author" content="Shan Yan">
 <meta property="article:tag" content="hexo">
 <meta property="article:tag" content="nodejs">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://blog.hellshan.top/archives/5018439d/hexo_git_3.PNG">
+<meta name="twitter:image" content="https://blog.hellshan.top/5018439d/hexo_git_3.PNG">
     
 
     
@@ -107,35 +107,41 @@
                         <nav id="sub-nav">
                             <div id="search-form-wrap">
 
-    <div class="search-form">
-        <input type="text" class="st-default-search-input search-form-input" placeholder="搜索" />
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
     </div>
-    <script type="text/javascript">
-(function(w,d,t,u,n,s,e) {w['SwiftypeObject']=n;w[n]=w[n]||function() {
-(w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
-e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
-})(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
-
-_st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
 </script>
-<style>
-    .st-ui-injected-overlay-container,
-    .st-ui-injected-overlay-container *:not(select) {
-        font-family: inherit !important;
-    }
-    section.st-ui-content.st-search-results a.st-ui-result .st-ui-type-heading {
-        color: #4169E1 !important;
-    }
-    .st-ui-injected-overlay-container .st-ui-header input[type="text"]:focus {
-        border-bottom: 2px solid #4169E1;
-    }
-    .st-ui-injected-overlay-container .st-ui-footer a.st-ui-pagination-link {
-        color: #4169E1;
-    }
-    .st-ui-injected-overlay-container .st-ui-footer a.st-ui-pagination-link span.st-ui-arrow {
-        border-color: #4169E1;
-    }
-</style>
+
+<script src="/js/insight.js"></script>
+
 
 </div>
                         </nav>
@@ -175,7 +181,7 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
                 
     <div class="article-date">
       <i class="fa fa-calendar"></i>
-      <a href="/archives/5018439d/" class="article-date">
+      <a href="/5018439d/" class="article-date">
          <time datetime="2020-09-30T07:44:05.000Z" itemprop="datePublished">2020-09-30</time>
       </a>
     </div>
@@ -190,7 +196,7 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
     </div>
 
                 
-   <span id="/archives/5018439d/" class="leancloud-visitors" data-flag-title="hexo使用记录">
+   <span id="/5018439d/" class="leancloud-visitors" data-flag-title="hexo使用记录">
    <i class="fa fa-eye"></i>
    <span class="post-meta-item-text">阅读次数: </span>
    <i class="leancloud-visitors-count">1000000</i>
@@ -209,13 +215,13 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
 
             
 
-            <p><img src="/archives/5018439d/hexo_git_3.PNG" alt=" "></p>
+            <p><img src="/5018439d/hexo_git_3.PNG" alt=" "></p>
 <h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><h3 id="nodejs环境"><a href="#nodejs环境" class="headerlink" title="nodejs环境"></a>nodejs环境</h3><p>hexo基于node.js，需要在该环境下进行操作<br>本人在proxmox ve里面下载debain10-turnkey-nodejs模板，省去了搭建的烦恼<br>使用ssh工具到创建的容器上执行<br>修改npm为国内淘宝源：<br><code>npm config set registry https://registry.npm.taobao.org</code><br>更新npm版本<br><code>npm install -g npm</code><br>查看npm和node版本<br><code>npm -v</code><br><code>node -v</code><br>安装hexo-cli<br><code>npm install -g hexo-cli</code><br>查看hexo版本：<br><code>hexo -v</code></p>
-<h3 id="github环境"><a href="#github环境" class="headerlink" title="github环境"></a>github环境</h3><p>注册github账号<br>新建仓库，仓库名应该为：用户名.github.io，以这种方式命名，github会自动认为是web项目，会自动建立custom_pages的选项，可以添加域名<br>回到容器上执行<br>设置user.name和user.email配置信息<br><code>git config --global user.name &quot;你的GitHub用户名&quot;</code><br><code>git config --global user.email &quot;你的GitHub注册邮箱&quot;</code><br>生成ssh密钥文件<br><code>ssh-keygen -t rsa -C &quot;你的GitHub注册邮箱&quot;</code><br>直接回车到最后<br>找到生成的.ssh的文件夹中的id_rsa.pub密钥，将内容全部复制<br>打开GitHub_Settings_keys 页面，新建new SSH Key<br>Title为标题，任意填即可，将刚刚复制的id_rsa.pub内容粘贴进去，最后点击Add SSH key。<br>在Git Bash中检测GitHub公钥设置是否成功，输入 ：<br><code>ssh git@github.com</code><br><img src="/archives/5018439d/hexo_git_1.PNG" alt=" "><br>如上则说明成功</p>
+<h3 id="github环境"><a href="#github环境" class="headerlink" title="github环境"></a>github环境</h3><p>注册github账号<br>新建仓库，仓库名应该为：用户名.github.io，以这种方式命名，github会自动认为是web项目，会自动建立custom_pages的选项，可以添加域名<br>回到容器上执行<br>设置user.name和user.email配置信息<br><code>git config --global user.name &quot;你的GitHub用户名&quot;</code><br><code>git config --global user.email &quot;你的GitHub注册邮箱&quot;</code><br>生成ssh密钥文件<br><code>ssh-keygen -t rsa -C &quot;你的GitHub注册邮箱&quot;</code><br>直接回车到最后<br>找到生成的.ssh的文件夹中的id_rsa.pub密钥，将内容全部复制<br>打开GitHub_Settings_keys 页面，新建new SSH Key<br>Title为标题，任意填即可，将刚刚复制的id_rsa.pub内容粘贴进去，最后点击Add SSH key。<br>在Git Bash中检测GitHub公钥设置是否成功，输入 ：<br><code>ssh git@github.com</code><br><img src="/5018439d/hexo_git_1.PNG" alt=" "><br>如上则说明成功</p>
 <h3 id="域名"><a href="#域名" class="headerlink" title="域名"></a>域名</h3><p>部署到github上可以使用github自带的域名，需要自定义域名则需要到各大网站申请一个域名。默认可以用用户名.github.io来访问你的hexo博客。申请域名后，进行域名绑定：<br>如我的域名为blog.hellshan.top，添加解析为我的github用户名.github.io，登录GitHub，进入之前创建的仓库，点击settings，设置Custom domain，输入你的域名即可</p>
 <h2 id="hexo初始化"><a href="#hexo初始化" class="headerlink" title="hexo初始化"></a>hexo初始化</h2><p>执行<br><code>hexo init blog</code><br>会在当前目录下生成blog文件夹，也就是你hexo网站项目的名称<br>在blog根目录里的_config.yml文件称为站点配置文件，根目录里的themes文件夹，里面也有个_config.yml文件，这个称为主题配置文件<br>将我们的Hexo与GitHub关联起来：<br><code>cd blog/</code><br><code>vim _config.yml</code><br>最后一行修改为</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">repo:</span> <span class="string">git@gitee.com:xxx/xxx.git</span></span><br><span class="line"><span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
-<p>如图：<br><img src="/archives/5018439d/hexo_git_2.PNG" alt=" "><br>安装git部署插件：<br><code>npm install hexo-deployer-git --save</code><br>执行：<br><code>hexo clean</code><br><code>hexo g</code><br><code>hexo d</code><br>即提交成功，可以到你的github上看到</p>
+<p>如图：<br><img src="/5018439d/hexo_git_2.PNG" alt=" "><br>安装git部署插件：<br><code>npm install hexo-deployer-git --save</code><br>执行：<br><code>hexo clean</code><br><code>hexo g</code><br><code>hexo d</code><br>即提交成功，可以到你的github上看到</p>
 <h3 id="编辑博客文章"><a href="#编辑博客文章" class="headerlink" title="编辑博客文章"></a>编辑博客文章</h3><p>可以使用在线markdown编辑器编辑，可写即可见：<a target="_blank" rel="noopener" href="http://marxi.co/">http://marxi.co/</a>，编辑完保存md文件，然后传到blog/source/_posts/下在提交到github就行<br>也可以使用markdown工具进行编辑如vscode<br><strong>创建CNAME文件：</strong><br>上面在github上绑定了域名，还不会生效，需要在项目目录下建立CNAME文件才生效：<br><code>vim blog/source/CNAME</code><br>填上域名保存即可<br>再次运行<br><code>hexo clean</code><br><code>hexo g</code><br><code>hexo d</code><br>本地浏览：<br><code>hexo s</code><br>本地浏览器输入IP:4000即可浏览</p>
 <h3 id="使用其他主题"><a href="#使用其他主题" class="headerlink" title="使用其他主题"></a>使用其他主题</h3><p>在github上可以搜索Hexo的主题，下载下来放到theme文件夹，然后修改_config.yml中theme的名字即可</p>
 <h2 id="hexo问题处理"><a href="#hexo问题处理" class="headerlink" title="hexo问题处理"></a>hexo问题处理</h2><h3 id="图片无法显示问题"><a href="#图片无法显示问题" class="headerlink" title="图片无法显示问题"></a>图片无法显示问题</h3><p>hexo默认无法自动处理文章插入本地图片，需要通过扩展插件支持<br>配置_config.yml里面的post_asset_folder:false这个选项设置为true:<br><code>vim blog/_config.yml</code></p>
@@ -243,7 +249,7 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
 
 
 
-    <a data-url="https://blog.hellshan.top/archives/5018439d/" data-id="ckgvw9r3s000f1tyee1ck5wv8" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://blog.hellshan.top/5018439d/" data-id="ckgw03uhz000flwye6sbcdydx" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -314,13 +320,13 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
             "name": "Shan Yan"
         },
         "headline": "hexo使用记录",
-        "image": "https://blog.hellshan.top/archives/5018439d/hexo_git_3.PNG",
+        "image": "https://blog.hellshan.top/5018439d/hexo_git_3.PNG",
         "keywords": "hexo nodejs",
         "genre": "学而时习之 实践验证真理",
         "datePublished": "2020-09-30",
         "dateCreated": "2020-09-30",
         "dateModified": "2020-10-30",
-        "url": "https://blog.hellshan.top/archives/5018439d/",
+        "url": "https://blog.hellshan.top/5018439d/",
         "description": "
 准备nodejs环境hexo基于node.js，需要在该环境下进行操作本人在proxmox ve里面下载debain10-turnkey-nodejs模板，省去了搭建的烦恼使用ssh工具到创建的容器上执行修改npm为国内淘宝源：npm config set registry https://registry.npm.taobao.org更新npm版本npm install -g npm查看npm",
         "wordCount": 1132
@@ -395,7 +401,7 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
         
 <nav id="article-nav">
     
-        <a href="/archives/9915ca90/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/9915ca90/" id="article-nav-newer" class="article-nav-link-wrap">
         <strong class="article-nav-caption">下一篇</strong>
         <p class="article-nav-title">
         
@@ -406,7 +412,7 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
     </a>
     
     
-        <a href="/archives/7c1819b2/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/7c1819b2/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">上一篇</strong>
         <p class="article-nav-title">PVE使用日志</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
@@ -430,10 +436,10 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/archives/efed9114/" class="thumbnail">
+                            <a href="/efed9114/" class="thumbnail">
     
     
-        <span style="background-image:url(/archives/efed9114/4.png)" alt="Hexo博客之后续SEO优化" class="thumbnail-image"></span>
+        <span style="background-image:url(/efed9114/4.png)" alt="Hexo博客之后续SEO优化" class="thumbnail-image"></span>
     
     
 </a>
@@ -442,7 +448,7 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E6%8B%BF%E6%9D%A5%E4%B8%BB%E4%B9%89/">拿来主义</a></p>
-                            <p class="item-title"><a href="/archives/efed9114/" class="title">Hexo博客之后续SEO优化</a></p>
+                            <p class="item-title"><a href="/efed9114/" class="title">Hexo博客之后续SEO优化</a></p>
                             <p class="item-date"><time datetime="2020-10-30T05:44:05.000Z" itemprop="datePublished">2020-10-30</time></p>
                         </div>
                     </li>
@@ -450,10 +456,10 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/archives/15b0611c/" class="thumbnail">
+                            <a href="/15b0611c/" class="thumbnail">
     
     
-        <span style="background-image:url(/archives/15b0611c/1.png)" alt="据说爱恩斯坦是中等学生，你享看看真实的史料么" class="thumbnail-image"></span>
+        <span style="background-image:url(/15b0611c/1.png)" alt="据说爱恩斯坦是中等学生，你享看看真实的史料么" class="thumbnail-image"></span>
     
     
 </a>
@@ -462,7 +468,7 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/%E6%96%87%E6%91%98/">文摘</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E6%96%87%E6%91%98/%E4%BA%BA%E7%89%A9/">人物</a></p>
-                            <p class="item-title"><a href="/archives/15b0611c/" class="title">据说爱恩斯坦是中等学生，你享看看真实的史料么</a></p>
+                            <p class="item-title"><a href="/15b0611c/" class="title">据说爱恩斯坦是中等学生，你享看看真实的史料么</a></p>
                             <p class="item-date"><time datetime="2020-10-29T06:03:30.000Z" itemprop="datePublished">2020-10-29</time></p>
                         </div>
                     </li>
@@ -470,10 +476,10 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/archives/c6ba0622/" class="thumbnail">
+                            <a href="/c6ba0622/" class="thumbnail">
     
     
-        <span style="background-image:url(/archives/c6ba0622/1.jpg)" alt="postgresql使用日志" class="thumbnail-image"></span>
+        <span style="background-image:url(/c6ba0622/1.jpg)" alt="postgresql使用日志" class="thumbnail-image"></span>
     
     
 </a>
@@ -482,7 +488,7 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E6%B8%A9%E6%95%85%E8%80%8C%E7%9F%A5%E6%96%B0/">温故而知新</a></p>
-                            <p class="item-title"><a href="/archives/c6ba0622/" class="title">postgresql使用日志</a></p>
+                            <p class="item-title"><a href="/c6ba0622/" class="title">postgresql使用日志</a></p>
                             <p class="item-date"><time datetime="2020-10-29T01:07:05.000Z" itemprop="datePublished">2020-10-29</time></p>
                         </div>
                     </li>
@@ -490,10 +496,10 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/archives/18899723/" class="thumbnail">
+                            <a href="/18899723/" class="thumbnail">
     
     
-        <span style="background-image:url(/archives/18899723/1.png)" alt="docker部署odoo14及postgresql" class="thumbnail-image"></span>
+        <span style="background-image:url(/18899723/1.png)" alt="docker部署odoo14及postgresql" class="thumbnail-image"></span>
     
     
 </a>
@@ -502,7 +508,7 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E5%AE%9E%E8%B7%B5%E9%AA%8C%E8%AF%81%E7%9C%9F%E7%90%86/">实践验证真理</a></p>
-                            <p class="item-title"><a href="/archives/18899723/" class="title">docker部署odoo14及postgresql</a></p>
+                            <p class="item-title"><a href="/18899723/" class="title">docker部署odoo14及postgresql</a></p>
                             <p class="item-date"><time datetime="2020-10-28T07:45:05.000Z" itemprop="datePublished">2020-10-28</time></p>
                         </div>
                     </li>
@@ -510,10 +516,10 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/archives/9040e6a2/" class="thumbnail">
+                            <a href="/9040e6a2/" class="thumbnail">
     
     
-        <span style="background-image:url(/archives/9040e6a2/4.jpg)" alt="hueman主题使用补充" class="thumbnail-image"></span>
+        <span style="background-image:url(/9040e6a2/4.jpg)" alt="hueman主题使用补充" class="thumbnail-image"></span>
     
     
 </a>
@@ -522,7 +528,7 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E5%AE%9E%E8%B7%B5%E9%AA%8C%E8%AF%81%E7%9C%9F%E7%90%86/">实践验证真理</a></p>
-                            <p class="item-title"><a href="/archives/9040e6a2/" class="title">hueman主题使用补充</a></p>
+                            <p class="item-title"><a href="/9040e6a2/" class="title">hueman主题使用补充</a></p>
                             <p class="item-date"><time datetime="2020-10-16T07:49:30.000Z" itemprop="datePublished">2020-10-16</time></p>
                         </div>
                     </li>

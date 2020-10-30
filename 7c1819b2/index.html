@@ -6,27 +6,27 @@
     
 
     
-    <title>docker部署odoo14及postgresql | helllllp</title>
+    <title>PVE使用日志 | helllllp</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="keywords" content="docker,database" />
+    <meta name="keywords" content="kvm,linux" />
     
-    <meta name="description" content="odoo简介和部署方式OpenERP的前身，开源，功能强大，更新版本到14，官方有几种安装方法，使用docker方法部署更简单，而官方使用docker compose的方式启动，我希望postgressql能够提供给多个应用使用，可以通过外部方法来访问，所以我这里用portainer部署。 部署postgres下载portgres镜像首先确定好postgresql的版本，这里使用postgres">
+    <meta name="description" content="安装1.下载proxmox 6.2镜像，基于dabain 10.5 buster（清华大学镜像站）：https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;proxmox&#x2F;iso&#x2F;2.使用rufus软件写入ISO镜像到U盘，使用DD方式写入 默认LVM分区处理pve删除lvm扩容根目录先备份虚拟机删除虚拟机删除local-lvmlvremove pve&#x2F;data查看空闲空间vg">
 <meta property="og:type" content="article">
-<meta property="og:title" content="docker部署odoo14及postgresql">
-<meta property="og:url" content="https://blog.hellshan.top/archives/18899723/index.html">
+<meta property="og:title" content="PVE使用日志">
+<meta property="og:url" content="https://blog.hellshan.top/7c1819b2/index.html">
 <meta property="og:site_name" content="helllllp">
-<meta property="og:description" content="odoo简介和部署方式OpenERP的前身，开源，功能强大，更新版本到14，官方有几种安装方法，使用docker方法部署更简单，而官方使用docker compose的方式启动，我希望postgressql能够提供给多个应用使用，可以通过外部方法来访问，所以我这里用portainer部署。 部署postgres下载portgres镜像首先确定好postgresql的版本，这里使用postgres">
+<meta property="og:description" content="安装1.下载proxmox 6.2镜像，基于dabain 10.5 buster（清华大学镜像站）：https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;proxmox&#x2F;iso&#x2F;2.使用rufus软件写入ISO镜像到U盘，使用DD方式写入 默认LVM分区处理pve删除lvm扩容根目录先备份虚拟机删除虚拟机删除local-lvmlvremove pve&#x2F;data查看空闲空间vg">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://blog.hellshan.top/archives/18899723/1.png">
-<meta property="article:published_time" content="2020-10-28T07:45:05.000Z">
+<meta property="og:image" content="https://blog.hellshan.top/7c1819b2/1.jpg">
+<meta property="article:published_time" content="2020-09-29T08:45:05.000Z">
 <meta property="article:modified_time" content="2020-10-30T06:37:14.860Z">
 <meta property="article:author" content="Shan Yan">
-<meta property="article:tag" content="docker">
-<meta property="article:tag" content="database">
+<meta property="article:tag" content="kvm">
+<meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://blog.hellshan.top/archives/18899723/1.png">
+<meta name="twitter:image" content="https://blog.hellshan.top/7c1819b2/1.jpg">
     
 
     
@@ -107,35 +107,41 @@
                         <nav id="sub-nav">
                             <div id="search-form-wrap">
 
-    <div class="search-form">
-        <input type="text" class="st-default-search-input search-form-input" placeholder="搜索" />
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
     </div>
-    <script type="text/javascript">
-(function(w,d,t,u,n,s,e) {w['SwiftypeObject']=n;w[n]=w[n]||function() {
-(w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
-e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
-})(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
-
-_st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
 </script>
-<style>
-    .st-ui-injected-overlay-container,
-    .st-ui-injected-overlay-container *:not(select) {
-        font-family: inherit !important;
-    }
-    section.st-ui-content.st-search-results a.st-ui-result .st-ui-type-heading {
-        color: #4169E1 !important;
-    }
-    .st-ui-injected-overlay-container .st-ui-header input[type="text"]:focus {
-        border-bottom: 2px solid #4169E1;
-    }
-    .st-ui-injected-overlay-container .st-ui-footer a.st-ui-pagination-link {
-        color: #4169E1;
-    }
-    .st-ui-injected-overlay-container .st-ui-footer a.st-ui-pagination-link span.st-ui-arrow {
-        border-color: #4169E1;
-    }
-</style>
+
+<script src="/js/insight.js"></script>
+
 
 </div>
                         </nav>
@@ -152,19 +158,19 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
                         <div class="main-body-header">
     <h1 class="header">
     
-    <a class="page-title-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E5%AE%9E%E8%B7%B5%E9%AA%8C%E8%AF%81%E7%9C%9F%E7%90%86/">实践验证真理</a>
+    <a class="page-title-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E6%B8%A9%E6%95%85%E8%80%8C%E7%9F%A5%E6%96%B0/">温故而知新</a>
     </h1>
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-docker部署odoo14及postgresql" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-PVE使用日志" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        docker部署odoo14及postgresql
+        PVE使用日志
         </h1>
     
 
@@ -175,8 +181,8 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
                 
     <div class="article-date">
       <i class="fa fa-calendar"></i>
-      <a href="/archives/18899723/" class="article-date">
-         <time datetime="2020-10-28T07:45:05.000Z" itemprop="datePublished">2020-10-28</time>
+      <a href="/7c1819b2/" class="article-date">
+         <time datetime="2020-09-29T08:45:05.000Z" itemprop="datePublished">2020-09-29</time>
       </a>
     </div>
 
@@ -186,11 +192,11 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/database/" rel="tag">database</a>, <a class="tag-link-link" href="/tags/docker/" rel="tag">docker</a>
+        <a class="tag-link-link" href="/tags/kvm/" rel="tag">kvm</a>, <a class="tag-link-link" href="/tags/linux/" rel="tag">linux</a>
     </div>
 
                 
-   <span id="/archives/18899723/" class="leancloud-visitors" data-flag-title="docker部署odoo14及postgresql">
+   <span id="/7c1819b2/" class="leancloud-visitors" data-flag-title="PVE使用日志">
    <i class="fa fa-eye"></i>
    <span class="post-meta-item-text">阅读次数: </span>
    <i class="leancloud-visitors-count">1000000</i>
@@ -209,28 +215,38 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
 
             
 
-            <p><img src="/archives/18899723/1.png" alt=" "></p>
-<h2 id="odoo简介和部署方式"><a href="#odoo简介和部署方式" class="headerlink" title="odoo简介和部署方式"></a>odoo简介和部署方式</h2><p>OpenERP的前身，开源，功能强大，更新版本到14，官方有几种安装方法，使用docker方法部署更简单，而官方使用docker compose的方式启动，我希望postgressql能够提供给多个应用使用，可以通过外部方法来访问，所以我这里用portainer部署。</p>
-<h2 id="部署postgres"><a href="#部署postgres" class="headerlink" title="部署postgres"></a>部署postgres</h2><h3 id="下载portgres镜像"><a href="#下载portgres镜像" class="headerlink" title="下载portgres镜像"></a>下载portgres镜像</h3><p>首先确定好postgresql的版本，这里使用postgres:12，直接执行<code>docker pull postgres:12</code>下载镜像</p>
-<h3 id="portainer上配置postgres容器参数"><a href="#portainer上配置postgres容器参数" class="headerlink" title="portainer上配置postgres容器参数"></a>portainer上配置postgres容器参数</h3><p>postgres docker官方镜像有参数说明：<a target="_blank" rel="noopener" href="https://hub.docker.com/_/postgres?tab=description">https://hub.docker.com/_/postgres?tab=description</a>，根据odoo docker官网镜像说明，其中的yaml配置上环境参数只配置了下面几个，所以potainer上也设置这几个参数即可</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">POSTGRES_DB=postgres</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">POSTGRES_PASSWORD=odoo</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">POSTGRES_USER=odoo</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">PGDATA=/var/lib/postgresql/data/pgdata</span></span><br><span class="line"><span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">odoo-db-data:/var/lib/postgresql/data/pgdata</span></span><br></pre></td></tr></table></figure>
-<p>portainer对应配置：<br><img src="/archives/18899723/2.png" alt=" "></p>
-<p>其中额外配置了port映射，postgres数据库端口默认是5432,使用宿主机的5432到docker主机的5432端口，PGDATA并没有配置，是默认生成的，与上面的有点不一样，手动配置了volume映射。<br>配置后生成container，可以在portainer上看到running。<br>使用navicat连接到数据库测试：<br><img src="/archives/18899723/3.png" alt=" "><br>测试成功！</p>
-<h2 id="部署odoo"><a href="#部署odoo" class="headerlink" title="部署odoo"></a>部署odoo</h2><h3 id="下载odoo镜像"><a href="#下载odoo镜像" class="headerlink" title="下载odoo镜像"></a>下载odoo镜像</h3><p>使用最新镜像，最新版为14<br><code>docker pull odoo:latest</code></p>
-<h3 id="portainer上配置odoo容器参数"><a href="#portainer上配置odoo容器参数" class="headerlink" title="portainer上配置odoo容器参数"></a>portainer上配置odoo容器参数</h3><p>官方docker-compose.yaml配置：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">web:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">odoo:12.0</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">mydb</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;8069:8069&quot;</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">HOST=mydb</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">USER=odoo</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">PASSWORD=myodoo</span></span><br></pre></td></tr></table></figure>
-<p>portainer对应配置：<br><img src="/archives/18899723/4.png" alt=" "><br>配置后生成container，在浏览器输入<a target="_blank" rel="noopener" href="http://宿主ip:8069">http://宿主ip:8069</a>访问，出现500错误。从portainer上查看日志，发现这里配置的odoo数据库需要初始化，需要运行odoo -i base强制初始化。这一步搞了我很久，网上也没有详细的解决方法，这里记录下解决方法。</p>
-<ol>
-<li>拷贝容器内的odoo.conf配置文件到本机：<br>先进入映射的volume配置文件目录运行：<br><code>docker exec home_odoo cat /etc/odoo/odoo.conf &gt; odoo.conf</code></li>
-<li><p>修改配置文件，手动修改数据库连接参数：<br><code>vim odoo.conf</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[options]</span><br><span class="line">db_host&#x3D;xxx</span><br><span class="line">db_port&#x3D;xxx</span><br><span class="line">db_name&#x3D;odoo_db</span><br><span class="line">db_user&#x3D;odoo</span><br><span class="line">db_password&#x3D;odoo</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>从portainer进入odoo的容器执行：<br><code>odoo -i base -d odoo_db</code><br>这里没有指定用户执行，默认就是使用环境配置的odoo用户，也只有该用户执行才生效。</p>
-</li>
-</ol>
-<p>执行完毕后，再次访问<a target="_blank" rel="noopener" href="http://宿主ip:8069">http://宿主ip:8069</a>，就会出现登录界面啦。默认登陆用户名和密码都是admin，记得进入修改。</p>
-<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>这里有必要记录下docker容器目录映射到宿主目录的权限问题，以免映射后出现权限报错。一般来说，生成容器后，里面的应用目录有固定的用户权限。如postgres，生成容器后，默认数据库目录属主和属组都是postgres，而查看其ID为999<br><img src="/archives/18899723/7.png" alt=" "><br>而回到宿主的对应映射目录，可以看到其ID是跟容器的用户ID一样的。<br><img src="/archives/18899723/8.png" alt=" "><br>其ID对应宿主的用户名字不一样，其实是LINUX使用ID号作为唯一权限代码。但宿主机上如果没有对应的ID号，则会显示容器的ID号。宿主机建立目录后且映射后，不要修改其属主和属组，不然权限就乱套了。也可以在宿主机上新建一个ID号如<code>useradd postgres -u 1000 -g 1000 -M -s /sbin/nologin</code>，专门给容器使用，在配置容器时，添加其environment参数如PUID=1000，PGID=1000，其参数名要看官方给出的名字来指定，让容器指定使用该ID号生成用户。这样无论从容器看还是宿主机看，都是postgres的名字了。</p>
-<h2 id="odoo使用记录"><a href="#odoo使用记录" class="headerlink" title="odoo使用记录"></a>odoo使用记录</h2><h3 id="手动导入第三方安装包"><a href="#手动导入第三方安装包" class="headerlink" title="手动导入第三方安装包"></a>手动导入第三方安装包</h3><p>首先要启用开发者模式，点击设置，常规设置，到最下面，点击启用开发者模式<br><img src="/archives/18899723/5.png" alt=" "><br>启用后，进入应用，右上角取消搜索，就会显示全部的应用，在搜索base，可以见到base_import模块，安装下就会在菜单栏多一个导入模块，就可以手动导入第三方应用啦。<br><img src="/archives/18899723/6.png" alt=" "></p>
+            <p><img src="/7c1819b2/1.jpg" alt=" "></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>1.下载proxmox 6.2镜像，基于dabain 10.5 buster（清华大学镜像站）：<br><a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/proxmox/iso/">https://mirrors.tuna.tsinghua.edu.cn/proxmox/iso/</a><br>2.使用rufus软件写入ISO镜像到U盘，使用DD方式写入</p>
+<h2 id="默认LVM分区处理"><a href="#默认LVM分区处理" class="headerlink" title="默认LVM分区处理"></a>默认LVM分区处理</h2><h3 id="pve删除lvm扩容根目录"><a href="#pve删除lvm扩容根目录" class="headerlink" title="pve删除lvm扩容根目录"></a>pve删除lvm扩容根目录</h3><p>先备份虚拟机<br>删除虚拟机<br>删除local-lvm<br><code>lvremove pve/data</code><br>查看空闲空间<br><code>vgdisplay pve | grep Free</code><br>增加分区空间<br><code>lvextend -l +100%FREE -f pve/root</code><br><code>fsdisk -l</code><br>执行上边的扩容操作<br><code>resize2fs /dev/mapper/pve-root</code><br>恢复已经备份的虚拟机</p>
+<h2 id="更改为国内软件源"><a href="#更改为国内软件源" class="headerlink" title="更改为国内软件源"></a>更改为国内软件源</h2><h3 id="更改debain-apt源"><a href="#更改debain-apt源" class="headerlink" title="更改debain apt源"></a>更改debain apt源</h3><p><code>cp /etc/apt/source.list /etc/apt/source.list.bak</code><br><code>cat &gt; /etc/apt/source.list &lt;&lt;EOF</code></p>
+<pre><code>deb https://mirrors.tuna.tsinghua.edu.cn/debian/ buster main contrib non-free
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ buster main contrib non-free
+deb https://mirrors.tuna.tsinghua.edu.cn/debian/ buster-updates main contrib non-free
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ buster-updates main contrib non-free
+deb https://mirrors.tuna.tsinghua.edu.cn/debian/ buster-backports main contrib non-free
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ buster-backports main contrib non-free
+deb https://mirrors.tuna.tsinghua.edu.cn/debian-security buster/updates main contrib non-free
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian-security buster/updates main contrib non-free
+EOF
+</code></pre><h3 id="更改pve-apt源"><a href="#更改pve-apt源" class="headerlink" title="更改pve apt源"></a>更改pve apt源</h3><p><code>cp /etc/apt/sources.list.d/pve-enterprise.list /etc/apt/sources.list.d/pve-enterprise.list.bak</code><br><code>cat &gt; /etc/apt/sources.list.d/pve-enterprise.list&lt;&lt;EOF</code><br><code>deb https://mirrors.tuna.tsinghua.edu.cn/proxmox/debian buster pve-no-subscription</code><br><code>EOF</code></p>
+<h3 id="更改pve-lxc镜像源"><a href="#更改pve-lxc镜像源" class="headerlink" title="更改pve lxc镜像源"></a>更改pve lxc镜像源</h3><p>查找设定下载源的文件<br><code>grep -rn &quot;download.proxmox.com&quot; /usr/share/perl5/PVE/*</code><br><code>sed -i.bak &quot;s#http://download.proxmox.com/images#https://mirrors.ustc.edu.cn/proxmox/images#g&quot; /usr/share/perl5/PVE/APLInfo.pm</code><br><code>wget -O /var/lib/pve-manager/apl-info/mirrors.ustc.edu.cn https://mirrors.ustc.edu.cn/proxmox/images/aplinfo.dat</code></p>
+<h2 id="备份系统"><a href="#备份系统" class="headerlink" title="备份系统"></a>备份系统</h2><p><code>tar pczvf ./sysback.tgz --exclude=/lost+found --exclude=/mnt --exclude=/srv --exclude=/proc --exclude=/run --exclude=/tmp --exclude=/sys --exclude=/meida --exclude=/mnt --exclude=/pve-directory /</code><br>注意目标目录要在最后，排除目录要在前面</p>
+<h2 id="PVE开启直通"><a href="#PVE开启直通" class="headerlink" title="PVE开启直通"></a>PVE开启直通</h2><h3 id="打开直通"><a href="#打开直通" class="headerlink" title="打开直通"></a>打开直通</h3><p><em>前提：硬件支持并在UEFI或BIOS里面开启VT-D虚拟化</em><br>修改grub文件<br><code>vim /etc/default/grub</code></p>
+<pre><code>GRUB_CMDLINE_LINUX_DEFAULT=&quot;quiet&quot;
+#改为
+GRUB_CMDLINE_LINUX_DEFAULT=&quot;quiet intel_iommu=on&quot;
+update-grub
+</code></pre><p>修改module文件<br><code>vim /etc/module</code><br>加入</p>
+<pre><code>vfio_iommu_type1
+vfio_virqfd
+vfio_pci
+vfio
+</code></pre><p>重启系统生效</p>
+<h3 id="win10设置显卡直通"><a href="#win10设置显卡直通" class="headerlink" title="win10设置显卡直通"></a>win10设置显卡直通</h3><p>以下截图是我的win10硬件配置：<br><img src="/7c1819b2/PVE_WIN10_CONFIG.PNG" alt=" "><br>下载虚拟化驱动的iso，虚拟机win10的驱动靠它了<br><a target="_blank" rel="noopener" href="https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-virtio/">https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-virtio/</a><br>列出设备地址，确定显卡vendorID<br><code>lspci -nn</code></p>
+<blockquote>
+<p>00:02.0 VGA compatible controller [0300]: Intel Corporation HD Graphics 610 [8086:5902] (rev 04)<br>定义为GPU直通vfio设备，并防止VGA仲裁<br><code>echo &quot;options vfio-pci ids=8086:5917 disable_vga&quot; &gt; /etc/modprobe.d/vfio.conf</code><br>禁止默认VGA驱动在启动时加载<br><code>echo &quot;blacklist nvidia&quot; &gt;&gt; /etc/modprobe.d/blacklist.conf</code><br><code>echo &quot;blacklist radeon&quot; &gt;&gt; /etc/modprobe.d/blacklist.conf</code><br><code>echo &quot;blacklist nouveau&quot; &gt;&gt; /etc/modprobe.d/blacklist.conf</code><br>启动进入虚拟机即可<br><em>参考：<a target="_blank" rel="noopener" href="https://star.us.org/Cs/win10-installation-and-gpu-passthrough-on-proxmox-6.html?replyTo=25">https://star.us.org/Cs/win10-installation-and-gpu-passthrough-on-proxmox-6.html?replyTo=25</a></em></p>
+</blockquote>
+<h2 id="LXC使用"><a href="#LXC使用" class="headerlink" title="LXC使用"></a>LXC使用</h2><p>在配置的存储目录中，点击模板，可以看到里面有很多system模板和turnkey的应用模板，这样可以大大减少应用的部署时间而专注于业务上。<br>配置模板很简单，最后设置密码后启动即可。如果忘记密码，可以通过PVE主机进入进行修改：<br><code>ptc enter 容器ID名</code><br>再使用<br><code>passwd 用户名</code>修改<br><strong>ubuntu container ssh的问题：</strong><br>默认ubuntu不允许root进行ssh，可以新建一个用户，把用户添加到sudoer里面就行：<br><code>useradd 用户名 -d -s /bin/bash</code><br>使用passwd更改密码<br>添加用户到sudoer：<br><code>vim /etc/sudoer</code><br>或者<br><code>visudoer</code></p>
 
         </div>
         <footer class="article-footer">
@@ -238,7 +254,7 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
 
 
 
-    <a data-url="https://blog.hellshan.top/archives/18899723/" data-id="ckgvw9r3o000b1tyefg9qezno" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://blog.hellshan.top/7c1819b2/" data-id="ckgw03uht0009lwyeb1dg9u03" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -308,18 +324,18 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
             "@type": "Person",
             "name": "Shan Yan"
         },
-        "headline": "docker部署odoo14及postgresql",
-        "image": "https://blog.hellshan.top/archives/18899723/1.png",
-        "keywords": "docker database",
-        "genre": "学而时习之 实践验证真理",
-        "datePublished": "2020-10-28",
-        "dateCreated": "2020-10-28",
+        "headline": "PVE使用日志",
+        "image": "https://blog.hellshan.top/7c1819b2/1.jpg",
+        "keywords": "kvm linux",
+        "genre": "学而时习之 温故而知新",
+        "datePublished": "2020-09-29",
+        "dateCreated": "2020-09-29",
         "dateModified": "2020-10-30",
-        "url": "https://blog.hellshan.top/archives/18899723/",
+        "url": "https://blog.hellshan.top/7c1819b2/",
         "description": "
-odoo简介和部署方式OpenERP的前身，开源，功能强大，更新版本到14，官方有几种安装方法，使用docker方法部署更简单，而官方使用docker compose的方式启动，我希望postgressql能够提供给多个应用使用，可以通过外部方法来访问，所以我这里用portainer部署。
-部署postgres下载portgres镜像首先确定好postgresql的版本，这里使用postgres",
-        "wordCount": 263
+安装1.下载proxmox 6.2镜像，基于dabain 10.5 buster（清华大学镜像站）：https://mirrors.tuna.tsinghua.edu.cn/proxmox/iso/2.使用rufus软件写入ISO镜像到U盘，使用DD方式写入
+默认LVM分区处理pve删除lvm扩容根目录先备份虚拟机删除虚拟机删除local-lvmlvremove pve/data查看空闲空间vg",
+        "wordCount": 200
     }
 </script>
 
@@ -391,22 +407,16 @@ odoo简介和部署方式OpenERP的前身，开源，功能强大，更新版本
         
 <nav id="article-nav">
     
-        <a href="/archives/c6ba0622/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/5018439d/" id="article-nav-newer" class="article-nav-link-wrap">
         <strong class="article-nav-caption">下一篇</strong>
         <p class="article-nav-title">
         
-            postgresql使用日志
+            hexo使用记录
         
         </p>
         <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
     </a>
     
-    
-        <a href="/archives/9040e6a2/" id="article-nav-older" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">上一篇</strong>
-        <p class="article-nav-title">hueman主题使用补充</p>
-        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
-        </a>
     
 </nav>
 
@@ -426,10 +436,10 @@ odoo简介和部署方式OpenERP的前身，开源，功能强大，更新版本
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/archives/efed9114/" class="thumbnail">
+                            <a href="/efed9114/" class="thumbnail">
     
     
-        <span style="background-image:url(/archives/efed9114/4.png)" alt="Hexo博客之后续SEO优化" class="thumbnail-image"></span>
+        <span style="background-image:url(/efed9114/4.png)" alt="Hexo博客之后续SEO优化" class="thumbnail-image"></span>
     
     
 </a>
@@ -438,7 +448,7 @@ odoo简介和部署方式OpenERP的前身，开源，功能强大，更新版本
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E6%8B%BF%E6%9D%A5%E4%B8%BB%E4%B9%89/">拿来主义</a></p>
-                            <p class="item-title"><a href="/archives/efed9114/" class="title">Hexo博客之后续SEO优化</a></p>
+                            <p class="item-title"><a href="/efed9114/" class="title">Hexo博客之后续SEO优化</a></p>
                             <p class="item-date"><time datetime="2020-10-30T05:44:05.000Z" itemprop="datePublished">2020-10-30</time></p>
                         </div>
                     </li>
@@ -446,10 +456,10 @@ odoo简介和部署方式OpenERP的前身，开源，功能强大，更新版本
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/archives/15b0611c/" class="thumbnail">
+                            <a href="/15b0611c/" class="thumbnail">
     
     
-        <span style="background-image:url(/archives/15b0611c/1.png)" alt="据说爱恩斯坦是中等学生，你享看看真实的史料么" class="thumbnail-image"></span>
+        <span style="background-image:url(/15b0611c/1.png)" alt="据说爱恩斯坦是中等学生，你享看看真实的史料么" class="thumbnail-image"></span>
     
     
 </a>
@@ -458,7 +468,7 @@ odoo简介和部署方式OpenERP的前身，开源，功能强大，更新版本
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/%E6%96%87%E6%91%98/">文摘</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E6%96%87%E6%91%98/%E4%BA%BA%E7%89%A9/">人物</a></p>
-                            <p class="item-title"><a href="/archives/15b0611c/" class="title">据说爱恩斯坦是中等学生，你享看看真实的史料么</a></p>
+                            <p class="item-title"><a href="/15b0611c/" class="title">据说爱恩斯坦是中等学生，你享看看真实的史料么</a></p>
                             <p class="item-date"><time datetime="2020-10-29T06:03:30.000Z" itemprop="datePublished">2020-10-29</time></p>
                         </div>
                     </li>
@@ -466,10 +476,10 @@ odoo简介和部署方式OpenERP的前身，开源，功能强大，更新版本
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/archives/c6ba0622/" class="thumbnail">
+                            <a href="/c6ba0622/" class="thumbnail">
     
     
-        <span style="background-image:url(/archives/c6ba0622/1.jpg)" alt="postgresql使用日志" class="thumbnail-image"></span>
+        <span style="background-image:url(/c6ba0622/1.jpg)" alt="postgresql使用日志" class="thumbnail-image"></span>
     
     
 </a>
@@ -478,7 +488,7 @@ odoo简介和部署方式OpenERP的前身，开源，功能强大，更新版本
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E6%B8%A9%E6%95%85%E8%80%8C%E7%9F%A5%E6%96%B0/">温故而知新</a></p>
-                            <p class="item-title"><a href="/archives/c6ba0622/" class="title">postgresql使用日志</a></p>
+                            <p class="item-title"><a href="/c6ba0622/" class="title">postgresql使用日志</a></p>
                             <p class="item-date"><time datetime="2020-10-29T01:07:05.000Z" itemprop="datePublished">2020-10-29</time></p>
                         </div>
                     </li>
@@ -486,10 +496,10 @@ odoo简介和部署方式OpenERP的前身，开源，功能强大，更新版本
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/archives/18899723/" class="thumbnail">
+                            <a href="/18899723/" class="thumbnail">
     
     
-        <span style="background-image:url(/archives/18899723/1.png)" alt="docker部署odoo14及postgresql" class="thumbnail-image"></span>
+        <span style="background-image:url(/18899723/1.png)" alt="docker部署odoo14及postgresql" class="thumbnail-image"></span>
     
     
 </a>
@@ -498,7 +508,7 @@ odoo简介和部署方式OpenERP的前身，开源，功能强大，更新版本
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E5%AE%9E%E8%B7%B5%E9%AA%8C%E8%AF%81%E7%9C%9F%E7%90%86/">实践验证真理</a></p>
-                            <p class="item-title"><a href="/archives/18899723/" class="title">docker部署odoo14及postgresql</a></p>
+                            <p class="item-title"><a href="/18899723/" class="title">docker部署odoo14及postgresql</a></p>
                             <p class="item-date"><time datetime="2020-10-28T07:45:05.000Z" itemprop="datePublished">2020-10-28</time></p>
                         </div>
                     </li>
@@ -506,10 +516,10 @@ odoo简介和部署方式OpenERP的前身，开源，功能强大，更新版本
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/archives/9040e6a2/" class="thumbnail">
+                            <a href="/9040e6a2/" class="thumbnail">
     
     
-        <span style="background-image:url(/archives/9040e6a2/4.jpg)" alt="hueman主题使用补充" class="thumbnail-image"></span>
+        <span style="background-image:url(/9040e6a2/4.jpg)" alt="hueman主题使用补充" class="thumbnail-image"></span>
     
     
 </a>
@@ -518,7 +528,7 @@ odoo简介和部署方式OpenERP的前身，开源，功能强大，更新版本
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E5%AE%9E%E8%B7%B5%E9%AA%8C%E8%AF%81%E7%9C%9F%E7%90%86/">实践验证真理</a></p>
-                            <p class="item-title"><a href="/archives/9040e6a2/" class="title">hueman主题使用补充</a></p>
+                            <p class="item-title"><a href="/9040e6a2/" class="title">hueman主题使用补充</a></p>
                             <p class="item-date"><time datetime="2020-10-16T07:49:30.000Z" itemprop="datePublished">2020-10-16</time></p>
                         </div>
                     </li>
