@@ -6,27 +6,26 @@
     
 
     
-    <title>docker部署odoo14及postgresql | helllllp</title>
+    <title>使用denyhosts防止暴力破解ssh | helllllp</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="keywords" content="docker,database" />
+    <meta name="keywords" content="linux" />
     
-    <meta name="description" content="odoo简介和部署方式OpenERP的前身，开源，功能强大，更新版本到14，官方有几种安装方法，使用docker方法部署更简单，而官方使用docker compose的方式启动，我希望postgressql能够提供给多个应用使用，可以通过外部方法来访问，所以我这里用portainer部署。 部署postgres下载portgres镜像首先确定好postgresql的版本，这里使用postgres">
+    <meta name="description" content="下载安装denyhostsgithub上有软件及安装说明，使用python开发的：https:&#x2F;&#x2F;github.com&#x2F;denyhosts&#x2F;denyhosts当前最新版提供deb包和rpm包，方便debain&#x2F;ubuntu和redhat&#x2F;centos系统安装这里我使用deb包：wget https:&#x2F;&#x2F;github.com&#x2F;denyhosts&#x2F;denyhosts&#x2F;releases&#x2F;downloa">
 <meta property="og:type" content="article">
-<meta property="og:title" content="docker部署odoo14及postgresql">
-<meta property="og:url" content="https://blog.hellshan.top/18899723/index.html">
+<meta property="og:title" content="使用denyhosts防止暴力破解ssh">
+<meta property="og:url" content="https://blog.hellshan.top/archives/e14542ec/e14542ec.html">
 <meta property="og:site_name" content="helllllp">
-<meta property="og:description" content="odoo简介和部署方式OpenERP的前身，开源，功能强大，更新版本到14，官方有几种安装方法，使用docker方法部署更简单，而官方使用docker compose的方式启动，我希望postgressql能够提供给多个应用使用，可以通过外部方法来访问，所以我这里用portainer部署。 部署postgres下载portgres镜像首先确定好postgresql的版本，这里使用postgres">
+<meta property="og:description" content="下载安装denyhostsgithub上有软件及安装说明，使用python开发的：https:&#x2F;&#x2F;github.com&#x2F;denyhosts&#x2F;denyhosts当前最新版提供deb包和rpm包，方便debain&#x2F;ubuntu和redhat&#x2F;centos系统安装这里我使用deb包：wget https:&#x2F;&#x2F;github.com&#x2F;denyhosts&#x2F;denyhosts&#x2F;releases&#x2F;downloa">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://blog.hellshan.top/18899723/1.png">
-<meta property="article:published_time" content="2020-10-28T07:45:05.000Z">
-<meta property="article:modified_time" content="2020-10-30T06:37:14.860Z">
+<meta property="og:image" content="https://blog.hellshan.top/archives/e14542ec/1.jpg">
+<meta property="article:published_time" content="2020-10-16T07:49:30.000Z">
+<meta property="article:modified_time" content="2020-10-30T06:37:14.864Z">
 <meta property="article:author" content="Shan Yan">
-<meta property="article:tag" content="docker">
-<meta property="article:tag" content="database">
+<meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://blog.hellshan.top/18899723/1.png">
+<meta name="twitter:image" content="https://blog.hellshan.top/archives/e14542ec/1.jpg">
     
 
     
@@ -157,14 +156,14 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-docker部署odoo14及postgresql" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-使用denyhosts防止暴力破解ssh" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        docker部署odoo14及postgresql
+        使用denyhosts防止暴力破解ssh
         </h1>
     
 
@@ -175,8 +174,8 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
                 
     <div class="article-date">
       <i class="fa fa-calendar"></i>
-      <a href="/18899723/" class="article-date">
-         <time datetime="2020-10-28T07:45:05.000Z" itemprop="datePublished">2020-10-28</time>
+      <a href="/archives/e14542ec/e14542ec.html" class="article-date">
+         <time datetime="2020-10-16T07:49:30.000Z" itemprop="datePublished">2020-10-16</time>
       </a>
     </div>
 
@@ -186,11 +185,11 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/database/" rel="tag">database</a>, <a class="tag-link-link" href="/tags/docker/" rel="tag">docker</a>
+        <a class="tag-link-link" href="/tags/linux/" rel="tag">linux</a>
     </div>
 
                 
-   <span id="/18899723/" class="leancloud-visitors" data-flag-title="docker部署odoo14及postgresql">
+   <span id="/archives/e14542ec/e14542ec.html" class="leancloud-visitors" data-flag-title="使用denyhosts防止暴力破解ssh">
    <i class="fa fa-eye"></i>
    <span class="post-meta-item-text">阅读次数: </span>
    <i class="leancloud-visitors-count">1000000</i>
@@ -209,28 +208,16 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
 
             
 
-            <p><img src="/18899723/1.png" alt=" "></p>
-<h2 id="odoo简介和部署方式"><a href="#odoo简介和部署方式" class="headerlink" title="odoo简介和部署方式"></a>odoo简介和部署方式</h2><p>OpenERP的前身，开源，功能强大，更新版本到14，官方有几种安装方法，使用docker方法部署更简单，而官方使用docker compose的方式启动，我希望postgressql能够提供给多个应用使用，可以通过外部方法来访问，所以我这里用portainer部署。</p>
-<h2 id="部署postgres"><a href="#部署postgres" class="headerlink" title="部署postgres"></a>部署postgres</h2><h3 id="下载portgres镜像"><a href="#下载portgres镜像" class="headerlink" title="下载portgres镜像"></a>下载portgres镜像</h3><p>首先确定好postgresql的版本，这里使用postgres:12，直接执行<code>docker pull postgres:12</code>下载镜像</p>
-<h3 id="portainer上配置postgres容器参数"><a href="#portainer上配置postgres容器参数" class="headerlink" title="portainer上配置postgres容器参数"></a>portainer上配置postgres容器参数</h3><p>postgres docker官方镜像有参数说明：<a target="_blank" rel="noopener" href="https://hub.docker.com/_/postgres?tab=description">https://hub.docker.com/_/postgres?tab=description</a>，根据odoo docker官网镜像说明，其中的yaml配置上环境参数只配置了下面几个，所以potainer上也设置这几个参数即可</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">POSTGRES_DB=postgres</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">POSTGRES_PASSWORD=odoo</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">POSTGRES_USER=odoo</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">PGDATA=/var/lib/postgresql/data/pgdata</span></span><br><span class="line"><span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">odoo-db-data:/var/lib/postgresql/data/pgdata</span></span><br></pre></td></tr></table></figure>
-<p>portainer对应配置：<br><img src="/18899723/2.png" alt=" "></p>
-<p>其中额外配置了port映射，postgres数据库端口默认是5432,使用宿主机的5432到docker主机的5432端口，PGDATA并没有配置，是默认生成的，与上面的有点不一样，手动配置了volume映射。<br>配置后生成container，可以在portainer上看到running。<br>使用navicat连接到数据库测试：<br><img src="/18899723/3.png" alt=" "><br>测试成功！</p>
-<h2 id="部署odoo"><a href="#部署odoo" class="headerlink" title="部署odoo"></a>部署odoo</h2><h3 id="下载odoo镜像"><a href="#下载odoo镜像" class="headerlink" title="下载odoo镜像"></a>下载odoo镜像</h3><p>使用最新镜像，最新版为14<br><code>docker pull odoo:latest</code></p>
-<h3 id="portainer上配置odoo容器参数"><a href="#portainer上配置odoo容器参数" class="headerlink" title="portainer上配置odoo容器参数"></a>portainer上配置odoo容器参数</h3><p>官方docker-compose.yaml配置：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">web:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">odoo:12.0</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">mydb</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;8069:8069&quot;</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">HOST=mydb</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">USER=odoo</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">PASSWORD=myodoo</span></span><br></pre></td></tr></table></figure>
-<p>portainer对应配置：<br><img src="/18899723/4.png" alt=" "><br>配置后生成container，在浏览器输入<a target="_blank" rel="noopener" href="http://宿主ip:8069">http://宿主ip:8069</a>访问，出现500错误。从portainer上查看日志，发现这里配置的odoo数据库需要初始化，需要运行odoo -i base强制初始化。这一步搞了我很久，网上也没有详细的解决方法，这里记录下解决方法。</p>
-<ol>
-<li>拷贝容器内的odoo.conf配置文件到本机：<br>先进入映射的volume配置文件目录运行：<br><code>docker exec home_odoo cat /etc/odoo/odoo.conf &gt; odoo.conf</code></li>
-<li><p>修改配置文件，手动修改数据库连接参数：<br><code>vim odoo.conf</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[options]</span><br><span class="line">db_host&#x3D;xxx</span><br><span class="line">db_port&#x3D;xxx</span><br><span class="line">db_name&#x3D;odoo_db</span><br><span class="line">db_user&#x3D;odoo</span><br><span class="line">db_password&#x3D;odoo</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>从portainer进入odoo的容器执行：<br><code>odoo -i base -d odoo_db</code><br>这里没有指定用户执行，默认就是使用环境配置的odoo用户，也只有该用户执行才生效。</p>
-</li>
-</ol>
-<p>执行完毕后，再次访问<a target="_blank" rel="noopener" href="http://宿主ip:8069">http://宿主ip:8069</a>，就会出现登录界面啦。默认登陆用户名和密码都是admin，记得进入修改。</p>
-<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>这里有必要记录下docker容器目录映射到宿主目录的权限问题，以免映射后出现权限报错。一般来说，生成容器后，里面的应用目录有固定的用户权限。如postgres，生成容器后，默认数据库目录属主和属组都是postgres，而查看其ID为999<br><img src="/18899723/7.png" alt=" "><br>而回到宿主的对应映射目录，可以看到其ID是跟容器的用户ID一样的。<br><img src="/18899723/8.png" alt=" "><br>其ID对应宿主的用户名字不一样，其实是LINUX使用ID号作为唯一权限代码。但宿主机上如果没有对应的ID号，则会显示容器的ID号。宿主机建立目录后且映射后，不要修改其属主和属组，不然权限就乱套了。也可以在宿主机上新建一个ID号如<code>useradd postgres -u 1000 -g 1000 -M -s /sbin/nologin</code>，专门给容器使用，在配置容器时，添加其environment参数如PUID=1000，PGID=1000，其参数名要看官方给出的名字来指定，让容器指定使用该ID号生成用户。这样无论从容器看还是宿主机看，都是postgres的名字了。</p>
-<h2 id="odoo使用记录"><a href="#odoo使用记录" class="headerlink" title="odoo使用记录"></a>odoo使用记录</h2><h3 id="手动导入第三方安装包"><a href="#手动导入第三方安装包" class="headerlink" title="手动导入第三方安装包"></a>手动导入第三方安装包</h3><p>首先要启用开发者模式，点击设置，常规设置，到最下面，点击启用开发者模式<br><img src="/18899723/5.png" alt=" "><br>启用后，进入应用，右上角取消搜索，就会显示全部的应用，在搜索base，可以见到base_import模块，安装下就会在菜单栏多一个导入模块，就可以手动导入第三方应用啦。<br><img src="/18899723/6.png" alt=" "></p>
+            <p><img src="/archives/e14542ec/1.jpg" alt=" "></p>
+<h2 id="下载安装denyhosts"><a href="#下载安装denyhosts" class="headerlink" title="下载安装denyhosts"></a>下载安装denyhosts</h2><p>github上有软件及安装说明，使用python开发的：<br><a target="_blank" rel="noopener" href="https://github.com/denyhosts/denyhosts">https://github.com/denyhosts/denyhosts</a><br>当前最新版提供deb包和rpm包，方便debain/ubuntu和redhat/centos系统安装<br>这里我使用deb包：<br><code>wget https://github.com/denyhosts/denyhosts/releases/download/v3.1/denyhosts_3.1.2-2_all.deb</code><br>安装<br><code>dpkg -i denyhosts_3.1.2-2_all.deb</code></p>
+<h3 id="路径说明"><a href="#路径说明" class="headerlink" title="路径说明"></a>路径说明</h3><p>默认安装路径：<br>配置文件denyhost.conf：/etc/denyhost.conf<br>执行文件denyhost.py: /usr/local/bin/denyhost.py<br>控制文件daemon-control-dist: /usr/local/bin/daemon-control-dist</p>
+<h3 id="修改denyhost-conf"><a href="#修改denyhost-conf" class="headerlink" title="修改denyhost.conf"></a>修改denyhost.conf</h3><p><code>egrep -v &quot;^$|#&quot; /etc/denyhosts.conf</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">SECURE_LOG &#x3D; &#x2F;var&#x2F;log&#x2F;auth.log</span><br><span class="line">HOSTS_DENY &#x3D; &#x2F;etc&#x2F;hosts.deny</span><br><span class="line">PURGE_DENY &#x3D;</span><br><span class="line">BLOCK_SERVICE  &#x3D; sshd</span><br><span class="line">DENY_THRESHOLD_INVALID &#x3D; 5</span><br><span class="line">DENY_THRESHOLD_VALID &#x3D; 10</span><br><span class="line">DENY_THRESHOLD_ROOT &#x3D; 1</span><br><span class="line">DENY_THRESHOLD_RESTRICTED &#x3D; 1</span><br><span class="line">DETECT_DOVECOT_LOGIN_ATTEMPTS &#x3D; NO</span><br><span class="line">WORK_DIR &#x3D; &#x2F;var&#x2F;lib&#x2F;denyhosts</span><br><span class="line">ETC_DIR &#x3D; &#x2F;etc</span><br><span class="line">SUSPICIOUS_LOGIN_REPORT_ALLOWED_HOSTS&#x3D;YES</span><br><span class="line">HOSTNAME_LOOKUP&#x3D;NO</span><br><span class="line">LOCK_FILE &#x3D; &#x2F;run&#x2F;denyhosts.pid</span><br><span class="line">IPTABLES &#x3D; &#x2F;sbin&#x2F;iptables</span><br><span class="line">ALLOWED_HOSTS_HOSTNAME_LOOKUP&#x3D;NO</span><br><span class="line">AGE_RESET_VALID&#x3D;5d</span><br><span class="line">AGE_RESET_ROOT&#x3D;25d</span><br><span class="line">AGE_RESET_RESTRICTED&#x3D;25d</span><br><span class="line">AGE_RESET_INVALID&#x3D;10d</span><br><span class="line">DAEMON_LOG &#x3D; &#x2F;var&#x2F;log&#x2F;denyhosts</span><br><span class="line">DAEMON_SLEEP &#x3D; 30s</span><br><span class="line">DAEMON_PURGE &#x3D; 1h</span><br><span class="line">SYNC_UPLOAD &#x3D; no</span><br><span class="line">SYNC_DOWNLOAD &#x3D; no</span><br></pre></td></tr></table></figure>
+<h3 id="修改daemon-control-dist"><a href="#修改daemon-control-dist" class="headerlink" title="修改daemon-control-dist"></a>修改daemon-control-dist</h3><p><code>vim /usr/local/bin/daemon-control-dist</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">DENYHOSTS_BIN &#x3D; &quot;&#x2F;usr&#x2F;local&#x2F;bin&#x2F;denyhosts.py&quot;</span><br><span class="line">DENYHOSTS_LOCK &#x3D; &quot;&#x2F;run&#x2F;denyhosts.pid&quot;</span><br><span class="line">DENYHOSTS_CFG &#x3D; &quot;&#x2F;etc&#x2F;denyhosts.conf&quot;</span><br><span class="line"></span><br><span class="line">PYTHON_BIN &#x3D; &quot;&#x2F;usr&#x2F;bin&#x2F;env python&quot;</span><br></pre></td></tr></table></figure>
+<p>新版本默认使用python3，这里改为python</p>
+<h3 id="运行daemon-control-dist"><a href="#运行daemon-control-dist" class="headerlink" title="运行daemon-control-dist"></a>运行daemon-control-dist</h3><p>默认denyhost.py使用daemon-control-dist来控制，可以加入开机自动启动，这里先手动启动：<br><code>daemon-control-dist start</code><br>如果报module xxx not found，是python没有安装对应的库，需要手动安装下：<br><code>pip install xxx</code><br>使用python3的话就执行<br><code>pip3 install xxx</code><br>然后重新运行下就行</p>
+<h3 id="查看hosts-deny"><a href="#查看hosts-deny" class="headerlink" title="查看hosts.deny"></a>查看hosts.deny</h3><p>被block的IP地址会放到/etc/hosts.deny里面，可以查看。</p>
 
         </div>
         <footer class="article-footer">
@@ -238,7 +225,7 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
 
 
 
-    <a data-url="https://blog.hellshan.top/18899723/" data-id="ckgw0a09s000boayeh2frgllv" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://blog.hellshan.top/archives/e14542ec/e14542ec.html" data-id="ckgw0coaz000pq1ye3g3z750k" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -308,18 +295,17 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
             "@type": "Person",
             "name": "Shan Yan"
         },
-        "headline": "docker部署odoo14及postgresql",
-        "image": "https://blog.hellshan.top/18899723/1.png",
-        "keywords": "docker database",
+        "headline": "使用denyhosts防止暴力破解ssh",
+        "image": "https://blog.hellshan.top/archives/e14542ec/1.jpg",
+        "keywords": "linux",
         "genre": "学而时习之 实践验证真理",
-        "datePublished": "2020-10-28",
-        "dateCreated": "2020-10-28",
+        "datePublished": "2020-10-16",
+        "dateCreated": "2020-10-16",
         "dateModified": "2020-10-30",
-        "url": "https://blog.hellshan.top/18899723/",
+        "url": "https://blog.hellshan.top/archives/e14542ec/e14542ec.html",
         "description": "
-odoo简介和部署方式OpenERP的前身，开源，功能强大，更新版本到14，官方有几种安装方法，使用docker方法部署更简单，而官方使用docker compose的方式启动，我希望postgressql能够提供给多个应用使用，可以通过外部方法来访问，所以我这里用portainer部署。
-部署postgres下载portgres镜像首先确定好postgresql的版本，这里使用postgres",
-        "wordCount": 263
+下载安装denyhostsgithub上有软件及安装说明，使用python开发的：https://github.com/denyhosts/denyhosts当前最新版提供deb包和rpm包，方便debain/ubuntu和redhat/centos系统安装这里我使用deb包：wget https://github.com/denyhosts/denyhosts/releases/downloa",
+        "wordCount": 159
     }
 </script>
 
@@ -391,20 +377,20 @@ odoo简介和部署方式OpenERP的前身，开源，功能强大，更新版本
         
 <nav id="article-nav">
     
-        <a href="/c6ba0622/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/archives/9040e6a2/9040e6a2.html" id="article-nav-newer" class="article-nav-link-wrap">
         <strong class="article-nav-caption">下一篇</strong>
         <p class="article-nav-title">
         
-            postgresql使用日志
+            hueman主题使用补充
         
         </p>
         <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
     </a>
     
     
-        <a href="/9040e6a2/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/archives/459ed231/459ed231.html" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">上一篇</strong>
-        <p class="article-nav-title">hueman主题使用补充</p>
+        <p class="article-nav-title">ELK使用日志</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
@@ -426,10 +412,10 @@ odoo简介和部署方式OpenERP的前身，开源，功能强大，更新版本
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/efed9114/" class="thumbnail">
+                            <a href="/archives/efed9114/efed9114.html" class="thumbnail">
     
     
-        <span style="background-image:url(/efed9114/4.png)" alt="Hexo博客之后续SEO优化" class="thumbnail-image"></span>
+        <span style="background-image:url(/archives/efed9114/4.png)" alt="Hexo博客之后续SEO优化" class="thumbnail-image"></span>
     
     
 </a>
@@ -438,7 +424,7 @@ odoo简介和部署方式OpenERP的前身，开源，功能强大，更新版本
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E6%8B%BF%E6%9D%A5%E4%B8%BB%E4%B9%89/">拿来主义</a></p>
-                            <p class="item-title"><a href="/efed9114/" class="title">Hexo博客之后续SEO优化</a></p>
+                            <p class="item-title"><a href="/archives/efed9114/efed9114.html" class="title">Hexo博客之后续SEO优化</a></p>
                             <p class="item-date"><time datetime="2020-10-30T05:44:05.000Z" itemprop="datePublished">2020-10-30</time></p>
                         </div>
                     </li>
@@ -446,10 +432,10 @@ odoo简介和部署方式OpenERP的前身，开源，功能强大，更新版本
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/15b0611c/" class="thumbnail">
+                            <a href="/archives/15b0611c/15b0611c.html" class="thumbnail">
     
     
-        <span style="background-image:url(/15b0611c/1.png)" alt="据说爱恩斯坦是中等学生，你享看看真实的史料么" class="thumbnail-image"></span>
+        <span style="background-image:url(/archives/15b0611c/1.png)" alt="据说爱恩斯坦是中等学生，你享看看真实的史料么" class="thumbnail-image"></span>
     
     
 </a>
@@ -458,7 +444,7 @@ odoo简介和部署方式OpenERP的前身，开源，功能强大，更新版本
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/%E6%96%87%E6%91%98/">文摘</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E6%96%87%E6%91%98/%E4%BA%BA%E7%89%A9/">人物</a></p>
-                            <p class="item-title"><a href="/15b0611c/" class="title">据说爱恩斯坦是中等学生，你享看看真实的史料么</a></p>
+                            <p class="item-title"><a href="/archives/15b0611c/15b0611c.html" class="title">据说爱恩斯坦是中等学生，你享看看真实的史料么</a></p>
                             <p class="item-date"><time datetime="2020-10-29T06:03:30.000Z" itemprop="datePublished">2020-10-29</time></p>
                         </div>
                     </li>
@@ -466,10 +452,10 @@ odoo简介和部署方式OpenERP的前身，开源，功能强大，更新版本
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/c6ba0622/" class="thumbnail">
+                            <a href="/archives/c6ba0622/c6ba0622.html" class="thumbnail">
     
     
-        <span style="background-image:url(/c6ba0622/1.jpg)" alt="postgresql使用日志" class="thumbnail-image"></span>
+        <span style="background-image:url(/archives/c6ba0622/1.jpg)" alt="postgresql使用日志" class="thumbnail-image"></span>
     
     
 </a>
@@ -478,7 +464,7 @@ odoo简介和部署方式OpenERP的前身，开源，功能强大，更新版本
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E6%B8%A9%E6%95%85%E8%80%8C%E7%9F%A5%E6%96%B0/">温故而知新</a></p>
-                            <p class="item-title"><a href="/c6ba0622/" class="title">postgresql使用日志</a></p>
+                            <p class="item-title"><a href="/archives/c6ba0622/c6ba0622.html" class="title">postgresql使用日志</a></p>
                             <p class="item-date"><time datetime="2020-10-29T01:07:05.000Z" itemprop="datePublished">2020-10-29</time></p>
                         </div>
                     </li>
@@ -486,10 +472,10 @@ odoo简介和部署方式OpenERP的前身，开源，功能强大，更新版本
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/18899723/" class="thumbnail">
+                            <a href="/archives/18899723/18899723.html" class="thumbnail">
     
     
-        <span style="background-image:url(/18899723/1.png)" alt="docker部署odoo14及postgresql" class="thumbnail-image"></span>
+        <span style="background-image:url(/archives/18899723/1.png)" alt="docker部署odoo14及postgresql" class="thumbnail-image"></span>
     
     
 </a>
@@ -498,7 +484,7 @@ odoo简介和部署方式OpenERP的前身，开源，功能强大，更新版本
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E5%AE%9E%E8%B7%B5%E9%AA%8C%E8%AF%81%E7%9C%9F%E7%90%86/">实践验证真理</a></p>
-                            <p class="item-title"><a href="/18899723/" class="title">docker部署odoo14及postgresql</a></p>
+                            <p class="item-title"><a href="/archives/18899723/18899723.html" class="title">docker部署odoo14及postgresql</a></p>
                             <p class="item-date"><time datetime="2020-10-28T07:45:05.000Z" itemprop="datePublished">2020-10-28</time></p>
                         </div>
                     </li>
@@ -506,10 +492,10 @@ odoo简介和部署方式OpenERP的前身，开源，功能强大，更新版本
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/9040e6a2/" class="thumbnail">
+                            <a href="/archives/9040e6a2/9040e6a2.html" class="thumbnail">
     
     
-        <span style="background-image:url(/9040e6a2/4.jpg)" alt="hueman主题使用补充" class="thumbnail-image"></span>
+        <span style="background-image:url(/archives/9040e6a2/4.jpg)" alt="hueman主题使用补充" class="thumbnail-image"></span>
     
     
 </a>
@@ -518,7 +504,7 @@ odoo简介和部署方式OpenERP的前身，开源，功能强大，更新版本
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E5%AE%9E%E8%B7%B5%E9%AA%8C%E8%AF%81%E7%9C%9F%E7%90%86/">实践验证真理</a></p>
-                            <p class="item-title"><a href="/9040e6a2/" class="title">hueman主题使用补充</a></p>
+                            <p class="item-title"><a href="/archives/9040e6a2/9040e6a2.html" class="title">hueman主题使用补充</a></p>
                             <p class="item-date"><time datetime="2020-10-16T07:49:30.000Z" itemprop="datePublished">2020-10-16</time></p>
                         </div>
                     </li>
