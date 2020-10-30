@@ -6,26 +6,26 @@
     
 
     
-    <title>postgresql使用日志 | helllllp</title>
+    <title>nginx使用日志 | helllllp</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="keywords" content="database" />
+    <meta name="keywords" content="nginx" />
     
-    <meta name="description" content="postgres安装postgres作为流行的关系型数据库，当然有多种安装方式，可以参考官方：https:&#x2F;&#x2F;www.postgresql.org&#x2F;download&#x2F;postgres初次安装后，默认生成一个名为postgres的数据库和一个名为postgres的数据库用户。这里需要注意的是，同时还生成了一个名为postgres的Linux系统用户。可以使用postgres用户来生成其他用户和新数">
+    <meta name="description" content="nginx编译安装安装configure编译环境：yum install -y gcc gcc-c++ openssl-devel make安装pcre库:yum install -y pcre pcre-develpcre兼容正则表达式，安装pcre为了使nginx支持具备URI重写功能的Rewrite模块，如果不安装pcre库，则nginx无法使用rewrite模块功能，nginx的rewr">
 <meta property="og:type" content="article">
-<meta property="og:title" content="postgresql使用日志">
-<meta property="og:url" content="https://blog.hellshan.top/archives/c6ba0622.html">
+<meta property="og:title" content="nginx使用日志">
+<meta property="og:url" content="https://blog.hellshan.top/posts/f65250ef.html">
 <meta property="og:site_name" content="helllllp">
-<meta property="og:description" content="postgres安装postgres作为流行的关系型数据库，当然有多种安装方式，可以参考官方：https:&#x2F;&#x2F;www.postgresql.org&#x2F;download&#x2F;postgres初次安装后，默认生成一个名为postgres的数据库和一个名为postgres的数据库用户。这里需要注意的是，同时还生成了一个名为postgres的Linux系统用户。可以使用postgres用户来生成其他用户和新数">
+<meta property="og:description" content="nginx编译安装安装configure编译环境：yum install -y gcc gcc-c++ openssl-devel make安装pcre库:yum install -y pcre pcre-develpcre兼容正则表达式，安装pcre为了使nginx支持具备URI重写功能的Rewrite模块，如果不安装pcre库，则nginx无法使用rewrite模块功能，nginx的rewr">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://blog.hellshan.top/archives/1.jpg">
-<meta property="article:published_time" content="2020-10-29T01:07:05.000Z">
-<meta property="article:modified_time" content="2020-10-30T03:34:30.892Z">
+<meta property="og:image" content="https://blog.hellshan.top/posts/1.jpg">
+<meta property="article:published_time" content="2020-10-14T07:51:05.000Z">
+<meta property="article:modified_time" content="2020-10-30T03:34:30.888Z">
 <meta property="article:author" content="Shan Yan">
-<meta property="article:tag" content="database">
+<meta property="article:tag" content="nginx">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://blog.hellshan.top/archives/1.jpg">
+<meta name="twitter:image" content="https://blog.hellshan.top/posts/1.jpg">
     
 
     
@@ -156,14 +156,14 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-postgresql使用日志" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-nginx使用日志" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        postgresql使用日志
+        nginx使用日志
         </h1>
     
 
@@ -174,8 +174,8 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
                 
     <div class="article-date">
       <i class="fa fa-calendar"></i>
-      <a href="/archives/c6ba0622.html" class="article-date">
-         <time datetime="2020-10-29T01:07:05.000Z" itemprop="datePublished">2020-10-29</time>
+      <a href="/posts/f65250ef.html" class="article-date">
+         <time datetime="2020-10-14T07:51:05.000Z" itemprop="datePublished">2020-10-14</time>
       </a>
     </div>
 
@@ -185,11 +185,11 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/database/" rel="tag">database</a>
+        <a class="tag-link-link" href="/tags/nginx/" rel="tag">nginx</a>
     </div>
 
                 
-   <span id="/archives/c6ba0622.html" class="leancloud-visitors" data-flag-title="postgresql使用日志">
+   <span id="/posts/f65250ef.html" class="leancloud-visitors" data-flag-title="nginx使用日志">
    <i class="fa fa-eye"></i>
    <span class="post-meta-item-text">阅读次数: </span>
    <i class="leancloud-visitors-count">1000000</i>
@@ -208,14 +208,19 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
 
             
 
-            <p><img src="/archives/1.jpg" alt=" "></p>
-<h2 id="postgres安装"><a href="#postgres安装" class="headerlink" title="postgres安装"></a>postgres安装</h2><p>postgres作为流行的关系型数据库，当然有多种安装方式，可以参考官方：<a target="_blank" rel="noopener" href="https://www.postgresql.org/download/">https://www.postgresql.org/download/</a><br>postgres初次安装后，默认生成一个名为postgres的数据库和一个名为postgres的数据库用户。这里需要注意的是，同时还生成了一个名为postgres的Linux系统用户。可以使用postgres用户来生成其他用户和新数据库。</p>
-<h3 id="docker安装"><a href="#docker安装" class="headerlink" title="docker安装"></a>docker安装</h3><p>docker安装可以指定POSTGRES_DB，POSTGRES_USER，POSTGRES_PASSWORD（password必须指定，否则创建容器后会报错）等，详见<a target="_blank" rel="noopener" href="https://hub.docker.com/_/postgres">https://hub.docker.com/_/postgres</a>，如果不指定，则会跟常规安装一样，默认生成一个名为postgres的数据库和一个名为postgres的数据库用户，还有postgres系统用户。指定了POSTGRES-DB，创建的容器内会生成指定数据库用户名来替代默认的postgres（超级用户）。</p>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>切换用户：<br><code>su postgres</code><br>进入postgresql：<br><code>psql</code><br>或直接使用用户名参数登录：<br><code>psql -U postgres -d postgres</code><br>U是大写，需要-d指定数据库</p>
-<h3 id="创建数据库用户和数据库并授权"><a href="#创建数据库用户和数据库并授权" class="headerlink" title="创建数据库用户和数据库并授权"></a>创建数据库用户和数据库并授权</h3><p>进入数据库控制台后：<br>创建用户<br><code>CREATE USER dbuser WITH PASSWORD &#39;password&#39;;</code><br>创建数据库<br><code>CREATE DATABASE exampledb OWNER dbuser;</code><br>授权<br><code>GRANT ALL PRIVILEGES ON DATABASE exampledb to dbuser;</code></p>
-<h3 id="使用shell命令行"><a href="#使用shell命令行" class="headerlink" title="使用shell命令行"></a>使用shell命令行</h3><p>创建数据库用户dbuser，并指定其为超级用户<br><code>sudo -u postgres createuser --superuser dbuser</code><br>在shell命令行下，创建数据库exampledb，并指定所有者为dbuser<br><code>sudo -u postgres createdb -O dbuser exampledb</code></p>
-<h3 id="控制台命令"><a href="#控制台命令" class="headerlink" title="控制台命令"></a>控制台命令</h3><p>\h：查看SQL命令的解释，比如\h select。<br>\?：查看psql命令列表。<br>\l：列出所有数据库。<br>\c [database_name]：连接其他数据库。<br>\d：列出当前数据库的所有表格。<br>\d [table_name]：列出某一张表格的结构。<br>\du：列出所有用户。<br>\e：打开文本编辑器。<br>\conninfo：列出当前数据库和连接的信息。<br>\password：修改当前用户密码<br>\q：退出</p>
-<h3 id="数据库操作"><a href="#数据库操作" class="headerlink" title="数据库操作"></a>数据库操作</h3><p>创建新表<br><code>CREATE TABLE user_tbl(name VARCHAR(20), signup_date DATE);</code><br>插入数据<br><code>INSERT INTO user_tbl(name, signup_date) VALUES(&#39;张三&#39;, &#39;2013-12-22&#39;);</code><br>选择记录<br><code>SELECT * FROM user_tbl;</code><br>更新数据<br><code>UPDATE user_tbl set name = &#39;李四&#39; WHERE name = &#39;张三&#39;;</code><br>删除记录<br><code>DELETE FROM user_tbl WHERE name = &#39;李四&#39; ;</code><br>添加栏位<br><code>ALTER TABLE user_tbl ADD email VARCHAR(40);</code><br>更新结构<br><code>ALTER TABLE user_tbl ALTER COLUMN signup_date SET NOT NULL;</code><br>更名栏位<br><code>ALTER TABLE user_tbl RENAME COLUMN signup_date TO signup;</code><br>删除栏位<br><code>ALTER TABLE user_tbl DROP COLUMN email;</code><br>表格更名<br><code>ALTER TABLE user_tbl RENAME TO backup_tbl;</code><br>删除表格<br><code>DROP TABLE IF EXISTS backup_tbl;</code></p>
+            <p><img src="/posts/1.jpg" alt=" "></p>
+<h2 id="nginx编译安装"><a href="#nginx编译安装" class="headerlink" title="nginx编译安装"></a>nginx编译安装</h2><p>安装configure编译环境：<br><code>yum install -y gcc gcc-c++ openssl-devel make</code><br>安装pcre库:<br><code>yum install -y pcre pcre-devel</code><br>pcre兼容正则表达式，安装pcre为了使nginx支持具备URI重写功能的Rewrite模块，如果不安装pcre库，则nginx无法使用rewrite模块功能，nginx的rewrite模块功能几乎是企业应用必须。<br>编译参数：<br><code>./configure --help</code><br>按需安装，如：</p>
+<blockquote>
+<p>—with-http_stub_status_module<br>—with-http_ssl_module</p>
+</blockquote>
+<p>查看已安装的模块（安装在/app下）：<br><code>/app/nginx/sbin/nginx -V</code><br>如果编译安装后需要再添加模块，则重新运行./configure添加，然后make即可，注意不要make install，这样会覆盖原文件。</p>
+<h2 id="添加认证"><a href="#添加认证" class="headerlink" title="添加认证"></a>添加认证</h2><p>需要httpd-tools工具：<br><code>yum install -y httpd-tools</code><br>如果是debain或者ubuntu系统，则<br><code>apt install -y apache2-utils</code><br>添加密码文件：<br><code>htpasswd -cb /app/nginx/htpasswd abc 123456</code><br>在对应模块（server)下添加：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">auth_basic</span> <span class="string">&quot;Restricted Access&quot;</span>;</span><br><span class="line"><span class="attribute">auth_basic_user_file</span> /app/nginx/htpasswd;</span><br></pre></td></tr></table></figure>
+<h2 id="nginx模块功能"><a href="#nginx模块功能" class="headerlink" title="nginx模块功能"></a>nginx模块功能</h2><h3 id="proxy代理模块"><a href="#proxy代理模块" class="headerlink" title="proxy代理模块"></a>proxy代理模块</h3><p>ngx_http_proxy_module proxy代理模块，用于把请求后抛给服务器节点或upstream服务器池，例：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">worker_processes</span>  <span class="number">1</span>;</span><br><span class="line"><span class="section">events</span> &#123;</span><br><span class="line">    <span class="attribute">worker_connections</span>  <span class="number">1024</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="section">http</span> &#123;</span><br><span class="line">    <span class="attribute">include</span>       mime.types;</span><br><span class="line">    <span class="attribute">default_type</span>  application/octet-stream;</span><br><span class="line">    <span class="attribute">sendfile</span>        <span class="literal">on</span>;</span><br><span class="line">    <span class="attribute">keepalive_timeout</span>  <span class="number">65</span>;</span><br><span class="line">    <span class="attribute">upstream</span> www_server_pools &#123;</span><br><span class="line">        <span class="attribute">server</span> <span class="number">10.0.0.7:80</span> weight=<span class="number">1</span>;</span><br><span class="line">        <span class="attribute">server</span> <span class="number">10.0.0.8:80</span> weight=<span class="number">5</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="section">server</span> &#123;</span><br><span class="line">        <span class="attribute">listen</span>       <span class="number">80</span>;</span><br><span class="line">        <span class="attribute">server_name</span>  localhost;</span><br><span class="line">        <span class="attribute">location</span> / &#123;</span><br><span class="line">            <span class="attribute">root</span>   html;</span><br><span class="line">            <span class="attribute">index</span>  index.html index.htm;</span><br><span class="line">            <span class="attribute">proxy_pass</span> http://www_server_pools;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="upstram负载均衡模块"><a href="#upstram负载均衡模块" class="headerlink" title="upstram负载均衡模块"></a>upstram负载均衡模块</h3><p>ngx_http_upstream_module 负载均衡模块，可以实现网站的负载均衡功能及节点的健康检查<br>看官网nginx document upstream模块</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">upstream</span> backend &#123;</span><br><span class="line">    <span class="attribute">server</span> backend1.example.com       weight=<span class="number">5</span>;</span><br><span class="line">    <span class="attribute">server</span> backend2.example.com:<span class="number">8080</span>;</span><br><span class="line">    <span class="attribute">server</span> unix:/tmp/backend3;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">server</span> backup1.example.com:<span class="number">8080</span>   backup;</span><br><span class="line">    <span class="attribute">server</span> backup2.example.com:<span class="number">8080</span>   backup;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">    <span class="attribute">location</span> / &#123;</span><br><span class="line">        proxy_pass http://backend; (uptream的标签名）</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>backend是模块名，随便起<br>server是http服务器<br>weight是权重，权重大的处理比例就多<br>backup是热备（高可用）</p>
 
         </div>
         <footer class="article-footer">
@@ -223,7 +228,7 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
 
 
 
-    <a data-url="https://blog.hellshan.top/archives/c6ba0622.html" data-id="ckgvpqcp1000k6kye7lwu9ygp" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://blog.hellshan.top/posts/f65250ef.html" data-id="ckgvpxlz7000g8ayehpjmh3x7" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -293,17 +298,17 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
             "@type": "Person",
             "name": "Shan Yan"
         },
-        "headline": "postgresql使用日志",
-        "image": "https://blog.hellshan.top/archives/1.jpg",
-        "keywords": "database",
+        "headline": "nginx使用日志",
+        "image": "https://blog.hellshan.top/posts/1.jpg",
+        "keywords": "nginx",
         "genre": "学而时习之 温故而知新",
-        "datePublished": "2020-10-29",
-        "dateCreated": "2020-10-29",
+        "datePublished": "2020-10-14",
+        "dateCreated": "2020-10-14",
         "dateModified": "2020-10-30",
-        "url": "https://blog.hellshan.top/archives/c6ba0622.html",
+        "url": "https://blog.hellshan.top/posts/f65250ef.html",
         "description": "
-postgres安装postgres作为流行的关系型数据库，当然有多种安装方式，可以参考官方：https://www.postgresql.org/download/postgres初次安装后，默认生成一个名为postgres的数据库和一个名为postgres的数据库用户。这里需要注意的是，同时还生成了一个名为postgres的Linux系统用户。可以使用postgres用户来生成其他用户和新数",
-        "wordCount": 132
+nginx编译安装安装configure编译环境：yum install -y gcc gcc-c++ openssl-devel make安装pcre库:yum install -y pcre pcre-develpcre兼容正则表达式，安装pcre为了使nginx支持具备URI重写功能的Rewrite模块，如果不安装pcre库，则nginx无法使用rewrite模块功能，nginx的rewr",
+        "wordCount": 415
     }
 </script>
 
@@ -375,20 +380,20 @@ postgres安装postgres作为流行的关系型数据库，当然有多种安装�
         
 <nav id="article-nav">
     
-        <a href="/archives/15b0611c.html" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/posts/459ed231.html" id="article-nav-newer" class="article-nav-link-wrap">
         <strong class="article-nav-caption">下一篇</strong>
         <p class="article-nav-title">
         
-            据说爱恩斯坦是中等学生，你享看看真实的史料么
+            ELK使用日志
         
         </p>
         <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
     </a>
     
     
-        <a href="/archives/18899723.html" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/posts/dd6b12a.html" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">上一篇</strong>
-        <p class="article-nav-title">docker部署odoo14及postgresql</p>
+        <p class="article-nav-title">nginx反向代理frp缓存加速</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
@@ -410,10 +415,10 @@ postgres安装postgres作为流行的关系型数据库，当然有多种安装�
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/archives/15b0611c.html" class="thumbnail">
+                            <a href="/posts/15b0611c.html" class="thumbnail">
     
     
-        <span style="background-image:url(/archives/1.png)" alt="据说爱恩斯坦是中等学生，你享看看真实的史料么" class="thumbnail-image"></span>
+        <span style="background-image:url(/posts/1.png)" alt="据说爱恩斯坦是中等学生，你享看看真实的史料么" class="thumbnail-image"></span>
     
     
 </a>
@@ -422,7 +427,7 @@ postgres安装postgres作为流行的关系型数据库，当然有多种安装�
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/%E6%96%87%E6%91%98/">文摘</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E6%96%87%E6%91%98/%E4%BA%BA%E7%89%A9/">人物</a></p>
-                            <p class="item-title"><a href="/archives/15b0611c.html" class="title">据说爱恩斯坦是中等学生，你享看看真实的史料么</a></p>
+                            <p class="item-title"><a href="/posts/15b0611c.html" class="title">据说爱恩斯坦是中等学生，你享看看真实的史料么</a></p>
                             <p class="item-date"><time datetime="2020-10-29T06:03:30.000Z" itemprop="datePublished">2020-10-29</time></p>
                         </div>
                     </li>
@@ -430,10 +435,10 @@ postgres安装postgres作为流行的关系型数据库，当然有多种安装�
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/archives/c6ba0622.html" class="thumbnail">
+                            <a href="/posts/c6ba0622.html" class="thumbnail">
     
     
-        <span style="background-image:url(/archives/1.jpg)" alt="postgresql使用日志" class="thumbnail-image"></span>
+        <span style="background-image:url(/posts/1.jpg)" alt="postgresql使用日志" class="thumbnail-image"></span>
     
     
 </a>
@@ -442,7 +447,7 @@ postgres安装postgres作为流行的关系型数据库，当然有多种安装�
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E6%B8%A9%E6%95%85%E8%80%8C%E7%9F%A5%E6%96%B0/">温故而知新</a></p>
-                            <p class="item-title"><a href="/archives/c6ba0622.html" class="title">postgresql使用日志</a></p>
+                            <p class="item-title"><a href="/posts/c6ba0622.html" class="title">postgresql使用日志</a></p>
                             <p class="item-date"><time datetime="2020-10-29T01:07:05.000Z" itemprop="datePublished">2020-10-29</time></p>
                         </div>
                     </li>
@@ -450,10 +455,10 @@ postgres安装postgres作为流行的关系型数据库，当然有多种安装�
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/archives/18899723.html" class="thumbnail">
+                            <a href="/posts/18899723.html" class="thumbnail">
     
     
-        <span style="background-image:url(/archives/1.png)" alt="docker部署odoo14及postgresql" class="thumbnail-image"></span>
+        <span style="background-image:url(/posts/1.png)" alt="docker部署odoo14及postgresql" class="thumbnail-image"></span>
     
     
 </a>
@@ -462,7 +467,7 @@ postgres安装postgres作为流行的关系型数据库，当然有多种安装�
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E5%AE%9E%E8%B7%B5%E9%AA%8C%E8%AF%81%E7%9C%9F%E7%90%86/">实践验证真理</a></p>
-                            <p class="item-title"><a href="/archives/18899723.html" class="title">docker部署odoo14及postgresql</a></p>
+                            <p class="item-title"><a href="/posts/18899723.html" class="title">docker部署odoo14及postgresql</a></p>
                             <p class="item-date"><time datetime="2020-10-28T07:45:05.000Z" itemprop="datePublished">2020-10-28</time></p>
                         </div>
                     </li>
@@ -470,10 +475,10 @@ postgres安装postgres作为流行的关系型数据库，当然有多种安装�
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/archives/9040e6a2.html" class="thumbnail">
+                            <a href="/posts/9040e6a2.html" class="thumbnail">
     
     
-        <span style="background-image:url(/archives/4.jpg)" alt="hueman主题使用补充" class="thumbnail-image"></span>
+        <span style="background-image:url(/posts/4.jpg)" alt="hueman主题使用补充" class="thumbnail-image"></span>
     
     
 </a>
@@ -482,7 +487,7 @@ postgres安装postgres作为流行的关系型数据库，当然有多种安装�
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E5%AE%9E%E8%B7%B5%E9%AA%8C%E8%AF%81%E7%9C%9F%E7%90%86/">实践验证真理</a></p>
-                            <p class="item-title"><a href="/archives/9040e6a2.html" class="title">hueman主题使用补充</a></p>
+                            <p class="item-title"><a href="/posts/9040e6a2.html" class="title">hueman主题使用补充</a></p>
                             <p class="item-date"><time datetime="2020-10-16T07:49:30.000Z" itemprop="datePublished">2020-10-16</time></p>
                         </div>
                     </li>
@@ -490,10 +495,10 @@ postgres安装postgres作为流行的关系型数据库，当然有多种安装�
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/archives/e14542ec.html" class="thumbnail">
+                            <a href="/posts/e14542ec.html" class="thumbnail">
     
     
-        <span style="background-image:url(/archives/1.jpg)" alt="使用denyhosts防止暴力破解ssh" class="thumbnail-image"></span>
+        <span style="background-image:url(/posts/1.jpg)" alt="使用denyhosts防止暴力破解ssh" class="thumbnail-image"></span>
     
     
 </a>
@@ -502,7 +507,7 @@ postgres安装postgres作为流行的关系型数据库，当然有多种安装�
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E5%AE%9E%E8%B7%B5%E9%AA%8C%E8%AF%81%E7%9C%9F%E7%90%86/">实践验证真理</a></p>
-                            <p class="item-title"><a href="/archives/e14542ec.html" class="title">使用denyhosts防止暴力破解ssh</a></p>
+                            <p class="item-title"><a href="/posts/e14542ec.html" class="title">使用denyhosts防止暴力破解ssh</a></p>
                             <p class="item-date"><time datetime="2020-10-16T07:49:30.000Z" itemprop="datePublished">2020-10-16</time></p>
                         </div>
                     </li>
