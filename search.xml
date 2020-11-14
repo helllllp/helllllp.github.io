@@ -25,6 +25,89 @@
       </tags>
   </entry>
   <entry>
+    <title>AD域常用设置</title>
+    <url>/archives/7bb52d79/</url>
+    <content><![CDATA[<p><img src="/archives/7bb52d79/1.png" alt></p>
+<h2 id="指定域用户拥有添加计算机进域权限"><a href="#指定域用户拥有添加计算机进域权限" class="headerlink" title="指定域用户拥有添加计算机进域权限"></a>指定域用户拥有添加计算机进域权限</h2><h3 id="禁用所有用户添加权限"><a href="#禁用所有用户添加权限" class="headerlink" title="禁用所有用户添加权限"></a>禁用所有用户添加权限</h3><p>默认domain user拥有10个添加计算机进域的权限，需要把ms-DS-MachineAccountQuota参数改为0，即禁止所有用户添加进域，可以打开ADSI编辑器查看和更改：<br>点击开始—管理工具—ADSI编辑器，右击ADSI编辑器连接到默认确定，点击展开默认上下文，右击文件夹属性，找到ms-DS-MachineAccountQuota，修改为0即可</p>
+<p><img src="/archives/7bb52d79/2.png" alt></p>
+<h3 id="单独分配用户或组权限"><a href="#单独分配用户或组权限" class="headerlink" title="单独分配用户或组权限"></a>单独分配用户或组权限</h3><ol>
+<li>首先开启Active Directory用户和计算机管理器的高级功能，拥有更多设置：<br>打开Active Directory用户和计算机管理器，点击查看，点击高级功能</li>
+<li>找到Computers容器，右击打开属性，在安全一栏，点击高级，权限框中单击以选中创建计算机对象和 删除计算机对象，确定就OK。这时，该用户或组就拥有该权限啦。</li>
+</ol>
+<p><img src="/archives/7bb52d79/3.png" alt></p>
+<h2 id="禁止非域计算机不能访问服务器共享"><a href="#禁止非域计算机不能访问服务器共享" class="headerlink" title="禁止非域计算机不能访问服务器共享"></a>禁止非域计算机不能访问服务器共享</h2><p>要禁止非域计算机访问服务器资源设置比较复杂，需要配合IP策略来限制，可以参考<a href="https://blog.51cto.com/weber213/676492">https://blog.51cto.com/weber213/676492</a>，但实际上，只要灵活配置用户权限，一样可以达到此效果：<br>非域计算机想访问服务器共享，需要输入用户名和密码，外来用户没有账号从而杜绝安全问题。但是如果使用了员工的域账号来访问，岂不是一样不安全？可以针对该用户取消访问所有计算机，只允许从某个计算机登录，这样无论是公司其他电脑还是外面的电脑使用该账号登录，也会提示没权限访问该资源的。</p>
+<p><img src="/archives/7bb52d79/4.png" alt></p>
+<h3 id="设置从网络访问本地计算机权限"><a href="#设置从网络访问本地计算机权限" class="headerlink" title="设置从网络访问本地计算机权限"></a>设置从网络访问本地计算机权限</h3><p>有时候设置了域账户绑定计算机访问后，也可以设置该用户不能从网络访问此计算机：<br>点击开始—管理工具—本地安全策略，在本地策略—用户权限分配一项，找到从网络访问此计算机，然后就添加只允许从网络访问此计算机的账户或组就行。</p>
+<p><img src="/archives/7bb52d79/5.png" alt></p>
+<h2 id="域策略更新及导出"><a href="#域策略更新及导出" class="headerlink" title="域策略更新及导出"></a>域策略更新及导出</h2><p>强制刷新域策略gpupdate /force</p>
+<p>导出域策略结果GPRESULT /H d:\GPReport.html</p>
+<p>查看当前策略rsop.msc</p>
+]]></content>
+      <tags>
+        <tag>AD</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>WEB架构简述</title>
+    <url>/archives/5c1c7ec1/</url>
+    <content><![CDATA[<p><img src="/archives/5c1c7ec1/1.png" alt=" "></p>
+<h2 id="WEB访问过程"><a href="#WEB访问过程" class="headerlink" title="WEB访问过程"></a>WEB访问过程</h2><p>首先简述一下访问网页的过程：<br>在浏览器地址栏输入网址如京东：”jd.com“回车，浏览器很智能，会把你输入的地址转换成标准url即：”<a href="http://jd.com/:80“，最后面&quot;/&quot;指请求资源的uri，不带任何字符则是请求根目录，”:80“指端口号，指访问地址的对应端口，默认&quot;/&quot;和80端口会隐藏，让普通用户看起来不疑惑，专注于网页内容。你可能看到返回的网址会变成”https://www.jd.com“，是因为京东的web服务器对用户输入的jd.com做处理了，返回一个安全的页面。实际是发送http请求。">http://jd.com/:80“，最后面&quot;/&quot;指请求资源的uri，不带任何字符则是请求根目录，”:80“指端口号，指访问地址的对应端口，默认&quot;/&quot;和80端口会隐藏，让普通用户看起来不疑惑，专注于网页内容。你可能看到返回的网址会变成”https://www.jd.com“，是因为京东的web服务器对用户输入的jd.com做处理了，返回一个安全的页面。实际是发送http请求。</a><br>浏览器会先对域名进行DNS解析，把域名解析成公网地址。浏览器会通过以下几步来获取解析：</p>
+<ol>
+<li>先检查浏览器本身DNS缓存</li>
+<li>查找系统HOST文件是否有对应记录</li>
+<li>查找系统DNS缓存</li>
+<li>查找本地的DNS服务器缓存</li>
+<li>发送DNS请求到根服务器来获得IP地址<br>获取到IP地址后，就向该地址服务器发送HTTP请求，服务器响应请求并返回一个页面，浏览器收到响应后渲染页面。</li>
+</ol>
+<p><img src="/archives/5c1c7ec1/2.png" alt=" "></p>
+<h3 id="从点击访问到看到页面经历哪些时间"><a href="#从点击访问到看到页面经历哪些时间" class="headerlink" title="从点击访问到看到页面经历哪些时间"></a>从点击访问到看到页面经历哪些时间</h3><ol>
+<li>DNS解析时间：通常在20-50ms左右</li>
+<li>数据传输时间：发送HTTP请求（跟网络带宽有关），接收并返回数据（请求数据内容大小有关）</li>
+<li>处理请求时间：建立连接，等待服务器响应（服务器查库，计算，生成页面）</li>
+<li>浏览器渲染时间（浏览器算法不一样渲染的时间也不一样）</li>
+</ol>
+<h2 id="单机架构"><a href="#单机架构" class="headerlink" title="单机架构"></a>单机架构</h2><p>LNMP+ECSHOP开源商城搭建在同一台服务器</p>
+<ol>
+<li>单点故障（可以定期备份）</li>
+<li>性能有瓶颈</li>
+<li>web和db在一起会相互影响（web忙的时候查询数据库，数据库也很忙，就会很慢，web处理请求就会很慢，就会一堆请求排队，会导致web更慢，这是一个叠加的效应）</li>
+</ol>
+<h2 id="组件及读写分离"><a href="#组件及读写分离" class="headerlink" title="组件及读写分离"></a>组件及读写分离</h2><p>实现方法：</p>
+<ol>
+<li>在web1上做负载均衡把请求分发到两台web服务器上，在web2上做备节点</li>
+<li>弄两域名如web1.xxx.com和web2.xxx.com，无论用户访问哪个域名都是同一个页面（原理跟游戏选网络节点一样，是电信还是联通或者软件站下载通道），所有技术都是有应用场景，整个框架的设计是根据业务来决定的，而不是新技术。</li>
+<li>DNS轮询，使用单条域名绑定多条A记录，有负载均衡的局限性：<ul>
+<li>无法快速踢出故障节点：假如其中一台服务器宕机，即其中一条记录失效，需要手动删除失效的记录，但是DNS有缓存时间，在DNS时间失效前，访问就会出问题，当然可以使用脚本当宕机就直接切换IP。</li>
+<li>负载不均衡：服务器硬件配置不同，DNS缓存影响，不同地区DNS缓存劫持不一样，有些地区永远获取到同一个地址</li>
+</ul>
+</li>
+</ol>
+<p>DNS轮询应用场景：</p>
+<ol>
+<li>有多个集群，有多个A记录，配成智能DNS，根据客户IP来做</li>
+<li>全局负载均衡</li>
+<li>用于主机流量的切换或节点的替换，给域名添加多一条记录就是新主机IP，在DNS失效前就是用DNS轮询</li>
+</ol>
+<h2 id="集群"><a href="#集群" class="headerlink" title="集群"></a>集群</h2><p>什么是集群<br>多台同构或异构的服务器集中起来对外提供相同的服务，可以叫这堆服务器做集群，服务器不一定是要全部是linux或windows的，也可以是异构的。<br>分类：</p>
+<ol>
+<li>负载均衡LB：当出现故障能够快速切换，但不能把负载均衡配置在web服务器上，可以放到DB服务器上，因为要有第三方仲裁才能确保宕机的消息是可靠的。不能单纯PING不同就认为节点DONM了，有可能是到该节点的网络不通，也可能是网络拥堵，并不意味着服务器宕机，如果这时候切换，就会造成混乱。需要过一段时间再尝试PING，需要有次数限制，如果再不通，就设置一个SLEEP时间，过了SLEEP时间再尝试。经典案例是支付宝回调通知的一种方式</li>
+<li>高可用HA</li>
+<li>高性能HPC</li>
+</ol>
+<h2 id="WEB架构集群"><a href="#WEB架构集群" class="headerlink" title="WEB架构集群"></a>WEB架构集群</h2><h2 id="WEB架构缓存"><a href="#WEB架构缓存" class="headerlink" title="WEB架构缓存"></a>WEB架构缓存</h2><p>打开京东网站，查看源代码，可以看到有link rel的内容</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;dns-prefetch&quot;</span> <span class="attr">href</span>=<span class="string">&quot;//static.360buyimg.com&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;dns-prefetch&quot;</span> <span class="attr">href</span>=<span class="string">&quot;//misc.360buyimg.com&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;dns-prefetch&quot;</span> <span class="attr">href</span>=<span class="string">&quot;//img10.360buyimg.com&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;dns-prefetch&quot;</span> <span class="attr">href</span>=<span class="string">&quot;//img11.360buyimg.com&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;dns-prefetch&quot;</span> <span class="attr">href</span>=<span class="string">&quot;//img12.360buyimg.com&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;dns-prefetch&quot;</span> <span class="attr">href</span>=<span class="string">&quot;//img13.360buyimg.com&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;dns-prefetch&quot;</span> <span class="attr">href</span>=<span class="string">&quot;//img14.360buyimg.com&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;dns-prefetch&quot;</span> <span class="attr">href</span>=<span class="string">&quot;//img20.360buyimg.com&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;dns-prefetch&quot;</span> <span class="attr">href</span>=<span class="string">&quot;//img30.360buyimg.com&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;dns-prefetch&quot;</span> <span class="attr">href</span>=<span class="string">&quot;//d.3.cn&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;dns-prefetch&quot;</span> <span class="attr">href</span>=<span class="string">&quot;//d.jd.com&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;icon&quot;</span> <span class="attr">href</span>=<span class="string">&quot;//www.jd.com/favicon.ico&quot;</span> <span class="attr">mce_href</span>=<span class="string">&quot;//www.jd.com/favicon.ico&quot;</span> <span class="attr">type</span>=<span class="string">&quot;image/x-icon&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这个是HTML5的新功能，叫DNS预获取。在HTTP头部插入，把页面内所有需要获取DNS的元素先获取缓存一遍，这样当请求到对应资源的时候就会很快。</p>
+<h2 id="WEB架构存储"><a href="#WEB架构存储" class="headerlink" title="WEB架构存储"></a>WEB架构存储</h2><h2 id="数据库扩展"><a href="#数据库扩展" class="headerlink" title="数据库扩展"></a>数据库扩展</h2><h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>没有绝对好的架构，只有合适的架构，当引入一个新的架构，解决了当前问题，同时也会产生其他问题。没必要指点他人架构，存在即合理，当你看到别人的架构，多想想为何这样用，这种架构的好处是什么，优点是什么。一个好的架构，就是在有限的资源里，把架构做到最优，能充分利用所有资源，达到最大的效果。</p>
+]]></content>
+      <categories>
+        <category>学而时习之</category>
+        <category>温故而知新</category>
+      </categories>
+      <tags>
+        <tag>cluster</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>中国军队进化史解密中国地图里暗藏的天机，看完后发现历史和地理统统白学了！</title>
     <url>/archives/ce0cf91/</url>
     <content><![CDATA[<p>作者：长河飞舟 来源：天涯-纵论中西全史</p>
