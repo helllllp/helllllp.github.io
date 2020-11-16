@@ -48,8 +48,8 @@
     <title>AD域常用设置</title>
     <link href="https://blog.hellshan.top/archives/7bb52d79/"/>
     <id>https://blog.hellshan.top/archives/7bb52d79/</id>
-    <published>2020-11-13T05:46:00.000Z</published>
-    <updated>2020-11-14T11:23:07.313Z</updated>
+    <published>2020-11-13T05:46:22.000Z</published>
+    <updated>2020-11-16T06:03:22.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="/archives/7bb52d79/1.png" alt></p><h2 id="指定域用户拥有添加计算机进域权限"><a href="#指定域用户拥有添加计算机进域权限" class="headerlink" title="指定域用户拥有添加计算机进域权限"></a>指定域用户拥有添加计算机进域权限</h2><h3 id="禁用所有用户添加权限"><a href="#禁用所有用户添加权限" class="headerlink" title="禁用所有用户添加权限"></a>禁用所有用户添加权限</h3><p>默认domain user拥有10个添加计算机进域的权限，需要把ms-DS-MachineAccountQuota参数改为0，即禁止所有用户添加进域，可以打开ADSI编辑器查看和更改：<br>点击开始—管理工具—ADSI编辑器，右击ADSI编辑器连接到默认确定，点击展开默认上下文，右击文件夹属性，找到ms-DS-MachineAccountQuota，修改为0即可</p><p><img src="/archives/7bb52d79/2.png" alt></p><h3 id="单独分配用户或组权限"><a href="#单独分配用户或组权限" class="headerlink" title="单独分配用户或组权限"></a>单独分配用户或组权限</h3><ol><li>首先开启Active Directory用户和计算机管理器的高级功能，拥有更多设置：<br>打开Active Directory用户和计算机管理器，点击查看，点击高级功能</li><li>找到Computers容器，右击打开属性，在安全一栏，点击高级，权限框中单击以选中创建计算机对象和 删除计算机对象，确定就OK。这时，该用户或组就拥有该权限啦。</li></ol><p><img src="/archives/7bb52d79/3.png" alt></p><h2 id="禁止非域计算机不能访问服务器共享"><a href="#禁止非域计算机不能访问服务器共享" class="headerlink" title="禁止非域计算机不能访问服务器共享"></a>禁止非域计算机不能访问服务器共享</h2><p>要禁止非域计算机访问服务器资源设置比较复杂，需要配合IP策略来限制，可以参考<a href="https://blog.51cto.com/weber213/676492">https://blog.51cto.com/weber213/676492</a>，但实际上，只要灵活配置用户权限，一样可以达到此效果：<br>非域计算机想访问服务器共享，需要输入用户名和密码，外来用户没有账号从而杜绝安全问题。但是如果使用了员工的域账号来访问，岂不是一样不安全？可以针对该用户取消访问所有计算机，只允许从某个计算机登录，这样无论是公司其他电脑还是外面的电脑使用该账号登录，也会提示没权限访问该资源的。</p><p><img src="/archives/7bb52d79/4.png" alt></p><h3 id="设置从网络访问本地计算机权限"><a href="#设置从网络访问本地计算机权限" class="headerlink" title="设置从网络访问本地计算机权限"></a>设置从网络访问本地计算机权限</h3><p>有时候设置了域账户绑定计算机访问后，也可以设置该用户不能从网络访问此计算机：<br>点击开始—管理工具—本地安全策略，在本地策略—用户权限分配一项，找到从网络访问此计算机，然后就添加只允许从网络访问此计算机的账户或组就行。</p><p><img src="/archives/7bb52d79/5.png" alt></p><h2 id="域策略更新及导出"><a href="#域策略更新及导出" class="headerlink" title="域策略更新及导出"></a>域策略更新及导出</h2><p>强制刷新域策略gpupdate /force</p><p>导出域策略结果GPRESULT /H d:\GPReport.html</p><p>查看当前策略rsop.msc</p>]]></content>
     
@@ -61,6 +61,10 @@
       
     
     
+    
+    <category term="学而时习之" scheme="https://blog.hellshan.top/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/"/>
+    
+    <category term="温故而知新" scheme="https://blog.hellshan.top/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E6%B8%A9%E6%95%85%E8%80%8C%E7%9F%A5%E6%96%B0/"/>
     
     
     <category term="AD" scheme="https://blog.hellshan.top/tags/AD/"/>

@@ -226,6 +226,10 @@
 <p>导出域策略结果GPRESULT /H d:\GPReport.html</p>
 <p>查看当前策略rsop.msc</p>
 ]]></content>
+      <categories>
+        <category>学而时习之</category>
+        <category>温故而知新</category>
+      </categories>
       <tags>
         <tag>AD</tag>
       </tags>
