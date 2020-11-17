@@ -21,7 +21,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blog.hellshan.top/archives/9040e6a2/4.jpg">
 <meta property="article:published_time" content="2020-10-16T07:49:30.000Z">
-<meta property="article:modified_time" content="2020-10-30T06:37:14.864Z">
+<meta property="article:modified_time" content="2020-11-17T06:52:05.000Z">
 <meta property="article:author" content="HellShan">
 <meta property="article:tag" content="hexo">
 <meta property="article:tag" content="nodejs">
@@ -221,6 +221,8 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
 <p>定义了代码的颜色，大小和边距，以及背景色</p>
 <h3 id="source-css-variables-styl"><a href="#source-css-variables-styl" class="headerlink" title="source/css/_variables.styl"></a>source/css/_variables.styl</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">// Colors</span><br><span class="line">color-default = #555</span><br><span class="line"><span class="selector-tag">if</span> <span class="selector-tag">hexo-config</span>(&quot;<span class="selector-tag">customize</span><span class="selector-class">.theme_color</span>&quot;)</span><br><span class="line">    color-theme = convert(hexo-config(&quot;customize.theme_color&quot;))</span><br><span class="line"><span class="selector-tag">else</span></span><br><span class="line">    color-theme = #3b8dbd</span><br><span class="line">color-grey = #aaa</span><br><span class="line">color-header-background = #2F4F4F</span><br><span class="line">color-main-background = #fff</span><br><span class="line">color-background = #eaeaea</span><br><span class="line">color-mobile-nav-background = #191919</span><br><span class="line">color-border = #ddd</span><br><span class="line">color-border-light = #eee</span><br><span class="line">color-nav-foreground = rgba(255,255,255,0.7)</span><br><span class="line">color-nav-background = #33363b</span><br><span class="line">color-nav-hover-background = rgba(0,0,0,0.1)</span><br><span class="line">color-sidebar-background = #f0f0f0</span><br><span class="line">color-sidebar-text = #777</span><br><span class="line">color-sidebar-text-dark = #444</span><br><span class="line">color-footer-background = #2F4F4F</span><br><span class="line"></span><br><span class="line">// Fonts</span><br><span class="line">font-sans = &quot;Titillium Web&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, &quot;Microsoft Yahei&quot;, sans-serif</span><br><span class="line">font-serif = Georgia, &quot;Times New Roman&quot;, serif</span><br><span class="line">font-mono = &quot;Source Code Pro&quot;, Consolas, Monaco, Menlo, Consolas, monospace</span><br><span class="line">font-icon-profile-size = 24px</span><br><span class="line">font-size = 14px</span><br><span class="line">font-size-article = 16px</span><br><span class="line">line-height = 1.6em</span><br><span class="line">line-height-title = 1.3em</span><br></pre></td></tr></table></figure>
 <p>定义头部背景色，脚背景色，主页背景色，字体大小等。</p>
+<h3 id="通过https访问出现“您与此网站建立的链接并非完全安全”提示的问题"><a href="#通过https访问出现“您与此网站建立的链接并非完全安全”提示的问题" class="headerlink" title="通过https访问出现“您与此网站建立的链接并非完全安全”提示的问题"></a>通过https访问出现“您与此网站建立的链接并非完全安全”提示的问题</h3><p>已经开启https，访问时还会提示您与此网站建立的链接并非完全安全，原因是我们的页面存在一些不安全的http请求，比如图片、js等静态文件。我们只需要将其升级为https请求即可。<br><code>vim /app/blog/themes/hueman/layout/common/head.ejs</code><br>页面的head中加入：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;Content-Security-Policy&quot;</span> <span class="attr">content</span>=<span class="string">&quot;upgrade-insecure-requests&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
         </div>
         <footer class="article-footer">
@@ -228,7 +230,7 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
 
 
 
-    <a data-url="https://blog.hellshan.top/archives/9040e6a2/" data-id="ckhloa6p9000kapyebfxydli1" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://blog.hellshan.top/archives/9040e6a2/" data-id="ckhlpny4s000kizyecplz1pna" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -304,11 +306,11 @@ _st('install','cxyTDoHLKWCGzsyEnjsG','2.0.0');
         "genre": "学而时习之 实践验证真理",
         "datePublished": "2020-10-16",
         "dateCreated": "2020-10-16",
-        "dateModified": "2020-10-30",
+        "dateModified": "2020-11-17",
         "url": "https://blog.hellshan.top/archives/9040e6a2/",
         "description": "
 _config.yml说明Customize12345678910111213141516customize:    logo:        width: 165        height: 60        url: images/logo-header.png    theme_color: &#x27;#4169E1&#x27;    highlight: tomorrow-nigh",
-        "wordCount": 889
+        "wordCount": 908
     }
 </script>
 
