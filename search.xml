@@ -1447,7 +1447,8 @@
 <li>安装步骤添加github托管的repository</li>
 <li>手动更改netlify的域名，再自定义域名</li>
 <li>修改阿里云域名cname为netlify的域名</li>
-<li>取消github的自定义域名</li>
+<li>取消github的自定义域名，清空后点save，会删除目录下的CNAME文件</li>
+<li>删除hexo工作目录的CNAME文件，不然重新提交也会绑定</li>
 </ol>
 <p><img src="/archives/5018439d/4.png" alt=" "></p>
 <p>测试：<a href="http://www.17ce.com">http://www.17ce.com</a></p>
