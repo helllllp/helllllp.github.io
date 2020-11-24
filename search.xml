@@ -43,11 +43,11 @@
 </ul>
 <h3 id="架构图"><a href="#架构图" class="headerlink" title="架构图"></a>架构图</h3><p>此图说明prometheus的体系结构及其一些系统组件</p>
 <p><img src="/archives/cf0240fb/2.png" alt=" "></p>
-<p>图片左侧是各种数据源主要是各种符合 Prometheus 数据格式的 exporter,除此之外为了支持推动数据 类型的 Agent,可以通过 Pushgateway 组件,将 Push 转化为 Pull。Prometheus 甚至可以从其它的 Prometheus 获取数据,组建联邦集群。 Prometheus 的基本原理是通过 HTTP 周期性抓取被监控组件的状态,任意组件只要提供对应的 HTTP 接口 并且符合 Prometheus 定义的数据格式,就可以接入 Prometheus 监控。</p>
+<p>图片左侧是各种数据源主要是各种符合 Prometheus 数据格式的 exporter,除此之外为了支持推动数据 类型的 Agent,可以通过 Pushgateway 组件,将 Push 转化为 Pull。Prometheus 甚至可以从其它的 Prometheus 获取数据,组建联邦集群。Prometheus 的基本原理是通过 HTTP 周期性抓取被监控组件的状态,任意组件只要提供对应的 HTTP 接口 并且符合 Prometheus 定义的数据格式,就可以接入 Prometheus 监控。</p>
 <p>图片的上侧是服务发现,Prometheus 支持监控对象的自动发现机制,从而可以动态获取监控对象。 图片中间是 Prometheus Server,Retrieval 模块定时拉取数据,并通过 Storage 模块保存数据。PromQL 为 Prometheus 提供的查询语法,PromQL 模块通过解析语法树,调用 Storage 模块查询接口获取监控数据。 图片右侧是告警和页面展现,Prometheus 将告警推送到 alertmanger,然后通过 alertmanger 对告警进行处 理并执行相应动作。数据展现除了 Prometheus 自带的 webui,还可以通过 grafana 等组件查询 Prometheus 监控数据。</p>
 <h3 id="与其他监控系统的比较"><a href="#与其他监控系统的比较" class="headerlink" title="与其他监控系统的比较"></a>与其他监控系统的比较</h3><p>在Prometheus 之前市面已经出现了很多的监控系统,如 Zabbix、Open-falcon 等。那么 prometheus 和这些监控系统有啥异同呢?我们先简单介绍一下这些监控系统</p>
 <p>Zabbix 是由 Alexei Vladishev 开源的分布式监控系统,支持多种采集方式和采集客户端,同时支持 SNMP、 IPMI、JMX、Telnet、SSH 等多种协议,它将采集到的数据存放到数据库中,然后对其进行分析整理,如果 符合告警规则,则触发相应的告警。</p>
-<p>Zabbix 核心组件主要是 Agent 和 Server,其中 Agent 主要负责采集数据并通过主动或者被动的方式采集数据发送到 Server/Proxy,除此之外,为了扩展监控项,Agent 还支持执行自定义脚本。Server 主要负责 接收 Agent 发送的监控信息,并进行汇总存储,触发告警等。 为了便于快速高效的配置 zabbix 监控项,zabbix 提供了模板机制,从而实现批量配置的目的。</p>
+<p>Zabbix 核心组件主要是 Agent 和 Server,其中 Agent 主要负责采集数据并通过主动或者被动的方式采集数据发送到 Server/Proxy,除此之外,为了扩展监控项,Agent 还支持执行自定义脚本。Server 主要负责 接收 Agent 发送的监控信息,并进行汇总存储,触发告警等。为了便于快速高效的配置 zabbix 监控项,zabbix 提供了模板机制,从而实现批量配置的目的。</p>
 <p>Zabbix Server 将收集的监控数据存储到 Zabbix Database 中。Zabbix Database 支持常用的关系型 数据库,如果 MySQL、PostgreSQL、Oracle 等,默认 是 MySQL。Zabbix Web 页面(PHP 编写)负责数据 查询。Zabbix 由于使用了关系型数据存储时序数据,所以在监控大规模集群时常常在数据存储方面捉襟见 肘。为此 zabbix 4.2 版本后也开始支持时序数据存储,不过目前还不成熟。</p>
 <p><img src="/archives/cf0240fb/3.png" alt=" "></p>
 <p>Open-Falcon 是小米开源的企业级监控工具,用 Go 语言开发而成,包括小米、滴滴、美团等在内的互 联网公司都在使用它,是一款灵活、可扩展并且高性能的监控方案,主要组件包括:</p>
@@ -82,7 +82,7 @@
 <p><img src="/archives/cf0240fb/7.png" alt=" "></p>
 <h3 id="启动grafana"><a href="#启动grafana" class="headerlink" title="启动grafana"></a>启动grafana</h3><p>参考官方配置：<a href="https://grafana.com/docs/grafana/latest/installation/docker/">https://grafana.com/docs/grafana/latest/installation/docker/</a></p>
 <p>新建目录来存储grafana的数据：<br><code>mkdir -p grafana/&#123;data,logs&#125;</code></p>
-<p>修改目录权限，默认grafana使用用户grafana，对应UID为472：<br><code>chonw -R 65534.root prometheus</code><br><code>chmod -R 775 prometheus</code></p>
+<p>修改目录权限，默认grafana使用用户grafana，对应UID为472：<br><code>chonw -R 472.root grafana</code><br><code>chmod -R 775 grafana</code></p>
 <p>启动container：<br><code>docker run -d -p 3000:3000 --name=grafana -v /opt/grafana/data:/var/lib/grafana -v /opt/grafana/logs:/var/log/grafana grafana/grafana</code></p>
 <p>访问URL：<a href="http://IP:3000">http://IP:3000</a><br>默认用户名和密码都是admin，首次登录需要修改密码，密码设置完成之后，就会跳转到首页，点击Add data source，由于使用的是镜像方式Prometheus：</p>
 <p><img src="/archives/cf0240fb/8.png" alt=" "></p>
