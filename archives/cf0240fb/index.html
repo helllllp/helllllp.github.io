@@ -6,26 +6,27 @@
     
 
     
-    <title>丁戊奇荒和粮食规律 | helllllp!</title>
+    <title>docker下搭建prometheus+grafana | helllllp!</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="keywords" content="article" />
+    <meta name="keywords" content="docker,monitor" />
     
-    <meta name="description" content="原创 一棵青木 远方青木  首发于2019-12-15  1875年，中国的气候悄悄发生了变化，华北地区，尤其是山西省的降雨突然减少，土地变的干旱。 根据文献记载，此时已经有零星地区出现了歉收的记录，但在当时，并未引起人们的警觉。 1876年，南方各省出现了大暴雨，农作物损失惨重。但北方各省却出现了大面积的干旱，随后又遭遇了蝗灾，山西的一些地区，已经有人开始靠吃树皮活命。 而那些以为熬过今年，等明">
+    <meta name="description" content="Prometheus介绍Prometheus是一个最初在SoundCloud上构建的开源监控系统 。它现在是一个独立的开源项目，为了强调这一点，并说明项目的治理结构，Prometheus 于2016年加入CNCF，作为继Kubernetes之后的第二个托管项目。 Prometheus是由SoundCloud开发的开源监控报警系统和时序列数据库。从字面上理解，Prometheus由两个部分组成，一">
 <meta property="og:type" content="article">
-<meta property="og:title" content="丁戊奇荒和粮食规律">
-<meta property="og:url" content="https://blog.hellshan.top/archives/69bbce32/index.html">
+<meta property="og:title" content="docker下搭建prometheus+grafana">
+<meta property="og:url" content="https://blog.hellshan.top/archives/cf0240fb/index.html">
 <meta property="og:site_name" content="helllllp!">
-<meta property="og:description" content="原创 一棵青木 远方青木  首发于2019-12-15  1875年，中国的气候悄悄发生了变化，华北地区，尤其是山西省的降雨突然减少，土地变的干旱。 根据文献记载，此时已经有零星地区出现了歉收的记录，但在当时，并未引起人们的警觉。 1876年，南方各省出现了大暴雨，农作物损失惨重。但北方各省却出现了大面积的干旱，随后又遭遇了蝗灾，山西的一些地区，已经有人开始靠吃树皮活命。 而那些以为熬过今年，等明">
+<meta property="og:description" content="Prometheus介绍Prometheus是一个最初在SoundCloud上构建的开源监控系统 。它现在是一个独立的开源项目，为了强调这一点，并说明项目的治理结构，Prometheus 于2016年加入CNCF，作为继Kubernetes之后的第二个托管项目。 Prometheus是由SoundCloud开发的开源监控报警系统和时序列数据库。从字面上理解，Prometheus由两个部分组成，一">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://img.soogif.com/20201116113326934.gif">
-<meta property="article:published_time" content="2020-11-16T03:17:08.000Z">
-<meta property="article:modified_time" content="2020-11-16T07:24:12.139Z">
+<meta property="og:image" content="https://blog.hellshan.top/archives/cf0240fb/1.png">
+<meta property="article:published_time" content="2020-11-24T08:49:05.000Z">
+<meta property="article:modified_time" content="2020-11-24T10:28:48.000Z">
 <meta property="article:author" content="HellShan">
-<meta property="article:tag" content="article">
+<meta property="article:tag" content="docker">
+<meta property="article:tag" content="monitor">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://img.soogif.com/20201116113326934.gif">
+<meta name="twitter:image" content="https://blog.hellshan.top/archives/cf0240fb/1.png">
     
 
     
@@ -124,19 +125,19 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    <a class="page-title-link" href="/categories/%E6%96%87%E6%91%98/">文摘</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/%E6%96%87%E6%91%98/%E6%94%BF%E6%B2%BB/">政治</a>
+    <a class="page-title-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E5%AE%9E%E8%B7%B5%E9%AA%8C%E8%AF%81%E7%9C%9F%E7%90%86/">实践验证真理</a>
     </h1>
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-丁戊奇荒和粮食规律" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-docker下搭建prometheus+grafana" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        丁戊奇荒和粮食规律
+        docker下搭建prometheus+grafana
         </h1>
     
 
@@ -147,8 +148,8 @@
                 
     <div class="article-date">
       <i class="fa fa-calendar"></i>
-      <a href="/archives/69bbce32/" class="article-date">
-         <time datetime="2020-11-16T03:17:08.000Z" itemprop="datePublished">2020-11-16</time>
+      <a href="/archives/cf0240fb/" class="article-date">
+         <time datetime="2020-11-24T08:49:05.000Z" itemprop="datePublished">2020-11-24</time>
       </a>
     </div>
 
@@ -158,11 +159,11 @@
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/article/" rel="tag">article</a>
+        <a class="tag-link-link" href="/tags/docker/" rel="tag">docker</a>, <a class="tag-link-link" href="/tags/monitor/" rel="tag">monitor</a>
     </div>
 
                 
-   <span id="/archives/69bbce32/" class="leancloud-visitors" data-flag-title="丁戊奇荒和粮食规律">
+   <span id="/archives/cf0240fb/" class="leancloud-visitors" data-flag-title="docker下搭建prometheus+grafana">
    <i class="fa fa-eye"></i>
    <span class="post-meta-item-text">阅读次数: </span>
    <i class="leancloud-visitors-count">1000000</i>
@@ -181,177 +182,70 @@
 
             
 
-            <p>原创 一棵青木 远方青木  <em>首发于2019-12-15</em></p>
-<p><img src="http://img.soogif.com/20201116113326934.gif" alt></p>
-<p>1875年，中国的气候悄悄发生了变化，华北地区，尤其是山西省的降雨突然减少，土地变的干旱。</p>
-<p>根据文献记载，此时已经有零星地区出现了歉收的记录，但在当时，并未引起人们的警觉。</p>
-<p>1876年，南方各省出现了大暴雨，农作物损失惨重。但北方各省却出现了大面积的干旱，随后又遭遇了蝗灾，山西的一些地区，已经有人开始靠吃树皮活命。</p>
-<p>而那些以为熬过今年，等明年就能吃上饭的灾民，做梦也不会想到，在未来的两年，连树皮都成了奢侈物。</p>
-<p>1877年，也就是光绪三年，大饥荒正式拉开序幕。</p>
-<p>这一年，干旱依旧，华北各地依然大面积歉收，旱情没有丝毫缓解，但民间的储备粮已经彻底耗尽。</p>
-<p>清政府立即进行救灾行动，但虚弱的政府给予的赈灾粮杯水车薪。</p>
-<font color="red">当粮缸彻底见底时，大恐怖降临了。</font>
-
-<p>英国外交报告中记录：</p>
-<blockquote>
-<p>吃人已非个别现象，人们组合成不同的团伙，集体外出“狩猎”，将猎获的俘虏杀死烹食。</p>
-</blockquote>
-<p>清政府中央救灾大员阎敬铭上书朝廷： </p>
-<blockquote>
-<p>“往来二三千里，目之所见，皆系鹄面鸠形；耳之所闻，无非男啼女哭。枯骸塞途，绕车而过，残喘呼救，望地而僵。”<br>陕西“赤地千里，几不知禾稼为何物矣……饥民相率抢粮，甚而至于拦路纠抢，私立大纛，上书‘王法难犯，饥饿难当’八字。”</p>
-</blockquote>
-<p>生产秩序崩溃后，次年灾情依旧，1878年的农作物再次歉收。</p>
-<p>这一年，北方的灾荒已经到了毛骨悚然的程度，有一个曾经去过灾区的人回忆说：</p>
-<blockquote>
-<p>他们路过灾区的时候就听自己这马车在行进的时候”咔嚓咔嚓“直响，他探出头一看，发现路上全是累累白骨，那咔嚓声是车轮碾碎死人骨头的声音。<br>这人吓得缩在车里瑟瑟发抖不敢再看，没想到过了一会，刮风了，大风吹进车里很多黑色的毛发，吹的那人脸上身上都是，那人摘干净仔细一看，吓得差点尿裤子里，他发现那些毛发全是死人的头发，有的头发还能辨认出死者生前的发型，当时的灾区，饿殍遍野，那些荒野上的尸体的头皮已经被喜鹊和乌鸦啄烂了，死尸的头发被大风吹遍原野，于是山西大地上吹起黑色的风。。。<br>就这样，灾民们曾经留在这个世界的最后证据也在风中吹散了。。。</p>
-</blockquote>
-<p>类似这样的场景和描述，在《丁戊奇荒》这本书里，记载的数不胜数，我就不一一赘述了。</p>
-<p><img src="/archives/69bbce32/1.png" alt=" "></p>
-<p>曾国藩的弟弟曾国荃曾经这么评价丁戊奇荒：</p>
-<blockquote>
-<p>“就是地狱也不过如此了。“</p>
-</blockquote>
-<p>这场大灾荒从1876年正式拉开序幕，持续到1879年才得到缓解，期间又以1877和1878这两年死亡人数最多。</p>
-<p>这次大旱灾影响的居民人数在1.6亿到2亿之间，约占当时清朝人口的一半，直接死于饥荒和瘟疫的人数在一千万以上，其中山西500万人，而逃离灾区的灾民大约有2000万人。</p>
-<p>清朝官员称这场旱灾为：</p>
-<blockquote>
-<p>“有清一代二百三十余年末见之惨凄，未闻之悲痛”。</p>
-</blockquote>
-<p>1877年为丁丑年，1878年为戊寅年。</p>
-<p>所以这次大灾荒，被称之为<font color="red">丁戊奇荒。</font></p>
-<hr>
-<center><font color="orange" size="4">1</font></center>
-
-<hr>
-<p>现在的中国人，每天最操心的事情不是如何填饱肚子，而是怎么把身上的赘肉给减下去。</p>
-<p>体重计上的数字时刻在提醒你，<font color="red">把碗里的肉扔掉，别再吃了。</font></p>
-<p>中国人已经忘记了饥饿的滋味，也不认为自己会吃不上饭。</p>
-<p>但是国家没有忘，粮为国之本，中国对粮食安全的重视程度为世界之最。</p>
-<p>农业，是一个靠天吃饭的行业，气候对收成的影响非常大。今年能够产出多少农作物，老天爷说了算。</p>
-<font color="red">不管十年一遇，还是百年一遇，我们总会有那么不走运的几年里，遇到特大自然灾害。</font>
-
-<p>而粮食这种东西，是世界上刚需程度最大的商品，极其特殊。</p>
-<p>一个普通的成年男性，一个月只需要25斤粮食，重体力劳动者也只需要45斤。</p>
-<p>按3块钱一斤的粮价计算，一个月75块就可以保证你饿不死。</p>
-<p>但哪怕你富如马云，身家数千亿，你一个月也不可能吃250斤粮食。</p>
-<p>你可以吃很贵的山珍海味，但是你的粮食消耗总量并不大，毕竟富豪也不是外星人。</p>
-<p>粮食多了，我们可以拿来养猪、养牛、甚至酿酒，改善饮食结构。</p>
-<p>但粮食少了，问题就大条了。</p>
-<font color="red">粮食的绝对刚需就体现在，它永远只能多不能少。</font>
-
-<p>假设世界上的铁矿石产量突然减少10%，那么铁矿石价格会上涨10%吗？</p>
-<p>不，你错了，价格会大幅上涨，<font color="red">直到有10%的下游企业买不起铁矿石为止。</font></p>
-<p>我们可以没有钢铁，也可以没有石油，但是不能没有粮食。</p>
-<p>粮食的刚需程度，远大于铁矿石。</p>
-<font color="red">偏偏粮食的需求弹性还特别小，富人没办法多吃，穷人也没办法少吃。
-
-如果粮食减产10%，那么带来的绝对不是每人少吃10%的粮食，而是饿死10%的人为止。
-富人绝对不愿意省那点钱去挨饿，所以粮价会无限上涨，直到有10%的人吃不起粮食被饿死。因为他们对粮食的需求，只有饿死的时候才会停止。</font>
-
-<p>大家小的时候，都玩过抢板凳的游戏。</p>
-<p>如果N个人，有N个板凳，每人只能坐一个板凳的话，那么大家都很淡定，慢悠悠的走到空闲的板凳那里坐下，大家都很有风度，也不着急。</p>
-<p>但如果只给N个人提供N-1个板凳的话，大家就像疯了一样的抢板凳，以最快的速度抢凳子，同时还疯狂的推挤旁边的人，毫无优雅和风度，这还是游戏惩罚很低的情况下。</p>
-<font color="red">如果告诉这N个人，抢不到板凳的那个人会死。相信我，这个游戏会瞬间血腥激烈无数倍。
-
-当粮食短缺10%甚至5%的时候，就会开启一场同样的游戏，异常残酷。</font>
-
-<p>2018年，印度的洋葱丰收，部分地区的价格甚至跌到了1卢比/公斤。</p>
-<p>但2019年，印度的洋葱出现了歉收，价格上升到25卢比/公斤。</p>
-<p>自2019年9月开始，印度洋葱的价格疯狂上涨，目前已经涨到了80卢比/公斤。</p>
-<p>之所以会出现3~80倍这么恐怖的涨幅，是因为洋葱是咖喱的主材料，而印度人特别喜欢吃咖喱。</p>
-<p>这只是做饭的辅料歉收，如果是粮食不足，你可以想象，价格会飙升到何等地步。<br>袁隆平院士在一次采访时曾经说过：</p>
-<blockquote>
-<p>“一粒粮食能够救一个国家，也可以绊倒一个国家。要把中国人的饭碗牢牢地掌握在中国人自己手里。”</p>
-</blockquote>
-<hr>
-<center><font color="orange" size="4">2</font></center>
-
-<hr>
-<p>现在，你应该已经了解到缺粮的可怕之处了，那么国家怎么做才能避免出现缺粮的情况呢？</p>
-<font color="red">首先是科学，科学技术是第一生产力。</font>
-
-<p>农药、化肥、现代水利设施、培育各种良种，都是稳定农业生产最强大的手段。</p>
-<p>在这些科学技术发明出来之前，哪怕是西方强国也被粮食问题所困扰。</p>
-<p>1500年到1800年间，法国一共发生过40次全国性饥荒；1523年到1623年间，英国一共发生17次全国性饥荒，平均7年一次。</p>
-<p>1845-1851年，一场虫害横扫爱尔兰，导致了超级饥荒的诞生，6年时间里，爱尔兰的人口从800万骤降到400万，成为了人间炼狱。</p>
-<p>农业科技爆发+人口增长停滞后，全世界的粮食问题，才算得到缓和。</p>
-<p>目前，中国的主要农作物品种平均每隔5年，就大规模更新换代一次，同时在水利设施上持续大规模投资，并大规模推广高产高效的农业生产技术。</p>
-<p>今天中国粮食作物平均亩产为374.7公斤，超过新中国成立初期的5倍多，同时远超世界平均水平。</p>
-<p><img src="/archives/69bbce32/2.png" alt=" "></p>
-<p>自2004年以来，中国的粮食生产实现“十五连丰”，在水利设施上的投资，和一群如袁隆平院士这样的农业科学家，功不可没。</p>
-<font color="red">然后，是坚守18亿亩耕地红线。</font>
-
-<p>中国很久以前，就划定了18亿亩的耕地红线，这是红线，也是底线。</p>
-<p>这些年，土地疯狂涨价，很多地方到处卖地，屡屡尝试侵占基本农田，试图吹风中央，把18亿亩这个标准降一降。</p>
-<p>但不管卖地的利益再怎么大，18亿亩红线都坚决不能碰，宁可让很多城市被迫高价拆城中村，也绝不允许他们大肆占用城市周边的农田。</p>
-<p>留给城市发展的农田，有，但给的数额是有限的，并不是无限的。</p>
-<font color="red">18亿亩耕地的红线，绝不允许被挑战。</font>
-
-<p>我国拥有全球9%的耕地、6%的淡水资源，却需要养活世界近20%的人口。</p>
-<p>不管中国再怎么努力，也不可能把粮食的人均拥有量提升到和美国一样多。</p>
-<p>所以，中国的粮食安全战略，是吃得饱+吃得好。</p>
-<p>什么叫吃得饱，就是在假设国外对中国实行粮食封锁，一切全靠自力更生的前提下，中国能够凭手里的耕地和农业技术，在不那么极端的气候灾害面前，确保全国人有饭吃，不会被饿死。</p>
-<p>这就叫吃得饱战略，也是18亿亩耕地红线的由来。</p>
-<p>但是在和平时期，外国愿意卖给中国粮食的时候，中国适当进口一些农产品，提升人均粮食占有量，让中国人能吃得上鸡鱼肉蛋。</p>
-<font color="red">充沛的食物供应，让你看到肉就想吐、天天头疼减肥的那种食物供应，给人民带来的幸福感和安全感，是无以伦比的。</font>
-
-<p>这就叫吃得好战略，也是目前正在执行的粮食战略。</p>
-<font color="red">最后，就是粮食储备战略。</font>
-
-<p>哪怕水利设施修的再好，培育的良种再优秀，碰到极端气候灾难，你也没辙。</p>
-<font color="red">别管十年一遇还是百年一遇，时间拖的足够长，你总有机会碰到的。
-
-但这样的事情，你连一次都承受不起。</font>
-
-<p>所以，我们需要粮食储备，大量的储备。</p>
-<p>2005年12月到2008年7月，全球气候异常，大量国家和地区粮食歉收。</p>
-<p>按粮食专家的测算，全球差不多有1000万人的粮食缺口。</p>
-<p>总共60亿人，产生了1000万人的粮食缺口供应，粮食产量比最低供应线少了0.15%，就少那么一点点。</p>
-<p>结果，国际小麦的价格从300涨到1330（单位：蒲尔/美分），涨幅3.4倍，国际玉米价格从185涨到758，涨了3.2倍。</p>
-<p>这里面有国际炒家的因素，但你敢不买么，你愿意成为那0.15%的人口么？</p>
-<p>所以这是阳谋，你只能买。</p>
-<p>而同期，中国国内的粮食价格，只上涨了0.7倍，远远小于国际涨幅。</p>
-<p>大量涌入中国境内的投机炒作资本，全被国家队给打服了。</p>
-<p>在国内粮价持续暴涨时，中国官方开始抛储了。</p>
-<p>一开始，不管中国抛出多少吨储备粮，多方都一口吃掉，粮价持续上涨。</p>
-<p>然后，中国开始逐步加大抛储强度，一开始是半个月一抛，后来是每周一抛，最密集的时候，每1~2天抛储一次。</p>
-<p>最后多方都傻了，中国到底有多少吨储备粮，不留点做军粮么，到底要抛储到什么时候才算结束。</p>
-<p>这个时候，中国放出风声，说中国的储备粮有一亿吨，够全国人不种田吃一年的，投机资本不怕死就继续来炒。</p>
-<p>中国的储备粮数量一直是国家绝密，谁也不知道有多少。至于这个一亿吨是真的假，炒家也不敢确认。</p>
-<p>但万一是真的呢？</p>
-<p>恰逢金融危机，连锁反应之下，粮价暴跌，中国境内的粮食炒家血本无归。</p>
-<p>等粮价暴跌之后，中国再慢慢吃回自己的储备。</p>
-<p>这轮粮食攻防战，中国完胜，靠的就是天量的粮食储备战略。</p>
-<p>在最先进的储备技术下，粮食最多只能放3~5年，然后就变成了陈化粮。</p>
-<p>为什么我国土地那么少，还力推乙醇汽油，把大量的粮食做成乙醇给汽车烧掉，就是为了处理这些陈化粮。</p>
-<p>把新鲜的粮食放成陈化粮，会带来巨大的损失，但是这些损失，国家愿意承受，这等于是在给国家买保险。</p>
-<font color="red">缺粮导致的损失，和粮价相比，要贵百倍千倍。</font>
-
-<p>而源源不断轮换出来的陈化粮，必须通过乙醇工厂来处理掉。</p>
-<p>所以，当你使用乙醇汽油的时候，其实就是在给中国的粮食安全做贡献。</p>
-<p>当时，这0.15%的缺口，是靠非洲人给消化的。</p>
-<p><img src="/archives/69bbce32/3.png" alt=" "></p>
-<p>这就是中国的储备粮制度，是中国人饭碗的最后保护神，<font color="red">我们不想成为非洲人。</font></p>
-<hr>
-<center><font color="orange" size="4">3</font></center>
-
-<hr>
-<p>即便中国有世界上最庞大的水利设施，即便中国有一群袁隆平这样的农业科学家，即便中国有世界上最强的粮食储备。</p>
-<p>中国的官方，依然对粮食问题极度重视。</p>
-<p>每次中国出现区域性旱灾，都能惊动国家最高层级的人物去视察处理，这一切，都是在确保中国人的饭碗。</p>
-<p><img src="/archives/69bbce32/4.png" alt=" "></p>
-<font color="red">虽然粮食不值钱，但粮食的供应却是国之命脉，绝对不允许有丝毫动摇。</font>
-
-<p>如果我不出去购物的话，我家里所有的存粮，把冰箱里的腊肉、巧克力、挂面什么的都算上，最多吃一星期就断粮了。</p>
-<p>但我丝毫不担心我会饿死，每次外出也只买三四天的食物，以确保新鲜。</p>
-<p>我观察了一下，我整个小区，甚至整个城市都是这样，在家里储备几百斤粮食的人，根本不存在。</p>
-<p>大家从不担心自己未来会吃不上饭，<font color="red">国人能有这么强烈的信心，是对中国粮食安全工作人员的最大褒奖。</font></p>
-<p>1978年之后的新一代的中国人，已经忘了饥饿的滋味。</p>
-<p>希望这样的盛世能持续下去，<font color="red">希望丁戊奇荒永远不会再出现在中国大地上，无论怎样极端的气候灾害，都不允许出现。</font></p>
-<p>中国的粮食安全储备战略花再多钱，我认为都值！</p>
-<font color="red">因为这些东西，是拿来给中国人保命用的。</font>
-
-<center>-end-</center>
+            <p><img src="/archives/cf0240fb/1.png" alt=" "></p>
+<h2 id="Prometheus介绍"><a href="#Prometheus介绍" class="headerlink" title="Prometheus介绍"></a>Prometheus介绍</h2><p>Prometheus是一个最初在SoundCloud上构建的开源监控系统 。它现在是一个独立的开源项目，为了强调这一点，并说明项目的治理结构，Prometheus 于2016年加入CNCF，作为继Kubernetes之后的第二个托管项目。</p>
+<p>Prometheus是由SoundCloud开发的开源监控报警系统和时序列数据库。从字面上理解，Prometheus由两个部分组成，一个是监控报警系统，另一个是自带的时序数据库（TSDB）</p>
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ul>
+<li>具有由 metric 名称和键/值对标识的时间序列数据的多维数据模型</li>
+<li>PromQL，有一个灵活的查询语言</li>
+<li>不依赖分布式存储，只和本地磁盘有关</li>
+<li>通过 HTTP 的服务拉取时间序列数据</li>
+<li>也支持推送的方式来添加时间序列数据</li>
+<li>通过服务发现或静态配置发现目标</li>
+<li>多种图形和仪表板支持</li>
+</ul>
+<h3 id="架构图"><a href="#架构图" class="headerlink" title="架构图"></a>架构图</h3><p>此图说明prometheus的体系结构及其一些系统组件</p>
+<p><img src="/archives/cf0240fb/2.png" alt=" "></p>
+<p>图片左侧是各种数据源主要是各种符合 Prometheus 数据格式的 exporter,除此之外为了支持推动数据 类型的 Agent,可以通过 Pushgateway 组件,将 Push 转化为 Pull。Prometheus 甚至可以从其它的 Prometheus 获取数据,组建联邦集群。 Prometheus 的基本原理是通过 HTTP 周期性抓取被监控组件的状态,任意组件只要提供对应的 HTTP 接口 并且符合 Prometheus 定义的数据格式,就可以接入 Prometheus 监控。</p>
+<p>图片的上侧是服务发现,Prometheus 支持监控对象的自动发现机制,从而可以动态获取监控对象。 图片中间是 Prometheus Server,Retrieval 模块定时拉取数据,并通过 Storage 模块保存数据。PromQL 为 Prometheus 提供的查询语法,PromQL 模块通过解析语法树,调用 Storage 模块查询接口获取监控数据。 图片右侧是告警和页面展现,Prometheus 将告警推送到 alertmanger,然后通过 alertmanger 对告警进行处 理并执行相应动作。数据展现除了 Prometheus 自带的 webui,还可以通过 grafana 等组件查询 Prometheus 监控数据。</p>
+<h3 id="与其他监控系统的比较"><a href="#与其他监控系统的比较" class="headerlink" title="与其他监控系统的比较"></a>与其他监控系统的比较</h3><p>在Prometheus 之前市面已经出现了很多的监控系统,如 Zabbix、Open-falcon 等。那么 prometheus 和这些监控系统有啥异同呢?我们先简单介绍一下这些监控系统</p>
+<p>Zabbix 是由 Alexei Vladishev 开源的分布式监控系统,支持多种采集方式和采集客户端,同时支持 SNMP、 IPMI、JMX、Telnet、SSH 等多种协议,它将采集到的数据存放到数据库中,然后对其进行分析整理,如果 符合告警规则,则触发相应的告警。</p>
+<p>Zabbix 核心组件主要是 Agent 和 Server,其中 Agent 主要负责采集数据并通过主动或者被动的方式采集数据发送到 Server/Proxy,除此之外,为了扩展监控项,Agent 还支持执行自定义脚本。Server 主要负责 接收 Agent 发送的监控信息,并进行汇总存储,触发告警等。 为了便于快速高效的配置 zabbix 监控项,zabbix 提供了模板机制,从而实现批量配置的目的。</p>
+<p>Zabbix Server 将收集的监控数据存储到 Zabbix Database 中。Zabbix Database 支持常用的关系型 数据库,如果 MySQL、PostgreSQL、Oracle 等,默认 是 MySQL。Zabbix Web 页面(PHP 编写)负责数据 查询。Zabbix 由于使用了关系型数据存储时序数据,所以在监控大规模集群时常常在数据存储方面捉襟见 肘。为此 zabbix 4.2 版本后也开始支持时序数据存储,不过目前还不成熟。</p>
+<p><img src="/archives/cf0240fb/3.png" alt=" "></p>
+<p>Open-Falcon 是小米开源的企业级监控工具,用 Go 语言开发而成,包括小米、滴滴、美团等在内的互 联网公司都在使用它,是一款灵活、可扩展并且高性能的监控方案,主要组件包括:</p>
+<p>Falcon-agent:用 Go 语言开发的 Daemon 程序,运行在每台 Linux 服务器上,用于采集主机上的各种 指标数据,主要包括 CPU、内存、磁盘、文件系统、内核参数、Socket 连接等,目前已经支持 200 多项监 控指标。并且,Agent 支持用户自定义的监控脚本,</p>
+<p>Hearthbeat server:简称 HBS 心跳服务,每个 Agent 都会周期性地通过 RPC 方式将自己的状态上报给 HBS,主要包括主机名、主机 IP、Agent 版本和插件版本,Agent 还会从 HBS 获取自己需要执行的采集任务 和自定义插件。</p>
+<p>Transfer:负责接收 Agent 发送的监控数据,并对数据进行整理,在过滤后通过一致性 Hash 算法发送 到 Judge 或者 Graph</p>
+<p>Graph:RRD 数据上报、归档、存储的组件。Graph 在收到数据以后,会以 rrdtool 的数据归档方式来存 储,同时提供 RPC 方式的监控查询接口。</p>
+<p>Judge:告警模块,Transfer 转发到 Judge 的数据会触发用户设定的告警规则,如果满足,则会触发邮 件、微信或者回调接口。这里为了避免重复告警引入了 Redis 暂存告警,从而完成告警的合并和抑制。</p>
+<p>Dashboard:面向用户的监控数据查询和告警配置界面</p>
+<p><img src="/archives/cf0240fb/4.png" alt=" "></p>
+<p>从开发语言上看,为了应对高并发和快速迭代的需求,监控系统的开发语言已经慢慢从 C 语言转移到 Go。不得不说,Go 凭借简洁的语法和优雅的并发,在 Java 占据业务开发,C 占领底层开发的情况下,准确 定位中间件开发需求,在当前开源中间件产品中被广泛应用。</p>
+<p>从系统成熟度上看,Zabbix 是老牌的监控系统:Zabbix 是在 1998 年出现的,系统功能比较稳定,成熟 度较高。而 Prometheus 和 Open-Falcon 都是最近几年才诞生的,虽然功能还在不断迭代更新,但站在巨人 的肩膀之上,在架构设计上借鉴了很多老牌监控系统的经验;</p>
+<p>从系统扩展性方面看,Zabbix 和 Open-Falcon 都可以自定义各种监控脚本,并且 Zabbix 不仅可以做到 主动推送,还可以做到被动拉取,Prometheus 则定义了一套监控数据规范,并通过各种 exporter 扩展系统 采集能力;</p>
+<p>从数据存储方面来看,Zabbix 采用关系数据库保存,这极大限制了 Zabbix 采集的性能,Open-Falcon 采用 RDD 数据存储,并且可以对接到 OpenTSDB,而 Prometheus 自研一套高性能的时序数据库,在 V3 版 本可以达到每秒千万级别的数据存储,通过对接第三方时序数据库扩展历史数据的存储;</p>
+<p>从配置和维护的复杂度上看,prometheus 只有一个核心 server 组件,一条命令便可以启动,相比而言, 其他系统配置相对麻烦,尤其是 open-falcon。</p>
+<p>从社区活跃度上看,目前 Zabbix 社区活跃度比较低,Open-Falcon 虽然也比较活跃,但基本都是国内 的公司参与,Prometheus 在这方面占据绝对优势,社区活跃度最高,并且受到 CNCF 的支持,后期的发展 值得期待;</p>
+<p>从容器支持角度看,由于 Zabbix 出现得比较早,当时容器还没有诞生,自然对容器的支持也比较差。 Open-Falcon 虽然提供了容器的监控,但支持力度有限。Prometheus 的动态发现机制,不仅可以支持 swarm 原生集群,还支持 Kubernetes 容器集群的监控,是目前容器监控最好解决方案。Zabbix 在传统监控系统中, 尤其是在服务器相关监控方面,占据绝对优势。伴随着容器的发展,Prometheus 开始成为主导及容器监控 方面的标配,并且在未来可见的时间内被广泛应用。总体来说,对比各种监控系统的优劣,Prometheus 可 以说是目前监控领域最锋利的“瑞士军刀”了。</p>
+<h2 id="使用docker搭建监控linux主机"><a href="#使用docker搭建监控linux主机" class="headerlink" title="使用docker搭建监控linux主机"></a>使用docker搭建监控linux主机</h2><p>可以参考官方方法：<a target="_blank" rel="noopener" href="https://prometheus.io/docs/guides/node-exporter/">https://prometheus.io/docs/guides/node-exporter/</a><br>可以知道，监控linux主机需要node-exporter，所以docker镜像需要node-exporter，prometheus，grafana</p>
+<h3 id="拉取镜像"><a href="#拉取镜像" class="headerlink" title="拉取镜像"></a>拉取镜像</h3><p><code>docker pull prom/node-exporter</code><br><code>docker pull prom/prometheus</code><br><code>docker pull grafana/grafana</code></p>
+<h3 id="启动node-exporter"><a href="#启动node-exporter" class="headerlink" title="启动node-exporter"></a>启动node-exporter</h3><p><code>docker run -d -p 9100:9100 --name=node-exporter prom/node-exporter</code></p>
+<p>启动后访问<a target="_blank" rel="noopener" href="http://IP:9100/metrics">http://IP:9100/metrics</a>，正常会显示：</p>
+<p><img src="/archives/cf0240fb/5.png" alt=" "></p>
+<p>这些都是收集到数据，有了它就可以做数据展示了</p>
+<h3 id="启动prometheus"><a href="#启动prometheus" class="headerlink" title="启动prometheus"></a>启动prometheus</h3><p>新建目录prometheus，编辑配置文件prometheus.yml:<br><code>mkdir -p prometheus/conf</code><br><code>vim prometheus/conf/prometheus.yml</code></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">global:</span></span><br><span class="line">  <span class="attr">scrape_interval:</span>     <span class="string">60s</span></span><br><span class="line">  <span class="attr">evaluation_interval:</span> <span class="string">60s</span></span><br><span class="line"></span><br><span class="line"><span class="attr">scrape_configs:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">job_name:</span> <span class="string">prometheus</span></span><br><span class="line">    <span class="attr">static_configs:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">targets:</span> [<span class="string">&#x27;IP:9090&#x27;</span>]</span><br><span class="line">        <span class="attr">labels:</span></span><br><span class="line">          <span class="attr">instance:</span> <span class="string">prometheus</span></span><br><span class="line"></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">job_name:</span> <span class="string">linux</span></span><br><span class="line">    <span class="attr">static_configs:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">targets:</span> [<span class="string">&#x27;IP:9100&#x27;</span>]</span><br><span class="line">        <span class="attr">labels:</span></span><br><span class="line">          <span class="attr">instance:</span> <span class="string">localhost</span></span><br></pre></td></tr></table></figure>
+<p>IP修改为自己服务器IP，其他名字如job_name可以自行修改，如果要监控多台服务器，则在targets里面添加<br>参考官方配置：<a target="_blank" rel="noopener" href="https://prometheus.io/docs/prometheus/latest/configuration/configuration/">https://prometheus.io/docs/prometheus/latest/configuration/configuration/</a></p>
+<p>修改目录权限，默认prometheus使用nobody的内置用户，对应UID为65534：<br><code>chonw -R 65534.root prometheus</code><br><code>chmod -R 775 prometheus</code></p>
+<p>启动container：<br><code>docker run  -d -p 9090:9090 -v /opt/prometheus/conf:/etc/prometheus -v /opt/prometheus:/prometheus prom/prometheus</code></p>
+<p>container默认配置文件在/etc/prometheus/prometheus.yml<br>启动后访问：<a target="_blank" rel="noopener" href="http://IP:9090/graph">http://IP:9090/graph</a>，正常显示：</p>
+<p><img src="/archives/cf0240fb/6.png" alt=" "></p>
+<p>访问targets，<a target="_blank" rel="noopener" href="http://IP:9090/targets">http://IP:9090/targets</a>，正常显示：</p>
+<p><img src="/archives/cf0240fb/7.png" alt=" "></p>
+<h3 id="启动grafana"><a href="#启动grafana" class="headerlink" title="启动grafana"></a>启动grafana</h3><p>参考官方配置：<a target="_blank" rel="noopener" href="https://grafana.com/docs/grafana/latest/installation/docker/">https://grafana.com/docs/grafana/latest/installation/docker/</a></p>
+<p>新建目录来存储grafana的数据：<br><code>mkdir -p grafana/&#123;data,logs&#125;</code></p>
+<p>修改目录权限，默认grafana使用用户grafana，对应UID为472：<br><code>chonw -R 65534.root prometheus</code><br><code>chmod -R 775 prometheus</code></p>
+<p>启动container：<br><code>docker run -d -p 3000:3000 --name=grafana -v /opt/grafana/data:/var/lib/grafana -v /opt/grafana/logs:/var/log/grafana grafana/grafana</code></p>
+<p>访问URL：<a target="_blank" rel="noopener" href="http://IP:3000">http://IP:3000</a><br>默认用户名和密码都是admin，首次登录需要修改密码，密码设置完成之后，就会跳转到首页，点击Add data source，由于使用的是镜像方式Prometheus：</p>
+<p><img src="/archives/cf0240fb/8.png" alt=" "></p>
+<p><img src="/archives/cf0240fb/9.png" alt=" "></p>
+<p>name名字写Prometheus，type 选择Prometheus，因为数据都从它那里获取，url 输入Prometheus的ip+端口，点击下面的Save &amp; Test，如果出现绿色的，说明ok了。<br>使用grafana 的仪表盘模板导入ID=8919的仪表盘 ,点击 import导入即成功 (如果是docker监控模板推荐 8321)</p>
+<p><img src="/archives/cf0240fb/10.png" alt=" "></p>
+<p><img src="/archives/cf0240fb/11.png" alt=" "></p>
+<p>导入后效果：</p>
+<p><img src="/archives/cf0240fb/12.png" alt=" "></p>
+<p><em>参考出处</em><br><em><a target="_blank" rel="noopener" href="https://www.cnblogs.com/wangxu01/articles/11646053.html">https://www.cnblogs.com/wangxu01/articles/11646053.html</a></em><br><em><a target="_blank" rel="noopener" href="https://www.cnblogs.com/lz1996/p/12741489.html">https://www.cnblogs.com/lz1996/p/12741489.html</a></em><br><em><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/87e1ca5b84c9">https://www.jianshu.com/p/87e1ca5b84c9</a></em></p>
 
         </div>
         <footer class="article-footer">
@@ -359,7 +253,7 @@
 
 
 
-    <a data-url="https://blog.hellshan.top/archives/69bbce32/" data-id="ckhvu7zpf000zf2ye8nnl1f7y" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://blog.hellshan.top/archives/cf0240fb/" data-id="ckhvu7zp3000gf2ye9fwuh1q4" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -429,21 +323,18 @@
             "@type": "Person",
             "name": "HellShan"
         },
-        "headline": "丁戊奇荒和粮食规律",
-        "image": "https://blog.hellshan.tophttp://img.soogif.com/20201116113326934.gif",
-        "keywords": "article",
-        "genre": "文摘 政治",
-        "datePublished": "2020-11-16",
-        "dateCreated": "2020-11-16",
-        "dateModified": "2020-11-16",
-        "url": "https://blog.hellshan.top/archives/69bbce32/",
-        "description": "原创 一棵青木 远方青木  首发于2019-12-15
-
-1875年，中国的气候悄悄发生了变化，华北地区，尤其是山西省的降雨突然减少，土地变的干旱。
-根据文献记载，此时已经有零星地区出现了歉收的记录，但在当时，并未引起人们的警觉。
-1876年，南方各省出现了大暴雨，农作物损失惨重。但北方各省却出现了大面积的干旱，随后又遭遇了蝗灾，山西的一些地区，已经有人开始靠吃树皮活命。
-而那些以为熬过今年，等明",
-        "wordCount": 46
+        "headline": "docker下搭建prometheus+grafana",
+        "image": "https://blog.hellshan.top/archives/cf0240fb/1.png",
+        "keywords": "docker monitor",
+        "genre": "学而时习之 实践验证真理",
+        "datePublished": "2020-11-24",
+        "dateCreated": "2020-11-24",
+        "dateModified": "2020-11-24",
+        "url": "https://blog.hellshan.top/archives/cf0240fb/",
+        "description": "
+Prometheus介绍Prometheus是一个最初在SoundCloud上构建的开源监控系统 。它现在是一个独立的开源项目，为了强调这一点，并说明项目的治理结构，Prometheus 于2016年加入CNCF，作为继Kubernetes之后的第二个托管项目。
+Prometheus是由SoundCloud开发的开源监控报警系统和时序列数据库。从字面上理解，Prometheus由两个部分组成，一",
+        "wordCount": 509
     }
 </script>
 
@@ -509,20 +400,10 @@
         
 <nav id="article-nav">
     
-        <a href="/archives/cf0240fb/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">下一篇</strong>
-        <p class="article-nav-title">
-        
-            docker下搭建prometheus+grafana
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
     
-    
-        <a href="/archives/7bb52d79/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/archives/69bbce32/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">上一篇</strong>
-        <p class="article-nav-title">AD域常用设置</p>
+        <p class="article-nav-title">丁戊奇荒和粮食规律</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
