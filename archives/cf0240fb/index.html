@@ -21,7 +21,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blog.hellshan.top/archives/cf0240fb/1.png">
 <meta property="article:published_time" content="2020-11-24T08:49:05.000Z">
-<meta property="article:modified_time" content="2020-11-24T10:46:46.000Z">
+<meta property="article:modified_time" content="2020-11-25T03:02:07.000Z">
 <meta property="article:author" content="HellShan">
 <meta property="article:tag" content="docker">
 <meta property="article:tag" content="monitor">
@@ -245,6 +245,18 @@
 <p><img src="/archives/cf0240fb/11.png" alt=" "></p>
 <p>导入后效果：</p>
 <p><img src="/archives/cf0240fb/12.png" alt=" "></p>
+<h2 id="监控windows主机"><a href="#监控windows主机" class="headerlink" title="监控windows主机"></a>监控windows主机</h2><p>node-exporter是监控linux主机使用的，官方没有监控windows的插件，可以从<a target="_blank" rel="noopener" href="https://github.com/prometheus-community/windows_exporter/releases">https://github.com/prometheus-community/windows_exporter/releases</a>下载<br>下载后双击安装即可，默认端口为9182，然后访问<a target="_blank" rel="noopener" href="http://IP:9182">http://IP:9182</a>，会出现跟node-exporter一样的页面，然后修改prometheus.yml文件，添加windows主机的监控项：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">global:</span></span><br><span class="line">  <span class="attr">scrape_interval:</span>     <span class="string">60s</span></span><br><span class="line">  <span class="attr">evaluation_interval:</span> <span class="string">60s</span></span><br><span class="line"></span><br><span class="line"><span class="attr">scrape_configs:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">job_name:</span> <span class="string">prometheus</span></span><br><span class="line">    <span class="attr">static_configs:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">targets:</span> [<span class="string">&#x27;10.1.1.8:9090&#x27;</span>]</span><br><span class="line">        <span class="attr">labels:</span></span><br><span class="line">          <span class="attr">instance:</span> <span class="string">prometheus</span></span><br><span class="line"></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">job_name:</span> <span class="string">linux</span></span><br><span class="line">    <span class="attr">static_configs:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">targets:</span> [<span class="string">&#x27;10.1.1.8:9100&#x27;</span>]</span><br><span class="line">        <span class="attr">labels:</span></span><br><span class="line">          <span class="attr">instance:</span> <span class="string">localhost</span></span><br><span class="line"></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">job_name:</span> <span class="string">windows</span></span><br><span class="line">    <span class="attr">static_configs:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">targets:</span> [<span class="string">&#x27;10.1.1.11:9182&#x27;</span>]</span><br><span class="line">        <span class="attr">labels:</span></span><br><span class="line">          <span class="attr">instance:</span> <span class="string">home_win10</span></span><br></pre></td></tr></table></figure>
+<p>重启prometheus的容器，此时再次访问<a target="_blank" rel="noopener" href="http://IP:9090/targets">http://IP:9090/targets</a>，可以看到会多一个endpoint，就是刚配置上去的windows主机</p>
+<p><img src="/archives/cf0240fb/13.png" alt=" "></p>
+<p>回到grafana的dashboard市场<a target="_blank" rel="noopener" href="https://grafana.com/grafana/dashboards">https://grafana.com/grafana/dashboards</a>，搜索windows，找到dashboard的ID</p>
+<p><img src="/archives/cf0240fb/14.png" alt=" "></p>
+<p>最后重复跟linux一样的导入操作即可</p>
+<p><img src="/archives/cf0240fb/15.png" alt=" "></p>
+<h2 id="grafana忘记登录密码"><a href="#grafana忘记登录密码" class="headerlink" title="grafana忘记登录密码"></a>grafana忘记登录密码</h2><ol>
+<li>参考官方方法：<a target="_blank" rel="noopener" href="https://grafana.com/docs/grafana/latest/administration/cli/#reset-admin-password">https://grafana.com/docs/grafana/latest/administration/cli/#reset-admin-password</a><br>进入grafana的container，运行<br><code>grafana-cli admin reset-admin-password xxx</code></li>
+<li>google方法：<br>找到grafana的数据文件grafana.db<br>进入数据库，如：<br><code>sqlite3 /var/lib/grafana/grafana.db</code><br>查看表：<br>.table<br>查看表数据：<br><code>select * from user;</code><br>更改密码为admin:<br><code>update user set password = &#39;59acf18b94d7eb0694c61e60ce44c110c7a683ac6a8f09580d626f90f4a242000746579358d77dd9e570e83fa24faa88a8a6&#39;, salt = &#39;F3FAxVm33R&#39; where login = &#39;admin&#39;;</code><br>退出：<br>.exit<br>更改后，会重置密码为admin</li>
+</ol>
 <p><em>参考出处</em><br><em><a target="_blank" rel="noopener" href="https://www.cnblogs.com/wangxu01/articles/11646053.html">https://www.cnblogs.com/wangxu01/articles/11646053.html</a></em><br><em><a target="_blank" rel="noopener" href="https://www.cnblogs.com/lz1996/p/12741489.html">https://www.cnblogs.com/lz1996/p/12741489.html</a></em><br><em><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/87e1ca5b84c9">https://www.jianshu.com/p/87e1ca5b84c9</a></em></p>
 
         </div>
@@ -253,7 +265,7 @@
 
 
 
-    <a data-url="https://blog.hellshan.top/archives/cf0240fb/" data-id="ckhvuuitg000gj2ye2mvh7bfo" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://blog.hellshan.top/archives/cf0240fb/" data-id="ckhwtozf7000go6ye63g7d9ae" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -329,12 +341,12 @@
         "genre": "学而时习之 实践验证真理",
         "datePublished": "2020-11-24",
         "dateCreated": "2020-11-24",
-        "dateModified": "2020-11-24",
+        "dateModified": "2020-11-25",
         "url": "https://blog.hellshan.top/archives/cf0240fb/",
         "description": "
 Prometheus介绍Prometheus是一个最初在SoundCloud上构建的开源监控系统 。它现在是一个独立的开源项目，为了强调这一点，并说明项目的治理结构，Prometheus 于2016年加入CNCF，作为继Kubernetes之后的第二个托管项目。
 Prometheus是由SoundCloud开发的开源监控报警系统和时序列数据库。从字面上理解，Prometheus由两个部分组成，一",
-        "wordCount": 509
+        "wordCount": 749
     }
 </script>
 
