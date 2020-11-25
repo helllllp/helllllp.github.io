@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.hellshan.top/archives/5d04ac6b/</loc>
+    
+    <lastmod>2020-11-25</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.hellshan.top/archives/cf0240fb/</loc>
     
     <lastmod>2020-11-25</lastmod>
@@ -336,6 +343,13 @@
   
   <url>
     <loc>https://blog.hellshan.top/categories/%E6%96%87%E6%91%98/%E6%94%BF%E6%B2%BB/</loc>
+    <lastmod>2020-11-25</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.hellshan.top/categories/%E6%96%87%E6%91%98/%E7%BB%8F%E6%B5%8E/</loc>
     <lastmod>2020-11-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
