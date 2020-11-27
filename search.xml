@@ -27,6 +27,33 @@
       </tags>
   </entry>
   <entry>
+    <title>OpenStack、虚拟机以及和当前流行的k8s、Docker四者之间的关系</title>
+    <url>/archives/28b8f600/</url>
+    <content><![CDATA[<p><img src="/archives/28b8f600/1.png" alt=" "></p>
+<h2 id="OpenStack与虚拟机之间的关系"><a href="#OpenStack与虚拟机之间的关系" class="headerlink" title="OpenStack与虚拟机之间的关系"></a>OpenStack与虚拟机之间的关系</h2><p>OpenStack使用Python语言开发，是虚拟资源管理工具，他可以协助你搜集各种资源，并加以利用以及管理，实现物理资源的高效使用和安全。虚拟化物理机这个动作，OpenStack无法完成，需要一个中间层例如KVM、Xen、VMware等来基于硬件做资源的虚拟化，然后此时OpenStack通过各种API接口来接管这些资源。</p>
+<p>OpenStack 主要针对 IaaS平台，以资源为中心，可以为上层的 PaaS 平台提供存储、网络、计算等资源。</p>
+<p><img src="/archives/28b8f600/2.png" alt=" "></p>
+<h2 id="与Docker和k8s的关系"><a href="#与Docker和k8s的关系" class="headerlink" title="与Docker和k8s的关系"></a>与Docker和k8s的关系</h2><ol>
+<li><p>OpenStack：公认的云计算IaaS平台，其管理的核心目标对象是机器（虚拟机或物理机），当然也可以管理存储和网络，但那些也大都是围绕着机器所提供的配套资源。近年来容器技术火了之后，OpenStack也开始通过各种方式增加对容器的支持，但目前OpenStack还不被视为管理容器的主流平台。</p>
+</li>
+<li><p>Docker：这里我假定你指的是Docker engine（也叫做Docker daemon，或最新的名字：Moby），它是一种容器运行时（container runtime）的实现，而且是最主流的实现，几乎就是容器业界的标准。Docker是用来创建和管理容器的，它和容器的关系就好比KVM和虚拟机之间的关系。当然，Docker公司对Docker engine本身的定位和期望不仅仅在于在单机上管理容器，所以近年来一直在向Docker engine中加入各种各样的高级功能，比如：组建多节点的Docker集群、容器编排、服务发现，等等。</p>
+</li>
+<li><p>Kubernetes（k8s）：搭建容器集群和进行容器编排的主流开源项目（亲爹是Google），适合搭建PaaS平台。容器是Kubernetes管理的核心目标对象，它和容器的关系就好比OpenStack和虚拟机之间的关系，而它和Docker的关系就好比OpenStack和kvm之间的关系。一般来说，Kubernetes是和Docker配合使用的，Kubernetes调用每个节点上的Docker去创建和管理容器，所以，你可以认为Kubernetes是大脑，而Docker是四肢。</p>
+</li>
+</ol>
+<h2 id="一句话总结"><a href="#一句话总结" class="headerlink" title="一句话总结"></a>一句话总结</h2><p>OpenStack是管理虚拟机的（web可视化平台，在linux里边部署配置），k8s是管理容器的（web可视化平台，在linux里边部署配置）；上层的应用是部署在容器上的，而一般容器又是创建在虚拟机上的，所以OpenStack是属于IaaS层面的，k8s是属于PaaS层面的，上层应用是属于SaaS层面的。</p>
+<p><em>摘自<a href="https://www.cnblogs.com/chenbin93/p/13378181.html?utm_source=tuicool">https://www.cnblogs.com/chenbin93/p/13378181.html?utm_source=tuicool</a></em></p>
+]]></content>
+      <categories>
+        <category>HOT_IT</category>
+        <category>平台</category>
+      </categories>
+      <tags>
+        <tag>k8s</tag>
+        <tag>kvm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>劳动力价值归零、共产主义临界、星际争霸时代</title>
     <url>/archives/5d04ac6b/</url>
     <content><![CDATA[<p><img src="/archives/5d04ac6b/1.png" alt=" "></p>
@@ -1558,7 +1585,8 @@
   <entry>
     <title>干货满满！10分钟看懂Docker和K8S</title>
     <url>/archives/9915ca90/</url>
-    <content><![CDATA[<p>2010年，几个搞IT的年轻人，在美国旧金山成立了一家名叫“dotCloud”的公司。<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-1.jpg" alt=" "><br>这家公司主要提供基于PaaS的云计算技术服务。具体来说，是和LXC有关的容器技术。<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-2.jpg" alt=" "><br>LXC，就是Linux容器虚拟技术（Linux container）<br>后来，dotCloud公司将自己的容器技术进行了简化和标准化，并命名为——Docker。<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-3.jpg" alt=" "><br>Docker技术诞生之后，并没有引起行业的关注。而dotCloud公司，作为一家小型创业企业，在激烈的竞争之下，也步履维艰。</p>
+    <content><![CDATA[<p><img src="/archives/9915ca90/1.png" alt=" "></p>
+<p>2010年，几个搞IT的年轻人，在美国旧金山成立了一家名叫“dotCloud”的公司。<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-1.jpg" alt=" "><br>这家公司主要提供基于PaaS的云计算技术服务。具体来说，是和LXC有关的容器技术。<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-2.jpg" alt=" "><br>LXC，就是Linux容器虚拟技术（Linux container）<br>后来，dotCloud公司将自己的容器技术进行了简化和标准化，并命名为——Docker。<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-3.jpg" alt=" "><br>Docker技术诞生之后，并没有引起行业的关注。而dotCloud公司，作为一家小型创业企业，在激烈的竞争之下，也步履维艰。</p>
 <p>正当他们快要坚持不下去的时候，脑子里蹦出了“开源”的想法。</p>
 <p>什么是“开源”？开源，就是开放源代码。也就是将原来内部保密的程序源代码开放给所有人，然后让大家一起参与进来，贡献代码和意见。<br>! <a href="10分钟看懂Docker和K8S-4.jpg"></a><br>Open Source，开源</p>
 <p>有的软件是一开始就开源的。也有的软件，是混不下去，创造者又不想放弃，所以选择开源。自己养不活，就吃“百家饭”嘛。</p>
@@ -1641,16 +1669,16 @@
 <p>5G时代，核心网采用微服务架构，也是和容器完美搭配——单体式架构（Monolithic）变成微服务架构（Microservices），相当于一个全能型变成N个专能型。每个专能型，分配给一个隔离的容器，赋予了最大程度的灵活。<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-21.jpg" alt=" "><br>精细化分工</p>
 <p>按照这样的发展趋势，在移动通信系统中，除了天线，剩下的部分都有可能虚拟化。核心网是第一个，但不是最后一个。虚拟化之后的核心网，与其说属于通信，实际上更应该归为IT。核心网的功能，只是容器中普通一个软件功能而已。</p>
 <p>至于说在座的各位核心网工程师，恭喜你们，马上就要成功转型啦！<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-22.jpg" alt=" "></p>
+<h2 id="k8s部署"><a href="#k8s部署" class="headerlink" title="k8s部署"></a>k8s部署</h2><p><em>来自知乎</em><br>前段时间刚在公司搭建完k8s环境，踩了一些坑，也有一些经验。这里给你推荐两个网站，你可以看情况使用：<br>第一个是：<br>kuboard.cn/<br>kuboard中有一系列的k8s基础知识点，适合初入k8s的人学习，从介绍-入门-进阶-高级-实战，一步一步，会对k8s整体的功能有些了解。同时还有安装Kubernetes和Kuboa（Kubernetes一款图形化管理界面）的教程，其中Kuboard安装后，占用的内存不是很大，适合个人玩家练手。<br>第二个是：<br>kubesphere.com.cn/<br>KubeSphere是青云开源的一款以Kubernetes 为内核的云原生分布式操作系统，可以看做也是一款图形化管理界面。选择KubeSphere有一下几点：<br>完全开源，github上<br>现在星星将近4K；<br>功能完善，包含了<br>devops、日志、告警等功能。</p>
 <p><em>转自：<a href="https://my.oschina.net/jamesview/blog/2994112">https://my.oschina.net/jamesview/blog/2994112</a></em></p>
 ]]></content>
       <categories>
-        <category>学而时习之</category>
-        <category>拿来主义</category>
+        <category>HOT_IT</category>
+        <category>平台</category>
       </categories>
       <tags>
         <tag>docker</tag>
         <tag>k8s</tag>
-        <tag>container</tag>
       </tags>
   </entry>
   <entry>
