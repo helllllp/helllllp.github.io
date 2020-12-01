@@ -248,6 +248,11 @@
 <p><img src="/archives/cf0240fb/14.png" alt=" "></p>
 <p>最后重复跟linux一样的导入操作即可</p>
 <p><img src="/archives/cf0240fb/15.png" alt=" "></p>
+<h2 id="监控docker"><a href="#监控docker" class="headerlink" title="监控docker"></a>监控docker</h2><p>使用docker镜像google/cadvisor，配置参考<a href="https://github.com/google/cadvisor">https://github.com/google/cadvisor</a><br>配置完毕后访问<a href="http://ip:设置端口">http://ip:设置端口</a>可以查看网页：</p>
+<p><img src="/archives/cf0240fb/16.png" alt=" "></p>
+<p>其他跟监控windows一样，修改prometheus配置文件，新增一项job_name：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="bullet">-</span> <span class="attr">job_name:</span> <span class="string">docker</span></span><br><span class="line">  <span class="attr">static_configs:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">targets:</span> [<span class="string">&#x27;10.1.1.8:8070&#x27;</span>]</span><br><span class="line">      <span class="attr">labels:</span></span><br><span class="line">        <span class="attr">instance:</span> <span class="string">docker</span></span><br></pre></td></tr></table></figure>
+<p>模板可以直接搜cadvisor</p>
 <h2 id="grafana忘记登录密码"><a href="#grafana忘记登录密码" class="headerlink" title="grafana忘记登录密码"></a>grafana忘记登录密码</h2><ol>
 <li>参考官方方法：<a href="https://grafana.com/docs/grafana/latest/administration/cli/#reset-admin-password">https://grafana.com/docs/grafana/latest/administration/cli/#reset-admin-password</a><br>进入grafana的container，运行<br><code>grafana-cli admin reset-admin-password xxx</code></li>
 <li>google方法：<br>找到grafana的数据文件grafana.db<br>进入数据库，如：<br><code>sqlite3 /var/lib/grafana/grafana.db</code><br>查看表：<br>.table<br>查看表数据：<br><code>select * from user;</code><br>更改密码为admin:<br><code>update user set password = &#39;59acf18b94d7eb0694c61e60ce44c110c7a683ac6a8f09580d626f90f4a242000746579358d77dd9e570e83fa24faa88a8a6&#39;, salt = &#39;F3FAxVm33R&#39; where login = &#39;admin&#39;;</code><br>退出：<br>.exit<br>更改后，会重置密码为admin</li>
