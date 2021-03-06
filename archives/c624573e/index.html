@@ -6,27 +6,27 @@
     
 
     
-    <title>docker部署odoo14及postgresql | helllllp!</title>
+    <title>代理服务之squid+sarg | helllllp!</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="keywords" content="docker,database" />
+    <meta name="keywords" content="linux,proxy" />
     
-    <meta name="description" content="odoo简介和部署方式OpenERP的前身，开源，功能强大，更新版本到14，官方有几种安装方法，使用docker方法部署更简单，而官方使用docker compose的方式启动，我希望postgressql能够提供给多个应用使用，可以通过外部方法来访问，所以我这里用portainer部署。 部署postgres下载portgres镜像首先确定好postgresql的版本，这里使用postgres">
+    <meta name="description" content="代理服务器软件最近有个需求要用到代理服务器，搜索了一番，用得比较多的是windows平台上的ccproxy，不过反应软件不太靠谱，软件经常会崩溃，比较靠谱的是linux平台下的squid。其实还有比较优秀的代理软件如轻量级的tinyproxy，privoxy，还有重量级的vanish和nginx。轻量级的软件不支持缓存，故选择squid。Varnish与Nginx缓存服务器1、高性能缓存服务器V">
 <meta property="og:type" content="article">
-<meta property="og:title" content="docker部署odoo14及postgresql">
-<meta property="og:url" content="https://blog.hellshan.top/archives/18899723/index.html">
+<meta property="og:title" content="代理服务之squid+sarg">
+<meta property="og:url" content="https://blog.hellshan.top/archives/c624573e/index.html">
 <meta property="og:site_name" content="helllllp!">
-<meta property="og:description" content="odoo简介和部署方式OpenERP的前身，开源，功能强大，更新版本到14，官方有几种安装方法，使用docker方法部署更简单，而官方使用docker compose的方式启动，我希望postgressql能够提供给多个应用使用，可以通过外部方法来访问，所以我这里用portainer部署。 部署postgres下载portgres镜像首先确定好postgresql的版本，这里使用postgres">
+<meta property="og:description" content="代理服务器软件最近有个需求要用到代理服务器，搜索了一番，用得比较多的是windows平台上的ccproxy，不过反应软件不太靠谱，软件经常会崩溃，比较靠谱的是linux平台下的squid。其实还有比较优秀的代理软件如轻量级的tinyproxy，privoxy，还有重量级的vanish和nginx。轻量级的软件不支持缓存，故选择squid。Varnish与Nginx缓存服务器1、高性能缓存服务器V">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://blog.hellshan.top/archives/18899723/1.png">
-<meta property="article:published_time" content="2020-10-28T07:45:05.000Z">
-<meta property="article:modified_time" content="2020-10-30T06:37:14.860Z">
+<meta property="og:image" content="https://blog.hellshan.top/archives/c624573e/1.jpg">
+<meta property="article:published_time" content="2021-03-05T06:52:05.000Z">
+<meta property="article:modified_time" content="2021-03-05T08:42:31.000Z">
 <meta property="article:author" content="HellShan">
-<meta property="article:tag" content="docker">
-<meta property="article:tag" content="database">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="proxy">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://blog.hellshan.top/archives/18899723/1.png">
+<meta name="twitter:image" content="https://blog.hellshan.top/archives/c624573e/1.jpg">
     
 
     
@@ -130,14 +130,14 @@
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-docker部署odoo14及postgresql" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-代理服务之squid+sarg" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        docker部署odoo14及postgresql
+        代理服务之squid+sarg
         </h1>
     
 
@@ -148,8 +148,8 @@
                 
     <div class="article-date">
       <i class="fa fa-calendar"></i>
-      <a href="/archives/18899723/" class="article-date">
-         <time datetime="2020-10-28T07:45:05.000Z" itemprop="datePublished">2020-10-28</time>
+      <a href="/archives/c624573e/" class="article-date">
+         <time datetime="2021-03-05T06:52:05.000Z" itemprop="datePublished">2021-03-05</time>
       </a>
     </div>
 
@@ -159,11 +159,11 @@
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/database/" rel="tag">database</a>, <a class="tag-link-link" href="/tags/docker/" rel="tag">docker</a>
+        <a class="tag-link-link" href="/tags/linux/" rel="tag">linux</a>, <a class="tag-link-link" href="/tags/proxy/" rel="tag">proxy</a>
     </div>
 
                 
-   <span id="/archives/18899723/" class="leancloud-visitors" data-flag-title="docker部署odoo14及postgresql">
+   <span id="/archives/c624573e/" class="leancloud-visitors" data-flag-title="代理服务之squid+sarg">
    <i class="fa fa-eye"></i>
    <span class="post-meta-item-text">阅读次数: </span>
    <i class="leancloud-visitors-count">1000000</i>
@@ -182,28 +182,30 @@
 
             
 
-            <p><img src="/archives/18899723/1.png" alt=" "></p>
-<h2 id="odoo简介和部署方式"><a href="#odoo简介和部署方式" class="headerlink" title="odoo简介和部署方式"></a>odoo简介和部署方式</h2><p>OpenERP的前身，开源，功能强大，更新版本到14，官方有几种安装方法，使用docker方法部署更简单，而官方使用docker compose的方式启动，我希望postgressql能够提供给多个应用使用，可以通过外部方法来访问，所以我这里用portainer部署。</p>
-<h2 id="部署postgres"><a href="#部署postgres" class="headerlink" title="部署postgres"></a>部署postgres</h2><h3 id="下载portgres镜像"><a href="#下载portgres镜像" class="headerlink" title="下载portgres镜像"></a>下载portgres镜像</h3><p>首先确定好postgresql的版本，这里使用postgres:12，直接执行<code>docker pull postgres:12</code>下载镜像</p>
-<h3 id="portainer上配置postgres容器参数"><a href="#portainer上配置postgres容器参数" class="headerlink" title="portainer上配置postgres容器参数"></a>portainer上配置postgres容器参数</h3><p>postgres docker官方镜像有参数说明：<a target="_blank" rel="noopener" href="https://hub.docker.com/_/postgres?tab=description">https://hub.docker.com/_/postgres?tab=description</a>，根据odoo docker官网镜像说明，其中的yaml配置上环境参数只配置了下面几个，所以potainer上也设置这几个参数即可</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">POSTGRES_DB=postgres</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">POSTGRES_PASSWORD=odoo</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">POSTGRES_USER=odoo</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">PGDATA=/var/lib/postgresql/data/pgdata</span></span><br><span class="line"><span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">odoo-db-data:/var/lib/postgresql/data/pgdata</span></span><br></pre></td></tr></table></figure>
-<p>portainer对应配置：<br><img src="/archives/18899723/2.png" alt=" "></p>
-<p>其中额外配置了port映射，postgres数据库端口默认是5432,使用宿主机的5432到docker主机的5432端口，PGDATA并没有配置，是默认生成的，与上面的有点不一样，手动配置了volume映射。<br>配置后生成container，可以在portainer上看到running。<br>使用navicat连接到数据库测试：<br><img src="/archives/18899723/3.png" alt=" "><br>测试成功！</p>
-<h2 id="部署odoo"><a href="#部署odoo" class="headerlink" title="部署odoo"></a>部署odoo</h2><h3 id="下载odoo镜像"><a href="#下载odoo镜像" class="headerlink" title="下载odoo镜像"></a>下载odoo镜像</h3><p>使用最新镜像，最新版为14<br><code>docker pull odoo:latest</code></p>
-<h3 id="portainer上配置odoo容器参数"><a href="#portainer上配置odoo容器参数" class="headerlink" title="portainer上配置odoo容器参数"></a>portainer上配置odoo容器参数</h3><p>官方docker-compose.yaml配置：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">web:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">odoo:12.0</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">mydb</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;8069:8069&quot;</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">HOST=mydb</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">USER=odoo</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">PASSWORD=myodoo</span></span><br></pre></td></tr></table></figure>
-<p>portainer对应配置：<br><img src="/archives/18899723/4.png" alt=" "><br>配置后生成container，在浏览器输入<a target="_blank" rel="noopener" href="http://宿主ip:8069">http://宿主ip:8069</a>访问，出现500错误。从portainer上查看日志，发现这里配置的odoo数据库需要初始化，需要运行odoo -i base强制初始化。这一步搞了我很久，网上也没有详细的解决方法，这里记录下解决方法。</p>
-<ol>
-<li>拷贝容器内的odoo.conf配置文件到本机：<br>先进入映射的volume配置文件目录运行：<br><code>docker exec home_odoo cat /etc/odoo/odoo.conf &gt; odoo.conf</code></li>
-<li><p>修改配置文件，手动修改数据库连接参数：<br><code>vim odoo.conf</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[options]</span><br><span class="line">db_host&#x3D;xxx</span><br><span class="line">db_port&#x3D;xxx</span><br><span class="line">db_name&#x3D;odoo_db</span><br><span class="line">db_user&#x3D;odoo</span><br><span class="line">db_password&#x3D;odoo</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>从portainer进入odoo的容器执行：<br><code>odoo -i base -d odoo_db</code><br>这里没有指定用户执行，默认就是使用环境配置的odoo用户，也只有该用户执行才生效。</p>
-</li>
-</ol>
-<p>执行完毕后，再次访问<a target="_blank" rel="noopener" href="http://宿主ip:8069">http://宿主ip:8069</a>，就会出现登录界面啦。默认登陆用户名和密码都是admin，记得进入修改。</p>
-<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>这里有必要记录下docker容器目录映射到宿主目录的权限问题，以免映射后出现权限报错。一般来说，生成容器后，里面的应用目录有固定的用户权限。如postgres，生成容器后，默认数据库目录属主和属组都是postgres，而查看其ID为999<br><img src="/archives/18899723/7.png" alt=" "><br>而回到宿主的对应映射目录，可以看到其ID是跟容器的用户ID一样的。<br><img src="/archives/18899723/8.png" alt=" "><br>其ID对应宿主的用户名字不一样，其实是LINUX使用ID号作为唯一权限代码。但宿主机上如果没有对应的ID号，则会显示容器的ID号。宿主机建立目录后且映射后，不要修改其属主和属组，不然权限就乱套了。也可以在宿主机上新建一个ID号如<code>useradd postgres -u 1000 -g 1000 -M -s /sbin/nologin</code>，专门给容器使用，在配置容器时，添加其environment参数如PUID=1000，PGID=1000，其参数名要看官方给出的名字来指定，让容器指定使用该ID号生成用户。这样无论从容器看还是宿主机看，都是postgres的名字了。</p>
-<h2 id="odoo使用记录"><a href="#odoo使用记录" class="headerlink" title="odoo使用记录"></a>odoo使用记录</h2><h3 id="手动导入第三方安装包"><a href="#手动导入第三方安装包" class="headerlink" title="手动导入第三方安装包"></a>手动导入第三方安装包</h3><p>首先要启用开发者模式，点击设置，常规设置，到最下面，点击启用开发者模式<br><img src="/archives/18899723/5.png" alt=" "><br>启用后，进入应用，右上角取消搜索，就会显示全部的应用，在搜索base，可以见到base_import模块，安装下就会在菜单栏多一个导入模块，就可以手动导入第三方应用啦。<br><img src="/archives/18899723/6.png" alt=" "></p>
+            <p><img src="/archives/c624573e/1.jpg" alt=" "></p>
+<h2 id="代理服务器软件"><a href="#代理服务器软件" class="headerlink" title="代理服务器软件"></a>代理服务器软件</h2><p>最近有个需求要用到代理服务器，搜索了一番，用得比较多的是windows平台上的ccproxy，不过反应软件不太靠谱，软件经常会崩溃，比较靠谱的是linux平台下的squid。其实还有比较优秀的代理软件如轻量级的tinyproxy，privoxy，还有重量级的vanish和nginx。轻量级的软件不支持缓存，故选择squid。<br>Varnish与Nginx缓存服务器<br>1、高性能缓存服务器Varnish<br>Varnish是一款高性能的、开源的方向代理服务器和缓存器。挪威最大的在线报纸Verdens Gang使用了3台Varnish代替了原来的12台Squid，性能更好！<br>Varnish与Squid的对比如下：<br>（1）优点<br>Varnish具有更好的稳定性、更快的访问速度、更多的并发连接支持数，可以通过管理端口来管理缓存。<br>（2）缺点<br>1)在高并发状态下，Varnish消耗更多的CPU、I/O和内存资源。<br>2)Varnish进程一旦挂起、崩溃或者重启，缓存的数据会从内存中释放，此时所有的请求都会转发到后端服务器，给后端服务器造成很大压力。<br>2、轻量级缓存服务器Nginx<br>Nginx支持类似Squid的缓存功能，把URL以及相关信息当成key，用MD5编码Hash后把数据文件保存在硬盘上。<br>Nginx只能为只当的URL或者状态码设置过期时间，并不支持类似Squid的purge命令来手动清除指定的缓存页面。可以通过第三方的ngx_cache_purge来清除指定的URL缓存。<br>Nginx的缓存加速功能是由proxy_cache和fastcgi_cache两个功能模块完成的。<br>Nginx缓存加速的特点如下：<br>1)缓存功能十分稳点，运行速度不逊于Squid。<br>2)对多核CPU的利用率比其他的开源软件要好。<br>3)支持高并发请求数，能同时承受更多的访问请求。</p>
+<h2 id="代理基本类型"><a href="#代理基本类型" class="headerlink" title="代理基本类型"></a>代理基本类型</h2><p>根据实现的方式不同，squid代理服务可分为传统代理和透明代理两个常见的代理服务。<br>1)传统代理<br>也就是普通的代理服务，首先必须在客户机的浏览器、QQ聊天工具、下载软件等程序中手动设置代理服务器的地址和端口，然后才能使用代理服务来访问网络。对于网页浏览器，访问网站时的域名解析请求也会发送给指定的代理服务器。<br>2)透明代理<br>提供与传统代理相同的功能和服务，其区别在于客户机不需要指定代理服务器的地址和端口，而是通过默认路由、防火墙策略将Web访问重定向，实际上仍然交给代理服务器来处理。重定向的过程对客户机来说时是“透明”的，用户甚至并不知道自己在使用代理服务，所以称为“透明代理”。使用透明代理时，网页浏览器访问网站时的域名解析请求将优先发给DNS服务器。<br>在实际应用中，传统代理多见于Internet环境，如为QQ程序使用代理可以隐藏本机真实IP地址，为下载工具使用多个代理可以规避服务器的并发连接限制。而透明带多见于局域网环境，如在Linux网关中启用透明代理后，局域网主机无需进行额外的设置就可以享受更好的上网速度。</p>
+<h2 id="搭建Squid传统代理服务器"><a href="#搭建Squid传统代理服务器" class="headerlink" title="搭建Squid传统代理服务器"></a>搭建Squid传统代理服务器</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>到官网下载最新的squid源码包<br>解压：<br><code>tar zxf squid-5.0.5.tar.gz</code><br>安装编译环境：<br><code>yum install gcc gcc-c++ make perl-devel -y</code><br>编译：<br><code>cd squid-5.0.5</code><br><code>./configure \</code><br><code>--prefix=/app/squid-5.0.5 \</code>     # 把软件安装到指定位置<br><code>--enable-arp-acl \</code>              # 可以在规则中设置为直接通过客户端MAC进行管理，防止客户端使用IP欺骗<br><code>--enable-linux-netfilter \</code>      # 使用内核过滤<br><code>--enable-linux-tproxy \</code>         # 支持透明模式<br><code>--enable-async-io=100 \</code>         # 异步I/O，提升存储性能<br><code>--enable-err-language=&quot;Simplify_Chinese&quot; \</code>      #错误信息的显示语言<br><code>--enable-underscore \</code>           # 允许URL中有下划线<br><code>--enable-poll \</code>                 # 使用poll()模式，提升性能<br><code>--enable-gnuregex</code>               # 使用GNU正则表达式<br>安装<br><code>make &amp;&amp; make install</code><br>创建squid用户<br><code>useradd -M -s /sbin/nologin squid</code><br>修改属主和属组<br><code>chwon -R squid:squid /app/squid-5.0.5</code><br>创建软连接<br><code>cd /app</code><br><code>ln -s squid-5.0.5 squid</code></p>
+<h3 id="更改配置文件"><a href="#更改配置文件" class="headerlink" title="更改配置文件"></a>更改配置文件</h3><p><code>vim /app/squid/etc/squid.conf</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">http_access allow all</span><br><span class="line">http_port 3128</span><br><span class="line">visible_hostname 192.168.1.200 # 指定可见主机名</span><br><span class="line">cache_mem 64 MB</span><br><span class="line">cache_swap_low 80</span><br><span class="line">cache_swap_high 97</span><br><span class="line">cache_dir ufs &#x2F;app&#x2F;squid&#x2F;var&#x2F;cache&#x2F;squid 512 16 256 # 配置硬盘缓存，打开缓存目录512M，其中一级目录16个，二级256个</span><br><span class="line">cache_effective_user squid</span><br><span class="line">cache_effective_group squid</span><br></pre></td></tr></table></figure>
+<p>检查配置文件<br><code>squid -k parse</code><br>重新加载配置文件<br><code>squid -k rec</code><br>初始化缓存目录<br><code>squid -zX</code></p>
+<h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><p>添加squid.service<br>vim /usr/lib/systemd/system/squid.service</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description&#x3D;squid</span><br><span class="line">Wants&#x3D;network-online.target</span><br><span class="line">After&#x3D;network-online.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type&#x3D;forking</span><br><span class="line">PIDFile&#x3D;&#x2F;app&#x2F;squid&#x2F;var&#x2F;run&#x2F;squid.pid</span><br><span class="line">ExecStart&#x3D;&#x2F;app&#x2F;squid&#x2F;sbin&#x2F;squid</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy&#x3D;multi-user.target</span><br></pre></td></tr></table></figure>
+<p>重载systemctl<br><code>systemctl daemon-reload</code><br>开启squid<br><code>systemctl start squid</code><br>查看监听端口：<br><code>ss -tunlp | grep squid</code></p>
+<h2 id="squid日志分析"><a href="#squid日志分析" class="headerlink" title="squid日志分析"></a>squid日志分析</h2><h3 id="安装apache"><a href="#安装apache" class="headerlink" title="安装apache"></a>安装apache</h3><p><code>yum install -y httpd</code><br><code>systemctl enable httpd</code><br><code>systemctl start httpd</code><br>检查端口<br><code>ss -tunlp | grep httpd</code><br>测试：<br>浏览器访问<a target="_blank" rel="noopener" href="http://192.168.1.200">http://192.168.1.200</a>（服务器地址）</p>
+<h3 id="安装sarg"><a href="#安装sarg" class="headerlink" title="安装sarg"></a>安装sarg</h3><p><code>tar zxf sarg-2.4.0.tar.gz</code><br><code>cd sarg-2.4.0</code><br><code>./configure \</code><br><code>--prefix=/app/sarg-2.4.0</code><br><code>enable-extraprotection</code><br>编译安装<br><code>make &amp;&amp; make install</code><br>创建软连接<br><code>cd /app</code><br><code>ln -s sarg-2.4.0 sarg</code></p>
+<h3 id="修改配置"><a href="#修改配置" class="headerlink" title="修改配置"></a>修改配置</h3><p><code>vi /etc/sarg/sarg.conf</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">access_log &#x2F;app&#x2F;squid&#x2F;var&#x2F;logs&#x2F;access.log  # squid的访问日志位置</span><br><span class="line">title &quot;Squid User Access Reports&quot;  # 网页标题</span><br><span class="line">output_dir &#x2F;var&#x2F;www&#x2F;html&#x2F;squid-reports  # 分析报告的存放位置</span><br><span class="line">user_ip no # 不使用IP代替用户ID</span><br><span class="line">topuser_sort_field BYTES reverse # 升序排列</span><br><span class="line">user_sort_field BYTES reverse</span><br><span class="line">exclude_hosts &#x2F;app&#x2F;sarg&#x2F;noreport  # 设置不生成报告的主机</span><br><span class="line">overwrite_report no</span><br><span class="line">mail_utility mailx # 指定发邮件命令</span><br><span class="line">charset UTF-8</span><br><span class="line">weekdays 0-6 # 指定top排序星期周期</span><br><span class="line">hours 7-12,14,16,18-20  # 指定top排序时间周期</span><br><span class="line">www_document_root &#x2F;var&#x2F;www&#x2F;html # 网页根目录</span><br></pre></td></tr></table></figure>
+<p>建立不生成报告的主机列表文件<br><code>touch /app/sarg/noreport</code><br>创建计划任务执行sarg记录<br><code>crontab -e</code><br><code>*/20 * * * * /app/sarg/sbin/sarg</code></p>
+<h3 id="验证访问"><a href="#验证访问" class="headerlink" title="验证访问"></a>验证访问</h3><p><a target="_blank" rel="noopener" href="http://192.168.1.200/squid-reports/">http://192.168.1.200/squid-reports/</a></p>
+<h2 id="ss5配置"><a href="#ss5配置" class="headerlink" title="ss5配置"></a>ss5配置</h2><p>squid只支持http和https类型的代理，某些应用需要用到socks5代理，这时需要配置上ss5</p>
+<p>安装环境：<br><code>yum install pam-devel openldap-devel openssl-devel</code><br><code>yum -y install gcc automake make pam-devel openldap-devel cyrus-sasl-devel</code><br>下载ss5：<br><code>wget http://downloads.sourceforge.net/project/ss5/ss5/3.8.9-8/ss5-3.8.9-8.tar.gz</code></p>
+<p>安装：<br><code>tar -xzvf ss5-3.8.9-8.tar.gz</code><br><code>cd ss5-3.8.9</code><br><code>./configure</code><br><code>make</code><br><code>make install</code></p>
+<p>配置无用户认证方式<br><code>vim /etc/opt/ss5/ss5.conf</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">auth    0.0.0.0&#x2F;0               -               -</span><br><span class="line">permit -    0.0.0.0&#x2F;0    -    0.0.0.0&#x2F;0    -    -    -    -    -   </span><br></pre></td></tr></table></figure>
+<p>配置用户认证方式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">auth    0.0.0.0&#x2F;0               -               u</span><br><span class="line">permit -    0.0.0.0&#x2F;0    -    0.0.0.0&#x2F;0    -    -    -    -    -</span><br><span class="line"></span><br><span class="line">cat &#x2F;etc&#x2F;opt&#x2F;ss5&#x2F;ss5.passwd</span><br><span class="line">test test</span><br></pre></td></tr></table></figure>
+<p>启动服务：<br><code>chmod a+x /etc/init.d/ss5</code><br><code>systemctl start ss5</code><br>查看端口<br><code>ss -tunlp | grep ss5</code></p>
 
         </div>
         <footer class="article-footer">
@@ -211,7 +213,7 @@
 
 
 
-    <a data-url="https://blog.hellshan.top/archives/18899723/" data-id="cklxbkptl000li2yehk3icg1v" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://blog.hellshan.top/archives/c624573e/" data-id="cklxbkptv0013i2ye6w2daix6" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -281,18 +283,17 @@
             "@type": "Person",
             "name": "HellShan"
         },
-        "headline": "docker部署odoo14及postgresql",
-        "image": "https://blog.hellshan.top/archives/18899723/1.png",
-        "keywords": "docker database",
+        "headline": "代理服务之squid+sarg",
+        "image": "https://blog.hellshan.top/archives/c624573e/1.jpg",
+        "keywords": "linux proxy",
         "genre": "学而时习之 实践验证真理",
-        "datePublished": "2020-10-28",
-        "dateCreated": "2020-10-28",
-        "dateModified": "2020-10-30",
-        "url": "https://blog.hellshan.top/archives/18899723/",
+        "datePublished": "2021-03-05",
+        "dateCreated": "2021-03-05",
+        "dateModified": "2021-03-05",
+        "url": "https://blog.hellshan.top/archives/c624573e/",
         "description": "
-odoo简介和部署方式OpenERP的前身，开源，功能强大，更新版本到14，官方有几种安装方法，使用docker方法部署更简单，而官方使用docker compose的方式启动，我希望postgressql能够提供给多个应用使用，可以通过外部方法来访问，所以我这里用portainer部署。
-部署postgres下载portgres镜像首先确定好postgresql的版本，这里使用postgres",
-        "wordCount": 263
+代理服务器软件最近有个需求要用到代理服务器，搜索了一番，用得比较多的是windows平台上的ccproxy，不过反应软件不太靠谱，软件经常会崩溃，比较靠谱的是linux平台下的squid。其实还有比较优秀的代理软件如轻量级的tinyproxy，privoxy，还有重量级的vanish和nginx。轻量级的软件不支持缓存，故选择squid。Varnish与Nginx缓存服务器1、高性能缓存服务器V",
+        "wordCount": 560
     }
 </script>
 
@@ -358,20 +359,10 @@ odoo简介和部署方式OpenERP的前身，开源，功能强大，更新版本
         
 <nav id="article-nav">
     
-        <a href="/archives/c6ba0622/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">下一篇</strong>
-        <p class="article-nav-title">
-        
-            postgresql使用日志
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
     
-    
-        <a href="/archives/9040e6a2/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/archives/588cdfd2/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">上一篇</strong>
-        <p class="article-nav-title">hueman主题使用补充</p>
+        <p class="article-nav-title">叙利亚，现实版的旧中国</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
