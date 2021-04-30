@@ -21,7 +21,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blog.hellshan.top/archives/c7f897e8/1.png">
 <meta property="article:published_time" content="2021-04-27T09:19:05.000Z">
-<meta property="article:modified_time" content="2021-04-30T09:32:19.000Z">
+<meta property="article:modified_time" content="2021-04-30T09:39:23.000Z">
 <meta property="article:author" content="HellShan">
 <meta property="article:tag" content="WLAN">
 <meta name="twitter:card" content="summary">
@@ -218,7 +218,7 @@
 <p>移动终端的Wi-Fi网卡从过去的1条流（1T1R：1x1 MIMO）为主向2条流（2T2R：2x2 MU-MIMO）转变，2019年之后上市的移动终端普遍支持2条流，比如华为、三星、苹果、小米等终端的Wi-Fi网卡都标配2条流，部分PC终端的Wi-Fi网卡支持3条流。因此，原来2x2 MU-MIMO的企业级Wi-Fi 6 AP每射频可同时满足2个1条流的终端同时并发，当接入的终端是2条流时，2x2 MU-MIMO的企业级Wi-Fi 6 AP每个射频同时仅能处理一个终端，无法发挥MU-MIMO并发接入技术带来的价值，这和单终端依次调度没有任何区别，用户带宽也无法提升。<br><img src="/archives/c7f897e8/15.jpg" alt="图7：HE80MHz频宽，2个终端并发时2x2 MU-MIMO AP与4x4 MU-MIMO AP下的用户带宽差异"><br>事实上，根据Tolly实测数据显示，HE80MHz频宽下，2x2 MU-MIMO的企业级Wi-Fi 6 AP单5GHz射频同时接入2个2条流的用户时，由于空口资源竞争关系，每用户平均吞吐量仅为327Mbps；而4x4 MU-MIMO的企业级Wi-Fi 6 AP在同等条件下2个2条流的用户可同时得到调度，每用户平均吞吐量高达604Mbps。因此，在2条流为主的终端场景下，要充分发挥MU-MIMO能力，最低要求选择4x4 MU-MIMO的企业级Wi-Fi 6 AP。</p>
 <h3 id="关于频宽"><a href="#关于频宽" class="headerlink" title="关于频宽"></a>关于频宽</h3><p>关于80+80和160频宽，80+80是在不连续的信道上组成了160频宽，而160就是在连续的信道上组成。如下图：<br><img src="/archives/c7f897e8/16.png" alt=" "><br>要有160MHz频宽，就要设置在低信道上，例如36至64之间。因为中间有些频段是雷达专用的，所有WIFI6路由开机后会有个扫描的动作，5G信号会晚于2.4G出现，不要以为有质量问题。如果用149以上的信道，是不够160MHz使用的，除非以后开放6G频段。还有还有，5G信道一定一定一定不要设置165，你用5G慢，就要看看是否用了165，因为它的频宽只有20MHz，速度就如2.4G那么慢了。</p>
 <h2 id="AP选择与测试效果"><a href="#AP选择与测试效果" class="headerlink" title="AP选择与测试效果"></a>AP选择与测试效果</h2><p>根据上面提供的资料，正好最近有无线的项目使用AirEngine 5961-11型号的AP，查看官方的产品描述：<br>支持双射频2.4GHz(2x2) + 5GHz(2x2)同时工作，其中2.4GHz频段最大速率575Mbps，5GHz频段最大速率1.2Gbps，整机速率可达1.77Gbps。<br>也就是这个产品是2x2 MU-MIMO的，那么单AP支持并发数是多少？<br><img src="/archives/c7f897e8/17.png" alt=" "><br>回答这个问题之前，我们再探讨下mu-mimo技术<br>首先，百度可知。<br>MU-MIMO 即Multi-User Multiple-Input Multiple-Output 的缩写，直译为“多用户 多输入 多输出”， 是最新Wi-Fi技术标准802.11ac Wave 2（即802.11ac 2.0标准）的最重要特性之一，能彻底改变Wi-Fi网络的运行方式，显著提高网络总吞吐量和总容量，将上网速度提升三倍。802.11ac Wave 2另外两个特性是数据传输通道最高可扩张至160MHz提供第四空间流，可真正实现网络资源的充分利用和性能提升。<br><img src="/archives/c7f897e8/35.jpg" alt=" "><br>SU-MIMO路由器信号一般是一个圆环，一般是以你的路由器为圆心，向外发射信号，根据远近等关系（不是绝对意义上的远近，更多的是信号质量等方面），依次单独与上网设备进行通讯。<br>这时当接入的设备过多时，就会出现设备等待通讯的情况，网络卡顿的情况就由此产生。<br>而使用MU-MIMO路由器就不一样了，MU-MIMO路由的信号在时域、频域、空域三个维度上分成多个部分，就像是同时发出多个不同的信号。支持MU-MIMO的路由器能够同时与多部设备协同工作；尤其值得一提的是，由于多个信号互不干扰，资源得到最大化的利用。<br>路由器在SU-MIMO模式下会给每个设备分带宽，上图说的就是如果路由器一共有100Mbps带宽，那每个设备就是33.3Mbps。但是我们现在的设备一般都可以握手协商出866Mbps的带宽，而且<br>我听说，网络中要所有设备都支持MU-MIMO才能启用MU-MIMO。只要有一个SU-MIMO整个网络都是SU-MIMO了。<br>不对不对，非也非也。<br>首先，如果路由器和终端没有协商成MU-MIMO，只是终端以SU的方式传输，而不是路由器就不能用MU-MIMO工作了，SU和MU是可以混合在一起的使用的。<br>所以，你的5G有各种终端都可以，只要某几个终端能和路由器协商出MU-MIMO，就会使用MU-MIMO工作。<br>但是路由器会在某一时刻切换状态。比如你有5个终端，3个不支持MU，2个支持MU(都连入5GWiFi)那么某种情况下，路由器正好要给2个支持MU的终端发送数据，那么这次传输就会使用MU。支持MU不代表会一直MU，需要一定场景来触发MU。理论上不存在一直占用这种情况。比如1个SU和2个MU的终端在同时下电影。那么路由器的发送过程就是SU-MU-SU-MU这要交替的变化。所以不会因为一个设备是su-mimo就导致整个网络都没办法MU-MIMO。<br>默默说一句：如果一个设备就导致整个网络不能MU，这个标准的制定也太傻了<br>唉小米10参数说支持 2x2 MIMO，8x8 Sounding for MU-MIMO。到底是2x2还是8x8<br>针对这个问题，我们举个简单的例子。假设路由器是最多支持到8<em>8的MU-MIMO。这8</em>8的天线同时在广播自己的信号。<br>这个时候有4台具备2<em>2的想要连接WIFI。这个时候手机端就要开始嗅探（sounding）数据流了。如果这4台手机都可以支持8</em>8的嗅探（sounding）。那他们就可以各自占用2<em>2的天线。<br>为了方便理解，画了一张图如下：<br><img src="/archives/c7f897e8/36.jpg" alt=" "><br>但是如果4台具备2</em>2的想要连接WIFI，但是不支持8<em>8的嗅探（sounding），他们只支持了4</em>4的嗅探。那他们就可能会出现两两分组的情况。在自己的分组下还是需要出现先后传输-等待的交替进行。<br>如下图：<br><img src="/archives/c7f897e8/37.jpg" alt=" "><br>但是实际情况远比我们举例的复杂，终端到底跟哪个天线连接是要看手机上的2<em>2天线去嗅探路由器的8</em>8天线的时候跟哪两根天线的信号质量最好。而不是按顺序连接。同时我们的网络环境也不会刚刚好4个终端的网卡性能一模一样，更多的时候是新老设备同时使用WIFI（甚至有的只支持WIFI4，有的支持WIFI6）。在这些情况下路由器的数据传输情况就会复杂许多。</p>
-<p>这样，如果支持2x2的客户端最终达到8Mbit/s的速度，那么理想状态下2.4Ghz频段575/8=71个，而5Ghz下1200/8=150个，合计200多个客户端并发下载可以达到，可以满足企业需求。</p>
+<p>这样，如果支持2x2的客户端最终达到8Mbit/s的速度，那么理想状态下2.4Ghz频段575/8=71个，而5Ghz下1200/8=150个，合计200多个客户端并发下载可以达到，可以满足企业需求。<br>最后，附上华为企业级AP的规格：<br><img src="/archives/c7f897e8/38.jpg" alt=" "></p>
 
         </div>
         <footer class="article-footer">
@@ -226,7 +226,7 @@
 
 
 
-    <a data-url="https://blog.hellshan.top/archives/c7f897e8/" data-id="cko44e9y8004ni2yeg2xoaibf" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://blog.hellshan.top/archives/c7f897e8/" data-id="cko44kscc004nlaye30f4h3c9" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -306,7 +306,7 @@
         "url": "https://blog.hellshan.top/archives/c7f897e8/",
         "description": "
 先回顾一下网络传输概念，其实就是IEEE 802国际规定定义出来的，其中802.3定义了有线以太网传输，提出1Mbit/s到10Gbit/s对应的传输标准：也就是说，要上到万兆，需要用到4对六类或以上的线缆，每对2.5Gbit/s。一直认为在双绞线上不可能实现这么高的传输速率，原因就是运行在这么高工作频率（至少为500MHz）基础上的损耗太大。但标准制定者依靠4项技术构件使10GBase-T变为",
-        "wordCount": 463
+        "wordCount": 466
     }
 </script>
 
