@@ -21,7 +21,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blog.hellshan.top/archives/7c1819b2/1.jpg">
 <meta property="article:published_time" content="2020-09-29T08:45:05.000Z">
-<meta property="article:modified_time" content="2020-11-24T06:11:36.404Z">
+<meta property="article:modified_time" content="2021-05-19T01:57:17.000Z">
 <meta property="article:author" content="HellShan">
 <meta property="article:tag" content="kvm">
 <meta property="article:tag" content="linux">
@@ -216,6 +216,8 @@ vfio
 <h2 id="LXC使用"><a href="#LXC使用" class="headerlink" title="LXC使用"></a>LXC使用</h2><p>在配置的存储目录中，点击模板，可以看到里面有很多system模板和turnkey的应用模板，这样可以大大减少应用的部署时间而专注于业务上。<br>配置模板很简单，最后设置密码后启动即可。如果忘记密码，可以通过PVE主机进入进行修改：<br><code>ptc enter 容器ID名</code><br>再使用<br><code>passwd 用户名</code>修改<br><strong>ubuntu container ssh的问题：</strong><br>默认ubuntu不允许root进行ssh，可以新建一个用户，把用户添加到sudoer里面就行：<br><code>useradd 用户名 -d -s /bin/bash</code><br>使用passwd更改密码<br>添加用户到sudoer：<br><code>vim /etc/sudoer</code><br>或者<br><code>visudoer</code></p>
 <h2 id="docker使用"><a href="#docker使用" class="headerlink" title="docker使用"></a>docker使用</h2><p>安装docker:<br><code>apt install -y docker-ce docker-ce-cli</code></p>
 <p>安装portainer：<br><code>docker volume create portainer_data</code><br><code>docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce</code></p>
+<h2 id="linux磁盘操作"><a href="#linux磁盘操作" class="headerlink" title="linux磁盘操作"></a>linux磁盘操作</h2><h3 id="新磁盘分区"><a href="#新磁盘分区" class="headerlink" title="新磁盘分区"></a>新磁盘分区</h3><p>分区工具：<br>目前使用最多的分区工具有fdisk和parted，区别是fdisk只支持mbr分区表，parted支持mbr和GPT分区表，大于2T的磁盘则需使用parted。<br>工具使用：<br>fdisk:<br>先选定指定磁盘<br><code>fdisk /dev/sdx</code><br>按m则列出操作菜单，根据菜单操作新建分区<br>分区完毕后，w保存退出<br>使操作生效：保存退出后，fdisk需要运行partprobe生效：<br><code>partprobe /dev/sdx</code><br>这样，在/dev目录下就会生成一个sdx1的文件，对应就是该磁盘的第x个分区<br>最后，格式化分区，创建文件系统<br><code>mkfs -t xfs /dev/sdx1</code><br>或<br><code>mkfs.xfs /dev/sdx1</code><br>parted:<br>parted的操作与mysql的命令行操作有点相似，而且是即使生效的，不用partprobe。<br>运行parted后，按”?”可以跳出操作菜单，先选择要操作的设备：<br><code>select /dev/sdx</code><br>然后就可以根据菜单进行分区表类型选择和分区了<br>创建完毕后别忘了格式化分区来创建文件系统。</p>
+<h3 id="磁盘或分区的克隆"><a href="#磁盘或分区的克隆" class="headerlink" title="磁盘或分区的克隆"></a>磁盘或分区的克隆</h3><p>有时候遇到磁盘的smart报警，这时候需要更换磁盘了，如何克隆？<br>这时候使用dd命令就可以：<br><code>dd if=/dev/sdb of=/dev/sdc</code><br>这样就相当于把sdb的磁盘克隆到sdc，再重新挂载就行。这个操作会把磁盘的所有信息（包括分区表）都克隆。也可以使用dd命令进行分区表的备份哦。</p>
 
         </div>
         <footer class="article-footer">
@@ -223,7 +225,7 @@ vfio
 
 
 
-    <a data-url="https://blog.hellshan.top/archives/7c1819b2/" data-id="ckol7dlko000fifyefzic1d0y" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://blog.hellshan.top/archives/7c1819b2/" data-id="ckouthzay000ficyebybu9q76" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -299,12 +301,12 @@ vfio
         "genre": "学而时习之 温故而知新",
         "datePublished": "2020-09-29",
         "dateCreated": "2020-09-29",
-        "dateModified": "2020-11-24",
+        "dateModified": "2021-05-19",
         "url": "https://blog.hellshan.top/archives/7c1819b2/",
         "description": "
 安装1.下载proxmox 6.2镜像，基于dabain 10.5 buster（清华大学镜像站）：https://mirrors.tuna.tsinghua.edu.cn/proxmox/iso/2.使用rufus软件写入ISO镜像到U盘，使用DD方式写入
 默认LVM分区处理pve删除lvm扩容根目录先备份虚拟机删除虚拟机删除local-lvmlvremove pve/data查看空闲空间vg",
-        "wordCount": 224
+        "wordCount": 245
     }
 </script>
 
