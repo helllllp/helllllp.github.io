@@ -1005,21 +1005,48 @@
   <entry>
     <title>AD域常用设置</title>
     <url>/archives/7bb52d79/</url>
-    <content><![CDATA[<p><img src="/archives/7bb52d79/1.png" alt></p>
+    <content><![CDATA[<p><img src="/archives/7bb52d79/1.png" alt=" "></p>
 <h2 id="指定域用户拥有添加计算机进域权限"><a href="#指定域用户拥有添加计算机进域权限" class="headerlink" title="指定域用户拥有添加计算机进域权限"></a>指定域用户拥有添加计算机进域权限</h2><h3 id="禁用所有用户添加权限"><a href="#禁用所有用户添加权限" class="headerlink" title="禁用所有用户添加权限"></a>禁用所有用户添加权限</h3><p>默认domain user拥有10个添加计算机进域的权限，需要把ms-DS-MachineAccountQuota参数改为0，即禁止所有用户添加进域，可以打开ADSI编辑器查看和更改：<br>点击开始—管理工具—ADSI编辑器，右击ADSI编辑器连接到默认确定，点击展开默认上下文，右击文件夹属性，找到ms-DS-MachineAccountQuota，修改为0即可</p>
-<p><img src="/archives/7bb52d79/2.png" alt></p>
+<p><img src="/archives/7bb52d79/2.png" alt=" "></p>
 <h3 id="单独分配用户或组权限"><a href="#单独分配用户或组权限" class="headerlink" title="单独分配用户或组权限"></a>单独分配用户或组权限</h3><ol>
 <li>首先开启Active Directory用户和计算机管理器的高级功能，拥有更多设置：<br>打开Active Directory用户和计算机管理器，点击查看，点击高级功能</li>
 <li>找到Computers容器，右击打开属性，在安全一栏，点击高级，权限框中单击以选中创建计算机对象和 删除计算机对象，确定就OK。这时，该用户或组就拥有该权限啦。</li>
 </ol>
-<p><img src="/archives/7bb52d79/3.png" alt></p>
+<p><img src="/archives/7bb52d79/3.png" alt=" "></p>
 <h2 id="禁止非域计算机不能访问服务器共享"><a href="#禁止非域计算机不能访问服务器共享" class="headerlink" title="禁止非域计算机不能访问服务器共享"></a>禁止非域计算机不能访问服务器共享</h2><p>要禁止非域计算机访问服务器资源设置比较复杂，需要配合IP策略来限制，可以参考<a href="https://blog.51cto.com/weber213/676492">https://blog.51cto.com/weber213/676492</a>，但实际上，只要灵活配置用户权限，一样可以达到此效果：<br>非域计算机想访问服务器共享，需要输入用户名和密码，外来用户没有账号从而杜绝安全问题。但是如果使用了员工的域账号来访问，岂不是一样不安全？可以针对该用户取消访问所有计算机，只允许从某个计算机登录，这样无论是公司其他电脑还是外面的电脑使用该账号登录，也会提示没权限访问该资源的。</p>
-<p><img src="/archives/7bb52d79/4.png" alt></p>
+<p><img src="/archives/7bb52d79/4.png" alt=" "></p>
 <h3 id="设置从网络访问本地计算机权限"><a href="#设置从网络访问本地计算机权限" class="headerlink" title="设置从网络访问本地计算机权限"></a>设置从网络访问本地计算机权限</h3><p>有时候设置了域账户绑定计算机访问后，也可以设置该用户不能从网络访问此计算机：<br>点击开始—管理工具—本地安全策略，在本地策略—用户权限分配一项，找到从网络访问此计算机，然后就添加只允许从网络访问此计算机的账户或组就行。</p>
-<p><img src="/archives/7bb52d79/5.png" alt></p>
+<p><img src="/archives/7bb52d79/5.png" alt=" "></p>
 <h2 id="域策略更新及导出"><a href="#域策略更新及导出" class="headerlink" title="域策略更新及导出"></a>域策略更新及导出</h2><p>强制刷新域策略gpupdate /force</p>
 <p>导出域策略结果GPRESULT /H d:\GPReport.html</p>
 <p>查看当前策略rsop.msc</p>
+<h2 id="为域控制器指定可靠的外部时间源"><a href="#为域控制器指定可靠的外部时间源" class="headerlink" title="为域控制器指定可靠的外部时间源"></a>为域控制器指定可靠的外部时间源</h2><p>通常我们会使用域控作为时间同步服务器，但很多时候因为设置的问题导致域内计算机跟域控服务器时间不一致，甚至连域控服务器时间也是不准确的。<br>域控制器长时间均无法与外部时间源进行时间同步，运行w32tm /resync，显示“此计算机没有重新同步，因为没有可用的时间数据”，运行w32tm /query /source ，显示“Local CMOS Clock”，表示正在使用的是主板上的时间，没有使用外部时间源。因为主板上的时间无法做到很准确，经常发生过快或者过慢的情况，导致域内电脑的时间和实际时间经常出现较大的差异，所以必须要修正这个问题<br>我们从几方面来全面检查下域控服务器的设置</p>
+<h3 id="连通性及注册表"><a href="#连通性及注册表" class="headerlink" title="连通性及注册表"></a>连通性及注册表</h3><p>首先，我们需要确保以下两点：<br>1.确保UPD 123端口是打开的。<br>使用如下命令检查123端口是否打开： w32tm /stripchart /computer:192.168.100.254   // 地址可以是内部NTP服务器或者是外部因特网时间服务器地址<br>2.在PDC上，我们可以ping外部时间源（即能ping通NTP所在的服务器的IP地址）。</p>
+<p>然后，我们可以尝试以下的通过修改PDC注册表的方法配置外部时间源，具体步骤如下：<br>1.PDC宣布自己是NTP服务器：<br>Path: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\W32Time\Config<br>Key Name: AnnounceFlags<br>Type: REG_DWORD (DWORD Value )<br>Data: 0x5</p>
+<p>2.将服务器类型更改为 NTP:<br>Path: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\W32Time\Parameters\Type<br>Key Name: Type<br>Type: REG_SZ(String Value)<br>Data: NTP</p>
+<p>3.启用NTP服务器：<br>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\W32Time\TimeProviders\NtpServer<br>Key Name: Enabled<br>Type: REG_DWORD<br>Data: 1</p>
+<p>4.指定哪个服务器作为NTP服务器：<br>Path: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\W32Time\Parameters<br>Key Name: NtpServer<br>Type: REG_SZ(String Value)<br>Data: Peers  （例如：s1a.time.edu.cn,0x9）<br>对于NTPserver键值中，timeserver,0x9的含义，有如下解释：<br>0x9其实是两种标识的组合，即0x1和0x8。在w32time中，共有4种基础标识。<br>0x1 specialinterval<br>0x2 useasfallbackonly<br>0x4 symmatricactive<br>0x8 client<br>在NTP同步机制下，当设置0x1标志位后，取样时间可以由specialpollinterval控制。W32time会根据设置值进行取样，默认为3600秒。如果环境内有两台NTP server作为时间源，而其中一台NTP server配置了0x2 标志位useasfallbackonly，表示该server为备用服务器，仅在没有配置0x2标志位的服务器无响应时才会被考虑。0x8则会把时间服务器表示为对源没有控制权的客户机，并将相关NTP数据推送到其它系统。通常我们会建议将第一台主时间服务器配置为0x9，备用服务器为0xa。</p>
+<p>5.只有我们的PDC机器是虚拟机，才需要设置这个注册表。如果不是虚拟机是没有这个注册表的信息。<br>HLM\SYSTEM\CurrentControlSet\services\w32time\TimeProviders\VMICTimeProvider<br>Name: Enabled<br>Type: REG_DWORD<br>Data:0</p>
+<p>6.其他的注册表设置只需要保持默认的就可以了，关闭注册表编辑器。使用命令（net stop w32time &amp;&amp; net start w32time）重启时间服务使得以上配置生效。</p>
+<p>这样，我们再运行w32tm /query /source，看看还是不是显示“Local CMOS Clock”。如果是，则要进一步检查</p>
+<h3 id="默认域组策略"><a href="#默认域组策略" class="headerlink" title="默认域组策略"></a>默认域组策略</h3><p>如果同时启用组策略来同步时间，请确保组策略没有应用到PDC(如果所有角色在一台主机那就是DC)所在的主机。否则在使用w32tm /query /source查询所同步的服务器是会显示使用的是Local cmos clock</p>
+<p>打开管理工具—》组策略管理<br><img src="/archives/7bb52d79/6.png" alt=" "><br>要编辑Default Domain Policy 和 Default Domain Controllers Policy，一个是针对域，一个是针对域控。<br><img src="/archives/7bb52d79/7.png" alt=" "><br>把三项都改为未配置，外面还有个全局配置，也要改为未配置。对于域控制器，其组策略上的时间服务选项最好保持在“未配置”的状态。<br>运行gpupdate /force强制刷新，使用w32tm /resync重新同步，再运行w32tm /query /source，可以看到，上面注册表配置的NTP服务器就生效了，不再显示Local cmos clock，再使用w32tm /stripchart /computer:192.168.100.254 可以看到基本上和NTP服务器时间一致。</p>
+<h3 id="w32mt使用"><a href="#w32mt使用" class="headerlink" title="w32mt使用"></a>w32mt使用</h3><p>1、除了使用注册表指定外部NTP服务器，也可以使用w32tm命令手动更改:<br>w32tm /config /manualpeerlist:”192.168.100.254,0x9” /syncfromflags:manual /reliable:yes /update</p>
+<p>/manualpeerlist表示外部时间源服务器列表，多个服务器之间可用空格分隔，210.72.145.44 是中国国家授时中心的时间服务器ip地址<br>/syncfromflags:manual表示与指定的外部时间源服务器列表中的服务器进行同步<br>/reliable:yes设置此计算机是一个可靠的时间源。此设置只对域控制器有意义。<br>/update向时间服务发出配置已更改的通知，使更改生效</p>
+<p>2、显示本地时间与目的时间的时间差</p>
+<p>w32tm /stripchart /computer:192.168.100.254 /samples:30 /dataonly</p>
+<p>3、显示目前服务器指定的外部时间源</p>
+<p>w32tm /query /source</p>
+<p>4、恢复Windows Time Service的预设值</p>
+<p>net stop w32time<br>w32tm /unregister<br>w32tm /register<br>net start w32time</p>
+<p>在域环境中，只需设置根域控制器的外部时间源即可，其它服务器在添加进域中时将自动设置与域控制器时间同步。</p>
+<p>改设置可解决域控制器的时间同步问题 如：Time-Service EventID:36</p>
+<p>5、 同步时间</p>
+<p>w32tm /resync</p>
+<h3 id="思科交换机作为NTP服务器"><a href="#思科交换机作为NTP服务器" class="headerlink" title="思科交换机作为NTP服务器"></a>思科交换机作为NTP服务器</h3><p>两条命令搞定：<br><code>ntp master</code><br><code>ntp server 114.118.7.161</code></p>
+<p>指定外部网络服务器地址及master</p>
+<h3 id="linux主机设置时间同步"><a href="#linux主机设置时间同步" class="headerlink" title="linux主机设置时间同步"></a>linux主机设置时间同步</h3><p>需要安装ntp：<br><code>yum install -y ntp</code></p>
+<p>指定服务器地址：<br><code>ntpdate 192.168.100.254</code></p>
 ]]></content>
       <categories>
         <category>学而时习之</category>
@@ -2336,6 +2363,22 @@ vfio
       <tags>
         <tag>kvm</tag>
         <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>航拍中国S01E01海南</title>
+    <url>/archives/d0a90ac1/</url>
+    <content><![CDATA[<p><img src="/archives/d0a90ac1/1.png" alt=" "></p>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>你见过什么样的中国<br>China… A truly vast and fascinating country<br>是 960 万平方公里的辽阔<br>Nine million 600 thousand square kilometres of land<br>还是 300 万平方公里的澎湃<br>Three million square kilometres of seas<br>是四季轮转的天地<br>And it’s never still… Changing with the rotation of the seasons<br>还是冰与火演奏的乐章<br>and the movements of ice and fire<br>像鸟儿一样,离开地面，冲上云霄,结果超乎你的想象<br>Soaring like a bird is to see things beyond your imagination<br>前往平时无法到达的地方<br>You visit places you never before have dreamed of<br>看见专属于高空的奇观<br>and see wonders of the heavenly kind<br>俯瞰这片朝夕相处的大地<br>And even familiar places<br>再熟悉的景象<br>when seen from up high<br>也变了一副模样<br>assume a completely different look<br>从身边的世界, 到远方的家园<br>We’ll take you to explore places near and far<br>从自然地理<br>to travers the realms of Nature and Man<br>到人文历史<br>beyond history and geography<br>50 分钟的空中旅程，前所未有的极致体验，从现在开始，和我们一起天际遨游<br>Join us, as we embark on a unique journeym, across the sky</p>
+<h3 id="1"><a href="#1" class="headerlink" title="1"></a>1</h3><p>海南省位于中国版图的最南端<br>This is Hainan, China’s southernmost province<br>它带着南海众多岛屿<br>Hainan island<br>贡献了相当于中国陆地面积四分之一的广阔海域<br>with a contiguous sea area takes up the size one quarter of the whole country’s land area<br>南部的南沙群岛<br>Here, in the South China Sea, also lie the Nansha Islands<br>界定了中国最南的国界<br>which mark China’s southernmost point<br><img src="/archives/d0a90ac1/2.png" alt=" "><br>北部的琼州海峡，隔开了海南岛与内陆<br>while to the north the Qiongzhou Strait separates Hainan from the mainland<br><img src="/archives/d0a90ac1/3.png" alt=" "><br>我们的旅程从北部开始<br>It’s from there that our journey starts<br>探索火山如何塑造岛屿<br>First we’ll explore how volcanic activity shaped the island<br>前往一座洋溢着闯荡精神的城市<br>and then we’ll fly to a city bursting with pioneering drive<br>沿着北部海岸线<br>Along Hainan’s northern coastlines<br>邂逅三座风格迥异的灯塔<br>we’ll come across three lighthouses, each with its own distinctive style<br><img src="/archives/d0a90ac1/4.png" alt=" "><br>这是一条 30 公里宽的海峡<br>The Qiongzhou Strait is 30 kilometres in width<br><img src="/archives/d0a90ac1/5.png" alt=" "><br>它的南岸是中国第二大岛——海南岛<br>To the South is China’s second largest island: Hainan Island<br>海南岛本来是内陆的一部分<br>In prehistoric times, Hainan was part of the mainland<br>6000 万年前<br>Around sixty million years ago<br>地壳运动让部分陆地下陷，海水淹没了这里<br>some lower-lying land was submerged<br>形成了古琼州海峡<br>creating what we know today as the Qiongzhou Strait<br><img src="/archives/d0a90ac1/6.png" alt=" "><br>伴随着塌陷和海峡形成，火山开始喷发<br>Later, land collapes and volcanic eruptions<br>火山喷发物不断堆积，海南岛北部的面积随之扩大<br>caused Hainan Island’s northward expansion<br>在海南岛的北部<br>Evidence of the ancient volcanic activity can still be found<br>火山运动的痕迹随处可见<br>in northern parts of Hainan<br>这片面积仅有 108 平方公里的土地上<br>In an area just 108 square kilometres<br>坐落着 40 多座火山<br>there are more than 40 volcanoes<br>马鞍岭火山是其中的明星<br>among them Ma’anling is the star<br><img src="/archives/d0a90ac1/7.png" alt=" "><br>它由一座主火山，一座副火山<br>It consist of two relatively large craters<br>和两座小巧的寄生火山组合而成<br>and two smaller parasitic ones<br>就像父母带着自己的一双儿女<br>it’s like parents living with a pair of children<br>如今，植被已经把火山层层覆盖<br>Ma’anling is part of the Haikou Volcanic Cluster Global Geopark<br>人们在这里建造了公园<br>Today the volcano is covered with greenery<br>沿着火山缺口处的步行通道，可以一直走到 69米深的底部<br>From the foot to the summit is a pleasant, 69-metre walk<br>大约在13000年前，马鞍岭火山完成了最后一次喷发，随后陷入沉寂<br>Ma’anling last erupted around 13,000 years ago<br>但不能小看它的威力，这时一座休眠的火山<br>However, it’s not classified as extinct, but dormant<br>没有人知道<br>So, it’s possible that one day<br>它会在什么时候醒来<br>it may become active again<br>渡轮是往返于<br>It takes 50 minutes totravel by ferry<br>内陆和海南岛之间的班车，只需要50分钟<br>between the mainland and Hainan<br>就能横渡琼州海峡<br><img src="/archives/d0a90ac1/8.png" alt=" "><br>across the QiongzhouStrait<br>这时一艘载重量超过4000吨的轮船<br>This ferry is transporting automobiles<br>除了汽车和旅客，船舱之中还有一列，跟随它渡海的火车<br>There’s even a train in the ferry chamber<br>跨海前，火车被拆分开<br>Before the crossing, the train was divided into sections<br>装入船舱<br>so that it could be accommodated<br>渡轮靠岸后<br>In port<br>首先完成铁轨的对接<br>a railway lineextends to the ferry<br><img src="/archives/d0a90ac1/9.png" alt=" "><br>接着，列车车厢被拉出船舱<br>The carriages are moved onto it<br>重新组接成完整的火车<br>and coupled together again<br>海口是它们在海南岛旅程的第一站<br>The now-complete train’s first stop on Hainan Island is the city of Haikou<br>海口是海南岛离内陆最近的城市<br>Haikou is the closest city on Hainan island to the mainland<br><img src="/archives/d0a90ac1/10.png" alt=" "><br>90%的进出岛货物，都在海口中转<br>Ninety percent of goods entring and leaving the island pass through its port<br>全岛最大的淡水河，南渡江<br>The Nandu- the island’s longest freshwater river - empties into the sea here<br>从这里入海，“海口”因此得名<br>which gave the city its name: Haikou literally means “emptying into the sea”<br>在海口，有一条盛极一时的骑楼商业街<br>This is the once prosperous Qilou Business Street<br>一楼是店铺<br>The ground floors of the buildings lining it, areoccupied by shops<br>二楼以上是人们居住的地方<br>Above, are apartments<br>这部分向外探出<br>The street gets its name from the protruding structures<br>就像骑跨在人行道上，所以叫骑楼<br>Qilou means “street overhung by buildings”<br>这里是海南人，从东南亚带回来的建筑样式<br>This style of architecture originated in Southeast Asia<br>对于他们来说，大海并不意味着阻隔<br>Hainan people have never considered the sea to be abarrier<br>而是通往远方的道路<br>On the contrary, they view it as a pathway to the outside world<br><img src="/archives/d0a90ac1/12.png" alt=" "><br>从清代开始<br>For several centuries<br>这里就有下南洋的热潮<br>there has been a flourishing trade between Hainan and Southeast Asia<br>除开闯荡的人们，捎回不少新奇玩意儿<br>People here brought back new commodities<br>小到咖啡<br>such as coffee<br>大到骑楼这种设计<br>as well as the new styles of architecture<br>甚至连造房子的水泥，都是从南洋运回来的<br>They even introduced the use of cement in house-building<br>闯荡南洋的人们脚步未远<br>These days, the most popular sea routes<br>从内地驶来的轮船，已经响起靠岸的鸣笛<br>are those traveled by mainland people, coming to Hainan<br>1988年<br>In 1988<br>海南建省，并成立了中国最大的经济特区<br>Hainan was established as China’s largest special economic zone<br>自由与梦想<br>In no time<br>激励10万闯海人横跨海峡，从海口登录，踏上这座充满无限可能的海岛<br>tens of thousands of people began crossing the strait to Haikou<br>如同“闯关东”，“走西口”<br>Inspired by the boundless commercial potential offered by Hainan’s new status<br>当年的闯海人勇于冒险<br>they set up businesses on the island<br>走在了开放的前沿<br>By doing so, they were following an historical precedent in China<br>“下海”是他们贡献给那个时代<br>where people have traditionally moved to other parts of the country<br>最具代表行的流行词<br>in times of economic difficulties<br>即便是最靠近陆地的地方，海洋的力量也不可小觑<br>The power of the sea should never be understimated<br>北部是海南岛最凶险的海岸线之一<br>Hainan’s northern coastline is one of the most dangerous places<br>灯塔成为航海人，最演绎看到的老朋友<br>Here, to ensure that sailors reach the island safely<br><img src="/archives/d0a90ac1/13.png" alt="儋州市 兵马角灯塔"><br>这时海南灯塔中，最年长<br>This is Hainan’s oldest lighthouse<br>相貌也最出众的一座<br>With its distinctive red and blue stripes<br>它守望临高角已经120多年，红白条纹是它最明显的标识<br>it’s been a landmark of Lingao Cape for over 120 years<br><img src="/archives/d0a90ac1/14.png" alt="临高县 临高角灯塔"><br>临高角灯塔见证了不少历史<br>witnessing the history<br>1894年，法国人为了控制琼州海峡<br>It was built in 1894 by the French<br>而修建了它<br>to support them in their attempt to seize control of the Qiongzhou Strait<br>50多年后<br>Fifty years later<br>解放军在临高角艰难登陆<br>Hainan was liberated from nationalist control by the People’s Liberation Army<br>解放了海南<br>after soldiers landed here at Lingao Cape<br>激战过后，灯塔如旧<br>The lighthouse survived fierce fighting<br>但海南已经成为一个全新的世界<br>and stood intact to welcome a brand new Hainan<br>木兰头灯塔<br>Mulantou Lighthouse<br>守卫着一片危险的水域<br>overlooks a particularly dangerous stretch of water<br><img src="/archives/d0a90ac1/15.png" alt=" "><br>因为水流速度极快，不少船只在这里遇险<br>Over the years, the speed of the current here has caused difficulties for numerous ships</p>
+]]></content>
+      <categories>
+        <category>杂志</category>
+        <category>航拍中国</category>
+      </categories>
+      <tags>
+        <tag>旅游</tag>
+        <tag>航拍</tag>
       </tags>
   </entry>
 </search>
