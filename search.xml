@@ -27,6 +27,57 @@
       </tags>
   </entry>
   <entry>
+    <title>Citrix XenApp使用</title>
+    <url>/archives/26f5a537/</url>
+    <content><![CDATA[<p><img src="/archives/26f5a537/1.png" alt=" "></p>
+<p>最近工作遇到一个问题，有个业务软件已经停止更新了，只能在WIN7上运行，WIN10上运行有些模块会出错，无奈新电脑已经不支持WIN7了，只能想想办法。用虚拟机方式用户不太接受，太麻烦，最后选择了Citrix的XenApp。<br>去官网逛逛发现已经出道XenApp 7.21版本了，但只找到7.15版本及以下的文档，网上找到7.6版的安装包，发现7.6版本是可以运行在server2008上的，那就用这个吧。</p>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><h3 id="配置要求"><a href="#配置要求" class="headerlink" title="配置要求"></a>配置要求</h3><p>官网建议若所有核心组件都位于一台服务器上，仅供评估使用，不用于生产部署则需要5G内存，若所有核心组件位于一个服务器上，供测试部署或小型的生产环境则需要12G内存</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="Delivery-Controller部署"><a href="#Delivery-Controller部署" class="headerlink" title="Delivery Controller部署"></a>Delivery Controller部署</h3><p>我们将把DDC、StoreFront、SQL、Studio及Director部署在同一服务器上。</p>
+<p>安装Delivery Controller</p>
+<p><img src="/archives/26f5a537/2.png" alt=" "></p>
+<p><img src="/archives/26f5a537/3.png" alt=" "></p>
+<p><img src="/archives/26f5a537/4.png" alt=" "></p>
+<p>用它自带的数据库了</p>
+<p><img src="/archives/26f5a537/5.png" alt=" "></p>
+<p><img src="/archives/26f5a537/6.png" alt=" "></p>
+<p>确认无误开始安装</p>
+<p><img src="/archives/26f5a537/7.png" alt=" "></p>
+<p><img src="/archives/26f5a537/8.png" alt=" "></p>
+<p>安装完成后的界面</p>
+<p><img src="/archives/26f5a537/9.png" alt=" "></p>
+<h3 id="站点设置"><a href="#站点设置" class="headerlink" title="站点设置"></a>站点设置</h3><p><img src="/archives/26f5a537/10.png" alt=" "></p>
+<p><img src="/archives/26f5a537/11.png" alt=" "></p>
+<p>确定</p>
+<p><img src="/archives/26f5a537/12.png" alt=" "></p>
+<p><img src="/archives/26f5a537/13.png" alt=" "></p>
+<p><img src="/archives/26f5a537/14.png" alt=" "></p>
+<p><img src="/archives/26f5a537/15.png" alt=" "></p>
+<p><img src="/archives/26f5a537/16.png" alt=" "></p>
+<p><img src="/archives/26f5a537/17.png" alt=" "></p>
+<p><img src="/archives/26f5a537/18.png" alt=" "></p>
+<h3 id="安装Virtual-Delivery-Agent-For-Windows-Server-OS"><a href="#安装Virtual-Delivery-Agent-For-Windows-Server-OS" class="headerlink" title="安装Virtual Delivery Agent For Windows Server OS"></a>安装Virtual Delivery Agent For Windows Server OS</h3><p><img src="/archives/26f5a537/19.png" alt=" "></p>
+<p><img src="/archives/26f5a537/20.png" alt=" "></p>
+<p>这步需要注意不要创建主映像，不然添加上去的电脑全部都是未注册的</p>
+<p><img src="/archives/26f5a537/21.png" alt=" "></p>
+<p><img src="/archives/26f5a537/22.png" alt=" "></p>
+<p>测试通过后添加</p>
+<p><img src="/archives/26f5a537/23.png" alt=" "></p>
+<p><img src="/archives/26f5a537/24.png" alt=" "></p>
+<p><img src="/archives/26f5a537/25.png" alt=" "></p>
+<p>后面全部默认下一步直到完成就行</p>
+<h3 id="XenApp应用程序交付"><a href="#XenApp应用程序交付" class="headerlink" title="XenApp应用程序交付"></a>XenApp应用程序交付</h3><p>略</p>
+<p>创建完计算机目录和交付组确保对应的计算机状态为已注册，然后重启计算机再次确保为已注册状态即可进行登录测试。</p>
+<p>参考文档<a href="https://www.azurew.com/citrix/652.html">https://www.azurew.com/citrix/652.html</a></p>
+]]></content>
+      <categories>
+        <category>学而时习之</category>
+        <category>实践验证真理</category>
+      </categories>
+      <tags>
+        <tag>AD</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>你越以精英为核心，你们国家诞生的精英就越少</title>
     <url>/archives/42ad09e8/</url>
     <content><![CDATA[<p><img src="/archives/42ad09e8/1.png" alt=" "></p>
