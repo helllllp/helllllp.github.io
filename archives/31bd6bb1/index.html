@@ -6,27 +6,27 @@
     
 
     
-    <title>干货满满！10分钟看懂Docker和K8S | helllllp!</title>
+    <title>使用prometheus监控交换机设备 | helllllp!</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="keywords" content="docker,k8s" />
+    <meta name="keywords" content="docker,monitor" />
     
-    <meta name="description" content="2010年，几个搞IT的年轻人，在美国旧金山成立了一家名叫“dotCloud”的公司。这家公司主要提供基于PaaS的云计算技术服务。具体来说，是和LXC有关的容器技术。LXC，就是Linux容器虚拟技术（Linux container）后来，dotCloud公司将自己的容器技术进行了简化和标准化，并命名为——Docker。Docker技术诞生之后，并没有引起行业的关注。而dotCloud公司，作">
+    <meta name="description" content="环境交换机：huawei S5735prometheus: 使用docker镜像，监听 9090 端口granfana: 使用docker镜像，监听 3000 端口snmp-exporter: https:&#x2F;&#x2F;github.com&#x2F;prometheus&#x2F;snmp_exporter下载最新版，监听 9116 端口alertmanager: https:&#x2F;&#x2F;github.com&#x2F;prometheus">
 <meta property="og:type" content="article">
-<meta property="og:title" content="干货满满！10分钟看懂Docker和K8S">
-<meta property="og:url" content="https://blog.hellshan.top/archives/9915ca90/index.html">
+<meta property="og:title" content="使用prometheus监控交换机设备">
+<meta property="og:url" content="https://blog.hellshan.top/archives/31bd6bb1/index.html">
 <meta property="og:site_name" content="helllllp!">
-<meta property="og:description" content="2010年，几个搞IT的年轻人，在美国旧金山成立了一家名叫“dotCloud”的公司。这家公司主要提供基于PaaS的云计算技术服务。具体来说，是和LXC有关的容器技术。LXC，就是Linux容器虚拟技术（Linux container）后来，dotCloud公司将自己的容器技术进行了简化和标准化，并命名为——Docker。Docker技术诞生之后，并没有引起行业的关注。而dotCloud公司，作">
+<meta property="og:description" content="环境交换机：huawei S5735prometheus: 使用docker镜像，监听 9090 端口granfana: 使用docker镜像，监听 3000 端口snmp-exporter: https:&#x2F;&#x2F;github.com&#x2F;prometheus&#x2F;snmp_exporter下载最新版，监听 9116 端口alertmanager: https:&#x2F;&#x2F;github.com&#x2F;prometheus">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://blog.hellshan.top/archives/9915ca90/1.png">
-<meta property="article:published_time" content="2020-10-02T05:44:05.000Z">
-<meta property="article:modified_time" content="2020-11-27T09:28:56.869Z">
+<meta property="og:image" content="https://blog.hellshan.top/archives/31bd6bb1/1.png">
+<meta property="article:published_time" content="2021-08-16T07:34:05.000Z">
+<meta property="article:modified_time" content="2021-08-17T08:06:43.000Z">
 <meta property="article:author" content="HellShan">
 <meta property="article:tag" content="docker">
-<meta property="article:tag" content="k8s">
+<meta property="article:tag" content="monitor">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://blog.hellshan.top/archives/9915ca90/1.png">
+<meta name="twitter:image" content="https://blog.hellshan.top/archives/31bd6bb1/1.png">
     
 
     
@@ -125,19 +125,19 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    <a class="page-title-link" href="/categories/%E7%83%AD%E7%82%B9/">热点</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/%E7%83%AD%E7%82%B9/%E5%B9%B3%E5%8F%B0/">平台</a>
+    <a class="page-title-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E5%AE%9E%E8%B7%B5%E9%AA%8C%E8%AF%81%E7%9C%9F%E7%90%86/">实践验证真理</a>
     </h1>
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-10分钟看懂Docker和K8S" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-使用prometheus监控交换机设备" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        干货满满！10分钟看懂Docker和K8S
+        使用prometheus监控交换机设备
         </h1>
     
 
@@ -148,8 +148,8 @@
                 
     <div class="article-date">
       <i class="fa fa-calendar"></i>
-      <a href="/archives/9915ca90/" class="article-date">
-         <time datetime="2020-10-02T05:44:05.000Z" itemprop="datePublished">2020-10-02</time>
+      <a href="/archives/31bd6bb1/" class="article-date">
+         <time datetime="2021-08-16T07:34:05.000Z" itemprop="datePublished">2021-08-16</time>
       </a>
     </div>
 
@@ -159,11 +159,11 @@
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/docker/" rel="tag">docker</a>, <a class="tag-link-link" href="/tags/k8s/" rel="tag">k8s</a>
+        <a class="tag-link-link" href="/tags/docker/" rel="tag">docker</a>, <a class="tag-link-link" href="/tags/monitor/" rel="tag">monitor</a>
     </div>
 
                 
-   <span id="/archives/9915ca90/" class="leancloud-visitors" data-flag-title="干货满满！10分钟看懂Docker和K8S">
+   <span id="/archives/31bd6bb1/" class="leancloud-visitors" data-flag-title="使用prometheus监控交换机设备">
    <i class="fa fa-eye"></i>
    <span class="post-meta-item-text">阅读次数: </span>
    <i class="leancloud-visitors-count">1000000</i>
@@ -182,92 +182,27 @@
 
             
 
-            <p><img src="/archives/9915ca90/1.png" alt=" "></p>
-<p>2010年，几个搞IT的年轻人，在美国旧金山成立了一家名叫“dotCloud”的公司。<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-1.jpg" alt=" "><br>这家公司主要提供基于PaaS的云计算技术服务。具体来说，是和LXC有关的容器技术。<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-2.jpg" alt=" "><br>LXC，就是Linux容器虚拟技术（Linux container）<br>后来，dotCloud公司将自己的容器技术进行了简化和标准化，并命名为——Docker。<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-3.jpg" alt=" "><br>Docker技术诞生之后，并没有引起行业的关注。而dotCloud公司，作为一家小型创业企业，在激烈的竞争之下，也步履维艰。</p>
-<p>正当他们快要坚持不下去的时候，脑子里蹦出了“开源”的想法。</p>
-<p>什么是“开源”？开源，就是开放源代码。也就是将原来内部保密的程序源代码开放给所有人，然后让大家一起参与进来，贡献代码和意见。<br>! <a href="10分钟看懂Docker和K8S-4.jpg"></a><br>Open Source，开源</p>
-<p>有的软件是一开始就开源的。也有的软件，是混不下去，创造者又不想放弃，所以选择开源。自己养不活，就吃“百家饭”嘛。</p>
-<p>2013年3月，dotCloud公司的创始人之一，Docker之父，28岁的Solomon Hykes正式决定，将Docker项目开源。<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-5.jpg" alt=" "><br>Solomon Hykes（今年刚从Docker离职）</p>
-<p>不开则已，一开惊人。</p>
-<p>越来越多的IT工程师发现了Docker的优点，然后蜂拥而至，加入Docker开源社区。</p>
-<p>Docker的人气迅速攀升，速度之快，令人瞠目结舌。</p>
-<p>开源当月，Docker 0.1版本发布。此后的每一个月，Docker都会发布一个版本。到2014年6月9日，Docker 1.0版本正式发布。</p>
-<p>此时的Docker，已经成为行业里人气最火爆的开源技术，没有之一。甚至像Google、微软、Amazon、VMware这样的巨头，都对它青睐有加，表示将全力支持。</p>
-<p>Docker火了之后，dotCloud公司干脆把公司名字也改成了Docker Inc.。</p>
-<p>Docker和容器技术为什么会这么火爆？说白了，就是因为它“轻”。</p>
-<p>在容器技术之前，业界的网红是虚拟机。虚拟机技术的代表，是VMWare和OpenStack。<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-6.jpg" alt=" "><br>相信很多人都用过虚拟机。虚拟机，就是在你的操作系统里面，装一个软件，然后通过这个软件，再模拟一台甚至多台“子电脑”出来。<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-7.jpg" alt=" "><br>虚拟机，类似于“子电脑”</p>
-<p>在“子电脑”里，你可以和正常电脑一样运行程序，例如开QQ。如果你愿意，你可以变出好几个“子电脑”，里面都开上QQ。“子电脑”和“子电脑”之间，是相互隔离的，互不影响。</p>
-<p>虚拟机属于虚拟化技术。而Docker这样的容器技术，也是虚拟化技术，属于轻量级的虚拟化。</p>
-<p>虚拟机虽然可以隔离出很多“子电脑”，但占用空间更大，启动更慢，虚拟机软件可能还要花钱（例如VMWare）。</p>
-<p>而容器技术恰好没有这些缺点。它不需要虚拟出整个操作系统，只需要虚拟一个小规模的环境（类似“沙箱”）。<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-8.jpg" alt=" "><br>沙箱</p>
-<p>它启动时间很快，几秒钟就能完成。而且，它对资源的利用率很高（一台主机可以同时运行几千个Docker容器）。此外，它占的空间很小，虚拟机一般要几GB到几十GB的空间，而容器只需要MB级甚至KB级。<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-9.jpg" alt=" "><br>容器和虚拟机的对比</p>
-<p>正因为如此，容器技术受到了热烈的欢迎和追捧，发展迅速。</p>
-<p>我们具体来看看Docker。</p>
-<p>大家需要注意，Docker本身并不是容器，它是创建容器的工具，是应用容器引擎。</p>
-<p>想要搞懂Docker，其实看它的两句口号就行。</p>
-<p>第一句，是“Build, Ship and Run”。<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-10.jpg" alt=" "><br>也就是，“搭建、发送、运行”，三板斧。</p>
-<p>举个例子：</p>
-<p>我来到一片空地，想建个房子，于是我搬石头、砍木头、画图纸，一顿操作，终于把这个房子盖好了。<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-11.jpg" alt=" "><br>结果，我住了一段时间，想搬到另一片空地去。这时候，按以往的办法，我只能再次搬石头、砍木头、画图纸、盖房子。</p>
-<p>但是，跑来一个老巫婆，教会我一种魔法。</p>
-<p>这种魔法，可以把我盖好的房子复制一份，做成“镜像”，放在我的背包里。<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-12.jpg" alt=" "><br>等我到了另一片空地，就用这个“镜像”，复制一套房子，摆在那边，拎包入住。<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-13.jpg" alt=" "><br>怎么样？是不是很神奇？</p>
-<p>所以，Docker的第二句口号就是：“Build once，Run anywhere（搭建一次，到处能用）”。</p>
-<p>Docker技术的三大核心概念，分别是：</p>
-<p><strong>镜像（Image）</strong><br><strong>容器（Container）</strong><br><strong>仓库（Repository）</strong></p>
-<p>我刚才例子里面，那个放在包里的“镜像”，就是Docker镜像。而我的背包，就是Docker仓库。我在空地上，用魔法造好的房子，就是一个Docker容器。</p>
-<p>说白了，这个Docker镜像，是一个特殊的文件系统。它除了提供容器运行时所需的程序、库、资源、配置等文件外，还包含了一些为运行时准备的一些配置参数（例如环境变量）。镜像不包含任何动态数据，其内容在构建之后也不会被改变。</p>
-<p>也就是说，每次变出房子，房子是一样的，但生活用品之类的，都是不管的。谁住谁负责添置。</p>
-<p>每一个镜像可以变出一种房子。那么，我可以有多个镜像呀！</p>
-<p>也就是说，我盖了一个欧式别墅，生成了镜像。另一个哥们可能盖了一个中国四合院，也生成了镜像。还有哥们，盖了一个非洲茅草屋，也生成了镜像。。。</p>
-<p>这么一来，我们可以交换镜像，你用我的，我用你的，岂不是很爽？<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-14.jpg" alt=" "><br>于是乎，就变成了一个大的公共仓库。</p>
-<p>负责对Docker镜像进行管理的，是Docker Registry服务（类似仓库管理员）。</p>
-<p>不是任何人建的任何镜像都是合法的。万一有人盖了一个有问题的房子呢？</p>
-<p>所以，Docker Registry服务对镜像的管理是非常严格的。</p>
-<p>最常使用的Registry公开服务，是官方的Docker Hub，这也是默认的Registry，并拥有大量的高质量的官方镜像。</p>
-<p>好了，说完了Docker，我们再把目光转向K8S。</p>
-<p>就在Docker容器技术被炒得热火朝天之时，大家发现，如果想要将Docker应用于具体的业务实现，是存在困难的——编排、管理和调度等各个方面，都不容易。于是，人们迫切需要一套管理系统，对Docker及容器进行更高级更灵活的管理。</p>
-<p>就在这个时候，K8S出现了。</p>
-<p><strong>K8S，就是基于容器的集群管理平台，它的全称，是kubernetes。</strong><br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-15.jpg" alt=" "><br>Kubernetes这个单词来自于希腊语，含义是舵手或领航员。K8S是它的缩写，用“8”字替代了“ubernete”这8个字符。</p>
-<p>和Docker不同，K8S的创造者，是众人皆知的行业巨头——Google。</p>
-<p>然而，K8S并不是一件全新的发明。它的前身，是Google自己捣鼓了十多年的Borg系统。</p>
-<p>K8S是2014年6月由Google公司正式公布出来并宣布开源的。</p>
-<p>同年7月，微软、Red Hat、IBM、Docker、CoreOS、Mesosphere和Saltstack等公司，相继加入K8S。</p>
-<p>之后的一年内，VMware、HP、Intel等公司，也陆续加入。</p>
-<p>2015年7月，Google正式加入OpenStack基金会。与此同时，Kuberentes v1.0正式发布。</p>
-<p>目前，kubernetes的版本已经发展到V1.13。</p>
-<p>K8S的架构，略微有一点复杂，我们简单来看一下。</p>
-<p>一个K8S系统，通常称为一个<strong>K8S集群（Cluster）</strong>。</p>
-<p>这个集群主要包括两个部分：</p>
-<p><strong>一个Master节点（主节点）</strong><br><strong>一群Node节点（计算节点）</strong><br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-16.jpg" alt=" "><br>一看就明白：Master节点主要还是负责管理和控制。Node节点是工作负载节点，里面是具体的容器。</p>
-<p>深入来看这两种节点。</p>
-<p>首先是Master节点。<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-17.jpg" alt=" "><br>Master节点包括API Server、Scheduler、Controller manager、etcd。</p>
-<p>API Server是整个系统的对外接口，供客户端和其它组件调用，相当于“营业厅”。</p>
-<p>Scheduler负责对集群内部的资源进行调度，相当于“调度室”。</p>
-<p>Controller manager负责管理控制器，相当于“大总管”。</p>
-<p>然后是Node节点。<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-18.jpg" alt=" "><br>Node节点包括Docker、kubelet、kube-proxy、Fluentd、kube-dns（可选），还有就是Pod。</p>
+            <p><img src="/archives/31bd6bb1/1.png" alt=" "></p>
+<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>交换机：huawei S5735<br>prometheus: 使用docker镜像，监听 9090 端口<br>granfana: 使用docker镜像，监听 3000 端口<br>snmp-exporter: <a target="_blank" rel="noopener" href="https://github.com/prometheus/snmp_exporter">https://github.com/prometheus/snmp_exporter</a>下载最新版，监听 9116 端口<br>alertmanager: <a target="_blank" rel="noopener" href="https://github.com/prometheus/alertmanager">https://github.com/prometheus/alertmanager</a>下载最新版，监听 9093, 9094 端口<br>下载华为交换机的mib信息：华为官方网站的软件下载可以找到</p>
+<h2 id="配置交换机"><a href="#配置交换机" class="headerlink" title="配置交换机"></a>配置交换机</h2><p>详细配置说明可参考官网：<a target="_blank" rel="noopener" href="https://support.huawei.com/enterprise/zh/doc/EDOC1000178160/40dfdfef">https://support.huawei.com/enterprise/zh/doc/EDOC1000178160/40dfdfef</a><br>进入system-view模式<br><code>system-view</code><br>开启snmp-agent：<br><code>snmp-agent</code><br>设置团体名称（有复杂性要求）：<br><code>snmp-agent community read cipher Tbkswitch</code><br>开启snmp所有版本：<br><code>snmp-agent sys-info version all</code><br>设置接受snmp trap信息的服务器：<br><code>snmp-agent target-host trap address udp-domain 192.168.1.200 params securityname cipher Tbkswitch</code><br>开启snmp trap：<br><code>snmp-agent trap enable</code><br>打开snmp接口访问：<br><code>snmp-agent protocol source-status all-interface</code></p>
+<h2 id="配置服务器"><a href="#配置服务器" class="headerlink" title="配置服务器"></a>配置服务器</h2><h3 id="安装环境和软件"><a href="#安装环境和软件" class="headerlink" title="安装环境和软件"></a>安装环境和软件</h3><p>安装依赖：<br><code>yum install gcc make net-snmp net-snmp-utils net-snmp-libs net-snmp-devel</code><br>测试能否获取交换机snmp信息：<br><code>snmpwalk -v 2c -c Tbkswitch 192.168.101.1</code><br>安装go语言环境：<br><code>yum install go</code><br>修改go环境变量国内代理地址：<br><code>go env -w GO111MODULE=on</code><br><code>go env -w GOPROXY=https://goproxy.cn,direct</code><br>获取snmp-exporter源码包，包括generator源码包。<br><code>go get github.com/prometheus/snmp_exporter/generator</code><br>默认go安装到当前用户目录下，如当前用户为root，则下载的的源码包则会放到<code>/root/go/pkg/mod/github.com/prometheus/snmp_exporter@v0.20.0</code>下<br>进入下载的generator目录<br><code>cd /root/go/pkg/mod/github.com/prometheus/snmp_exporter@v0.20.0/generator</code><br>通过rzsz工具拷贝mib文件到当前目录，解压得到MIBS目录，把目录重命名为mibs<br>编译generator：<br><code>go build</code><br>设置环境变量：<br><code>export MIBDIRS=mib</code><br>备份原generator.yml文件：<br><code>mv generator.yml generator.yml.bak</code><br>重新建立一个新的generator.yml：<br>配置模板参考/root/go/src/github.com/prometheus/snmp_exporter/generator目录下的README.md文档</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">modules:</span></span><br><span class="line">  <span class="attr">huawei_mib:</span></span><br><span class="line">    <span class="attr">walk:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">sysUpTime</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">interfaces</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ifXTable</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">sysDescr</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">sysName</span></span><br><span class="line">      <span class="bullet">-</span> <span class="number">1.3</span><span class="number">.6</span><span class="number">.1</span><span class="number">.2</span><span class="number">.1</span><span class="number">.31</span><span class="number">.1</span><span class="number">.1</span><span class="number">.1</span><span class="number">.1</span></span><br><span class="line">    <span class="attr">version:</span> <span class="number">2</span></span><br><span class="line">    <span class="attr">auth:</span></span><br><span class="line">      <span class="attr">community:</span> <span class="string">Tbkswitch</span></span><br><span class="line">    <span class="attr">lookups:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">source_indexes:</span> [<span class="string">ifIndex</span>]</span><br><span class="line">        <span class="attr">lookup:</span> <span class="string">ifAlias</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">source_indexes:</span> [<span class="string">ifIndex</span>]</span><br><span class="line">        <span class="attr">lookup:</span> <span class="number">1.3</span><span class="number">.6</span><span class="number">.1</span><span class="number">.2</span><span class="number">.1</span><span class="number">.2</span><span class="number">.2</span><span class="number">.1</span><span class="number">.2</span> <span class="comment"># ifDescr</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">source_indexes:</span> [<span class="string">ifIndex</span>]</span><br><span class="line">        <span class="attr">lookup:</span> <span class="number">1.3</span><span class="number">.6</span><span class="number">.1</span><span class="number">.2</span><span class="number">.1</span><span class="number">.31</span><span class="number">.1</span><span class="number">.1</span><span class="number">.1</span><span class="number">.1</span> <span class="comment"># ifName</span></span><br><span class="line">    <span class="attr">overrides:</span></span><br><span class="line">      <span class="attr">ifAlias:</span></span><br><span class="line">        <span class="attr">ignore:</span> <span class="literal">true</span></span><br><span class="line">      <span class="attr">ifDescr:</span></span><br><span class="line">        <span class="attr">ignore:</span> <span class="literal">true</span></span><br><span class="line">      <span class="attr">ifName:</span></span><br><span class="line">        <span class="attr">ignore:</span> <span class="literal">true</span></span><br><span class="line">      <span class="attr">ifType:</span></span><br><span class="line">        <span class="attr">type:</span> <span class="string">EnumAsInfo</span></span><br></pre></td></tr></table></figure>
+<p>使用./generator生成snmp.yml:<br><code>./generator generate</code><br>进入snmp_exporter目录并替换snmp.yml文件（本例放到/app/snmp_exporter下）<br><code>cd /app/snmp_exporter</code><br><code>mv snmp.yml snmp.yml.bak</code><br><code>cp /root/go/src/github.com/prometheus/snmp_exporter/generator/snmp.yml ./</code><br>添加snmp_exporter到服务:<br><code>vim /etc/systemd/system/snmp_exporter.service</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=snmp_exporter</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">ExecStart=/app/snmp_exporter/snmp_exporter --config.file=/app/snmp_exporter/snmp.yml</span><br><span class="line">Restart=on-failure</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+<p>启动snmp_exporter:<br><code>systemctl start snmp_exporter</code><br>查看状态和端口：<br><code>systemctl status snmp_exporter</code><br><code>ss -tunlp | grep snmp_exporter</code></p>
 <blockquote>
-<p>Pod是Kubernetes最基本的操作单元。一个Pod代表着集群中运行的一个进程，它内部封装了一个或多个紧密相关的容器。除了Pod之外，K8S还有一个Service的概念，一个Service可以看作一组提供相同服务的Pod的对外访问接口。这段不太好理解，跳过吧。</p>
+<p>tcp    LISTEN     0      20480  [::]:9116               [::]:*                   users:((“snmp_exporter”,pid=214993,fd=3))</p>
 </blockquote>
-<p>Docker，不用说了，创建容器的。</p>
-<p>Kubelet，主要负责监视指派到它所在Node上的Pod，包括创建、修改、监控、删除等。</p>
-<p>Kube-proxy，主要负责为Pod对象提供代理。</p>
-<p>Fluentd，主要负责日志收集、存储与查询。</p>
-<p>是不是有点懵？唉，三言两语真的很难讲清楚，继续跳过吧。</p>
-<p>Docker和K8S都介绍完了，然而文章并没有结束。</p>
-<p>接下来的部分，是写给核心网工程师甚至所有通信工程师看的。</p>
-<p>从几十年前的1G，到现在的4G，再到将来的5G，移动通信发生了翻天覆地的变化，核心网亦是如此。</p>
-<p>但是，如果你仔细洞察这些变化，会发现，所谓的核心网，其实本质上并没有发生改变，无非就是很多的服务器而已。不同的核心网网元，就是不同的服务器，不同的计算节点。</p>
-<p>变化的，是这些“服务器”的形态和接口：形态，从机柜单板，变成机柜刀片，从机柜刀片，变成X86通用刀片服务器；接口，从中继线缆，变成网线，从网线，变成光纤。</p>
-<p>就算变来变去，还是服务器，是计算节点，是CPU。</p>
-<p>既然是服务器，那么就势必会和IT云计算一样，走上虚拟化的道路。毕竟，虚拟化有太多的优势，例如前文所说的低成本、高利用率、充分灵活、动态调度，等等。</p>
-<p>前几年，大家以为虚拟机是核心网的终极形态。目前看来，更有可能是容器化。这几年经常说的NFV（网元功能虚拟化），也有可能改口为NFC（网元功能容器化）。</p>
-<p>以VoLTE为例，如果按以前2G/3G的方式，那需要大量的专用设备，分别充当EPC和IMS的不同网元。<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-19.jpg" alt=" "><br>VoLTE相关的网元</p>
-<p>而采用容器之后，很可能只需要一台服务器，创建十几个容器，用不同的容器，来分别运行不同网元的服务程序。<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-20.jpg" alt=" "><br>这些容器，随时可以创建，也可以随时销毁。还能够在不停机的情况下，随意变大，随意变小，随意变强，随意变弱，在性能和功耗之间动态平衡。</p>
-<p>简直完美！</p>
-<p>5G时代，核心网采用微服务架构，也是和容器完美搭配——单体式架构（Monolithic）变成微服务架构（Microservices），相当于一个全能型变成N个专能型。每个专能型，分配给一个隔离的容器，赋予了最大程度的灵活。<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-21.jpg" alt=" "><br>精细化分工</p>
-<p>按照这样的发展趋势，在移动通信系统中，除了天线，剩下的部分都有可能虚拟化。核心网是第一个，但不是最后一个。虚拟化之后的核心网，与其说属于通信，实际上更应该归为IT。核心网的功能，只是容器中普通一个软件功能而已。</p>
-<p>至于说在座的各位核心网工程师，恭喜你们，马上就要成功转型啦！<br><img src="/archives/9915ca90/10分钟看懂Docker和K8S-22.jpg" alt=" "></p>
-<h2 id="k8s部署"><a href="#k8s部署" class="headerlink" title="k8s部署"></a>k8s部署</h2><p><em>来自知乎</em><br>前段时间刚在公司搭建完k8s环境，踩了一些坑，也有一些经验。这里给你推荐两个网站，你可以看情况使用：<br>第一个是：<br>kuboard.cn/<br>kuboard中有一系列的k8s基础知识点，适合初入k8s的人学习，从介绍-入门-进阶-高级-实战，一步一步，会对k8s整体的功能有些了解。同时还有安装Kubernetes和Kuboa（Kubernetes一款图形化管理界面）的教程，其中Kuboard安装后，占用的内存不是很大，适合个人玩家练手。<br>第二个是：<br>kubesphere.com.cn/<br>KubeSphere是青云开源的一款以Kubernetes 为内核的云原生分布式操作系统，可以看做也是一款图形化管理界面。选择KubeSphere有一下几点：<br>完全开源，github上<br>现在星星将近4K；<br>功能完善，包含了<br>devops、日志、告警等功能。</p>
-<p><em>转自：<a target="_blank" rel="noopener" href="https://my.oschina.net/jamesview/blog/2994112">https://my.oschina.net/jamesview/blog/2994112</a></em></p>
+<h3 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h3><p>访问<a target="_blank" rel="noopener" href="http://192.168.1.200:9116">http://192.168.1.200:9116</a> 打开snmp exporter的测试页面：</p>
+<p><img src="/archives/31bd6bb1/2.png" alt=" "></p>
+<p>显示下图就正常<br><img src="/archives/31bd6bb1/3.png" alt=" "></p>
+<p>在Prometheus配置文件中添加数据节点：（本例使用docker）<br><code>vim /srv/docker_data/prometheus/conf/prometheus.yml</code></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="attr">job_name:</span> <span class="string">&#x27;TBK-S5375-CK4F&#x27;</span></span><br><span class="line">  <span class="attr">static_configs:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">targets:</span> [<span class="string">&#x27;192.168.101.1&#x27;</span>]</span><br><span class="line">  <span class="attr">metrics_path:</span> <span class="string">/snmp</span></span><br><span class="line">  <span class="attr">params:</span></span><br><span class="line">    <span class="attr">module:</span> [<span class="string">huawei_mib</span>]</span><br><span class="line">  <span class="attr">relabel_configs:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">source_labels:</span> [<span class="string">__address__</span>]</span><br><span class="line">      <span class="attr">target_label:</span> <span class="string">__param_target</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">source_labels:</span> [<span class="string">__param_target</span>]</span><br><span class="line">      <span class="attr">target_label:</span> <span class="string">instance</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">target_label:</span> <span class="string">__address__</span></span><br><span class="line">      <span class="attr">replacement:</span> <span class="number">192.168</span><span class="number">.1</span><span class="number">.200</span><span class="string">:9116</span></span><br></pre></td></tr></table></figure>
+<p>重启prometheus读取新配置：<br><code>docker restart 2fc6f0e49b7c</code><br>访问<a target="_blank" rel="noopener" href="http://192.168.1.200:9090/targets">http://192.168.1.200:9090/targets</a><br>可以看到刚刚添加的job_name，绿色up表示正常</p>
+<p><img src="/archives/31bd6bb1/4.png" alt=" "></p>
+<p>ganfana添加dashboard：<br>登录ganfana:<a target="_blank" rel="noopener" href="http://192.168.1.200:3000">http://192.168.1.200:3000</a><br>通过搜索import官网的dashboard，如这里添加11169：</p>
+<p><img src="/archives/31bd6bb1/5.png" alt=" "></p>
+<p>到此监控已配置完毕</p>
 
         </div>
         <footer class="article-footer">
@@ -275,7 +210,7 @@
 
 
 
-    <a data-url="https://blog.hellshan.top/archives/9915ca90/" data-id="cksfsbxgy0001isyea4yl4dvt" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://blog.hellshan.top/archives/31bd6bb1/" data-id="cksfsbxie003eisye19dmfhqj" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -345,17 +280,17 @@
             "@type": "Person",
             "name": "HellShan"
         },
-        "headline": "干货满满！10分钟看懂Docker和K8S",
-        "image": "https://blog.hellshan.top/archives/9915ca90/1.png",
-        "keywords": "docker k8s",
-        "genre": "热点 平台",
-        "datePublished": "2020-10-02",
-        "dateCreated": "2020-10-02",
-        "dateModified": "2020-11-27",
-        "url": "https://blog.hellshan.top/archives/9915ca90/",
+        "headline": "使用prometheus监控交换机设备",
+        "image": "https://blog.hellshan.top/archives/31bd6bb1/1.png",
+        "keywords": "docker monitor",
+        "genre": "学而时习之 实践验证真理",
+        "datePublished": "2021-08-16",
+        "dateCreated": "2021-08-16",
+        "dateModified": "2021-08-17",
+        "url": "https://blog.hellshan.top/archives/31bd6bb1/",
         "description": "
-2010年，几个搞IT的年轻人，在美国旧金山成立了一家名叫“dotCloud”的公司。这家公司主要提供基于PaaS的云计算技术服务。具体来说，是和LXC有关的容器技术。LXC，就是Linux容器虚拟技术（Linux container）后来，dotCloud公司将自己的容器技术进行了简化和标准化，并命名为——Docker。Docker技术诞生之后，并没有引起行业的关注。而dotCloud公司，作",
-        "wordCount": 92
+环境交换机：huawei S5735prometheus: 使用docker镜像，监听 9090 端口granfana: 使用docker镜像，监听 3000 端口snmp-exporter: https://github.com/prometheus/snmp_exporter下载最新版，监听 9116 端口alertmanager: https://github.com/prometheus",
+        "wordCount": 648
     }
 </script>
 
@@ -421,20 +356,10 @@
         
 <nav id="article-nav">
     
-        <a href="/archives/dd6b12a/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">下一篇</strong>
-        <p class="article-nav-title">
-        
-            nginx反向代理frp缓存加速
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
     
-    
-        <a href="/archives/5018439d/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/archives/26f5a537/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">上一篇</strong>
-        <p class="article-nav-title">hexo使用记录</p>
+        <p class="article-nav-title">Citrix XenApp使用</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
