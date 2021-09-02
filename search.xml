@@ -100,7 +100,7 @@
 <p><img src="/archives/26f5a537/25.png" alt=" "></p>
 <p>后面全部默认下一步直到完成就行</p>
 <h3 id="XenApp应用程序交付"><a href="#XenApp应用程序交付" class="headerlink" title="XenApp应用程序交付"></a>XenApp应用程序交付</h3><p>略</p>
-<p>创建完计算机目录和交付组确保对应的计算机状态为已注册，然后重启计算机再次确保为已注册状态即可进行登录测试。</p>
+<p>创建完计算机目录和交付组确保对应的计算机状态为已注册，然后重启计算机再次确保为已注册状态即可进行登录测试。<br>需要注意安装完可以试用30天，过期后客户端连接的时候会没反应，到服务器查看应用日志可以看到原因是license过期了，网上下载永久的license可以使用，不过需要单独部署license服务器，不能与controller同一台机，因为license需要固定主机名。重新配置后就可以正常使用。</p>
 <p>参考文档<a href="https://www.azurew.com/citrix/652.html">https://www.azurew.com/citrix/652.html</a></p>
 ]]></content>
       <categories>

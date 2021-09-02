@@ -21,7 +21,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blog.hellshan.top/archives/26f5a537/1.png">
 <meta property="article:published_time" content="2021-08-03T01:20:30.000Z">
-<meta property="article:modified_time" content="2021-08-03T09:35:23.242Z">
+<meta property="article:modified_time" content="2021-09-02T06:14:56.000Z">
 <meta property="article:author" content="HellShan">
 <meta property="article:tag" content="AD">
 <meta name="twitter:card" content="summary">
@@ -218,7 +218,7 @@
 <p><img src="/archives/26f5a537/25.png" alt=" "></p>
 <p>后面全部默认下一步直到完成就行</p>
 <h3 id="XenApp应用程序交付"><a href="#XenApp应用程序交付" class="headerlink" title="XenApp应用程序交付"></a>XenApp应用程序交付</h3><p>略</p>
-<p>创建完计算机目录和交付组确保对应的计算机状态为已注册，然后重启计算机再次确保为已注册状态即可进行登录测试。</p>
+<p>创建完计算机目录和交付组确保对应的计算机状态为已注册，然后重启计算机再次确保为已注册状态即可进行登录测试。<br>需要注意安装完可以试用30天，过期后客户端连接的时候会没反应，到服务器查看应用日志可以看到原因是license过期了，网上下载永久的license可以使用，不过需要单独部署license服务器，不能与controller同一台机，因为license需要固定主机名。重新配置后就可以正常使用。</p>
 <p>参考文档<a target="_blank" rel="noopener" href="https://www.azurew.com/citrix/652.html">https://www.azurew.com/citrix/652.html</a></p>
 
         </div>
@@ -227,7 +227,7 @@
 
 
 
-    <a data-url="https://blog.hellshan.top/archives/26f5a537/" data-id="cksfsbxh50007isyehbmocnag" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://blog.hellshan.top/archives/26f5a537/" data-id="ckt2jdxgh0007icye2d9rbjjg" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -303,7 +303,7 @@
         "genre": "学而时习之 实践验证真理",
         "datePublished": "2021-08-03",
         "dateCreated": "2021-08-03",
-        "dateModified": "2021-08-03",
+        "dateModified": "2021-09-02",
         "url": "https://blog.hellshan.top/archives/26f5a537/",
         "description": "
 最近工作遇到一个问题，有个业务软件已经停止更新了，只能在WIN7上运行，WIN10上运行有些模块会出错，无奈新电脑已经不支持WIN7了，只能想想办法。用虚拟机方式用户不太接受，太麻烦，最后选择了Citrix的XenApp。去官网逛逛发现已经出道XenApp 7.21版本了，但只找到7.15版本及以下的文档，网上找到7.6版的安装包，发现7.6版本是可以运行在server2008上的，那就用这个吧",
