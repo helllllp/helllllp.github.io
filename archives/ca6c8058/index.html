@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>oracle 19c | helllllp!</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="linux,database" />
+    
+    <meta name="description" content="介绍Oracle 19c，或者说是Oracle 12.2.0.3，是12c中稳定的版本，就像Oracle 11.2.0.4，是值得让客户做出升级决策，从Oracle支持的版本序列图中，就可以看出Oracle 19c所处的地位，Oracle 19c将稳定性作为此版本的核心目标，开发人员专注于修复已知问题，而不是添加新功能，这可能是让19c更加可靠以及让客户决定升级的关键因素 ORACLE 19C">
+<meta property="og:type" content="article">
+<meta property="og:title" content="oracle 19c">
+<meta property="og:url" content="https://blog.hellshan.top/archives/ca6c8058/index.html">
+<meta property="og:site_name" content="helllllp!">
+<meta property="og:description" content="介绍Oracle 19c，或者说是Oracle 12.2.0.3，是12c中稳定的版本，就像Oracle 11.2.0.4，是值得让客户做出升级决策，从Oracle支持的版本序列图中，就可以看出Oracle 19c所处的地位，Oracle 19c将稳定性作为此版本的核心目标，开发人员专注于修复已知问题，而不是添加新功能，这可能是让19c更加可靠以及让客户决定升级的关键因素 ORACLE 19C">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.hellshan.top/archives/ca6c8058/1.png">
+<meta property="article:published_time" content="2022-06-02T05:44:05.000Z">
+<meta property="article:modified_time" content="2022-07-08T00:56:01.000Z">
+<meta property="article:author" content="HellShan">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="database">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.hellshan.top/archives/ca6c8058/1.png">
+    
+
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.png" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="helllllp!" type="application/atom+xml">
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">主页</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E5%AE%9E%E8%B7%B5%E9%AA%8C%E8%AF%81%E7%9C%9F%E7%90%86/">实践验证真理</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E6%8B%BF%E6%9D%A5%E4%B8%BB%E4%B9%89/">拿来主义</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E6%B8%A9%E6%95%85%E8%80%8C%E7%9F%A5%E6%96%B0/">温故而知新</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E6%96%87%E6%91%98/">文摘</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E6%96%87%E6%91%98/%E4%BA%BA%E7%89%A9/">人物</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E6%96%87%E6%91%98/%E5%8E%86%E5%8F%B2/">历史</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E6%96%87%E6%91%98/%E5%9C%B0%E7%90%86/">地理</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E6%96%87%E6%91%98/%E6%94%BF%E6%B2%BB/">政治</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E6%96%87%E6%91%98/%E7%BB%8F%E6%B5%8E/">经济</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E6%9D%82%E5%BF%97/">杂志</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E6%9D%82%E5%BF%97/%E8%88%AA%E6%8B%8D%E4%B8%AD%E5%9B%BD/">航拍中国</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E7%83%AD%E7%82%B9/">热点</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E7%83%AD%E7%82%B9/%E5%B9%B3%E5%8F%B0/">平台</a></li></ul></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/dashboard/index.html">仪表板</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">关于</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><input type="hidden" name="sitesearch" value="https://blog.hellshan.top"></form>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E5%AE%9E%E8%B7%B5%E9%AA%8C%E8%AF%81%E7%9C%9F%E7%90%86/">实践验证真理</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-oracle 19c" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        oracle 19c
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+      <i class="fa fa-calendar"></i>
+      <a href="/archives/ca6c8058/" class="article-date">
+         <time datetime="2022-06-02T05:44:05.000Z" itemprop="datePublished">2022-06-02</time>
+      </a>
+    </div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/database/" rel="tag">database</a>, <a class="tag-link-link" href="/tags/linux/" rel="tag">linux</a>
+    </div>
+
+                
+   <span id="/archives/ca6c8058/" class="leancloud-visitors" data-flag-title="oracle 19c">
+   <i class="fa fa-eye"></i>
+   <span class="post-meta-item-text">阅读次数: </span>
+   <i class="leancloud-visitors-count">1000000</i>
+   </span>
+
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><img src="/archives/ca6c8058/1.png" alt=" "></p>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>Oracle 19c，或者说是Oracle 12.2.0.3，是12c中稳定的版本，就像Oracle 11.2.0.4，是值得让客户做出升级决策，从Oracle支持的版本序列图中，就可以看出Oracle 19c所处的地位，Oracle 19c将稳定性作为此版本的核心目标，开发人员专注于修复已知问题，而不是添加新功能，这可能是让19c更加可靠以及让客户决定升级的关键因素<br><img src="/archives/ca6c8058/2.png" alt=" "></p>
+<h2 id="ORACLE-19C-安装"><a href="#ORACLE-19C-安装" class="headerlink" title="ORACLE 19C 安装"></a>ORACLE 19C 安装</h2><p>环境：<br>CentOS 7.9<br>安装方法：最简单的RPM安装<br>需要先安装一下组件：<br>oracle-database-preinstall-19c-1.0-1.el7.x86_64.rpm<br>下载地址：<br><a target="_blank" rel="noopener" href="https://yum.oracle.com/repo/OracleLinux/OL7/latest/x86_64/index.html">https://yum.oracle.com/repo/OracleLinux/OL7/latest/x86_64/index.html</a><br>下载ORACLE 19C安装包：<br>官网下载（需登录）：<br><a target="_blank" rel="noopener" href="https://www.oracle.com/cn/database/technologies/oracle-database-software-downloads.html#19c">https://www.oracle.com/cn/database/technologies/oracle-database-software-downloads.html#19c</a><br>把下载的包上传到服务器上（lrzsz)</p>
+<p>添加oracle的yum源解决依赖问题：<br><code>wget http://public-yum.oracle.com/public-yum-ol7.repo</code><br>添加GPG-KEY：<br><code>wget http://public-yum.oracle.com/RPM-GPG-KEY-oracle-ol7 -O /etc/pki/rpm-gpg/RPM-GPG-KEY-oracle</code></p>
+<p>开始安装：<br><code>yum localinstall -y oracle-database-preinstall-19c-1.0-1.el7.x86_64.rpm</code><br><code>yum localinstall -y oracle-database-ee-19c-1.0-1.x86_64.rpm</code></p>
+<h2 id="配置oracle"><a href="#配置oracle" class="headerlink" title="配置oracle"></a>配置oracle</h2><p>oracle RPM安装方式默认安装路径为/opt/oracle</p>
+<h3 id="创建数据库实例"><a href="#创建数据库实例" class="headerlink" title="创建数据库实例"></a>创建数据库实例</h3><p>默认数据库系统配置文件放在/etc/sysconfig/下，默认的配置文件名是oracledb_ORCLCDB-19c.conf，默认数据库实例名称也是ORCLCDB<br><code>cat /etc/sysconfig/oracledb_ORCLCDB-19c.conf</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#This is a configuration file to setup the Oracle Database. </span><br><span class="line">#It is used when running &#39;&#x2F;etc&#x2F;init.d&#x2F;oracledb_ORCLCDB configure&#39;.</span><br><span class="line">#Please use this file to modify the default listener port and the</span><br><span class="line">#Oracle data location.</span><br><span class="line"></span><br><span class="line"># LISTENER_PORT: Database listener</span><br><span class="line">LISTENER_PORT&#x3D;1521</span><br><span class="line"></span><br><span class="line"># ORACLE_DATA_LOCATION: Database oradata location</span><br><span class="line">ORACLE_DATA_LOCATION&#x3D;&#x2F;opt&#x2F;oracle&#x2F;oradata</span><br><span class="line"></span><br><span class="line"># EM_EXPRESS_PORT: Oracle EM Express listener</span><br><span class="line">EM_EXPRESS_PORT&#x3D;5500</span><br></pre></td></tr></table></figure>
+<p>配置文件定义了监听的端口和数据库文件的路径，可以按需求修改，这里就先用默认配置</p>
+<p>修改数据库初始化配置文件：<br><code>cat /etc/init.d/oracledb_ORCLCDB-19c</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># Setting the required environment variables</span><br><span class="line">export ORACLE_HOME&#x3D;&#x2F;opt&#x2F;oracle&#x2F;product&#x2F;19c&#x2F;dbhome_1</span><br><span class="line"></span><br><span class="line">export ORACLE_VERSION&#x3D;19c</span><br><span class="line">export ORACLE_SID&#x3D;ORCLCDB</span><br><span class="line">export TEMPLATE_NAME&#x3D;General_Purpose.dbc</span><br><span class="line">export CHARSET&#x3D;AL32UTF8</span><br><span class="line">export PDB_NAME&#x3D;maintest</span><br><span class="line">export LISTENER_NAME&#x3D;LISTENER</span><br><span class="line">export NUMBER_OF_PDBS&#x3D;1</span><br><span class="line">export CREATE_AS_CDB&#x3D;true</span><br></pre></td></tr></table></figure>
+<p>这里定义了初始化数据库的配置，主要修改以下配置：<br>export ORACLE_SID=ORCLCDB       #默认数据库名为ORCLCDB，可以自行修改，我这里也是用默认<br>export CHARSET=ZHS16GBK            #默认为AL32UTF8，可以修改为ZHS16GBK，国内使用效率高一点<br>export PDB_NAME=maintest        #默认数据库名为ORCLPDB1，可以自行修改，我这里修改成maintest<br>export LISTENER_NAME=LISTENER   #默认监听器的名字</p>
+<p>从12c开始 oracle添加了CDB，默认连接的都是CDB，在不切换到pdb的情况下，创建用户名需要加C##的前缀,因为CDB中默认创建的是common user如果想要创建本地用户，则要在PDB容器中创建</p>
+<p>修改好后，可以建立数据库实例：<br><code>etc/init.d/oracledb_ORCLCDB-19c configure</code><br>大概十几分钟的过程，和服务器性能有关</p>
+<p>建立完数据库实例，可以先修改oracle用户的环境变量，oracle安装完毕后会自动创建oracle用户<br><code>touch /home/oracle/.bash_profile</code><br><code>vim /home/oracle/.bash_profile</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">export ORACLE_BASE&#x3D;&#x2F;opt&#x2F;oracle</span><br><span class="line">export ORACLE_HOME&#x3D;&#x2F;opt&#x2F;oracle&#x2F;product&#x2F;19c&#x2F;dbhome_1</span><br><span class="line">export ORACLE_SID&#x3D;ORCLCDB</span><br><span class="line">export PATH&#x3D;$ORACLE_HOME&#x2F;bin:$PATH:$HOME&#x2F;.local&#x2F;bin:$HOME&#x2F;bin</span><br><span class="line">export LD_LIBRARY_PATH&#x3D;$ORACLE_HOME&#x2F;lib:&#x2F;usr&#x2F;lib</span><br><span class="line">export NLS_LANG&#x3D;AMERICAN_AMERICA.UTF8</span><br></pre></td></tr></table></figure>
+<p>应用配置：<br><code>source /home/oracle/.bash_profile</code></p>
+<h3 id="登录数据库"><a href="#登录数据库" class="headerlink" title="登录数据库"></a>登录数据库</h3><p>切换到oracle用户操作：<br><code>su oracle</code><br><code>sql plus / as sysdba</code></p>
+<p>默认oracle命令行界面不支持上下箭头操作，此时可以加入rlwrap工具来操作：<br>切换回root用户：<br><code>yum install -y rlwrap</code></p>
+<p>这样在oracle用户下就可以使用上下键:<br>bash-4.2$ <code>rlwrap sqlplus / as sysdba</code></p>
+<h2 id="oracle主从同步配置"><a href="#oracle主从同步配置" class="headerlink" title="oracle主从同步配置"></a>oracle主从同步配置</h2><p>采用Oracle自身组件功能：<br>无外乎Logical Standby、Stream以及11g的Physical Standby(Active Data Guard)，对比来说，Stream最灵活，但最不稳定，11g Physical Standby支持恢复与只读并行，但由于并不是日志的逻辑应用机制，在读写分离的场景中最为局限。如果技术团队对相关技术掌握足够充分，而选型方案的处理能力又能支撑数据同步的要求，采用Oracle自身的组件完全可行。<br>选择商业化的产品：<br>更多出于稳定性、处理能力等考虑。市面上成熟的Oracle复制软件也无外乎几种，无论是老牌的Shareplex，还是本土DSG公司的RealSync和九桥公司的DDS，或是Oracle新贵GoldenGate，都是可供选择的目标。随着GoldenGate被Oracle收购和推广，个人认为GoldenGate在容灾、数据分发和同步方面将大行其道。</p>
+<h3 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h3><p>ORACLE主库IP：192.168.1.208  SID：ORCLCDB  db_name=’ORCLCDB’  主机名：oracle-main<br>ORACLE备库IP：192.168.1.209  SID: ORCLABC  db_name=’ORCLCDB’  主机名：oracle-back</p>
+<p>查看主库归档目录物理路径：</p>
+<blockquote>
+<p>SQL&gt; archive log list<br>Database log mode           Archive Mode<br>Automatic archival           Enabled<br>Archive destination           /opt/oracle/arch<br>ldest online log sequence     41<br>Next log sequence to archive   43<br>Current log sequence           43</p>
+</blockquote>
+<p>主库datafile物理路径：<br>/opt/oracle/oradata/ORCLCDB</p>
+<p>主库redo物理路径：<br>/opt/oracle/oradata/ORCLCDB</p>
+<p>查看归档是否报错：</p>
+<blockquote>
+<p>SQL&gt; archive log list</p>
+</blockquote>
+<p>修改主库和备库的system和sys的密码（用作rman同步使用）：</p>
+<blockquote>
+<p>SQL&gt; alter user sys identified by 123456;</p>
+</blockquote>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>修改主库配置文件initTESTDB.ora：<br><code>vim $ORACLE_HOME/dbs/initORCLCDB.ora</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">ORCLCDB.__data_transfer_cache_size&#x3D;0</span><br><span class="line">ORCLCDB.__db_cache_size&#x3D;1711276032</span><br><span class="line">ORCLCDB.__inmemory_ext_roarea&#x3D;0</span><br><span class="line">ORCLCDB.__inmemory_ext_rwarea&#x3D;0</span><br><span class="line">ORCLCDB.__java_pool_size&#x3D;4194304</span><br><span class="line">ORCLCDB.__large_pool_size&#x3D;50331648</span><br><span class="line">ORCLCDB.__oracle_base&#x3D;&#39;&#x2F;opt&#x2F;oracle&#39;#ORACLE_BASE set from environment</span><br><span class="line">ORCLCDB.__pga_aggregate_target&#x3D;822083584</span><br><span class="line">ORCLCDB.__sga_target&#x3D;2449473536</span><br><span class="line">ORCLCDB.__shared_io_pool_size&#x3D;0</span><br><span class="line">ORCLCDB.__shared_pool_size&#x3D;553648128</span><br><span class="line">ORCLCDB.__streams_pool_size&#x3D;0</span><br><span class="line">ORCLCDB.__unified_pga_pool_size&#x3D;0</span><br><span class="line">*.audit_file_dest&#x3D;&#39;&#x2F;opt&#x2F;oracle&#x2F;admin&#x2F;ORCLCDB&#x2F;adump&#39;</span><br><span class="line">*.audit_trail&#x3D;&#39;db&#39;</span><br><span class="line">*.compatible&#x3D;&#39;19.0.0&#39;</span><br><span class="line">*.control_files&#x3D;&#39;&#x2F;opt&#x2F;oracle&#x2F;oradata&#x2F;ORCLCDB&#x2F;control01.ctl&#39;,&#39;&#x2F;opt&#x2F;oracle&#x2F;oradata&#x2F;ORCLCDB&#x2F;control02.ctl&#39;</span><br><span class="line">*.db_block_size&#x3D;8192</span><br><span class="line">*.db_name&#x3D;&#39;ORCLCDB&#39;</span><br><span class="line">*.diagnostic_dest&#x3D;&#39;&#x2F;opt&#x2F;oracle&#39;</span><br><span class="line">*.dispatchers&#x3D;&#39;(PROTOCOL&#x3D;TCP) (SERVICE&#x3D;ORCLCDBXDB)&#39;</span><br><span class="line">*.enable_pluggable_database&#x3D;true</span><br><span class="line">*.local_listener&#x3D;&#39;LISTENER_ORCLCDB&#39;</span><br><span class="line">#*.log_archive_dest_3&#x3D;&#39;location&#x3D;&#x2F;opt&#x2F;oracle&#x2F;ldg_archivelog valid_for&#x3D;(standby_logfiles,standby_role) db_unique_name&#x3D;ORCLCDB&#39;</span><br><span class="line">*.nls_language&#x3D;&#39;SIMPLIFIED CHINESE&#39;</span><br><span class="line">*.nls_territory&#x3D;&#39;CHINA&#39;</span><br><span class="line">*.open_cursors&#x3D;300</span><br><span class="line">*.pga_aggregate_target&#x3D;779m</span><br><span class="line">*.processes&#x3D;480</span><br><span class="line">*.remote_login_passwordfile&#x3D;&#39;EXCLUSIVE&#39;</span><br><span class="line">*.sga_target&#x3D;2334m</span><br><span class="line">*.undo_tablespace&#x3D;&#39;UNDOTBS1&#39;</span><br><span class="line">*.db_unique_name&#x3D;&#39;ORCLCDB&#39;</span><br><span class="line">*.log_archive_config&#x3D;&#39;dg_config&#x3D;(ORCLCDB,ORCLABC)&#39;</span><br><span class="line">*.log_archive_dest_1&#x3D;&#39;location&#x3D;&#x2F;opt&#x2F;oracle&#x2F;arch valid_for&#x3D;(all_logfiles,all_roles) db_unique_name&#x3D;ORCLCDB&#39;</span><br><span class="line">*.log_archive_dest_2&#x3D;&#39;service&#x3D;ORCLABC valid_for&#x3D;(online_logfiles,primary_role) db_unique_name&#x3D;ORCLABC&#39;</span><br><span class="line">*.log_archive_dest_state_1&#x3D;enable</span><br><span class="line">*.log_archive_dest_state_2&#x3D;enable</span><br><span class="line">*.log_archive_max_processes&#x3D;4</span><br><span class="line">*.fal_server&#x3D;&#39;ORCLABC&#39;</span><br><span class="line">*.fal_client&#x3D;&#39;ORCLCDB&#39;</span><br><span class="line">*.db_file_name_convert&#x3D;&#39;&#x2F;opt&#x2F;oracle&#x2F;oradata&#x2F;ORCLABC&#39;,&#39;&#x2F;opt&#x2F;oracle&#x2F;oradata&#x2F;ORCLCDB&#39;</span><br><span class="line">*.log_file_name_convert&#x3D;&#39;&#x2F;opt&#x2F;oracle&#x2F;oradata&#x2F;ORCLABC&#39;,&#39;&#x2F;opt&#x2F;oracle&#x2F;oradata&#x2F;ORCLCDB&#39;</span><br><span class="line">*.standby_file_management&#x3D;&#39;auto&#39;</span><br></pre></td></tr></table></figure>
+<p>DG主库和备库的db_name必须一致，db_unique_name要不一致</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://blog.hellshan.top/archives/ca6c8058/" data-id="cl5qdupn10014ijye742id0yj" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "HellShan"
+        },
+        "headline": "oracle 19c",
+        "image": "https://blog.hellshan.top/archives/ca6c8058/1.png",
+        "keywords": "linux database",
+        "genre": "学而时习之 实践验证真理",
+        "datePublished": "2022-06-02",
+        "dateCreated": "2022-06-02",
+        "dateModified": "2022-07-08",
+        "url": "https://blog.hellshan.top/archives/ca6c8058/",
+        "description": "
+介绍Oracle 19c，或者说是Oracle 12.2.0.3，是12c中稳定的版本，就像Oracle 11.2.0.4，是值得让客户做出升级决策，从Oracle支持的版本序列图中，就可以看出Oracle 19c所处的地位，Oracle 19c将稳定性作为此版本的核心目标，开发人员专注于修复已知问题，而不是添加新功能，这可能是让19c更加可靠以及让客户决定升级的关键因素
+ORACLE 19C ",
+        "wordCount": 452
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <!-- Valine -->
+    <div class="vcomments"></div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>关注我 :</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/helllllp" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="qq" href="/524311610" target="_blank" rel="noopener">
+                        <i class="icon fa fa-qq"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weixin" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weixin"></i>
+                    </a>
+                </li>
+                
+            
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/archives/ca6c8058/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">下一篇</strong>
+        <p class="article-nav-title">
+        
+            oracle 19c
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/archives/b27e42bf/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">上一篇</strong>
+        <p class="article-nav-title">使用docker搭建kettle调度监控平台项目</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/archives/41789693/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/archives/41789693/1.png)" alt="数据仓部署使用" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E5%AE%9E%E8%B7%B5%E9%AA%8C%E8%AF%81%E7%9C%9F%E7%90%86/">实践验证真理</a></p>
+                            <p class="item-title"><a href="/archives/41789693/" class="title">数据仓部署使用</a></p>
+                            <p class="item-date"><time datetime="2022-07-10T03:34:05.000Z" itemprop="datePublished">2022-07-10</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/archives/c0cffff5/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/archives/c0cffff5/1.png)" alt="一项网络工程" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E5%AE%9E%E8%B7%B5%E9%AA%8C%E8%AF%81%E7%9C%9F%E7%90%86/">实践验证真理</a></p>
+                            <p class="item-title"><a href="/archives/c0cffff5/" class="title">一项网络工程</a></p>
+                            <p class="item-date"><time datetime="2022-07-09T14:55:05.000Z" itemprop="datePublished">2022-07-09</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/archives/ca6c8058/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E5%AE%9E%E8%B7%B5%E9%AA%8C%E8%AF%81%E7%9C%9F%E7%90%86/">实践验证真理</a></p>
+                            <p class="item-title"><a href="/archives/ca6c8058/" class="title">oracle 19c</a></p>
+                            <p class="item-date"><time datetime="2022-07-08T00:55:05.000Z" itemprop="datePublished">2022-07-08</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/archives/ca6c8058/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/archives/ca6c8058/1.png)" alt="oracle 19c" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E5%AE%9E%E8%B7%B5%E9%AA%8C%E8%AF%81%E7%9C%9F%E7%90%86/">实践验证真理</a></p>
+                            <p class="item-title"><a href="/archives/ca6c8058/" class="title">oracle 19c</a></p>
+                            <p class="item-date"><time datetime="2022-06-02T05:44:05.000Z" itemprop="datePublished">2022-06-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/archives/b27e42bf/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/archives/b27e42bf/1.png)" alt="使用docker搭建kettle调度监控平台项目" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E5%AE%9E%E8%B7%B5%E9%AA%8C%E8%AF%81%E7%9C%9F%E7%90%86/">实践验证真理</a></p>
+                            <p class="item-title"><a href="/archives/b27e42bf/" class="title">使用docker搭建kettle调度监控平台项目</a></p>
+                            <p class="item-date"><time datetime="2022-04-08T06:23:30.000Z" itemprop="datePublished">2022-04-08</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><span class="category-list-count">22</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E5%AE%9E%E8%B7%B5%E9%AA%8C%E8%AF%81%E7%9C%9F%E7%90%86/">实践验证真理</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E6%8B%BF%E6%9D%A5%E4%B8%BB%E4%B9%89/">拿来主义</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E6%B8%A9%E6%95%85%E8%80%8C%E7%9F%A5%E6%96%B0/">温故而知新</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%87%E6%91%98/">文摘</a><span class="category-list-count">17</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%87%E6%91%98/%E4%BA%BA%E7%89%A9/">人物</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%87%E6%91%98/%E5%8E%86%E5%8F%B2/">历史</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%87%E6%91%98/%E5%9C%B0%E7%90%86/">地理</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%87%E6%91%98/%E6%94%BF%E6%B2%BB/">政治</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%87%E6%91%98/%E7%BB%8F%E6%B5%8E/">经济</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9D%82%E5%BF%97/">杂志</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9D%82%E5%BF%97/%E8%88%AA%E6%8B%8D%E4%B8%AD%E5%9B%BD/">航拍中国</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%83%AD%E7%82%B9/">热点</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%83%AD%E7%82%B9/%E5%B9%B3%E5%8F%B0/">平台</a><span class="category-list-count">2</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">二月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">一月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">十月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">九月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">八月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">七月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">五月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">四月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">三月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">十二月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">十一月 2020</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a><span class="archive-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">标签</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AD/" rel="tag">AD</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ELK/" rel="tag">ELK</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WLAN/" rel="tag">WLAN</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/article/" rel="tag">article</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cluster/" rel="tag">cluster</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database/" rel="tag">database</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/k8s/" rel="tag">k8s</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kvm/" rel="tag">kvm</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/monitor/" rel="tag">monitor</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/proxy/" rel="tag">proxy</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/seo/" rel="tag">seo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%85%E6%B8%B8/" rel="tag">旅游</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%88%AA%E6%8B%8D/" rel="tag">航拍</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/AD/" style="font-size: 12px;">AD</a> <a href="/tags/ELK/" style="font-size: 10px;">ELK</a> <a href="/tags/WLAN/" style="font-size: 10px;">WLAN</a> <a href="/tags/article/" style="font-size: 20px;">article</a> <a href="/tags/cluster/" style="font-size: 10px;">cluster</a> <a href="/tags/database/" style="font-size: 16px;">database</a> <a href="/tags/docker/" style="font-size: 16px;">docker</a> <a href="/tags/hexo/" style="font-size: 14px;">hexo</a> <a href="/tags/k8s/" style="font-size: 12px;">k8s</a> <a href="/tags/kvm/" style="font-size: 12px;">kvm</a> <a href="/tags/linux/" style="font-size: 18px;">linux</a> <a href="/tags/monitor/" style="font-size: 12px;">monitor</a> <a href="/tags/nginx/" style="font-size: 12px;">nginx</a> <a href="/tags/nodejs/" style="font-size: 12px;">nodejs</a> <a href="/tags/proxy/" style="font-size: 12px;">proxy</a> <a href="/tags/seo/" style="font-size: 10px;">seo</a> <a href="/tags/%E6%97%85%E6%B8%B8/" style="font-size: 10px;">旅游</a> <a href="/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 10px;">网络</a> <a href="/tags/%E8%88%AA%E6%8B%8D/" style="font-size: 10px;">航拍</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">链接</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2022 HellShan</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                <p><a href="http://beian.miit.gov.cn/" target="_blank">粤ICP备2020094422号-1</a</p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script src="//unpkg.com/valine"></script>
+    <script>
+        var GUEST = ['nick','mail','link'];
+        var meta = '';
+        meta = meta.split(',').filter(function (item) {
+            return GUEST.indexOf(item)>-1;
+        });
+        var avatarcdn = 'https://gravatar.loli.net/avatar/' == true;
+        new Valine({
+            el: '.vcomments',
+            notify: "",
+            verify: "true",
+            appId: "4O7x2f71OT7FFlrdxFIAJn3v-gzGzoHsz",
+            appKey: "k2d5KmEjtQeLw5IuRficyYsN",
+            placeholder: "Just Do It",
+            avatar:"wavatar",
+            recordIP:"",
+            visitor: "true"
+        });
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>

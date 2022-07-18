@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>数据仓部署使用 | helllllp!</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="database" />
+    
+    <meta name="description" content="数据仓ETL工具工具对比【国外】1、datastage （收费）点评：最专业的ETL工具， 2005年被IBM收购，目前发展到11.7版本。在数据集成的基础上，增加了数据质量分析、数据血缘分析、业务元数据管理等内容。技术支持也比较少，使用难度较大，尤其不菲的价格，导致国内用户较少。2、informatica （收费）点评：informatica创立于1993年，专业程度与Datastage旗鼓相">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据仓部署使用">
+<meta property="og:url" content="https://blog.hellshan.top/archives/41789693/index.html">
+<meta property="og:site_name" content="helllllp!">
+<meta property="og:description" content="数据仓ETL工具工具对比【国外】1、datastage （收费）点评：最专业的ETL工具， 2005年被IBM收购，目前发展到11.7版本。在数据集成的基础上，增加了数据质量分析、数据血缘分析、业务元数据管理等内容。技术支持也比较少，使用难度较大，尤其不菲的价格，导致国内用户较少。2、informatica （收费）点评：informatica创立于1993年，专业程度与Datastage旗鼓相">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.hellshan.top/archives/41789693/1.png">
+<meta property="article:published_time" content="2022-07-10T03:34:05.000Z">
+<meta property="article:modified_time" content="2022-07-11T08:10:50.000Z">
+<meta property="article:author" content="HellShan">
+<meta property="article:tag" content="database">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.hellshan.top/archives/41789693/1.png">
+    
+
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.png" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="helllllp!" type="application/atom+xml">
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">主页</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E5%AE%9E%E8%B7%B5%E9%AA%8C%E8%AF%81%E7%9C%9F%E7%90%86/">实践验证真理</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E6%8B%BF%E6%9D%A5%E4%B8%BB%E4%B9%89/">拿来主义</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E6%B8%A9%E6%95%85%E8%80%8C%E7%9F%A5%E6%96%B0/">温故而知新</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E6%96%87%E6%91%98/">文摘</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E6%96%87%E6%91%98/%E4%BA%BA%E7%89%A9/">人物</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E6%96%87%E6%91%98/%E5%8E%86%E5%8F%B2/">历史</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E6%96%87%E6%91%98/%E5%9C%B0%E7%90%86/">地理</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E6%96%87%E6%91%98/%E6%94%BF%E6%B2%BB/">政治</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E6%96%87%E6%91%98/%E7%BB%8F%E6%B5%8E/">经济</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E6%9D%82%E5%BF%97/">杂志</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E6%9D%82%E5%BF%97/%E8%88%AA%E6%8B%8D%E4%B8%AD%E5%9B%BD/">航拍中国</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E7%83%AD%E7%82%B9/">热点</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E7%83%AD%E7%82%B9/%E5%B9%B3%E5%8F%B0/">平台</a></li></ul></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/dashboard/index.html">仪表板</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">关于</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><input type="hidden" name="sitesearch" value="https://blog.hellshan.top"></form>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E5%AE%9E%E8%B7%B5%E9%AA%8C%E8%AF%81%E7%9C%9F%E7%90%86/">实践验证真理</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-数据仓部署使用" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        数据仓部署使用
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+      <i class="fa fa-calendar"></i>
+      <a href="/archives/41789693/" class="article-date">
+         <time datetime="2022-07-10T03:34:05.000Z" itemprop="datePublished">2022-07-10</time>
+      </a>
+    </div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/database/" rel="tag">database</a>
+    </div>
+
+                
+   <span id="/archives/41789693/" class="leancloud-visitors" data-flag-title="数据仓部署使用">
+   <i class="fa fa-eye"></i>
+   <span class="post-meta-item-text">阅读次数: </span>
+   <i class="leancloud-visitors-count">1000000</i>
+   </span>
+
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><img src="/archives/41789693/1.png" alt=" "></p>
+<h2 id="数据仓"><a href="#数据仓" class="headerlink" title="数据仓"></a>数据仓</h2><h2 id="ETL工具"><a href="#ETL工具" class="headerlink" title="ETL工具"></a>ETL工具</h2><h3 id="工具对比"><a href="#工具对比" class="headerlink" title="工具对比"></a>工具对比</h3><p>【国外】<br>1、datastage （收费）<br>点评：最专业的ETL工具， 2005年被IBM收购，目前发展到11.7版本。在数据集成的基础上，增加了数据质量分析、数据血缘分析、业务元数据管理等内容。技术支持也比较少，使用难度较大，尤其不菲的价格，导致国内用户较少。<br>2、informatica （收费）<br>点评：informatica创立于1993年，专业程度与Datastage旗鼓相当，有4个不同版本，即：标准版，实时版，高级版，云计算版。按用户许可收费，价格比Datastage便宜点。不具有数据质量功能，需要以编程方式进行处理。，没有任何Web集成功能。Informatica与datastage一样需要更高的学习成本。<br>3、ODI （收费）<br>点评：oracle数据库厂商提供的工具，有局限性，与oracle数据库耦合太深。ODI属于ELT架构，将数据传输到目标数据后，再目标数据库进行数据清洗转换处理，如果流程过多会对目标数据库有一定压力。对Web集成功能比较弱，运行监控能力比较差，获取技术支持比较困难。<br>4、kettle（免费）<br>点评：业界最有名的开源ETL工具。开源当然就免费，免费的有些东西使用就不是很方便。社区版缺乏项目管理、流程管理、运行监控功能，商业版有提供，价格比较高。适合用于少量流程或作为ETL的研究学习。</p>
+<p>【国内】</p>
+<ol>
+<li>Datax （免费）<br>点评：产品化程度还有一定距离。由于没有可视化开发界面，需要编写Java代码。数据清洗转换的能力比较弱，但在大数据传输能力比较好。</li>
+<li>Restcloud（免费）<br>点评：国产比较好的ETL工具之一，采用B/S架构，可视化化开发，在数据传输与处理的能力与kettle相当，学习成本较低。与kettle比较，增加项目管理、流程管理、质量监测等功能。由于推出时间较短，技术支持目前只能通过社区获取。</li>
+</ol>
+<p>其实还有其他比较优秀的，因为公司的流量不大，就选用开源的kettle。</p>
+<h3 id="kettle使用"><a href="#kettle使用" class="headerlink" title="kettle使用"></a>kettle使用</h3><p>kettle纯java编写，可以在Window、Linux、Unix上运行，绿色无需安装，数据抽取高效稳定。</p>
+<p>Kettle工程存储方式：<br>1、以XML形式存储<br>2、以资源库方式存储(数据库资源库和文件资源库)</p>
+<p>Kettle的两种设计：<br><img src="/archives/41789693/2.png" alt=" "></p>
+<p>Kettle的组成:<br><img src="/archives/41789693/3.png" alt=" "></p>
+<p>任务保存：<br>数据库资源需要连接数据库，这里已经用docker创建了kettle相关的数据库，然后使用kettle创建数据库资源库。需要注意的是，创建数据库资源库后，会在C:\USER\XXX.KETTLE目录下生成一个resources.xml的文件，该文件记录了数据库连接的信息，如果用linux版本的任务调度工具，需要把该文件拷贝到相应目录才行</p>
+<h2 id="任务调度工具"><a href="#任务调度工具" class="headerlink" title="任务调度工具"></a>任务调度工具</h2><p>1、kettle-web<br>2、taskctl<br>官网：<a target="_blank" rel="noopener" href="http://www.taskctl.com/">http://www.taskctl.com/</a></p>
+<p>基础版就已经够用，2022官方新版本8.0，官方建议使用web平台，根据官方教程搭建服务器和客户端，搭建好后使用taskctl的kettle插件来执行kettle任务。</p>
+<p>安装教程：<br><a target="_blank" rel="noopener" href="http://www.taskctl.com/forum/detail_124.html">http://www.taskctl.com/forum/detail_124.html</a></p>
+<p>查看配置文件说明：<br><code>su - kettle</code><br><code>iconv -f gbk -t utf-8 $TASKCTLDIR/src/plugin/ktrjob/shell/cprunktrjob.sh</code></p>
+<p>其中有说明kettle的ktr和kjb是如何定义的，通过读取xml标签来获取参数，例如ktr作业：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">(三) 作业定义举例:</span><br><span class="line"><span class="comment">#    1.  </span></span><br><span class="line"><span class="comment">#       &lt;[kettle转换类作业自定义作业类型名]&gt;</span></span><br><span class="line"><span class="comment">#           &lt;name&gt;job1&lt;/name&gt;</span></span><br><span class="line"><span class="comment">#           &lt;progname&gt;[.ktr文件位置和文件名]&lt;/progname&gt; </span></span><br><span class="line"><span class="comment">#           &lt;exppara&gt;pan.sh文件所在文件夹&lt;/exppara&gt;</span></span><br><span class="line"><span class="comment">#       &lt;[kettle转换类作业自定义作业类型名]&gt;</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#    2.  </span></span><br><span class="line"><span class="comment">#       &lt;ktrjob&gt;</span></span><br><span class="line"><span class="comment">#           &lt;name&gt;job2&lt;/name&gt;</span></span><br><span class="line"><span class="comment">#           &lt;progname&gt;/home/username/trans.ktr&lt;/progname&gt; </span></span><br><span class="line"><span class="comment">#           &lt;para&gt;filepath=/home/username,filename=test.txt&lt;/para&gt;</span></span><br><span class="line"><span class="comment">#           &lt;exppara&gt;env=/home/pdi-ce/data-integration&lt;/exppara&gt;</span></span><br><span class="line"><span class="comment">#       &lt;/ktrjob&gt;</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#    3.  </span></span><br><span class="line"><span class="comment">#       &lt;ktrjob&gt;</span></span><br><span class="line"><span class="comment">#           &lt;name&gt;job3&lt;/name&gt;</span></span><br><span class="line"><span class="comment">#           &lt;progname&gt;/home/username/trans.ktr&lt;/progname&gt; </span></span><br><span class="line"><span class="comment">#           &lt;para&gt;filepath=/home/username,filename=test.txt&lt;/para&gt;</span></span><br><span class="line"><span class="comment">#           &lt;exppara&gt;env=/home/pdi-ce/data-integration,rep=myrep1,user=admin,pass=admin&lt;/exppara&gt;</span></span><br><span class="line"><span class="comment">#       &lt;/ktrjob&gt;</span></span><br><span class="line"><span class="comment">#   </span></span><br></pre></td></tr></table></figure>
+<p>拷贝windows版本上的resources.xml文件到/home/kettle/.kettle目录（插件默认读取该文件的数据库连接信息）</p>
+<p>登陆taskctl网页，进入admin模块，点击作业类型，可以见到ktrjob和kjbjob的插件<br><img src="/archives/41789693/4.png" alt=" "></p>
+<p>选择designer模块，添加作业资源，点击设计资源，选择作业资源：<br><img src="/archives/41789693/5.png" alt=" "></p>
+<p>点击加号添加作业资源，这里我设置了两种资源，一种是直接读取本地目录的文件，另一种是读取kettle的数据库资源（预先在kettle的windows环境里面创建好了）</p>
+<h3 id="直接读取文件设置"><a href="#直接读取文件设置" class="headerlink" title="直接读取文件设置"></a>直接读取文件设置</h3><p><img src="/archives/41789693/6.png" alt=" "></p>
+<p>驱动类型选择 file_explorer<br>资源链接方式选择filter_by_extension<br>文件目录填作业文件的路径，扩展名是转换作业的填.ktr(ktrjob)是作业的填.kjb(kjbjob)<br>关联作业类型可以填写作业类型的环境参数，这里只需要填kettle软件的路径就行。</p>
+<p>回到控制容器，选择右上角的作业设计，左侧可以选择刚刚建立的作业资源，点击查询，获取到文件名，直接拖到加号创建作业<br><img src="/archives/41789693/7.png" alt=" "></p>
+<p>选取运行代理和执行时间计划后提交保存，然后编译发布，就可以到监控模块见到该作业，这里可以先点作业进行调试，调试成功后再点发布，就可以到monitor模块进行作业调度<br>可以通过代码标签切换查看代码</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--************************************************************* </span></span><br><span class="line"><span class="comment">   TASKCTL技术平台模块文件 </span></span><br><span class="line"><span class="comment">      工程名称：IOT </span></span><br><span class="line"><span class="comment">    定时器名称: IOT任务调度 </span></span><br><span class="line"><span class="comment">      模块名称: MainModul </span></span><br><span class="line"><span class="comment"> *****************************************************************--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">serial</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>MainModul_rootnode<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">monititle</span>&gt;</span>监控组1<span class="tag">&lt;/<span class="name">monititle</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">begin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>MainModul_beginjob<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">jobdesc</span>&gt;</span>begin<span class="tag">&lt;/<span class="name">jobdesc</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">begin</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--  用户模块代码自定义区开始 --&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--  用户模块代码自定义区结束 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ktrjob</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>直接读取MATERIAL文件执行<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">progname</span>&gt;</span>/data/kettle/data-integration/workspace/TRA_DW_DIM_MATERIAL.ktr<span class="tag">&lt;/<span class="name">progname</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">exppara</span>&gt;</span>env=/data/kettle/data-integration,/data/kettle/data-integration<span class="tag">&lt;/<span class="name">exppara</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">jobdesc</span>&gt;</span>直接读取MATERIAL文件执行<span class="tag">&lt;/<span class="name">jobdesc</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">agentid</span>&gt;</span>svrnode<span class="tag">&lt;/<span class="name">agentid</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">timingplan</span>&gt;</span>000000 m 1<span class="tag">&lt;/<span class="name">timingplan</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">monititle</span>&gt;</span>监控组1<span class="tag">&lt;/<span class="name">monititle</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ktrjob</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>从插件配置文件说明：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"><span class="comment">#------------------------------------------------------------------------------</span></span><br><span class="line"><span class="comment">#       (一) 功能: 在CTL服务或代理用户执行kettle转换</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#       (二) 参数: 在TASKCTL所有插件中，具有以下统一的参数接口</span></span><br><span class="line"><span class="comment">#       1. tccid		【无用】容器（流程或定时器）ID    </span></span><br><span class="line"><span class="comment">#       2. jobid		【无用】作业ID</span></span><br><span class="line"><span class="comment">#       3. progname		【有用】程序名称。程序名对应作业类型的progname属性</span></span><br><span class="line"><span class="comment">#       4. para			【有用】参数信息。参数信息对应作业类型的para属性</span></span><br><span class="line"><span class="comment">#       5. exppara	    【有用】环境参数信息。环境参数信息对作业类型的exppara属性</span></span><br><span class="line"><span class="comment">#       6. hostuser 	【无用】远程主机用户链接信息。远程主机用户链接信息对应作业类型的hostuser属性    </span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#       参数说明：</span></span><br><span class="line"><span class="comment">#       (1) progname: 一般为文件系统(.ktr)或资源库的完整路径及名称</span></span><br><span class="line"><span class="comment">#           </span></span><br><span class="line"><span class="comment">#       (2) para    : 一般为kettle作业的命名参数或变量</span></span><br><span class="line"><span class="comment">#            </span></span><br><span class="line"><span class="comment">#       (3) exppara : 一般为kettle的pan.sh文件所在位置。例如：/home/pdi-ce/data-integration，若需要调用资源库，则需要增加rep(资源库名称)，user(资源库用户)，pass(资源库密码)</span></span><br></pre></td></tr></table></figure></p>
+<p>插件会读取：</p>
+<p><ktrjob> — 确定是ktrjob的任务</ktrjob></p>
+<p><progname> — 读取文件路径（全路径需加后缀）</progname></p>
+<p><exppara> — 读取环境参数，如果直接读取文件，则不用rep参数</exppara></p>
+<h3 id="读取数据库资源库"><a href="#读取数据库资源库" class="headerlink" title="读取数据库资源库"></a>读取数据库资源库</h3><p>作业资源库配置实例：<br><img src="/archives/41789693/8.png" alt=" "></p>
+<p>驱动类型选择kttle_explorer<br>资源链接方式选择db_repository<br>其他填写数据库连接的信息，同样需要添加管理作业类型，添加ktr，参数为：<br><code>env=/data/kettle/data-integration,rep=test,user=admin,pass=admin</code><br>按照上面添加读取文件一样添加作业即可。</p>
+<p>代码：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ktrjob</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>数据库资源读取MATERIAL文件<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">progname</span>&gt;</span>/TO_EDW/TRA_DW_DIM_MATERIAL<span class="tag">&lt;/<span class="name">progname</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">exppara</span>&gt;</span>env=/data/kettle/data-integration,rep=test,user=admin,pass=admin<span class="tag">&lt;/<span class="name">exppara</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">jobdesc</span>&gt;</span>数据库资源读取MATERIAL文件<span class="tag">&lt;/<span class="name">jobdesc</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">agentid</span>&gt;</span>svrnode<span class="tag">&lt;/<span class="name">agentid</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">timingplan</span>&gt;</span>000000 m 1<span class="tag">&lt;/<span class="name">timingplan</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">monititle</span>&gt;</span>监控组1<span class="tag">&lt;/<span class="name">monititle</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ktrjob</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这里多了rep参数，插件通过这个参数来识别读取类型是否为资源库。然后读取数据库资源的时候，会调用/home/kettle/.kettle目录密码的resources.xml文件的数据库连接参数来连接数据库资源文件。我之前执行任务的时候怎么都报错，说该作业文件不是一个文件，后来才明白，在网页添加的数据库连接参数是插件来获取资源信息，而执行任务的时候是kettle软件pan.sh来读取数据库资源，所以如果没有该数据库连接资源文件，则会执行错误。</p>
+<h3 id="任务调度"><a href="#任务调度" class="headerlink" title="任务调度"></a>任务调度</h3><p><img src="/archives/41789693/9.png" alt=" "></p>
+<p>在designer模块任务发布后，就可以在调度监控看到，如果修改了作业，重新发布后，需要在实时监控退出的状态下重载，以获取最新的任务信息。</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://blog.hellshan.top/archives/41789693/" data-id="cl5qdupnp002rijyeaq8g0ljx" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "HellShan"
+        },
+        "headline": "数据仓部署使用",
+        "image": "https://blog.hellshan.top/archives/41789693/1.png",
+        "keywords": "database",
+        "genre": "学而时习之 实践验证真理",
+        "datePublished": "2022-07-10",
+        "dateCreated": "2022-07-10",
+        "dateModified": "2022-07-11",
+        "url": "https://blog.hellshan.top/archives/41789693/",
+        "description": "
+数据仓ETL工具工具对比【国外】1、datastage （收费）点评：最专业的ETL工具， 2005年被IBM收购，目前发展到11.7版本。在数据集成的基础上，增加了数据质量分析、数据血缘分析、业务元数据管理等内容。技术支持也比较少，使用难度较大，尤其不菲的价格，导致国内用户较少。2、informatica （收费）点评：informatica创立于1993年，专业程度与Datastage旗鼓相",
+        "wordCount": 814
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <!-- Valine -->
+    <div class="vcomments"></div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>关注我 :</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/helllllp" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="qq" href="/524311610" target="_blank" rel="noopener">
+                        <i class="icon fa fa-qq"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weixin" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weixin"></i>
+                    </a>
+                </li>
+                
+            
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/archives/c0cffff5/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">上一篇</strong>
+        <p class="article-nav-title">一项网络工程</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/archives/41789693/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/archives/41789693/1.png)" alt="数据仓部署使用" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E5%AE%9E%E8%B7%B5%E9%AA%8C%E8%AF%81%E7%9C%9F%E7%90%86/">实践验证真理</a></p>
+                            <p class="item-title"><a href="/archives/41789693/" class="title">数据仓部署使用</a></p>
+                            <p class="item-date"><time datetime="2022-07-10T03:34:05.000Z" itemprop="datePublished">2022-07-10</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/archives/c0cffff5/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/archives/c0cffff5/1.png)" alt="一项网络工程" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E5%AE%9E%E8%B7%B5%E9%AA%8C%E8%AF%81%E7%9C%9F%E7%90%86/">实践验证真理</a></p>
+                            <p class="item-title"><a href="/archives/c0cffff5/" class="title">一项网络工程</a></p>
+                            <p class="item-date"><time datetime="2022-07-09T14:55:05.000Z" itemprop="datePublished">2022-07-09</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/archives/ca6c8058/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E5%AE%9E%E8%B7%B5%E9%AA%8C%E8%AF%81%E7%9C%9F%E7%90%86/">实践验证真理</a></p>
+                            <p class="item-title"><a href="/archives/ca6c8058/" class="title">oracle 19c</a></p>
+                            <p class="item-date"><time datetime="2022-07-08T00:55:05.000Z" itemprop="datePublished">2022-07-08</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/archives/ca6c8058/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/archives/ca6c8058/1.png)" alt="oracle 19c" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E5%AE%9E%E8%B7%B5%E9%AA%8C%E8%AF%81%E7%9C%9F%E7%90%86/">实践验证真理</a></p>
+                            <p class="item-title"><a href="/archives/ca6c8058/" class="title">oracle 19c</a></p>
+                            <p class="item-date"><time datetime="2022-06-02T05:44:05.000Z" itemprop="datePublished">2022-06-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/archives/b27e42bf/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/archives/b27e42bf/1.png)" alt="使用docker搭建kettle调度监控平台项目" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E5%AE%9E%E8%B7%B5%E9%AA%8C%E8%AF%81%E7%9C%9F%E7%90%86/">实践验证真理</a></p>
+                            <p class="item-title"><a href="/archives/b27e42bf/" class="title">使用docker搭建kettle调度监控平台项目</a></p>
+                            <p class="item-date"><time datetime="2022-04-08T06:23:30.000Z" itemprop="datePublished">2022-04-08</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><span class="category-list-count">22</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E5%AE%9E%E8%B7%B5%E9%AA%8C%E8%AF%81%E7%9C%9F%E7%90%86/">实践验证真理</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E6%8B%BF%E6%9D%A5%E4%B8%BB%E4%B9%89/">拿来主义</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E6%B8%A9%E6%95%85%E8%80%8C%E7%9F%A5%E6%96%B0/">温故而知新</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%87%E6%91%98/">文摘</a><span class="category-list-count">17</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%87%E6%91%98/%E4%BA%BA%E7%89%A9/">人物</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%87%E6%91%98/%E5%8E%86%E5%8F%B2/">历史</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%87%E6%91%98/%E5%9C%B0%E7%90%86/">地理</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%87%E6%91%98/%E6%94%BF%E6%B2%BB/">政治</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%87%E6%91%98/%E7%BB%8F%E6%B5%8E/">经济</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9D%82%E5%BF%97/">杂志</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9D%82%E5%BF%97/%E8%88%AA%E6%8B%8D%E4%B8%AD%E5%9B%BD/">航拍中国</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%83%AD%E7%82%B9/">热点</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%83%AD%E7%82%B9/%E5%B9%B3%E5%8F%B0/">平台</a><span class="category-list-count">2</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">二月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">一月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">十月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">九月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">八月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">七月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">五月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">四月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">三月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">十二月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">十一月 2020</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a><span class="archive-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">标签</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AD/" rel="tag">AD</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ELK/" rel="tag">ELK</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WLAN/" rel="tag">WLAN</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/article/" rel="tag">article</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cluster/" rel="tag">cluster</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database/" rel="tag">database</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/k8s/" rel="tag">k8s</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kvm/" rel="tag">kvm</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/monitor/" rel="tag">monitor</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/proxy/" rel="tag">proxy</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/seo/" rel="tag">seo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%85%E6%B8%B8/" rel="tag">旅游</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%88%AA%E6%8B%8D/" rel="tag">航拍</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/AD/" style="font-size: 12px;">AD</a> <a href="/tags/ELK/" style="font-size: 10px;">ELK</a> <a href="/tags/WLAN/" style="font-size: 10px;">WLAN</a> <a href="/tags/article/" style="font-size: 20px;">article</a> <a href="/tags/cluster/" style="font-size: 10px;">cluster</a> <a href="/tags/database/" style="font-size: 16px;">database</a> <a href="/tags/docker/" style="font-size: 16px;">docker</a> <a href="/tags/hexo/" style="font-size: 14px;">hexo</a> <a href="/tags/k8s/" style="font-size: 12px;">k8s</a> <a href="/tags/kvm/" style="font-size: 12px;">kvm</a> <a href="/tags/linux/" style="font-size: 18px;">linux</a> <a href="/tags/monitor/" style="font-size: 12px;">monitor</a> <a href="/tags/nginx/" style="font-size: 12px;">nginx</a> <a href="/tags/nodejs/" style="font-size: 12px;">nodejs</a> <a href="/tags/proxy/" style="font-size: 12px;">proxy</a> <a href="/tags/seo/" style="font-size: 10px;">seo</a> <a href="/tags/%E6%97%85%E6%B8%B8/" style="font-size: 10px;">旅游</a> <a href="/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 10px;">网络</a> <a href="/tags/%E8%88%AA%E6%8B%8D/" style="font-size: 10px;">航拍</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">链接</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2022 HellShan</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                <p><a href="http://beian.miit.gov.cn/" target="_blank">粤ICP备2020094422号-1</a</p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script src="//unpkg.com/valine"></script>
+    <script>
+        var GUEST = ['nick','mail','link'];
+        var meta = '';
+        meta = meta.split(',').filter(function (item) {
+            return GUEST.indexOf(item)>-1;
+        });
+        var avatarcdn = 'https://gravatar.loli.net/avatar/' == true;
+        new Valine({
+            el: '.vcomments',
+            notify: "",
+            verify: "true",
+            appId: "4O7x2f71OT7FFlrdxFIAJn3v-gzGzoHsz",
+            appKey: "k2d5KmEjtQeLw5IuRficyYsN",
+            placeholder: "Just Do It",
+            avatar:"wavatar",
+            recordIP:"",
+            visitor: "true"
+        });
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
