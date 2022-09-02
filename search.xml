@@ -29,7 +29,8 @@
   <entry>
     <title>最全SQL 语句大全</title>
     <url>/archives/b6e09bfa/</url>
-    <content><![CDATA[<h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><p>1、说明：创建数据库</p>
+    <content><![CDATA[<p><img src="/archives/b6e09bfa/1.png" alt=" "></p>
+<h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><p>1、说明：创建数据库</p>
 <p>CREATE DATABASE database-name</p>
 <p>2、说明：删除数据库</p>
 <p>drop database dbname</p>
@@ -170,9 +171,11 @@
 <p>6.杀掉所有的事件探察器进程:</p>
 <p>DECLARE hcforeach CURSOR GLOBAL FOR SELECT ‘kill ‘+RTRIM(spid) FROM master.dbo.sysprocesses<br>WHERE program_name IN(‘SQL profiler’,N’SQL 事件探查器’)<br>EXEC sp_msforeach_worker ‘?’</p>
 <p>7.记录搜索:</p>
-<h2 id="开头到N条记录Select-Top-N-From-表"><a href="#开头到N条记录Select-Top-N-From-表" class="headerlink" title="开头到N条记录Select Top N * From 表"></a>开头到N条记录Select Top N * From 表</h2><p>N到M条记录(要有主索引ID)</p>
-<h2 id="Select-Top-M-N-From-表-Where-ID-in-Select-Top-M-ID-From-表-Order-by-ID-Desc"><a href="#Select-Top-M-N-From-表-Where-ID-in-Select-Top-M-ID-From-表-Order-by-ID-Desc" class="headerlink" title="Select Top M-N * From 表 Where ID in (Select Top M ID From 表) Order by ID   Desc"></a>Select Top M-N * From 表 Where ID in (Select Top M ID From 表) Order by ID   Desc</h2><p>N到结尾记录Select Top N * From 表 Order by ID Desc<br>案例例如1：一张表有一万多条记录，表的第一个字段 RecID 是自增长字段， 写一个SQL语句， 找出表的第31到第40个记录。</p>
-<p> select top 10 recid from A where recid not  in(select top 30 recid from A)</p>
+<p>开头到N条记录Select Top N * From 表</p>
+<p>N到M条记录(要有主索引ID)</p>
+<p>Select Top M-N * From 表 Where ID in (Select Top M ID From 表) Order by ID   Desc</p>
+<p>N到结尾记录Select Top N * From 表 Order by ID Desc<br>案例例如1：一张表有一万多条记录，表的第一个字段 RecID 是自增长字段， 写一个SQL语句， 找出表的第31到第40个记录。</p>
+<p>select top 10 recid from A where recid not  in(select top 30 recid from A)</p>
 <p>分析：如果这样写会产生某些问题，如果recid在表中存在逻辑索引。</p>
 <p>select top 10 recid from A where……是从索引中查找，而后面的select top 30 recid from A则在数据表中查找，这样由于索引中的顺序有可能和数据表中的不一致，这样就导致查询到的不是本来的欲得到的数据。</p>
 <p>解决方案</p>
