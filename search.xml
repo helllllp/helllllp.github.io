@@ -27,6 +27,45 @@
       </tags>
   </entry>
   <entry>
+    <title>渗透测试工具</title>
+    <url>/archives/86c9021f/</url>
+    <content><![CDATA[<p><img src="/archives/86c9021f/1.png" alt=" "></p>
+<p>祺印说信安 2022-08-03 00:00 发表于河南</p>
+<p>渗透测试员，有时被称为道德黑客，是一名安全专家，对客户的网络或系统发起模拟攻击以找出漏洞。目标是展示恶意攻击者可能在何处以及如何利用目标网络，在真正的攻击发生之前缓解任何弱点。</p>
+<p>渗透人员与恶意黑客使用的工具和技术基本相同。</p>
+<p>回到过去，黑客攻击很困难，需要大量的手动操作。然而，时至今日一整套自动化测试工具将黑客变成了半机械人，可以进行比以往更多的测试的计算机增强型人类。好比，可以乘飞机，为什么要骑马？以下是使现代渗透测试人员的工作更快、更好、更智能的工具。</p>
+<h2 id="顶级渗透测试工具"><a href="#顶级渗透测试工具" class="headerlink" title="顶级渗透测试工具"></a>顶级渗透测试工具</h2><h3 id="Kali-Linux"><a href="#Kali-Linux" class="headerlink" title="Kali Linux"></a>Kali Linux</h3><p>如果没有使用Kali Linux作为基本渗透测试操作系统，算不上真正的黑客。除非你拥有更牛前沿知识和专门的用例，要么是不称职的黑客。Kali 以前称为 BackTrack Linux，由 Offensive Security 的优秀人员（OffSec，运行 OSCP 认证的人）维护，Kali 在各个方面都经过优化，可作为渗透测试人员使用。</p>
+<p>虽然可以在自己的硬件上运行Kali，但在OS X 或Windows 上使用Kali虚拟机的渗透测试人员更为常见。</p>
+<p>Kali 附带了这里提到的大多数工具，并且是大多数用例的默认渗透测试操作系统。但请注意——Kali 是针对进攻而非防守进行优化的，并且很容易反过来被利用。不要在Kali VM 中保留自己的超级机密文件。</p>
+<h3 id="Nmap"><a href="#Nmap" class="headerlink" title="Nmap"></a>Nmap</h3><p>端口扫描器的鼻祖，nmap（网络映射器的缩写）是一种久经考验的真正渗透测试工具，很少有人能离不开它。开放了哪些端口？这些端口上正在运行什么？在侦察阶段，这是渗透测试人员必不可少的信息，而 nmap 通常是完成这项工作的最佳工具。</p>
+<p>尽管非技术高管偶尔会歇斯底里地认为某个未知方正在对企业进行端口扫描，但 nmap 本身是完全合法使用的，类似于敲附近每个人的前门以查看是否有人是家。许多合法组织，如保险机构、Shodan和 Censys 等互联网制图师，以及 BitSight 等风险评分员，使用专门的端口扫描软件（通常是 nmap 竞争对手 masscan 或 zmap）定期扫描整个 IPv4 范围，以绘制大型企业的公共安全态势图。也就是说，恶意攻击者也会进行端口扫描，因此可以记录下来以备将来参考。</p>
+<h3 id="Metasploit"><a href="#Metasploit" class="headerlink" title="Metasploit"></a>Metasploit</h3><p>当你可以Metasploit时为什么要利用？这个适当命名的Metasploit软件就像一把弩：瞄准你的目标，选择你的漏洞，选择一个有效载荷，然后开火。对于大多数渗透测试人员来说，Metasploit是必不可少的，使以前繁琐的大量工作自动化，并且正如其网站所宣传的那样，确实是“世界上最常用的渗透测试框架”。作为一个由 Rapid7 提供商业支持的开源项目，Metasploit 是防御者保护其系统免受攻击者攻击的必备工具。</p>
+<h3 id="Wireshark"><a href="#Wireshark" class="headerlink" title="Wireshark"></a>Wireshark</h3><p>网络协议分析器将更加令人难忘。Wireshark是一款无处不在的工具，可用于了解通过网络的流量。虽然通常用于深入了解日常 TCP/IP 连接问题，但 Wireshark 支持对数百种协议的分析，包括对其中许多协议的实时分析和解密支持。如果不熟悉渗透测试，Wireshark 是一个必须学习的工具。</p>
+<h3 id="John-the-Ripper"><a href="#John-the-Ripper" class="headerlink" title="John the Ripper"></a>John the Ripper</h3><p>与软件的同名软件不同，John the Ripper 不会在维多利亚时代的伦敦连环杀人，而是会愉快地以 GPU 最快的速度破解加密。这个密码破解器是开源的，用于离线密码破解。John 可以使用可能密码的单词列表并对其进行变异，将“a”替换为“@”，将“s”替换为“5”等等，或者它可以使用强大的硬件运行无穷大，直到找到密码。考虑到绝大多数人使用简单的短密码，John 经常成功地破解加密。</p>
+<h3 id="Hashcat"><a href="#Hashcat" class="headerlink" title="Hashcat"></a>Hashcat</h3><p>自称“世界上最快和最先进的密码恢复实用程序”可能并不谦虚，但hashcat的人们当然知道他们的价值。Hashcat 让John the Ripper一筹莫展。它是破解哈希的首选渗透测试工具，hashcat 支持多种密码猜测暴力攻击，包括字典和掩码攻击。</p>
+<p>渗透测试通常涉及散列密码的泄露，利用这些凭据意味着将像 hashcat 这样的程序在离线状态下松动，以期至少猜测或暴力破解其中一些密码。</p>
+<p>Hashcat 在现代 GPU 上运行最好（抱歉，Kali VM 用户）。旧版 hashcat 仍然支持 CPU 上的哈希破解，但警告用户它比利用显卡的处理能力要慢得多。</p>
+<h3 id="Hydra"><a href="#Hydra" class="headerlink" title="Hydra"></a>Hydra</h3><p>John the Ripper 的伴侣 Hydra 在需要在线破解密码时发挥作用，例如 SSH 或 FTP 登录、IMAP、IRC、RDP 等等。将 Hydra 指向你想破解的服务，如果你愿意，可以给它传递一个单词列表，然后扣动扳机。像 Hydra 这样的工具提醒人们为什么限制密码尝试和在几次登录尝试后断开用户连接可以成功地防御攻击者。</p>
+<h3 id="Burp-Suite"><a href="#Burp-Suite" class="headerlink" title="Burp Suite"></a>Burp Suite</h3><p>没有提到 Web 漏洞扫描器 Burp Suite，就没有完整的对渗透测试工具的讨论，它与迄今为止提到的其他工具不同，它既不是免费的也不是自由的，而是专业人士使用的昂贵工具。虽然有 Burp Suite 社区版，但它缺乏很多功能，而 Burp Suite 企业版每年的售价高达 3,999 美元（伙计们，心理定价并没有让它看起来便宜多少）。</p>
+<p>不过，他们可以摆脱这种流鼻血的价格是有原因的。Burp Suite 是一个非常有效的 Web 漏洞扫描程序。将其指向要测试的网络资源，并在准备好后触发。Burp 的竞争对手 Nessus 提供了同样有效（且价格相似）的产品。</p>
+<h3 id="Zed-Attack-Proxy"><a href="#Zed-Attack-Proxy" class="headerlink" title="Zed Attack Proxy"></a>Zed Attack Proxy</h3><p>那些没有现金购买 Burp Suite 的人会发现 OWASP 的 Zed Attack Proxy (ZAP) 几乎同样有效，它既是免费软件又是自由软件。顾名思义，ZAP 位于浏览器和正在测试的网站之间，并允许拦截（也称为中间人）流量以检查和修改。它缺乏 Burp 的许多花里胡哨，但它的开源许可证使得大规模部署变得更容易、更便宜，并且它是一个很好的初学者工具，可以了解 Web 流量到底有多脆弱。ZAP 的竞争对手 Nikto 提供了一个类似的开源工具。</p>
+<h3 id="Sqlmap"><a href="#Sqlmap" class="headerlink" title="Sqlmap"></a>Sqlmap</h3><p>有人说SQL 注入吗？好吧，你好，sqlmap。这个非常有效的 SQL 注入工具是开源的，并且“自动化检测和利用 SQL 注入缺陷并接管数据库服务器的过程”，就像它的网站所说的那样。Sqlmap 支持所有常用目标，包括 MySQL、Oracle、PostgreSQL、Microsoft SQL Server、Microsoft Access、IBM DB2、SQLite、Firebird、Sybase、SAP MaxDB、Informix、HSQLDB 和 H2。老前辈过去不得不用热针在他们的硬盘上进行 SQL 注入。如今，sqlmap 将从渗透测试工作中消除眯眼的工作。</p>
+<h3 id="aircrack-ng"><a href="#aircrack-ng" class="headerlink" title="aircrack-ng"></a>aircrack-ng</h3><p>工作环境Wi-Fi（或家庭 Wi-Fi）的安全性如何？用 aircrack-ng 找出答案。这个 wifi 安全审计工具是免费/自由的，但必须自己购买Pringles 。（听说 7-11 的暗网市场可以提供一个处于低位的市场。）如今破解 Wi-Fi 通常是可能的，因为配置不当、密码错误或加密协议过时。Aircrack-ng 是许多人的首选——有或没有 Pringles 天线。</p>
+<h2 id="渗透测试工具的类型"><a href="#渗透测试工具的类型" class="headerlink" title="渗透测试工具的类型"></a>渗透测试工具的类型</h2><h3 id="网络渗透测试工具"><a href="#网络渗透测试工具" class="headerlink" title="网络渗透测试工具"></a>网络渗透测试工具</h3><p>典型的黑客每天都在闯入不属于他们的网络，因此渗透测试人员需要能够帮助他们访问目标网络基础设施的工具。首选，Kali Linux、nmap、Metasploit、Wireshark、John the Ripper 和 Burp Suite 都属于这一类。其他流行的网络渗透测试工具包括数据包操作程序 Scapy；w3af，一个攻击和审计框架；以及漏洞扫描器 Nessus、Netsparker 和 Acunetix。 </p>
+<h3 id="Web-应用程序渗透测试工具"><a href="#Web-应用程序渗透测试工具" class="headerlink" title="Web 应用程序渗透测试工具"></a>Web 应用程序渗透测试工具</h3><p>面向 Web 的应用程序是任何组织都需要保护的主要攻击面之一，因此渗透测试人员希望将大量精力集中在此处以真正评估其目标的安全性。Nmap、Metasploit、Wireshark、Jon the Ripper、Burp Suite、ZAP、sqlmap、w3af、Nessus、Netsparker 和 Acunetix 都可以帮助完成这项任务，BeEF 也是一个专注于 Web 浏览器的工具；Web 应用程序漏洞扫描程序 Wapiti、Arachni、Vega 和 Ratproxy；diresearch，一个命令行工具，旨在暴力破解网络服务器上的目录和文件；和 Sn1per，一个“一体式”渗透测试框架。</p>
+<h3 id="数据库渗透测试工具"><a href="#数据库渗透测试工具" class="headerlink" title="数据库渗透测试工具"></a>数据库渗透测试工具</h3><p>如果黑客的目标是泄露有价值的数据，那么这些皇冠上的宝石通常潜伏在某个数据库中，因此对于渗透测试人员来说，拥有撬开锁的工具非常重要。nmap和sqlmap 是用于此目的的重要工具。SQL Recon 是一种主动和被动扫描程序，专门针对并尝试识别网络上的所有 Microsoft SQL Server，以及 BSQL Hacker，一种自动 SQL 注入工具。</p>
+<h3 id="自动化渗透测试工具"><a href="#自动化渗透测试工具" class="headerlink" title="自动化渗透测试工具"></a>自动化渗透测试工具</h3><p>手动查找目标系统中所有可能的漏洞可能需要数年时间。许多渗透测试工具都内置了自动化功能以加快流程。Metasploit、John the Ripper、Hydra、Sn1per 和 BSQL Hacker 在这方面脱颖而出。</p>
+<h3 id="开源渗透测试工具"><a href="#开源渗透测试工具" class="headerlink" title="开源渗透测试工具"></a>开源渗透测试工具</h3><p>笔测试起源于一个对开源运动投入巨资的黑客世界。除了 Burp Suite 之外，我们所有的首选工具都是开源的，Scapy、BeEF、w3af、Wapiti、Arachni、Vega、Ratproxy 和 Sn1per 也是如此。</p>
+]]></content>
+      <categories>
+        <category>学而时习之</category>
+        <category>拿来主义</category>
+      </categories>
+      <tags>
+        <tag>网络</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>最全SQL 语句大全</title>
     <url>/archives/b6e09bfa/</url>
     <content><![CDATA[<p><img src="/archives/b6e09bfa/1.png" alt=" "></p>
