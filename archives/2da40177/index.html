@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>jenkins+svn持续集成 | helllllp!</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="linux,database" />
+    
+    <meta name="description" content="环境：kettle设计软件，windows平台，svn客户端使用tortoisesvn客户端svn服务器：192.168.1.185，使用visual svn软件做服务器kettle软件和调度平台在同一服务器：192.168.1.200jenkins服务器：192.168.1.200 最近有个数据仓库的项目，需要使用ETL工具kettle来进行，而kettle的调度任务平台可以提供直接读取ket">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jenkins+svn持续集成">
+<meta property="og:url" content="https://blog.hellshan.top/archives/2da40177/index.html">
+<meta property="og:site_name" content="helllllp!">
+<meta property="og:description" content="环境：kettle设计软件，windows平台，svn客户端使用tortoisesvn客户端svn服务器：192.168.1.185，使用visual svn软件做服务器kettle软件和调度平台在同一服务器：192.168.1.200jenkins服务器：192.168.1.200 最近有个数据仓库的项目，需要使用ETL工具kettle来进行，而kettle的调度任务平台可以提供直接读取ket">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.hellshan.top/archives/2da40177/1.png">
+<meta property="article:published_time" content="2022-08-22T03:38:05.000Z">
+<meta property="article:modified_time" content="2023-08-18T05:47:34.000Z">
+<meta property="article:author" content="HellShan">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="database">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.hellshan.top/archives/2da40177/1.png">
+    
+
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.png" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="helllllp!" type="application/atom+xml">
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">主页</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E5%AE%9E%E8%B7%B5%E9%AA%8C%E8%AF%81%E7%9C%9F%E7%90%86/">实践验证真理</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E6%8B%BF%E6%9D%A5%E4%B8%BB%E4%B9%89/">拿来主义</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E6%B8%A9%E6%95%85%E8%80%8C%E7%9F%A5%E6%96%B0/">温故而知新</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E6%96%87%E6%91%98/">文摘</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E6%96%87%E6%91%98/%E4%BA%BA%E7%89%A9/">人物</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E6%96%87%E6%91%98/%E5%8E%86%E5%8F%B2/">历史</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E6%96%87%E6%91%98/%E5%9C%B0%E7%90%86/">地理</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E6%96%87%E6%91%98/%E6%94%BF%E6%B2%BB/">政治</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E6%96%87%E6%91%98/%E7%BB%8F%E6%B5%8E/">经济</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E6%9D%82%E5%BF%97/">杂志</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E6%9D%82%E5%BF%97/%E8%88%AA%E6%8B%8D%E4%B8%AD%E5%9B%BD/">航拍中国</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E7%83%AD%E7%82%B9/">热点</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E7%83%AD%E7%82%B9/%E5%B9%B3%E5%8F%B0/">平台</a></li></ul></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/dashboard/index.html">仪表板</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">关于</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><input type="hidden" name="sitesearch" value="https://blog.hellshan.top"></form>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E5%AE%9E%E8%B7%B5%E9%AA%8C%E8%AF%81%E7%9C%9F%E7%90%86/">实践验证真理</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-jenkins+svn持续集成" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        jenkins+svn持续集成
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+      <i class="fa fa-calendar"></i>
+      <a href="/archives/2da40177/" class="article-date">
+         <time datetime="2022-08-22T03:38:05.000Z" itemprop="datePublished">2022-08-22</time>
+      </a>
+    </div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/database/" rel="tag">database</a>, <a class="tag-link-link" href="/tags/linux/" rel="tag">linux</a>
+    </div>
+
+                
+   <span id="/archives/2da40177/" class="leancloud-visitors" data-flag-title="jenkins+svn持续集成">
+   <i class="fa fa-eye"></i>
+   <span class="post-meta-item-text">阅读次数: </span>
+   <i class="leancloud-visitors-count">1000000</i>
+   </span>
+
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><img src="/archives/2da40177/1.png" alt=" "></p>
+<p>环境：<br>kettle设计软件，windows平台，svn客户端使用tortoisesvn客户端<br>svn服务器：192.168.1.185，使用visual svn软件做服务器<br>kettle软件和调度平台在同一服务器：192.168.1.200<br>jenkins服务器：192.168.1.200</p>
+<p>最近有个数据仓库的项目，需要使用ETL工具kettle来进行，而kettle的调度任务平台可以提供直接读取kettle的ktr和kjb文件，或者通过数据库来读取，使用文件方式非常方便，但是设计完kettle作业后，需要同步文件到调度平台读取，手工拷贝方式太麻烦，就是用现有的svn平台来进行持续集成。通过设置本地kettle作业设计文件夹到svn，自动同步到svn，jenkins再自动更新任务版本，服务器中创建jenkins集成文件的软链接，提供给kettle任务调度平台读取。</p>
+<h2 id="SVN"><a href="#SVN" class="headerlink" title="SVN"></a>SVN</h2><h3 id="服务器设置"><a href="#服务器设置" class="headerlink" title="服务器设置"></a>服务器设置</h3><p>新建一个资源库，新建一个用户访问该资源库</p>
+<p><img src="/archives/2da40177/2.png" alt=" "></p>
+<p>点击新建的资源库，可以看到资源库地址，后面要用到这个地址</p>
+<p><img src="/archives/2da40177/3.png" alt=" "></p>
+<h3 id="客户端配置"><a href="#客户端配置" class="headerlink" title="客户端配置"></a>客户端配置</h3><p>安装完tortoisesvn，右击需要同步的文件夹，然后点检出，填上资源库地址，用户名和密码就行</p>
+<p><img src="/archives/2da40177/4.png" alt=" "></p>
+<p>同步的文件夹会有一个绿色勾标记，需要刷新图标缓存或者重启即会显示。</p>
+<h2 id="jenkins"><a href="#jenkins" class="headerlink" title="jenkins"></a>jenkins</h2><p>jenkins安装有几种方式，具体可以看官方说明，这里基于tomcat：<br><a target="_blank" rel="noopener" href="https://www.jenkins.io/doc/book/installing/linux/#red-hat-centos">https://www.jenkins.io/doc/book/installing/linux/#red-hat-centos</a></p>
+<h3 id="检查JDK环境"><a href="#检查JDK环境" class="headerlink" title="检查JDK环境"></a>检查JDK环境</h3><p>jenkins基于java，需要安装JDK环境，也可以使用docker更方便：<br><code>java -version</code><br>如果没有，则需安装，这里要注意，不同版本的jenkins要用不同的java版本，具体可以看官网：<br><a target="_blank" rel="noopener" href="https://get.jenkins.io/war-stable/">https://get.jenkins.io/war-stable/</a><br>这里选择安装java 8（即jdk-1.8)：<br><code>yum -y install java-1.8.0-openjdk*</code><br>yum安装java默认安装目录为usr/lib/jvm</p>
+<h3 id="jenkins安装"><a href="#jenkins安装" class="headerlink" title="jenkins安装"></a>jenkins安装</h3><p>安装并启动 Tomcat；<br>从官网下载 jenkins.war 至 $CATALINA_BASE/webapps，Tomcat 会自动部署；<br>浏览器访问：<a target="_blank" rel="noopener" href="http://centos:8080/jenkins/">http://centos:8080/jenkins/</a></p>
+<h3 id="jenkins配置"><a href="#jenkins配置" class="headerlink" title="jenkins配置"></a>jenkins配置</h3><p>输入命令以找到密码：<br><code>tail /var/lib/jenkins/secrets/initialAdminPassword</code><br>输入密码后,进入插件安装页面。点击Install suggested plugins,安装默认插件。<br>安装完成后，页面会自动进入管理员账户注册页面，创建账号</p>
+<p>全局安全设置：<br>默认情况下，任何用户都可以使用 Jenkins 进行发布。可以进入相关设置：系统管理 / 全局安全设置（Configure Global Security），选择 Jenkins专有用户数据库，不要选中 允许用户注册，选择 登录用户可以做任何事，选中 Allow anonymous read access</p>
+<p><img src="/archives/2da40177/5.png" alt=" "></p>
+<p><img src="/archives/2da40177/6.png" alt=" "></p>
+<p>全局工具配置<br>进入：系统管理 / 全局工具设置（Global Tool Configuration）<br>JDK 下不勾选“自动安装”，指定别名=JDK-1.8.0_342, JAVA_HOME=/usr/java/jdk1.8.0_342</p>
+<p>插件配置：<br>首页  &gt;&gt; Manager Jenkins(系统管理)   &gt;&gt; Manage Plugins(插件管理)<br>Subversion    # 版本管理 SVN 的插件<br>确保这个插件已经安装，如果已安装中没有这几个插件，到可选插件中搜索并安装，安装失败可重试或者下载在“高级”界面通过hpi上传</p>
+<p>新建一个项目：</p>
+<p><img src="/archives/2da40177/7.png" alt=" "></p>
+<p><img src="/archives/2da40177/8.png" alt=" "></p>
+<p><img src="/archives/2da40177/9.png" alt=" "></p>
+<p><img src="/archives/2da40177/10.png" alt=" "></p>
+<p>这样，当有新的提交后，就会自动同步到jenkins</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://blog.hellshan.top/archives/2da40177/" data-id="cllg6ejml000xiyo92us5axt4" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "HellShan"
+        },
+        "headline": "jenkins+svn持续集成",
+        "image": "https://blog.hellshan.top/archives/2da40177/1.png",
+        "keywords": "linux database",
+        "genre": "学而时习之 实践验证真理",
+        "datePublished": "2022-08-22",
+        "dateCreated": "2022-08-22",
+        "dateModified": "2023-08-18",
+        "url": "https://blog.hellshan.top/archives/2da40177/",
+        "description": "
+环境：kettle设计软件，windows平台，svn客户端使用tortoisesvn客户端svn服务器：192.168.1.185，使用visual svn软件做服务器kettle软件和调度平台在同一服务器：192.168.1.200jenkins服务器：192.168.1.200
+最近有个数据仓库的项目，需要使用ETL工具kettle来进行，而kettle的调度任务平台可以提供直接读取ket",
+        "wordCount": 111
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <!-- Valine -->
+    <div class="vcomments"></div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>关注我 :</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/helllllp" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="qq" href="/524311610" target="_blank" rel="noopener">
+                        <i class="icon fa fa-qq"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weixin" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weixin"></i>
+                    </a>
+                </li>
+                
+            
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/archives/b6e09bfa/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">下一篇</strong>
+        <p class="article-nav-title">
+        
+            最全SQL 语句大全
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/archives/41789693/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">上一篇</strong>
+        <p class="article-nav-title">数据仓部署使用</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/archives/54422da7/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/archives/54422da7/1.png)" alt="CentOS实体机救援和虚拟化" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E5%AE%9E%E8%B7%B5%E9%AA%8C%E8%AF%81%E7%9C%9F%E7%90%86/">实践验证真理</a></p>
+                            <p class="item-title"><a href="/archives/54422da7/" class="title">CentOS实体机救援和虚拟化</a></p>
+                            <p class="item-date"><time datetime="2023-08-05T09:57:05.000Z" itemprop="datePublished">2023-08-05</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/archives/c0a28d53/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/archives/c0a28d53/1.png)" alt="亲共的蒋介石，把儿子送到了苏联" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%96%87%E6%91%98/">文摘</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E6%96%87%E6%91%98/%E5%8E%86%E5%8F%B2/">历史</a></p>
+                            <p class="item-title"><a href="/archives/c0a28d53/" class="title">亲共的蒋介石，把儿子送到了苏联</a></p>
+                            <p class="item-date"><time datetime="2023-07-20T02:24:30.000Z" itemprop="datePublished">2023-07-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/archives/657b4685/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/archives/657b4685/1.png)" alt="Windows下使用inotify+rsync实时同步文件" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E5%AE%9E%E8%B7%B5%E9%AA%8C%E8%AF%81%E7%9C%9F%E7%90%86/">实践验证真理</a></p>
+                            <p class="item-title"><a href="/archives/657b4685/" class="title">Windows下使用inotify+rsync实时同步文件</a></p>
+                            <p class="item-date"><time datetime="2022-12-26T08:54:05.000Z" itemprop="datePublished">2022-12-26</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/archives/577d12c9/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/archives/577d12c9/1.png)" alt="用简单的语言帮你理解时空旅行和光速不变" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%96%87%E6%91%98/">文摘</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E6%96%87%E6%91%98/%E5%8E%86%E5%8F%B2/">历史</a></p>
+                            <p class="item-title"><a href="/archives/577d12c9/" class="title">用简单的语言帮你理解时空旅行和光速不变</a></p>
+                            <p class="item-date"><time datetime="2022-10-13T09:03:30.000Z" itemprop="datePublished">2022-10-13</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/archives/86c9021f/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/archives/86c9021f/1.png)" alt="渗透测试工具" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E6%8B%BF%E6%9D%A5%E4%B8%BB%E4%B9%89/">拿来主义</a></p>
+                            <p class="item-title"><a href="/archives/86c9021f/" class="title">渗透测试工具</a></p>
+                            <p class="item-date"><time datetime="2022-09-02T00:44:09.000Z" itemprop="datePublished">2022-09-02</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><span class="category-list-count">27</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E5%AE%9E%E8%B7%B5%E9%AA%8C%E8%AF%81%E7%9C%9F%E7%90%86/">实践验证真理</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E6%8B%BF%E6%9D%A5%E4%B8%BB%E4%B9%89/">拿来主义</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E6%B8%A9%E6%95%85%E8%80%8C%E7%9F%A5%E6%96%B0/">温故而知新</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%87%E6%91%98/">文摘</a><span class="category-list-count">19</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%87%E6%91%98/%E4%BA%BA%E7%89%A9/">人物</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%87%E6%91%98/%E5%8E%86%E5%8F%B2/">历史</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%87%E6%91%98/%E5%9C%B0%E7%90%86/">地理</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%87%E6%91%98/%E6%94%BF%E6%B2%BB/">政治</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%87%E6%91%98/%E7%BB%8F%E6%B5%8E/">经济</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9D%82%E5%BF%97/">杂志</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9D%82%E5%BF%97/%E8%88%AA%E6%8B%8D%E4%B8%AD%E5%9B%BD/">航拍中国</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%83%AD%E7%82%B9/">热点</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%83%AD%E7%82%B9/%E5%B9%B3%E5%8F%B0/">平台</a><span class="category-list-count">2</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">八月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">七月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">十二月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">二月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">一月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">十月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">九月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">八月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">七月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">五月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">四月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">三月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">十二月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">十一月 2020</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a><span class="archive-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">标签</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AD/" rel="tag">AD</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ELK/" rel="tag">ELK</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WLAN/" rel="tag">WLAN</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/article/" rel="tag">article</a><span class="tag-list-count">19</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cluster/" rel="tag">cluster</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database/" rel="tag">database</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/k8s/" rel="tag">k8s</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kvm/" rel="tag">kvm</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/monitor/" rel="tag">monitor</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/proxy/" rel="tag">proxy</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/seo/" rel="tag">seo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%85%E6%B8%B8/" rel="tag">旅游</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%88%AA%E6%8B%8D/" rel="tag">航拍</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/AD/" style="font-size: 14px;">AD</a> <a href="/tags/ELK/" style="font-size: 10px;">ELK</a> <a href="/tags/WLAN/" style="font-size: 10px;">WLAN</a> <a href="/tags/article/" style="font-size: 20px;">article</a> <a href="/tags/cluster/" style="font-size: 10px;">cluster</a> <a href="/tags/database/" style="font-size: 18px;">database</a> <a href="/tags/docker/" style="font-size: 16px;">docker</a> <a href="/tags/hexo/" style="font-size: 14px;">hexo</a> <a href="/tags/k8s/" style="font-size: 12px;">k8s</a> <a href="/tags/kvm/" style="font-size: 14px;">kvm</a> <a href="/tags/linux/" style="font-size: 18px;">linux</a> <a href="/tags/monitor/" style="font-size: 12px;">monitor</a> <a href="/tags/nginx/" style="font-size: 12px;">nginx</a> <a href="/tags/nodejs/" style="font-size: 12px;">nodejs</a> <a href="/tags/proxy/" style="font-size: 12px;">proxy</a> <a href="/tags/seo/" style="font-size: 10px;">seo</a> <a href="/tags/%E6%97%85%E6%B8%B8/" style="font-size: 10px;">旅游</a> <a href="/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 12px;">网络</a> <a href="/tags/%E8%88%AA%E6%8B%8D/" style="font-size: 10px;">航拍</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">链接</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2023 HellShan</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                <p><a href="http://beian.miit.gov.cn/" target="_blank">粤ICP备2020094422号-1</a</p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script src="//unpkg.com/valine"></script>
+    <script>
+        var GUEST = ['nick','mail','link'];
+        var meta = '';
+        meta = meta.split(',').filter(function (item) {
+            return GUEST.indexOf(item)>-1;
+        });
+        var avatarcdn = 'https://gravatar.loli.net/avatar/' == true;
+        new Valine({
+            el: '.vcomments',
+            notify: "",
+            verify: "true",
+            appId: "4O7x2f71OT7FFlrdxFIAJn3v-gzGzoHsz",
+            appKey: "k2d5KmEjtQeLw5IuRficyYsN",
+            placeholder: "Just Do It",
+            avatar:"wavatar",
+            recordIP:"",
+            visitor: "true"
+        });
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
