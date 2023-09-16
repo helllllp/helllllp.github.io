@@ -4846,6 +4846,38 @@ vfio
 <p>安装portainer：<br><code>docker volume create portainer_data</code><br><code>docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce</code></p>
 <h2 id="linux磁盘操作"><a href="#linux磁盘操作" class="headerlink" title="linux磁盘操作"></a>linux磁盘操作</h2><h3 id="新磁盘分区"><a href="#新磁盘分区" class="headerlink" title="新磁盘分区"></a>新磁盘分区</h3><p>分区工具：<br>目前使用最多的分区工具有fdisk和parted，区别是fdisk只支持mbr分区表，parted支持mbr和GPT分区表，大于2T的磁盘则需使用parted。<br>工具使用：<br>fdisk:<br>先选定指定磁盘<br><code>fdisk /dev/sdx</code><br>按m则列出操作菜单，根据菜单操作新建分区<br>分区完毕后，w保存退出<br>使操作生效：保存退出后，fdisk需要运行partprobe生效：<br><code>partprobe /dev/sdx</code><br>这样，在/dev目录下就会生成一个sdx1的文件，对应就是该磁盘的第x个分区<br>最后，格式化分区，创建文件系统<br><code>mkfs -t xfs /dev/sdx1</code><br>或<br><code>mkfs.xfs /dev/sdx1</code><br>parted:<br>parted的操作与mysql的命令行操作有点相似，而且是即使生效的，不用partprobe。<br>运行parted后，按”?”可以跳出操作菜单，先选择要操作的设备：<br><code>select /dev/sdx</code><br>然后就可以根据菜单进行分区表类型选择和分区了<br>创建完毕后别忘了格式化分区来创建文件系统。</p>
 <h3 id="磁盘或分区的克隆"><a href="#磁盘或分区的克隆" class="headerlink" title="磁盘或分区的克隆"></a>磁盘或分区的克隆</h3><p>有时候遇到磁盘的smart报警，这时候需要更换磁盘了，如何克隆？<br>这时候使用dd命令就可以：<br><code>dd if=/dev/sdb of=/dev/sdc</code><br>这样就相当于把sdb的磁盘克隆到sdc，再重新挂载就行。这个操作会把磁盘的所有信息（包括分区表）都克隆。也可以使用dd命令进行分区表的备份哦。</p>
+<h3 id="磁盘克隆后的扩容"><a href="#磁盘克隆后的扩容" class="headerlink" title="磁盘克隆后的扩容"></a>磁盘克隆后的扩容</h3><p>克隆磁盘后，如果目标磁盘比原磁盘大，则有部分空间是没有分配的，这时需要手动扩容<br>这里使用sata磁盘dd命令克隆到nvme的磁盘，执行：<br><code>parted /dev/nvme0n1 print free</code><br>跟直接进入parted操作是一样的<br>显示信息：<br>    Number  Start   End     Size    File system  Name  Flags<br>     1      17.4kB  1049kB  1031kB                     bios_grub<br>     2      1049kB  538MB   537MB   fat32              boot, esp<br>     3      538MB   240GB   240GB                      lvm<br>            240GB   256GB   16.0GB  Free Space</p>
+<p>可以看到有16G是为分配的空闲空间，因为3号分区是lvm分区，执行如下命令：<br><code>parted /dev/nvme0n1 resizepart 3 100%</code><br>把剩余的空间分配给3号分区，重新执行<code>parted /dev/nvme0n1 print free</code>可以看到已经划给3号分区<br>分区的空间修改了，也要刷新一下pv物理卷的大小，这样pv才能识别变动的空间<br><code>pvresize /dev/nvme0n1p3</code><br>然后执行<code>pvdisplay</code>查看pv中free 项中是否显示了可用的空间</p>
+<p>  —- Physical volume —-<br>  PV Name               /dev/nvme0n1p3<br>  VG Name               pve<br>  PV Size               237.97 GiB / not usable 696.50 KiB<br>  Allocatable           yes<br>  PE Size               4.00 MiB<br>  Total PE              60921<br>  Free PE               3816<br>  Allocated PE          57105<br>  PV UUID               C67jhF-xR8t-m7JY-RwcD-orbo-CSIc-E8tWIu</p>
+<p>可以看到有3816可以分配，然后执行<br><code>lvextend -l +100%FREE pve/root</code></p>
+<pre><code>Size of logical volume pve/root changed from &lt;215.07 GiB (55057 extents) to 229.97 GiB (58873 extents).
+Logical volume pve/root successfully resized.
+</code></pre><p>其中pve/root是逻辑卷的目录，可以通过<code>lvdisplay</code>命令查看<br>最后执行手动扩展命令使文件系统生效，未扩展前使用<code>df -hT</code>查看/dev/mapper/pve-root大小：</p>
+<pre><code>Filesystem           Type      Size  Used Avail Use% Mounted on
+udev                 devtmpfs  7.8G     0  7.8G   0% /dev
+tmpfs                tmpfs     1.6G  3.0M  1.6G   1% /run
+/dev/mapper/pve-root ext4      212G  106G   97G  53% /
+tmpfs                tmpfs     7.8G   28M  7.8G   1% /dev/shm
+tmpfs                tmpfs     5.0M     0  5.0M   0% /run/lock
+/dev/nvme0n1p2       vfat      511M  328K  511M   1% /boot/efi
+/dev/sda1            ext4      916G  169G  702G  20% /srv/disk-wdc
+/dev/fuse            fuse      128M   20K  128M   1% /etc/pve
+</code></pre><p>使用ext4格式文件系统，就通过<code>resize2fs /dev/mapper/pve-root</code>进行手动生效：</p>
+<pre><code>resize2fs 1.46.2 (28-Feb-2021)
+Filesystem at /dev/mapper/pve-root is mounted on /; on-line resizing required
+old_desc_blocks = 27, new_desc_blocks = 29
+The filesystem on /dev/mapper/pve-root is now 60285952 (4k) blocks long.
+</code></pre><p>再次运行<code>df -hT</code>查看是否生效：</p>
+<pre><code>Filesystem           Type      Size  Used Avail Use% Mounted on
+udev                 devtmpfs  7.8G     0  7.8G   0% /dev
+tmpfs                tmpfs     1.6G  3.0M  1.6G   1% /run
+/dev/mapper/pve-root ext4      227G  106G  111G  49% /
+tmpfs                tmpfs     7.8G   28M  7.8G   1% /dev/shm
+tmpfs                tmpfs     5.0M     0  5.0M   0% /run/lock
+/dev/nvme0n1p2       vfat      511M  328K  511M   1% /boot/efi
+/dev/sda1            ext4      916G  169G  702G  20% /srv/disk-wdc
+/dev/fuse            fuse      128M   20K  128M   1% /etc/pve
+</code></pre><p>可以看到分区已经由212G扩展到227G，与上面print free的空间一致，说明扩展成功<br>另外如果是xfs格式的文件系统，可以使用<code>xfs_growfs</code>命令执行手动生效。</p>
 <h3 id="xfs根目录在线扩容"><a href="#xfs根目录在线扩容" class="headerlink" title="xfs根目录在线扩容"></a>xfs根目录在线扩容</h3><p>从虚拟机上面增加磁盘容量后，不会马上应用到分区，需要手动设置<br>查看空闲空间容量：<br><code>parted /dev/sda</code><br><code>(parted) print free</code></p>
 <p>显示信息：<br>    Model: NUTANIX VDISK (scsi)<br>    Disk /dev/sda: 644GB<br>    Sector size (logical/physical): 512B/4096B<br>    Partition Table: msdos<br>    Disk Flags: </p>
 <pre><code>Number  Start   End     Size    Type      File system     标志
