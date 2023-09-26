@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>大模型部署 | helllllp!</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="linux,LLM" />
+    
+    <meta name="description" content="前言大模型越发成熟，很多企业会尝试找到自己合适的模型进行微调和训练，最终生成一个企业AI机器人，能够帮助企业大幅提升竞争力和生产力。未来通过更好的算法研发出新的基础模型这类算法程序员固然吃香，而学习如何利用基础模型结合企业内部数据进行微调和训练的能力也显得尤为重要。 关于微调和向量在如今的数据驱动时代，大型语言模型（LLM）如GPT等已经在各种应用场景中显示出其强大的能力，从聊天机器人到自动文本">
+<meta property="og:type" content="article">
+<meta property="og:title" content="大模型部署">
+<meta property="og:url" content="https://blog.hellshan.top/archives/2c7c4db8/index.html">
+<meta property="og:site_name" content="helllllp!">
+<meta property="og:description" content="前言大模型越发成熟，很多企业会尝试找到自己合适的模型进行微调和训练，最终生成一个企业AI机器人，能够帮助企业大幅提升竞争力和生产力。未来通过更好的算法研发出新的基础模型这类算法程序员固然吃香，而学习如何利用基础模型结合企业内部数据进行微调和训练的能力也显得尤为重要。 关于微调和向量在如今的数据驱动时代，大型语言模型（LLM）如GPT等已经在各种应用场景中显示出其强大的能力，从聊天机器人到自动文本">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.hellshan.top/archives/2c7c4db8/1.png">
+<meta property="article:published_time" content="2023-09-06T02:32:05.000Z">
+<meta property="article:modified_time" content="2023-09-26T03:45:46.000Z">
+<meta property="article:author" content="HellShan">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="LLM">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.hellshan.top/archives/2c7c4db8/1.png">
+    
+
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.png" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="helllllp!" type="application/atom+xml">
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">主页</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E5%AE%9E%E8%B7%B5%E9%AA%8C%E8%AF%81%E7%9C%9F%E7%90%86/">实践验证真理</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E6%8B%BF%E6%9D%A5%E4%B8%BB%E4%B9%89/">拿来主义</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E6%B8%A9%E6%95%85%E8%80%8C%E7%9F%A5%E6%96%B0/">温故而知新</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E6%96%87%E6%91%98/">文摘</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E6%96%87%E6%91%98/%E4%BA%BA%E7%89%A9/">人物</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E6%96%87%E6%91%98/%E5%8E%86%E5%8F%B2/">历史</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E6%96%87%E6%91%98/%E5%9C%B0%E7%90%86/">地理</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E6%96%87%E6%91%98/%E6%94%BF%E6%B2%BB/">政治</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E6%96%87%E6%91%98/%E7%BB%8F%E6%B5%8E/">经济</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E6%9D%82%E5%BF%97/">杂志</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E6%9D%82%E5%BF%97/%E8%88%AA%E6%8B%8D%E4%B8%AD%E5%9B%BD/">航拍中国</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E7%83%AD%E7%82%B9/">热点</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E7%83%AD%E7%82%B9/%E5%B9%B3%E5%8F%B0/">平台</a></li></ul></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/dashboard/index.html">仪表板</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">关于</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><input type="hidden" name="sitesearch" value="https://blog.hellshan.top"></form>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E5%AE%9E%E8%B7%B5%E9%AA%8C%E8%AF%81%E7%9C%9F%E7%90%86/">实践验证真理</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-大模型部署" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        大模型部署
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+      <i class="fa fa-calendar"></i>
+      <a href="/archives/2c7c4db8/" class="article-date">
+         <time datetime="2023-09-06T02:32:05.000Z" itemprop="datePublished">2023-09-06</time>
+      </a>
+    </div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/LLM/" rel="tag">LLM</a>, <a class="tag-link-link" href="/tags/linux/" rel="tag">linux</a>
+    </div>
+
+                
+   <span id="/archives/2c7c4db8/" class="leancloud-visitors" data-flag-title="大模型部署">
+   <i class="fa fa-eye"></i>
+   <span class="post-meta-item-text">阅读次数: </span>
+   <i class="leancloud-visitors-count">1000000</i>
+   </span>
+
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><img src="/archives/2c7c4db8/1.png" alt=" "></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>大模型越发成熟，很多企业会尝试找到自己合适的模型进行微调和训练，最终生成一个企业AI机器人，能够帮助企业大幅提升竞争力和生产力。未来通过更好的算法研发出新的基础模型这类算法程序员固然吃香，而学习如何利用基础模型结合企业内部数据进行微调和训练的能力也显得尤为重要。</p>
+<h3 id="关于微调和向量"><a href="#关于微调和向量" class="headerlink" title="关于微调和向量"></a>关于微调和向量</h3><p>在如今的数据驱动时代，大型语言模型（LLM）如GPT等已经在各种应用场景中显示出其强大的能力，从聊天机器人到自动文本生成。然而，当涉及到特定行业领域的知识学习时，通用的LLM往往不能完全满足需求。特定行业（如医疗、法律、金融等）有其专有术语和上下文，这些通常不在通用LLM的训练数据中。因此，如何使LLM具有行业特定的知识和应用能力成为了一个迫切需要解决的问题。</p>
+<p>基础概念<br>微调（Finetune）：微调是一种让预先训练好的模型适应特定任务或数据集的方法。在这种情况下，一个已经训练好的大型语言模型会进一步在行业特定的数据集上进行训练。</p>
+<p>向量数据库（Vector Database）：向量数据库是一种存储特定信息和知识的数据库，可以在运行时与LLM合作，为其提供行业特定的信息。这通常通过嵌入（存储）向量（embedding vectors）来实现，这些向量可以表示文本、概念或任何其他类型的数据。</p>
+<p>主体解决方案<br>在行业特定的大型语言模型（LLM）知识学习方面，有两个主要的解决方案：大模型微调（Finetune）和向量数据库（Vector Database）知识存储。</p>
+<p>微调方案涉及在特定行业数据集上进一步训练一个预先训练好的LLM，使其更好地理解和应用行业专有术语和概念。这种方法在模型理解和生成连贯文本方面表现优越，但需要大量的计算资源和高质量的数据集。</p>
+<p>另一方面，向量数据库方案则是通过在运行时与一个存储有行业特定信息的数据库进行交互，来丰富LLM的应用范围。这种方法在动态更新和资源效率方面有优势，但可能会增加运行时的延迟和系统复杂性。</p>
+<p>OpenAI也针对这两种方案给出了自己的见解：Question answering using embeddings-based search</p>
+<p>微调（Finetune）的优缺点</p>
+<p>优点<br>上下文理解：微调模型会更好地理解行业特定的术语和概念，从而能更精准地解答相关问题。<br>连贯性和一致性：由于模型是在特定的数据集上训练的，因此其生成的文本将更加连贯和一致。<br>缺点<br>高成本和资源消耗：微调过程通常需要大量的计算资源和时间。<br>数据依赖性：模型的效能高度依赖于用于微调的数据集的质量。</p>
+<p>向量数据库（Vector Database）的优缺点<br>优点<br>动态更新：向量数据库可以更容易地进行更新和维护。<br>资源效率：与微调相比，使用向量数据库通常需要较少的计算资源。<br>缺点<br>运行时延迟：数据库查询可能会增加处理时间。<br>复杂性：需要维护一个额外的数据库，并确保它与LLM良好地集成。</p>
+<p>综合建议<br>混合使用：对于需要即时更新信息的应用场景，推荐使用微调和向量数据库的混合方法。<br>数据质量：无论选择哪种方法，都应确保使用的数据集具有高质量和可靠性。<br>性能考量：如果资源有限，向量数据库可能是一个更经济、更灵活的选择。</p>
+<p>总结<br>行业特定的LLM知识学习是一个复杂但重要的课题。通过微调和使用向量数据库，我们可以让LLM更好地适应特定行业的需求。选择哪一种方法取决于多种因素，包括数据质量、可用资源和特定应用的需求。</p>
+<h2 id="基础模型选择和加载方案"><a href="#基础模型选择和加载方案" class="headerlink" title="基础模型选择和加载方案"></a>基础模型选择和加载方案</h2><p>优秀的模型有很多，具体可以看SuperCLUE的最新榜单，列出了通用中文大模型的排行。<br>其中最好的国外大模型社区huggingface，网站<a target="_blank" rel="noopener" href="https://huggingface.co/">https://huggingface.co/</a><br>国内魔塔社区，网站<a target="_blank" rel="noopener" href="https://modelscope.cn/models">https://modelscope.cn/models</a><br>都可以尝试体验基础模型或通过分享的模型</p>
+<p>从榜单中，我们选择了开源的Chatglm2-6B，Llama2-7B做单机部署测试</p>
+<p>使用Langchain加载大模型是一种简单快捷的大模型对话的部署方案，其中有开源项目LangChain-Chatchat（项目地址：<a target="_blank" rel="noopener" href="https://github.com/chatchat-space/Langchain-Chatchat），一种利用">https://github.com/chatchat-space/Langchain-Chatchat），一种利用</a> langchain 思想实现的基于本地知识库的问答应用，目标期望建立一套对中文场景与开源模型支持友好、可离线运行的知识库问答解决方案。<br>LangChain-Chatchat  使用 FastChat 进行本地 LLM 模型接入，支持众多模型；同时支持调用 HuggingFace 中的 Embedding 模型。<br>通过配置文件配置大模型路径，Embedding模型路径即可快速搭建基于streamlit的web界面进行问答。</p>
+<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><h3 id="部署环境"><a href="#部署环境" class="headerlink" title="部署环境"></a>部署环境</h3><p>操作系统：Ubuntu 22.04<br>CPU：Intel I7-10700<br>内存：DDR4 16G<br>显卡：RTX 3090 24G 公版<br>存储：SSD 500G</p>
+<h3 id="安装显卡驱动和CUDA软件"><a href="#安装显卡驱动和CUDA软件" class="headerlink" title="安装显卡驱动和CUDA软件"></a>安装显卡驱动和CUDA软件</h3><p>安装完Ubuntu后会安装Nvidia显卡驱动，但没有安装CUDA，先运行<code>nvidia-smi</code>来取得该显卡支持的CUDA版本</p>
+<p><img src="/archives/2c7c4db8/2.png" alt=" "></p>
+<p>这里看到该驱动支持的CUDA版本为122，然后到官网下载：<a target="_blank" rel="noopener" href="https://developer.nvidia.com/cuda-toolkit-archive">https://developer.nvidia.com/cuda-toolkit-archive</a></p>
+<p><img src="/archives/2c7c4db8/3.png" alt=" "></p>
+<p>运行对应的命令即可，运行时只选择CUDA软件即可，不用选择安装驱动。<br>安装完毕后，运行<code>python -c &quot;import torch; print(torch.cuda.is_available());&quot;</code>来确认CUDA是否可用，如果显示True则正常。</p>
+<h3 id="安装Anaconda"><a href="#安装Anaconda" class="headerlink" title="安装Anaconda"></a>安装Anaconda</h3><p>conda (<a target="_blank" rel="noopener" href="https://docs.conda.io/en/latest/">https://docs.conda.io/en/latest/</a>) 是由 Anaconda 开发的开源跨平台语言无关的包管理器。它用于安装各种包，可以用于Python，R，Ruby，Lua，Scala，Java，JavaScript，C/ C++，FORTRAN等等，尽管Python是最常见的使用情况。<br>同时，conda也是一个环境管理系统，用于在同一机器上创建有不同Python版本或包集合的隔离环境。<br>conda在大数据科学、机器学习、深度学习和相关领域特别受欢迎，这是因为它能很好地处理具有复杂依赖关系的大型科学计算包，比如NumPy，SciPy，Pandas等。<br>conda的优点之一是它的跨平台性，它可以在Windows，macOS和Linux上运行。此外，conda也支持二进制包，这意味着在安装包时无需从源代码编译，这通常比使用Python的默认包管理器pip更快，更容易。</p>
+<p>1.下载Anaconda<br>下载地址：<a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/?C=M&amp;O=D">https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/?C=M&amp;O=D</a><br>选择合适的版本下载到本地，本次下载了Anaconda3-2023.07-2-Linux-x86_64.sh，再通过lrzsz工具或者winscp上传到主机</p>
+<p>2、安装Anaconda<br><code>sudo chmod a+x Anaconda3-2023.07-2-Linux-x86_64.sh</code><br><code>sh Anaconda3-2023.07-2-Linux-x86_64.sh</code></p>
+<p>3、启动环境<br>默认Anaconda安装到/home/xxx/anaconda3目录下（xxx为当前用户）<br>运行<code>source ~/.bashrc</code>进入了base环境</p>
+<p>4、conda常用命令<br>创建环境：<br><code>conda create -n 环境名</code></p>
+<p>激活环境：<br><code>conda activate 环境名</code></p>
+<p>显示所有已经创建的环境：<br><code>conda info -e</code>或<code>conda env list</code></p>
+<p>删除环境:<br><code>conda remove --name 环境名 --all</code></p>
+<p>其他，参考<a target="_blank" rel="noopener" href="https://www.cnblogs.com/ghj1976/p/venv-vs-conda.html">https://www.cnblogs.com/ghj1976/p/venv-vs-conda.html</a></p>
+<h2 id="部署大模型"><a href="#部署大模型" class="headerlink" title="部署大模型"></a>部署大模型</h2><h3 id="ChatGLM2-6B"><a href="#ChatGLM2-6B" class="headerlink" title="ChatGLM2-6B"></a>ChatGLM2-6B</h3><p><a target="_blank" rel="noopener" href="https://github.com/THUDM/ChatGLM2-6B">https://github.com/THUDM/ChatGLM2-6B</a></p>
+<h3 id="Llama"><a href="#Llama" class="headerlink" title="Llama"></a>Llama</h3><p><a target="_blank" rel="noopener" href="https://github.com/FlagAlpha/Llama2-Chinese">https://github.com/FlagAlpha/Llama2-Chinese</a></p>
+<p>部署大模型LLaMA/Qwen-7B的过程中，需要安装量化工具包bitsandbytes，在conda python环境下，通过pip install bitsandbytes直接安装，或是按源码编译安装，在python -m bitsandbytes检测时均出现异常，</p>
+<p>问题解决<br>在环境变量LD_LIBRARY_PATH中增加CUDA的lib路径:<br><code>export PATH=/usr/local/cuda-12.2/bin:$PATH</code><br><code>export LD_LIBRARY_PATH=/usr/local/cuda-12.2/lib64:$LD_LIBRARY_PATH</code><br>然后重新安装bitsandbytes即可：<br><code>pip uninstall bitsandbytes</code><br><code>pip install bitsandbytes</code></p>
+<h3 id="Lang-Chain"><a href="#Lang-Chain" class="headerlink" title="Lang-Chain"></a>Lang-Chain</h3><p>参考项目地址：<a target="_blank" rel="noopener" href="https://github.com/chatchat-space/Langchain-Chatchat">https://github.com/chatchat-space/Langchain-Chatchat</a></p>
+<p>model.py配置：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br></pre></td><td class="code"><pre><span class="line">(base) tbk@LLM-PC:/app/Langchain-Chatchat$ vim configs/model_config.py</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"><span class="comment"># 日志格式</span></span><br><span class="line">LOG_FORMAT = <span class="string">&quot;%(asctime)s - %(filename)s[line:%(lineno)d] - %(levelname)s: %(message)s&quot;</span></span><br><span class="line">logger = logging.getLogger()</span><br><span class="line">logger.setLevel(logging.INFO)</span><br><span class="line">logging.basicConfig(format=LOG_FORMAT)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 在以下字典中修改属性值，以指定本地embedding模型存储位置</span></span><br><span class="line"><span class="comment"># 如将 &quot;text2vec&quot;: &quot;GanymedeNil/text2vec-large-chinese&quot; 修改为 &quot;text2vec&quot;: &quot;User/Downloads/text2vec-large-chinese&quot;</span></span><br><span class="line"><span class="comment"># 此处请写绝对路径</span></span><br><span class="line">embedding_model_dict = &#123;</span><br><span class="line">    <span class="comment">#&quot;ernie-tiny&quot;: &quot;nghuyong/ernie-3.0-nano-zh&quot;,</span></span><br><span class="line">    <span class="comment">#&quot;ernie-base&quot;: &quot;nghuyong/ernie-3.0-base-zh&quot;,</span></span><br><span class="line">    <span class="comment">#&quot;text2vec-base&quot;: &quot;shibing624/text2vec-base-chinese&quot;,</span></span><br><span class="line">    <span class="string">&quot;text2vec&quot;</span>: <span class="string">&quot;/app/Langchain-Chatchat/text2vec/text2vec-large-chinese&quot;</span>,</span><br><span class="line">    <span class="comment">#&quot;text2vec-paraphrase&quot;: &quot;shibing624/text2vec-base-chinese-paraphrase&quot;,</span></span><br><span class="line">    <span class="comment">#&quot;text2vec-sentence&quot;: &quot;shibing624/text2vec-base-chinese-sentence&quot;,</span></span><br><span class="line">    <span class="comment">#&quot;text2vec-multilingual&quot;: &quot;shibing624/text2vec-base-multilingual&quot;,</span></span><br><span class="line">    <span class="comment">#&quot;text2vec-bge-large-chinese&quot;: &quot;shibing624/text2vec-bge-large-chinese&quot;,</span></span><br><span class="line">    <span class="comment">#&quot;m3e-small&quot;: &quot;moka-ai/m3e-small&quot;,</span></span><br><span class="line">    <span class="string">&quot;m3e-base&quot;</span>: <span class="string">&quot;/app/Langchain-Chatchat/m3e-base&quot;</span>,</span><br><span class="line">    <span class="comment">#&quot;m3e-large&quot;: &quot;moka-ai/m3e-large&quot;,</span></span><br><span class="line">    <span class="comment">#&quot;bge-small-zh&quot;: &quot;BAAI/bge-small-zh&quot;,</span></span><br><span class="line">    <span class="comment">#&quot;bge-base-zh&quot;: &quot;BAAI/bge-base-zh&quot;,</span></span><br><span class="line">    <span class="comment">#&quot;bge-large-zh&quot;: &quot;BAAI/bge-large-zh&quot;,</span></span><br><span class="line">    <span class="comment">#&quot;bge-large-zh-noinstruct&quot;: &quot;BAAI/bge-large-zh-noinstruct&quot;,</span></span><br><span class="line">    <span class="comment">#&quot;piccolo-base-zh&quot;: &quot;sensenova/piccolo-base-zh&quot;,</span></span><br><span class="line">    <span class="comment">#&quot;piccolo-large-zh&quot;: &quot;sensenova/piccolo-large-zh&quot;,</span></span><br><span class="line">    <span class="comment">#&quot;text-embedding-ada-002&quot;: os.environ.get(&quot;OPENAI_API_KEY&quot;)</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 选用的 Embedding 名称</span></span><br><span class="line">EMBEDDING_MODEL = <span class="string">&quot;m3e-base&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Embedding 模型运行设备。设为&quot;auto&quot;会自动检测，也可手动设定为&quot;cuda&quot;,&quot;mps&quot;,&quot;cpu&quot;其中之一。</span></span><br><span class="line">EMBEDDING_DEVICE = <span class="string">&quot;auto&quot;</span></span><br><span class="line"></span><br><span class="line">llm_model_dict = &#123;</span><br><span class="line"><span class="comment">#    &quot;chatglm-6b&quot;: &#123;</span></span><br><span class="line"><span class="comment">#        &quot;local_model_path&quot;: &quot;THUDM/chatglm-6b&quot;,</span></span><br><span class="line"><span class="comment">#        &quot;api_base_url&quot;: &quot;http://localhost:8888/v1&quot;,  # &quot;name&quot;修改为fastchat服务中的&quot;api_base_url&quot;</span></span><br><span class="line"><span class="comment">#        &quot;api_key&quot;: &quot;EMPTY&quot;</span></span><br><span class="line"><span class="comment">#    &#125;,</span></span><br><span class="line"></span><br><span class="line">    <span class="string">&quot;Chatglm2-6b&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;local_model_path&quot;</span>: <span class="string">&quot;/app/ChatGLM2-6B/THUDM/chatglm2-6b&quot;</span>,</span><br><span class="line">        <span class="string">&quot;api_base_url&quot;</span>: <span class="string">&quot;http://192.168.15.200:8888/v1&quot;</span>,  <span class="comment"># URL需要与运行fastchat服务端的server_config.FSCHAT_OPENAI_API一致</span></span><br><span class="line">        <span class="string">&quot;api_key&quot;</span>: <span class="string">&quot;EMPTY&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="string">&quot;Llama-2-7B-hf&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;local_model_path&quot;</span>: <span class="string">&quot;Llama2-Chinese-7b-Chat&quot;</span>,  <span class="comment"># &quot;THUDM/chatglm2-6b-32k&quot;,</span></span><br><span class="line">        <span class="string">&quot;api_base_url&quot;</span>: <span class="string">&quot;http://192.168.15.200:8888/v1&quot;</span>,  <span class="comment"># &quot;URL需要与运行fastchat服务端的server_config.FSCHAT_OPENAI_API一致</span></span><br><span class="line">        <span class="string">&quot;api_key&quot;</span>: <span class="string">&quot;EMPTY&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="string">&quot;Phoenix-inst-chat-7b&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;local_model_path&quot;</span>: <span class="string">&quot;/app/phoenix-inst-chat-7b&quot;</span>,  <span class="comment"># &quot;THUDM/chatglm2-6b-32k&quot;,</span></span><br><span class="line">        <span class="string">&quot;api_base_url&quot;</span>: <span class="string">&quot;http://192.168.15.200:8888/v1&quot;</span>,  <span class="comment"># &quot;URL需要与运行fastchat服务端的server_config.FSCHAT_OPENAI_API一致</span></span><br><span class="line">        <span class="string">&quot;api_key&quot;</span>: <span class="string">&quot;EMPTY&quot;</span></span><br><span class="line">                                    &#125;,</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="string">&quot;Qwen-7B-Chat&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;local_model_path&quot;</span>: <span class="string">&quot;/app/Qwen-7B-Chat&quot;</span>,  <span class="comment"># &quot;THUDM/chatglm2-6b-32k&quot;,</span></span><br><span class="line">        <span class="string">&quot;api_base_url&quot;</span>: <span class="string">&quot;http://192.168.15.200:8888/v1&quot;</span>,  <span class="comment"># &quot;URL需要与运行fastchat服务端的server_config.FSCHAT_OPENAI_API一致</span></span><br><span class="line">        <span class="string">&quot;api_key&quot;</span>: <span class="string">&quot;EMPTY&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 调用chatgpt时如果报出： urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host=&#x27;api.openai.com&#x27;, port=443):</span></span><br><span class="line">    <span class="comment">#  Max retries exceeded with url: /v1/chat/completions</span></span><br><span class="line">    <span class="comment"># 则需要将urllib3版本修改为1.25.11</span></span><br><span class="line">    <span class="comment"># 如果依然报urllib3.exceptions.MaxRetryError: HTTPSConnectionPool，则将https改为http</span></span><br><span class="line">    <span class="comment"># 参考https://zhuanlan.zhihu.com/p/350015032</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 如果报出：raise NewConnectionError(</span></span><br><span class="line">    <span class="comment"># urllib3.exceptions.NewConnectionError: &lt;urllib3.connection.HTTPSConnection object at 0x000001FE4BDB85E0&gt;:</span></span><br><span class="line">    <span class="comment"># Failed to establish a new connection: [WinError 10060]</span></span><br><span class="line">    <span class="comment"># 则是因为内地和香港的IP都被OPENAI封了，需要切换为日本、新加坡等地</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 如果出现WARNING: Retrying langchain.chat_models.openai.acompletion_with_retry.&lt;locals&gt;._completion_with_retry in</span></span><br><span class="line">    <span class="comment"># 4.0 seconds as it raised APIConnectionError: Error communicating with OpenAI.</span></span><br><span class="line">    <span class="comment"># 需要添加代理访问(正常开的代理软件可能会拦截不上)需要设置配置openai_proxy 或者 使用环境遍历OPENAI_PROXY 进行设置</span></span><br><span class="line">    <span class="comment"># 比如: &quot;openai_proxy&quot;: &#x27;http://127.0.0.1:4780&#x27;</span></span><br><span class="line"><span class="comment">#    &quot;gpt-3.5-turbo&quot;: &#123;</span></span><br><span class="line"><span class="comment">#        &quot;api_base_url&quot;: &quot;https://api.openai.com/v1&quot;,</span></span><br><span class="line"><span class="comment">#        &quot;api_key&quot;: os.environ.get(&quot;OPENAI_API_KEY&quot;),</span></span><br><span class="line"><span class="comment">#        &quot;openai_proxy&quot;: os.environ.get(&quot;OPENAI_PROXY&quot;)</span></span><br><span class="line"><span class="comment">#    &#125;,</span></span><br><span class="line">    <span class="comment"># 线上模型。当前支持智谱AI。</span></span><br><span class="line">    <span class="comment"># 如果没有设置有效的local_model_path，则认为是在线模型API。</span></span><br><span class="line">    <span class="comment"># 请在server_config中为每个在线API设置不同的端口</span></span><br><span class="line">    <span class="comment"># 具体注册及api key获取请前往 http://open.bigmodel.cn</span></span><br><span class="line"><span class="comment">#    &quot;chatglm-api&quot;: &#123;</span></span><br><span class="line"><span class="comment">#        &quot;api_base_url&quot;: &quot;http://127.0.0.1:8888/v1&quot;,</span></span><br><span class="line"><span class="comment">#        &quot;api_key&quot;: os.environ.get(&quot;ZHIPUAI_API_KEY&quot;),</span></span><br><span class="line"><span class="comment">#        &quot;provider&quot;: &quot;ChatGLMWorker&quot;,</span></span><br><span class="line"><span class="comment">#        &quot;version&quot;: &quot;chatglm_pro&quot;,  # 可选包括 &quot;chatglm_lite&quot;, &quot;chatglm_std&quot;, &quot;chatglm_pro&quot;</span></span><br><span class="line"><span class="comment">#    &#125;,</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># LLM 名称</span></span><br><span class="line">LLM_MODEL = <span class="string">&quot;Chatglm2-6b&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 历史对话轮数</span></span><br><span class="line">HISTORY_LEN = <span class="number">3</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># LLM 运行设备。设为&quot;auto&quot;会自动检测，也可手动设定为&quot;cuda&quot;,&quot;mps&quot;,&quot;cpu&quot;其中之一。</span></span><br><span class="line">LLM_DEVICE = <span class="string">&quot;auto&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 日志存储路径</span></span><br><span class="line">LOG_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), <span class="string">&quot;logs&quot;</span>)</span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(LOG_PATH):</span><br><span class="line">    os.mkdir(LOG_PATH)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 知识库默认存储路径</span></span><br><span class="line">KB_ROOT_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), <span class="string">&quot;knowledge_base&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 数据库默认存储路径。</span></span><br><span class="line"><span class="comment"># 如果使用sqlite，可以直接修改DB_ROOT_PATH；如果使用其它数据库，请直接修改SQLALCHEMY_DATABASE_URI。</span></span><br><span class="line">DB_ROOT_PATH = os.path.join(KB_ROOT_PATH, <span class="string">&quot;info.db&quot;</span>)</span><br><span class="line">SQLALCHEMY_DATABASE_URI = <span class="string">f&quot;sqlite:///<span class="subst">&#123;DB_ROOT_PATH&#125;</span>&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 可选向量库类型及对应配置</span></span><br><span class="line">kbs_config = &#123;</span><br><span class="line">    <span class="string">&quot;faiss&quot;</span>: &#123;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&quot;milvus&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;host&quot;</span>: <span class="string">&quot;127.0.0.1&quot;</span>,</span><br><span class="line">        <span class="string">&quot;port&quot;</span>: <span class="string">&quot;19530&quot;</span>,</span><br><span class="line">        <span class="string">&quot;user&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&quot;pg&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;connection_uri&quot;</span>: <span class="string">&quot;postgresql://postgres:postgres@127.0.0.1:5432/langchain_chatchat&quot;</span>,</span><br><span class="line"></span><br><span class="line"><span class="comment"># 默认向量库类型。可选：faiss, milvus, pg.</span></span><br><span class="line">DEFAULT_VS_TYPE = <span class="string">&quot;faiss&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 缓存向量库数量</span></span><br><span class="line">CACHED_VS_NUM = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 知识库中单段文本长度</span></span><br><span class="line">CHUNK_SIZE = <span class="number">250</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 知识库中相邻文本重合长度</span></span><br><span class="line">OVERLAP_SIZE = <span class="number">50</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 知识库匹配向量数量</span></span><br><span class="line">VECTOR_SEARCH_TOP_K = <span class="number">5</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 知识库匹配相关度阈值，取值范围在0-1之间，SCORE越小，相关度越高，取到1相当于不筛选，建议设置在0.5左右</span></span><br><span class="line">SCORE_THRESHOLD = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 搜索引擎匹配结题数量</span></span><br><span class="line">SEARCH_ENGINE_TOP_K = <span class="number">5</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># nltk 模型存储路径</span></span><br><span class="line">NLTK_DATA_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), <span class="string">&quot;nltk_data&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 基于本地知识问答的提示词模版（使用Jinja2语法，简单点就是用双大括号代替f-string的单大括号</span></span><br><span class="line">PROMPT_TEMPLATE = <span class="string">&quot;&quot;&quot;&lt;指令&gt;根据已知信息，简洁和专业的来回答问题。如果无法从中得到答案，请说 “根据已知信息无法回答该问题”，不允许在答案中添加编造成分，答案请</span></span><br><span class="line"><span class="string">使用中文。 &lt;/指令&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&lt;已知信息&gt;&#123;&#123; context &#125;&#125;&lt;/已知信息&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&lt;问题&gt;&#123;&#123; question &#125;&#125;&lt;/问题&gt;&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># API 是否开启跨域，默认为False，如果需要开启，请设置为True</span></span><br><span class="line"><span class="comment"># is open cross domain</span></span><br><span class="line">OPEN_CROSS_DOMAIN = <span class="literal">False</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Bing 搜索必备变量</span></span><br><span class="line"><span class="comment"># 使用 Bing 搜索需要使用 Bing Subscription Key,需要在azure port中申请试用bing search</span></span><br><span class="line"><span class="comment"># 具体申请方式请见</span></span><br><span class="line"><span class="comment"># https://learn.microsoft.com/en-us/bing/search-apis/bing-web-search/create-bing-search-service-resource</span></span><br><span class="line"><span class="comment"># 使用python创建bing api 搜索实例详见:</span></span><br><span class="line"><span class="comment"># https://learn.microsoft.com/en-us/bing/search-apis/bing-web-search/quickstarts/rest/python</span></span><br><span class="line">BING_SEARCH_URL = <span class="string">&quot;https://api.bing.microsoft.com/v7.0/search&quot;</span></span><br><span class="line"><span class="comment"># 注意不是bing Webmaster Tools的api key，</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 此外，如果是在服务器上，报Failed to establish a new connection: [Errno 110] Connection timed out</span></span><br><span class="line"><span class="comment"># 是因为服务器加了防火墙，需要联系管理员加白名单，如果公司的服务器的话，就别想了GG</span></span><br><span class="line">BING_SUBSCRIPTION_KEY = <span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 是否开启中文标题加强，以及标题增强的相关配置</span></span><br><span class="line"><span class="comment"># 通过增加标题判断，判断哪些文本为标题，并在metadata中进行标记；</span></span><br><span class="line"><span class="comment"># 然后将文本与往上一级的标题进行拼合，实现文本信息的增强。</span></span><br><span class="line">ZH_TITLE_ENHANCE = <span class="literal">False</span></span><br></pre></td></tr></table></figure>
+<p>最后运行sudo python startup.py -a，出现地址和端口复制到浏览器访问即可</p>
+<h3 id="大模型知识搬运"><a href="#大模型知识搬运" class="headerlink" title="大模型知识搬运"></a>大模型知识搬运</h3><p>1、大模型介绍和概述：<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_56591814/article/details/131162128">LLMs模型速览（GPTs、LaMDA、GLM/ChatGLM、PaLM/Flan-PaLM、BLOOM、LLaMA、Alpaca）</a><br>2、最新最全AI大模型资料和仓库：<br><a target="_blank" rel="noopener" href="https://www.datalearner.com/ai-models/pretrained-models?&amp;aiArea=-1&amp;language=-1&amp;contextLength=-1&amp;openSource=-1&amp;publisher=-1">AI大模型列表</a><br>3、行业特定的LLM知识学习课题：<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/635574487">微调（Finetune）与向量数据库（Vector Database）的比较与应用</a><br>4、AIGC基础知识杂谈：大模型、多模态、预训练、扩散模型：<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/635574487">大模型、多模态、预训练、扩散模型等基础理论</a><br>5、部署ChatGPT3.5需要的硬件成本：<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_31765191/article/details/129860244">GPT-3.5(ChatGPT)训练和部署成本估算</a></p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://blog.hellshan.top/archives/2c7c4db8/" data-id="clmzs2g58007uimo9690qbmf4" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "HellShan"
+        },
+        "headline": "大模型部署",
+        "image": "https://blog.hellshan.top/archives/2c7c4db8/1.png",
+        "keywords": "linux LLM",
+        "genre": "学而时习之 实践验证真理",
+        "datePublished": "2023-09-06",
+        "dateCreated": "2023-09-06",
+        "dateModified": "2023-09-26",
+        "url": "https://blog.hellshan.top/archives/2c7c4db8/",
+        "description": "
+前言大模型越发成熟，很多企业会尝试找到自己合适的模型进行微调和训练，最终生成一个企业AI机器人，能够帮助企业大幅提升竞争力和生产力。未来通过更好的算法研发出新的基础模型这类算法程序员固然吃香，而学习如何利用基础模型结合企业内部数据进行微调和训练的能力也显得尤为重要。
+关于微调和向量在如今的数据驱动时代，大型语言模型（LLM）如GPT等已经在各种应用场景中显示出其强大的能力，从聊天机器人到自动文本",
+        "wordCount": 1456
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <!-- Valine -->
+    <div class="vcomments"></div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>关注我 :</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/helllllp" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="qq" href="/524311610" target="_blank" rel="noopener">
+                        <i class="icon fa fa-qq"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weixin" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weixin"></i>
+                    </a>
+                </li>
+                
+            
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/archives/ca9e08db/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">下一篇</strong>
+        <p class="article-nav-title">
+        
+            系统运维之日志管理审计
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/archives/54422da7/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">上一篇</strong>
+        <p class="article-nav-title">CentOS实体机救援和虚拟化</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/archives/ca9e08db/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/archives/ca9e08db/1.png)" alt="系统运维之日志管理审计" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E5%AE%9E%E8%B7%B5%E9%AA%8C%E8%AF%81%E7%9C%9F%E7%90%86/">实践验证真理</a></p>
+                            <p class="item-title"><a href="/archives/ca9e08db/" class="title">系统运维之日志管理审计</a></p>
+                            <p class="item-date"><time datetime="2023-09-22T07:05:05.000Z" itemprop="datePublished">2023-09-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/archives/2c7c4db8/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/archives/2c7c4db8/1.png)" alt="大模型部署" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E5%AE%9E%E8%B7%B5%E9%AA%8C%E8%AF%81%E7%9C%9F%E7%90%86/">实践验证真理</a></p>
+                            <p class="item-title"><a href="/archives/2c7c4db8/" class="title">大模型部署</a></p>
+                            <p class="item-date"><time datetime="2023-09-06T02:32:05.000Z" itemprop="datePublished">2023-09-06</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/archives/54422da7/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/archives/54422da7/1.png)" alt="CentOS实体机救援和虚拟化" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E5%AE%9E%E8%B7%B5%E9%AA%8C%E8%AF%81%E7%9C%9F%E7%90%86/">实践验证真理</a></p>
+                            <p class="item-title"><a href="/archives/54422da7/" class="title">CentOS实体机救援和虚拟化</a></p>
+                            <p class="item-date"><time datetime="2023-08-05T09:57:05.000Z" itemprop="datePublished">2023-08-05</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/archives/c0a28d53/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/archives/c0a28d53/1.png)" alt="亲共的蒋介石，把儿子送到了苏联" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%96%87%E6%91%98/">文摘</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E6%96%87%E6%91%98/%E5%8E%86%E5%8F%B2/">历史</a></p>
+                            <p class="item-title"><a href="/archives/c0a28d53/" class="title">亲共的蒋介石，把儿子送到了苏联</a></p>
+                            <p class="item-date"><time datetime="2023-07-20T02:24:30.000Z" itemprop="datePublished">2023-07-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/archives/657b4685/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/archives/657b4685/1.png)" alt="Windows下使用inotify+rsync实时同步文件" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E5%AE%9E%E8%B7%B5%E9%AA%8C%E8%AF%81%E7%9C%9F%E7%90%86/">实践验证真理</a></p>
+                            <p class="item-title"><a href="/archives/657b4685/" class="title">Windows下使用inotify+rsync实时同步文件</a></p>
+                            <p class="item-date"><time datetime="2022-12-26T08:54:05.000Z" itemprop="datePublished">2022-12-26</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><span class="category-list-count">29</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E5%AE%9E%E8%B7%B5%E9%AA%8C%E8%AF%81%E7%9C%9F%E7%90%86/">实践验证真理</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E6%8B%BF%E6%9D%A5%E4%B8%BB%E4%B9%89/">拿来主义</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E6%B8%A9%E6%95%85%E8%80%8C%E7%9F%A5%E6%96%B0/">温故而知新</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%87%E6%91%98/">文摘</a><span class="category-list-count">19</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%87%E6%91%98/%E4%BA%BA%E7%89%A9/">人物</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%87%E6%91%98/%E5%8E%86%E5%8F%B2/">历史</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%87%E6%91%98/%E5%9C%B0%E7%90%86/">地理</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%87%E6%91%98/%E6%94%BF%E6%B2%BB/">政治</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%87%E6%91%98/%E7%BB%8F%E6%B5%8E/">经济</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9D%82%E5%BF%97/">杂志</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9D%82%E5%BF%97/%E8%88%AA%E6%8B%8D%E4%B8%AD%E5%9B%BD/">航拍中国</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%83%AD%E7%82%B9/">热点</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%83%AD%E7%82%B9/%E5%B9%B3%E5%8F%B0/">平台</a><span class="category-list-count">2</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">八月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">七月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">十二月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">二月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">一月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">十月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">九月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">八月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">七月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">五月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">四月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">三月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">十二月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">十一月 2020</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a><span class="archive-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">标签</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AD/" rel="tag">AD</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ELK/" rel="tag">ELK</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LLM/" rel="tag">LLM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WLAN/" rel="tag">WLAN</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/article/" rel="tag">article</a><span class="tag-list-count">19</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cluster/" rel="tag">cluster</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database/" rel="tag">database</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/k8s/" rel="tag">k8s</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kvm/" rel="tag">kvm</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/monitor/" rel="tag">monitor</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/proxy/" rel="tag">proxy</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/seo/" rel="tag">seo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%85%E6%B8%B8/" rel="tag">旅游</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%88%AA%E6%8B%8D/" rel="tag">航拍</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/AD/" style="font-size: 13.33px;">AD</a> <a href="/tags/ELK/" style="font-size: 11.67px;">ELK</a> <a href="/tags/LLM/" style="font-size: 10px;">LLM</a> <a href="/tags/WLAN/" style="font-size: 10px;">WLAN</a> <a href="/tags/article/" style="font-size: 20px;">article</a> <a href="/tags/cluster/" style="font-size: 10px;">cluster</a> <a href="/tags/database/" style="font-size: 16.67px;">database</a> <a href="/tags/docker/" style="font-size: 15px;">docker</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/k8s/" style="font-size: 11.67px;">k8s</a> <a href="/tags/kvm/" style="font-size: 13.33px;">kvm</a> <a href="/tags/linux/" style="font-size: 18.33px;">linux</a> <a href="/tags/monitor/" style="font-size: 11.67px;">monitor</a> <a href="/tags/nginx/" style="font-size: 11.67px;">nginx</a> <a href="/tags/nodejs/" style="font-size: 11.67px;">nodejs</a> <a href="/tags/proxy/" style="font-size: 11.67px;">proxy</a> <a href="/tags/seo/" style="font-size: 10px;">seo</a> <a href="/tags/%E6%97%85%E6%B8%B8/" style="font-size: 10px;">旅游</a> <a href="/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 11.67px;">网络</a> <a href="/tags/%E8%88%AA%E6%8B%8D/" style="font-size: 10px;">航拍</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">链接</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2023 HellShan</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                <p><a href="http://beian.miit.gov.cn/" target="_blank">粤ICP备2020094422号-1</a</p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script src="//unpkg.com/valine"></script>
+    <script>
+        var GUEST = ['nick','mail','link'];
+        var meta = '';
+        meta = meta.split(',').filter(function (item) {
+            return GUEST.indexOf(item)>-1;
+        });
+        var avatarcdn = 'https://gravatar.loli.net/avatar/' == true;
+        new Valine({
+            el: '.vcomments',
+            notify: "",
+            verify: "true",
+            appId: "4O7x2f71OT7FFlrdxFIAJn3v-gzGzoHsz",
+            appKey: "k2d5KmEjtQeLw5IuRficyYsN",
+            placeholder: "Just Do It",
+            avatar:"wavatar",
+            recordIP:"",
+            visitor: "true"
+        });
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
