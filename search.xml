@@ -27,6 +27,34 @@
       </tags>
   </entry>
   <entry>
+    <title>华为AC6605开启Portal认证</title>
+    <url>/archives/dc365dfe/</url>
+    <content><![CDATA[<p><img src="/archives/dc365dfe/1.png" alt=" "></p>
+<h2 id="拓扑简述"><a href="#拓扑简述" class="headerlink" title="拓扑简述"></a>拓扑简述</h2><p><img src="/archives/dc365dfe/2.png" alt=" "></p>
+<p>STA（连接到无线网络中的终端）通过AP连接无线SSID，中间通过核心交换机连接AC</p>
+<p>AC管理VLAN接口: VLANIF2<br>AC管理地址：192.168.101.253<br>SSID：TBK-guest<br>客户IP：192.168.20.x<br>网关：192.168.20.254<br>DNS地址：8.8.8.8</p>
+<h2 id="AC新建LoopBack口"><a href="#AC新建LoopBack口" class="headerlink" title="AC新建LoopBack口"></a>AC新建LoopBack口</h2><p>为了隐藏真实的AC管理地址，通常使用LoopBack地址作为认证地址</p>
+<p><img src="/archives/dc365dfe/3.png" alt=" "></p>
+<p>从配置—AC配置—接口管理—逻辑接口—三层逻辑接口里面新建</p>
+<h2 id="配置内置portal全局设置"><a href="#配置内置portal全局设置" class="headerlink" title="配置内置portal全局设置"></a>配置内置portal全局设置</h2><p><img src="/archives/dc365dfe/4.png" alt=" "></p>
+<p>从配置—安全管理—AAA—Portal服务器全局设置—-内置Portal全局设置里面配置</p>
+<h2 id="新建认证模板"><a href="#新建认证模板" class="headerlink" title="新建认证模板"></a>新建认证模板</h2><p><img src="/archives/dc365dfe/5.png" alt=" "></p>
+<p><img src="/archives/dc365dfe/6.png" alt=" "></p>
+<p><img src="/archives/dc365dfe/7.png" alt=" "></p>
+<p>建立认证模板后，新建SSID，应用到VAP即可，其中免认证规则是要添加DNS地址，不然就上不了网</p>
+<p><img src="/archives/dc365dfe/8.png" alt=" "></p>
+<h2 id="网络配置"><a href="#网络配置" class="headerlink" title="网络配置"></a>网络配置</h2><p>配置好后，通过AP组配置添加VAP，则会看到无线SSID，此时连接无线后，不会自动弹出认证页面，需要在核心交换机配置下静态路由<br>添加一条LoopBack地址到AP管理地址的静态路由：ip route-static 10.1.1.1 32 192.168.101.253</p>
+<p>此时，如果还是没有弹出认证页面，则要看看核心交换机的acl，关于vlan 120的配置，开放对应地址：<br>Extended IP access list vlan120<br>    10 permit ip any host 192.168.20.254<br>    20 permit ip any host 192.168.1.3 (1 estimate match)<br>    31 permit ip any host 192.168.101.253 (61 estimate matches)<br>    32 permit ip any host 192.168.1.2 (344 estimate matches)<br>    40 deny ip any 192.168.0.0 0.0.255.255 (222 estimate matches)</p>
+]]></content>
+      <categories>
+        <category>学而时习之</category>
+        <category>实践验证真理</category>
+      </categories>
+      <tags>
+        <tag>网络</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>人工智能，机器学习</title>
     <url>/archives/fd81114f/</url>
     <content><![CDATA[<p><img src="/archives/fd81114f/1.png" alt=" "></p>
