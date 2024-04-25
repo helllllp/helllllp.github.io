@@ -1272,6 +1272,11 @@
 <p>这里多了rep参数，插件通过这个参数来识别读取类型是否为资源库。然后读取数据库资源的时候，会调用/home/kettle/.kettle目录密码的resources.xml文件的数据库连接参数来连接数据库资源文件。我之前执行任务的时候怎么都报错，说该作业文件不是一个文件，后来才明白，在网页添加的数据库连接参数是插件来获取资源信息，而执行任务的时候是kettle软件pan.sh来读取数据库资源，所以如果没有该数据库连接资源文件，则会执行错误。</p>
 <h3 id="任务调度"><a href="#任务调度" class="headerlink" title="任务调度"></a>任务调度</h3><p><img src="/archives/41789693/9.png" alt=" "></p>
 <p>在designer模块任务发布后，就可以在调度监控看到，如果修改了作业，重新发布后，需要在实时监控退出的状态下重载，以获取最新的任务信息。</p>
+<h3 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h3><p><img src="/archives/41789693/10.png" alt=" "></p>
+<p>部署好taskctl和kettle基本参数后，基本上就是配置数据来源和编辑ktrjob</p>
+<p>在windows下使用kettle软件编辑好ktr或kjob后，通过svn同步到服务器，然后使用jenkins持久化同步到taskctl服务器</p>
+<p>编辑/home/kettle/.kettle/kettle.properties文件来配置数据源，其中可以配置scada的iot数据：如收集几台日志到日志服务器，然后设置共享，taskctl通过挂载共享来读写日志文件：<br><code>mount.cifs -o username=administrator,uid=1000,domain=fstbk.com \\192.168.7.22\iotdata\ /p2ldata</code></p>
+<p>1、如果共享共享服务器加入了域，则需使用域和域用户<br>2、使用uid参数来映射用户属性，这样就不会有权限问题了。</p>
 ]]></content>
       <categories>
         <category>学而时习之</category>

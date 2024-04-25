@@ -21,7 +21,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blog.hellshan.top/archives/41789693/1.png">
 <meta property="article:published_time" content="2022-07-10T03:34:05.000Z">
-<meta property="article:modified_time" content="2023-10-20T06:28:06.209Z">
+<meta property="article:modified_time" content="2024-04-25T07:55:16.583Z">
 <meta property="article:author" content="HellShan">
 <meta property="article:tag" content="database">
 <meta name="twitter:card" content="summary">
@@ -221,6 +221,11 @@
 <p>这里多了rep参数，插件通过这个参数来识别读取类型是否为资源库。然后读取数据库资源的时候，会调用/home/kettle/.kettle目录密码的resources.xml文件的数据库连接参数来连接数据库资源文件。我之前执行任务的时候怎么都报错，说该作业文件不是一个文件，后来才明白，在网页添加的数据库连接参数是插件来获取资源信息，而执行任务的时候是kettle软件pan.sh来读取数据库资源，所以如果没有该数据库连接资源文件，则会执行错误。</p>
 <h3 id="任务调度"><a href="#任务调度" class="headerlink" title="任务调度"></a>任务调度</h3><p><img src="/archives/41789693/9.png" alt=" "></p>
 <p>在designer模块任务发布后，就可以在调度监控看到，如果修改了作业，重新发布后，需要在实时监控退出的状态下重载，以获取最新的任务信息。</p>
+<h3 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h3><p><img src="/archives/41789693/10.png" alt=" "></p>
+<p>部署好taskctl和kettle基本参数后，基本上就是配置数据来源和编辑ktrjob</p>
+<p>在windows下使用kettle软件编辑好ktr或kjob后，通过svn同步到服务器，然后使用jenkins持久化同步到taskctl服务器</p>
+<p>编辑/home/kettle/.kettle/kettle.properties文件来配置数据源，其中可以配置scada的iot数据：如收集几台日志到日志服务器，然后设置共享，taskctl通过挂载共享来读写日志文件：<br><code>mount.cifs -o username=administrator,uid=1000,domain=fstbk.com \\192.168.7.22\iotdata\ /p2ldata</code></p>
+<p>1、如果共享共享服务器加入了域，则需使用域和域用户<br>2、使用uid参数来映射用户属性，这样就不会有权限问题了。</p>
 
         </div>
         <footer class="article-footer">
@@ -228,7 +233,7 @@
 
 
 
-    <a data-url="https://blog.hellshan.top/archives/41789693/" data-id="clt53n36c002uino9hjr261n4" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://blog.hellshan.top/archives/41789693/" data-id="clvey90mf002uk2o99ftj1foj" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -304,11 +309,11 @@
         "genre": "学而时习之 实践验证真理",
         "datePublished": "2022-07-10",
         "dateCreated": "2022-07-10",
-        "dateModified": "2023-10-20",
+        "dateModified": "2024-04-25",
         "url": "https://blog.hellshan.top/archives/41789693/",
         "description": "
 数据仓ETL工具工具对比【国外】1、datastage （收费）点评：最专业的ETL工具， 2005年被IBM收购，目前发展到11.7版本。在数据集成的基础上，增加了数据质量分析、数据血缘分析、业务元数据管理等内容。技术支持也比较少，使用难度较大，尤其不菲的价格，导致国内用户较少。2、informatica （收费）点评：informatica创立于1993年，专业程度与Datastage旗鼓相",
-        "wordCount": 814
+        "wordCount": 825
     }
 </script>
 
