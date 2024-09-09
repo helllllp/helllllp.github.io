@@ -5787,20 +5787,22 @@ http_access deny !whitelist</code></p>
 <p><code>wget -O /var/lib/pve-manager/apl-info/mirrors.ustc.edu.cn https://mirrors.ustc.edu.cn/proxmox/images/aplinfo.dat</code></p>
 <h2 id="备份系统"><a href="#备份系统" class="headerlink" title="备份系统"></a>备份系统</h2><p><code>tar pczvf ./sysback.tgz --exclude=/lost+found --exclude=/mnt --exclude=/srv --exclude=/proc --exclude=/run --exclude=/tmp --exclude=/sys --exclude=/meida --exclude=/mnt --exclude=/pve-directory /</code></p>
 <p>注意目标目录要在最后，排除目录要在前面</p>
-<h2 id="PVE开启直通"><a href="#PVE开启直通" class="headerlink" title="PVE开启直通"></a>PVE开启直通</h2><h3 id="打开直通"><a href="#打开直通" class="headerlink" title="打开直通"></a>打开直通</h3><p><em>前提：硬件支持并在UEFI或BIOS里面开启VT-D虚拟化</em></p>
+<h2 id="PVE8开启直通"><a href="#PVE8开启直通" class="headerlink" title="PVE8开启直通"></a>PVE8开启直通</h2><h3 id="打开直通，并开启GVT"><a href="#打开直通，并开启GVT" class="headerlink" title="打开直通，并开启GVT"></a>打开直通，并开启GVT</h3><p><em>前提：硬件支持并在UEFI或BIOS里面开启VT-D虚拟化，GVT可以把核显直通给多个虚拟机</em></p>
 <p>修改grub文件：<br><code>vim /etc/default/grub</code></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">GRUB_CMDLINE_LINUX_DEFAULT&#x3D;&quot;quiet&quot;</span><br><span class="line">#改为</span><br><span class="line">GRUB_CMDLINE_LINUX_DEFAULT&#x3D;&quot;quiet intel_iommu&#x3D;on&quot;</span><br><span class="line">update-grub</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">GRUB_CMDLINE_LINUX_DEFAULT&#x3D;&quot;quiet&quot;</span><br><span class="line">#改为</span><br><span class="line">GRUB_CMDLINE_LINUX_DEFAULT&#x3D;&quot;quiet intel_iommu&#x3D;on iommu&#x3D;pt i915.enable_gvt&#x3D;1&quot;</span><br><span class="line">update-grub</span><br></pre></td></tr></table></figure>
+<p>重启宿主机：<br><code>reboot</code></p>
 <p>修改module文件<br><code>vim /etc/module</code><br>加入</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vfio_iommu_type1</span><br><span class="line">vfio_virqfd</span><br><span class="line">vfio_pci</span><br><span class="line">vfio</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vfio_iommu_type1</span><br><span class="line">vfio_pci</span><br><span class="line">vfio</span><br><span class="line">kvmgt</span><br></pre></td></tr></table></figure>
 <p>重启系统生效</p>
-<h3 id="win10设置显卡直通"><a href="#win10设置显卡直通" class="headerlink" title="win10设置显卡直通"></a>win10设置显卡直通</h3><p>以下截图是我的win10硬件配置：</p>
+<h3 id="win11设置显卡直通"><a href="#win11设置显卡直通" class="headerlink" title="win11设置显卡直通"></a>win11设置显卡直通</h3><p>以下截图是我的win11硬件配置：</p>
 <p><img src="/archives/8853d375/PVE_WIN10_CONFIG.PNG" alt=" "></p>
-<p>下载虚拟化驱动的iso，虚拟机win10的驱动靠它了：<br><a href="https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-virtio/">https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-virtio/</a></p>
+<p>机器选项q35+ovmf，显卡可选virgl，显卡主要是做控制台时的显示。</p>
+<p>下载虚拟化驱动的iso，虚拟机win11的驱动靠它了：<br><a href="https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-virtio/">https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-virtio/</a></p>
 <p>列出设备地址，确定显卡vendorID：<br><code>lspci -nn</code></p>
 <blockquote>
 <p>00:02.0 VGA compatible controller [0300]: Intel Corporation HD Graphics 610 [8086:5902] (rev 04)</p>
 </blockquote>
-<p>定义为GPU直通vfio设备，并防止VGA仲裁：<br><code>echo &quot;options vfio-pci ids=8086:5917 disable_vga&quot; &gt; /etc/modprobe.d/vfio.conf</code></p>
+<p>定义为GPU直通vfio设备，并防止VGA仲裁：<br><code>echo &quot;options vfio-pci ids=8086:5917 disable_vga=1&quot; &gt; /etc/modprobe.d/vfio.conf</code></p>
 <p>禁止默认VGA驱动在启动时加载：<br><code>echo &quot;blacklist nvidia&quot; &gt;&gt; /etc/modprobe.d/blacklist.conf</code></p>
 <p><code>echo &quot;blacklist radeon&quot; &gt;&gt; /etc/modprobe.d/blacklist.conf</code></p>
 <p><code>echo &quot;blacklist nouveau&quot; &gt;&gt; /etc/modprobe.d/blacklist.conf</code></p>
