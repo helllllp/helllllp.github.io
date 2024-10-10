@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>别只会重启了！进来告诉你AP无法上线怎么办 | helllllp!</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="网络" />
+    
+    <meta name="description" content="原创：网络工程师俱乐部 你们好，我的网工朋友。 作为网工，咱们都知道无线网络的重要性，尤其是对于企业网络来说，无线接入点（AP）就是咱们的前线士兵。但你有没有遇到过这样的窘境：AP突然无法上线，整个无线网络就瘫痪了，让人焦头烂额。 从AP获取IP地址的DHCP配置，到CAPWAP隧道的建立，再到AP的认证和版本匹配，每一个环节都可能成为AP无法上线的瓶颈。 这时候可以使用一些实用的命令来应对，比">
+<meta property="og:type" content="article">
+<meta property="og:title" content="别只会重启了！进来告诉你AP无法上线怎么办">
+<meta property="og:url" content="https://blog.hellshan.top/archives/28fc7b36/index.html">
+<meta property="og:site_name" content="helllllp!">
+<meta property="og:description" content="原创：网络工程师俱乐部 你们好，我的网工朋友。 作为网工，咱们都知道无线网络的重要性，尤其是对于企业网络来说，无线接入点（AP）就是咱们的前线士兵。但你有没有遇到过这样的窘境：AP突然无法上线，整个无线网络就瘫痪了，让人焦头烂额。 从AP获取IP地址的DHCP配置，到CAPWAP隧道的建立，再到AP的认证和版本匹配，每一个环节都可能成为AP无法上线的瓶颈。 这时候可以使用一些实用的命令来应对，比">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.hellshan.top/archives/28fc7b36/1.png">
+<meta property="article:published_time" content="2024-10-10T06:10:09.000Z">
+<meta property="article:modified_time" content="2024-10-10T06:40:17.000Z">
+<meta property="article:author" content="HellShan">
+<meta property="article:tag" content="网络">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.hellshan.top/archives/28fc7b36/1.png">
+    
+
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.png" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="helllllp!" type="application/atom+xml">
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">主页</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E5%AE%9E%E8%B7%B5%E9%AA%8C%E8%AF%81%E7%9C%9F%E7%90%86/">实践验证真理</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E6%8B%BF%E6%9D%A5%E4%B8%BB%E4%B9%89/">拿来主义</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E6%B8%A9%E6%95%85%E8%80%8C%E7%9F%A5%E6%96%B0/">温故而知新</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E6%96%87%E6%91%98/">文摘</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E6%96%87%E6%91%98/%E4%BA%BA%E7%89%A9/">人物</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E6%96%87%E6%91%98/%E5%8E%86%E5%8F%B2/">历史</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E6%96%87%E6%91%98/%E5%9C%B0%E7%90%86/">地理</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E6%96%87%E6%91%98/%E6%94%BF%E6%B2%BB/">政治</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E6%96%87%E6%91%98/%E7%BB%8F%E6%B5%8E/">经济</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E6%9D%82%E5%BF%97/">杂志</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E6%9D%82%E5%BF%97/%E8%88%AA%E6%8B%8D%E4%B8%AD%E5%9B%BD/">航拍中国</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E7%83%AD%E7%82%B9/">热点</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E7%83%AD%E7%82%B9/%E5%B9%B3%E5%8F%B0/">平台</a></li></ul></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/dashboard/index.html">仪表板</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">关于</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><input type="hidden" name="sitesearch" value="https://blog.hellshan.top"></form>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E6%8B%BF%E6%9D%A5%E4%B8%BB%E4%B9%89/">拿来主义</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-别只会重启了！进来告诉你AP无法上线怎么办" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        别只会重启了！进来告诉你AP无法上线怎么办
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+      <i class="fa fa-calendar"></i>
+      <a href="/archives/28fc7b36/" class="article-date">
+         <time datetime="2024-10-10T06:10:09.000Z" itemprop="datePublished">2024-10-10</time>
+      </a>
+    </div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a>
+    </div>
+
+                
+   <span id="/archives/28fc7b36/" class="leancloud-visitors" data-flag-title="别只会重启了！进来告诉你AP无法上线怎么办">
+   <i class="fa fa-eye"></i>
+   <span class="post-meta-item-text">阅读次数: </span>
+   <i class="leancloud-visitors-count">1000000</i>
+   </span>
+
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><img src="/archives/28fc7b36/1.png" alt=" "></p>
+<p>原创：<a target="_blank" rel="noopener" href="https://blog.csdn.net/SPOTO2021/article/details/140101621">网络工程师俱乐部</a></p>
+<p>你们好，我的网工朋友。</p>
+<p>作为网工，咱们都知道无线网络的重要性，尤其是对于企业网络来说，无线接入点（AP）就是咱们的前线士兵。但你有没有遇到过这样的窘境：AP突然无法上线，整个无线网络就瘫痪了，让人焦头烂额。</p>
+<p>从AP获取IP地址的DHCP配置，到CAPWAP隧道的建立，再到AP的认证和版本匹配，每一个环节都可能成为AP无法上线的瓶颈。</p>
+<p>这时候可以使用一些实用的命令来应对，比如display ap online-fail-record，能一键查询AP上线失败的具体原因，这对于快速定位问题非常有帮助。</p>
+<p>今天咱们就一起来看看，AP的故障处理，究竟有哪些程序和办法。</p>
+<h2 id="AP是什么"><a href="#AP是什么" class="headerlink" title="AP是什么"></a>AP是什么</h2><h3 id="无线接入点"><a href="#无线接入点" class="headerlink" title="无线接入点"></a>无线接入点</h3><p>无线接入点（Wireless Access Point）：即无线AP，在WLAN网络中，为终端设备提供基于802.11标准的无线接入服务，起到有线网络和无线网络的桥接作用。无线接入点AP分为FAT AP和FIT AP两种。</p>
+<p>胖接入点FAT AP（FAT Access Point）：在胖接入点架构中为终端设备提供无线接入服务，除了提供基本的无线连接功能外，还能提供安全和管理等增强功能。</p>
+<p>瘦接入点FIT AP（FIT Access Point）：在瘦接入点架构中为终端设备提供无线接入服务，区别于传统的FAT AP，只提供可靠、高性能的无线连接功能，其他的增强功能统一在无线控制器AC（Access Controller）上集中配置。在瘦接入点架构中，AC对无线局域网中的所有FIT AP进行控制和管理。</p>
+<p><img src="/archives/28fc7b36/2.png" alt=" "></p>
+<p><img src="/archives/28fc7b36/3.png" alt=" "></p>
+<h3 id="AR的WLAN工作模式"><a href="#AR的WLAN工作模式" class="headerlink" title="AR的WLAN工作模式"></a>AR的WLAN工作模式</h3><p>相应地，AR路由器的WLAN工作模式分为FAT AP和AC两种模式，不同的模式对应不同的使用场景。</p>
+<p>FAT AP模式：AR路由器作为FAT AP，独立为用户提供WLAN接入服务，无线网络的配置在FAT AP上单独配置。FAT AP模式主要用于小型企业、家庭、咖啡厅、SOHO办公等小型场所。</p>
+<p>AC模式：AR路由器作为AC，下接FIT AP，两者一起为用户提供WLAN接入服务，无线网络的配置在AC上配置，FIT AP上不需要配置。AC模式主要用于候车厅、体育馆等大型场所。</p>
+<p>在AC模式，用户经常会遇到FIT AP无法上线的问题，为了帮助用户自助解决问题，本文详细介绍了AC模式下FIT AP无法上线的定位思路和解决方法。其中，AC指的是AR路由器。</p>
+<h2 id="AC-AP上线配置"><a href="#AC-AP上线配置" class="headerlink" title="AC+AP上线配置"></a>AC+AP上线配置</h2><h3 id="AP上线过程"><a href="#AP上线过程" class="headerlink" title="AP上线过程"></a>AP上线过程</h3><p>在AC+FIT AP网络架构中，FIT AP需要完成上线过程，AC才能对AP进行集中管理和控制。AP的上线过程可以分为如下几个阶段：</p>
+<p>AP获取IP地址阶段：一般都是通过DHCP方式获取IP地址。<br>CAPWAP隧道建立阶段：AC通过CAPWAP隧道来实现对AP的集中管理和控制。<br>AP接入控制阶段：AC对AP进行接入认证，认证成功则允许AP上线；认证失败，则不允许AP上线。<br>AP的版本升级阶段：AP判断当前的系统软件版本是否与AC上配置的一致，如果不一致，则AP根据AC上配置的AP版本升级方式及指定的版本信息升级自己的版本。<br>CAPWAP隧道维持阶段：AP与AC之间通过交互心跳报文来维护CAPWAP隧道的连通状态，包括数据隧道和控制隧道。<br>AC业务配置下发阶段：AC将AP的业务配置信息下发给AP，配置生效后，AP即可以正常上线。<br>02 AP上线配置流程</p>
+<p>为了方便用户理解与操作，我们将AP上线过程转换成对应的配置流程，如下图所示。图1中做标记的部分是影响AP上线成功与否的关键配置，如果这些配置操作有误，会影响AP上线，配置时需格外注意。后续故障定位也是围绕这些关键配置展开的。至于详细的命令行操作，请参见WLAN基本业务配置举例。</p>
+<p><img src="/archives/28fc7b36/4.png" alt=" "></p>
+<h2 id="如何判断AP上线失败"><a href="#如何判断AP上线失败" class="headerlink" title="如何判断AP上线失败"></a>如何判断AP上线失败</h2><p>正常情况下，在AR路由器上配置完WLAN功能并下发后，将AP上电，等待一小段时间（大概1-2分钟）后AP即可上线。AP上线后，终端搜索到无线SSID，输入密码后就可以接入无线网络了。如果终端一直搜索不到SSID，则有可能是AP上线失败了，此时需要确认一下AP的上线情况。</p>
+<h3 id="通过指示灯判断AP上线失败"><a href="#通过指示灯判断AP上线失败" class="headerlink" title="通过指示灯判断AP上线失败"></a>通过指示灯判断AP上线失败</h3><p>如果AP就在用户的身边，此时可以通过AP指示灯的闪烁情况来判断AP的上线情况。以AP2050DN为例，如果AP指示灯为绿色快闪（4Hz），说明AP未正常上线。因为上线成功后，指示灯会变成绿色慢闪。不同款型的指示灯状态不一样，具体可以查阅对应款型的AP产品描述。如果AP的指示灯为红色，说明AP自身出了故障，请根据指示灯的说明排除故障，若无法排除，建议更换AP款型。</p>
+<h3 id="通过命令行判断AP上线失败"><a href="#通过命令行判断AP上线失败" class="headerlink" title="通过命令行判断AP上线失败"></a>通过命令行判断AP上线失败</h3><p>如果AP不在用户身边，无法观察AP的指示灯，此时可以登录到AR路由器上执行命令查看AP的上线情况。当“State”字段为“fault”时，说明AP上线失败。</p>
+<h3 id="AP上线状态"><a href="#AP上线状态" class="headerlink" title="AP上线状态"></a>AP上线状态</h3><p>在AP上线过程中，“State”字段记录了AP不同阶段所处的状态，如表1所示。如果出现AP一直无法上线的情况，也可以根据AP的状态初步排查一下故障。</p>
+<p><img src="/archives/28fc7b36/5.png" alt=" "></p>
+<h3 id="AP无法上线定位思路"><a href="#AP无法上线定位思路" class="headerlink" title="AP无法上线定位思路"></a>AP无法上线定位思路</h3><p>在上一章节，我们介绍了如何判断AP上线失败，以及AP上线失败的初步排障方法。如果初步排障方法无法解决您的问题，可以根据本章介绍的内容，进行详细的定位。图1是AP无法上线的详细定位思路，该定位思路从网络、配置、版本和License四个方面，归纳总结了AP无法上线的一些常见原因。</p>
+<p><img src="/archives/28fc7b36/6.png" alt=" "></p>
+<h3 id="一键快速查询AP上线失败原因"><a href="#一键快速查询AP上线失败原因" class="headerlink" title="一键快速查询AP上线失败原因"></a>一键快速查询AP上线失败原因</h3><p>为了方便用户定位问题，AR路由器提供了一个快速查看AP上线失败原因的命令display ap online-fail-record。当AP上线失败时，可以执行该命令查看AP上线失败的具体原因，然后根据下表中的措施排除故障。</p>
+<p><img src="/archives/28fc7b36/7.png" alt=" "></p>
+<h2 id="排除AP无法上线原因"><a href="#排除AP无法上线原因" class="headerlink" title="排除AP无法上线原因"></a>排除AP无法上线原因</h2><h3 id="AP未分配到IP地址"><a href="#AP未分配到IP地址" class="headerlink" title="AP未分配到IP地址"></a>AP未分配到IP地址</h3><p>背景信息</p>
+<p>在前面的章节里，我们介绍了AP的上线流程，其中第一步就是AP获取IP地址阶段。因为AP需要获取到IP地址，才能和AC之间进行正常的数据转发。如果遇到AP无法上线问题，可以检查下AP是否分配到IP地址。AP获取IP地址有两种方式：</p>
+<p>静态方式：登录到AP设备，手工配置IP地址，该方式操作起来比较麻烦，不推荐使用。<br>DHCP方式：在AC上配置DHCP服务器功能，给DHCP客户端AP自动分配IP地址。在实际应用中，一般都是通过DHCP方式获取IP地址。<br>定位步骤</p>
+<p>【1】检查AP是否分配到IP地址。</p>
+<p>在设备上执行命令display ap all查看所有AP的信息。关注“IP”字段是否有IP地址，如果为“-”，表示未分配到IP地址。</p>
+<blockquote>
+<p><Huawei> display ap all<br>Total AP information:  </Huawei></p>
+<h2 id="nor-normal-2"><a href="#nor-normal-2" class="headerlink" title="nor  : normal          [2]  "></a>nor  : normal          [2]  </h2><h2 id="ID-MAC-Name-Group-IP-Type-State-STA-Uptime"><a href="#ID-MAC-Name-Group-IP-Type-State-STA-Uptime" class="headerlink" title="ID   MAC            Name   Group     IP              Type            State STA Uptime  "></a>ID   MAC            Name   Group     IP              Type            State STA Uptime  </h2><p>0    xxxx-xxxx-xxxx area_1 ap-group1 192.168.1.10    AP6010DN-AGN    fault 0   4H:49M:11S  </p>
+<h2 id="1-yyyy-yyyy-yyyy-area-2-ap-group2-AP5010DN-AGN-fault-0"><a href="#1-yyyy-yyyy-yyyy-area-2-ap-group2-AP5010DN-AGN-fault-0" class="headerlink" title="1    yyyy-yyyy-yyyy area_2 ap-group2 -               AP5010DN-AGN    fault 0   -  "></a>1    yyyy-yyyy-yyyy area_2 ap-group2 -               AP5010DN-AGN    fault 0   -  </h2><p>Total: 2  </p>
+</blockquote>
+<p>【2】如果AP未分配到IP地址，检查DHCP服务器及相关设备接口的配置是否正确。重点关注如下配置是否正确：</p>
+<p>检查AP和AC之间的线路是否连接正常。<br>检查DHCP服务器配置是否正确。至于如何配置DHCP服务器，请参见配置设备作为DHCP服务器示例(基于接口地址池)和基于全局地址池配置DHCP服务器实现为动态客户端和静态客户端分配不同网络参数示例。<br>检查AP和AC之间的网络是否连通，详细信息请参见AP与AC之间网络不通。<br>如果使用AC作为DHCP服务器，且AC与AP不在同一个网段时，需要检查地址池中是否配置了option43字段为AP指定AC的IP地址，否则AP无法发现AC，从而无法上线。</p>
+<p>【3】如果没有配置option43，需要执行命令option 43 sub-option 2 ip-address为AP配置AC的IP地址。</p>
+<blockquote>
+<p><Huawei> system-view<br>[Huawei] interface Vlanif 100<br>[Huawei-Vlanif100] ip address 192.168.1.254 24       //配置AC源接口的IP地址<br>[Huawei-Vlanif100] quit<br>[Huawei] capwap source interface Vlanif 100         //指定Vlanif 100接口为源接口<br>[Huawei] ip pool global1<br>[Huawei-ip-pool-global1] option 43 sub-option 2 ip-address 192.168.1.254    //将AC源接口的IP地址  </Huawei></p>
+</blockquote>
+<p>【4】执行命令commit all提交新的配置，重新使AP上线。每一次在AC上对AP的配置进行修改时，都需要重新提交配置，将新配置下发到AP上，否则新配置不生效。</p>
+<blockquote>
+<p><Huawei> system-view<br>[Huawei] wlan ac<br>[Huawei-wlan-view] commit all<br>Warning: Committing configuration may cause service interruption, continue?[Y/N]:y  </Huawei></p>
+</blockquote>
+<h3 id="AP与AC之间网络不通"><a href="#AP与AC之间网络不通" class="headerlink" title="AP与AC之间网络不通"></a>AP与AC之间网络不通</h3><p>背景信息</p>
+<p>网络连通是所有业务正常运行的基础，在实际组网中，首先应该配置网络的连通性，只有网络连通了，各种业务才能正常工作。所以，如果遇到AP无法上线问题，需要检查一下基础网络是否连通。</p>
+<p>检查基础网络的物理连通性，物理连通性主要是指设备之间的物理连线是否正常，接口是否都UP。<br>检查基础网络的业务连通性，业务连通性主要是指VLAN、IP地址和路由等配置是否正确。<br>不同的组网需要配置不同的VLAN、IP地址和路由才能互通，虽然无法给出一个统一的配置，但是我们可以根据实际的经验总结，给出一个配置指导和定位思路。</p>
+<p>定位步骤</p>
+<p>【1】检查AC和AP之间是否能Ping通。</p>
+<p>在AC设备上执行命令ping，ping AP的IP地址，查看ping的结果。</p>
+<blockquote>
+<p><Huawei> ping 192.168.1.10<br> PING 192.168.1.10: 56  data bytes, press CTRL_C to break<br>   Request time out<br>   Request time out<br>   Request time out<br>   Request time out<br>   Request time out                                                            </Huawei></p>
+</blockquote>
+<p> —- 192.168.1.10 ping statistics —-<br>   5 packet(s) transmitted<br>   0 packet(s) received<br>   100.00% packet loss </p>
+<p>【2】如果AC和AP之间ping不通，检查中间网络设备是否连通。中间网络设备不通，一般是由于VLAN、IP地址和路由配置错误导致。由于AC和AP之间的网络比较复杂，可以是二层网络，也可以是三层网络，所以网络互通的配置也比较复杂。为了帮助用户解决问题，我们汇总了一些经验配置供大家参考：</p>
+<ul>
+<li><p>配置WLAN业务时，一般需要配置一个管理VLAN，一个或多个业务VLAN。其中，管理VLAN用于转发AP与AC之间的管理报文，业务VLAN用于转发STA与Internet之间的业务报文。</p>
+</li>
+<li><p>由于AP自身发出的报文默认是不带VLAN Tag的，一般是由AP对端设备的二层接口为AP发出的报文打上管理VLAN的Tag。STA发出的报文也是不带Tag的，但是经过AP时，AP会给SAT发出的报文打上业务VLAN的Tag。</p>
+</li>
+<li><p>直接转发时，需保证AP上行接口一直到AC的下行接口都要允许管理VLAN和业务VLAN通行。由于管理VLAN和业务VLAN不能相同，所以接口一般配置为Trunk类型。<br>隧道转发时，由于业务报文被封装在CAPWAP报文中，对外不感知，AP上行接口一直到AC的下行接口仅允许管理VLAN通行即可。</p>
+</li>
+<li><p>如果和AP直连的是一台傻瓜交换机，由于傻瓜交换机无法配置VLAN，所以与傻瓜交换机对接的上游设备的二层接口要配置成Access类型，剥离VLAN标签，具体案例参见表1。</p>
+</li>
+<li><p>缺省情况下，设备上只有直连网段的路由，如果直连网段路由里有到目标网段的路由，则不需要配置静态路由，如果没有，则需要在设备上配置一条到目标网段的静态路由。</p>
+</li>
+</ul>
+<p>下面我们总结了不同组网的WLAN AC配置案例供大家参考，如表1所示。二层接口和三层接口是指AC通过二层接口还是三层接口对接下游设备的。</p>
+<p><img src="/archives/28fc7b36/8.png" alt=" "></p>
+<h3 id="CAPWAP链路故障"><a href="#CAPWAP链路故障" class="headerlink" title="CAPWAP链路故障"></a>CAPWAP链路故障</h3><p>背景信息</p>
+<p>在前面的章节里，我们介绍了CAPWAP隧道在AP上线过程中的重要作用。如果CAPWAP隧道建立失败，则会导致AP无法上线。如果遇到AP无法上线问题，可以检查下CAPWAP隧道是否建立成功。CAPWAP隧道的作用如下：</p>
+<ul>
+<li><p>CAPWAP隧道可以实现AP与AC间的状态维护；</p>
+</li>
+<li><p>AC通过CAPWAP隧道对AP进行管理和业务配置下发；</p>
+</li>
+<li><p>业务数据经过CAPWAP隧道集中到AC上转发。</p>
+</li>
+</ul>
+<p>定位步骤</p>
+<p>【1】检查CAPWAP链路是否已创建。</p>
+<p>在诊断视图下，执行命令display capwap linkinfo查看所有CAPWAP链路信息。如果已上线AP的数量大于CAPWAP链路个数，则重复执行该命令，观察CAPWAP链路个数是否在增加。</p>
+<blockquote>
+<p><Huawei> system-view<br>[Huawei] diagnose<br>[Huawei-diagnose] display capwap   linkinfo                                                                                          </Huawei></p>
+<h2 id="Link-ID-List-R-Run"><a href="#Link-ID-List-R-Run" class="headerlink" title="Link ID List(R-Run)  :                                                                                                              "></a>Link ID List(R-Run)  :                                                                                                              </h2><h2 id="0-R-1-R-3-R-8-R-9-R"><a href="#0-R-1-R-3-R-8-R-9-R" class="headerlink" title="  0(R)    1(R)    3(R)    8(R)    9(R)                                                                                            "></a>  0(R)    1(R)    3(R)    8(R)    9(R)                                                                                            </h2><p>5 link ID(s) in total, 5 in run state</p>
+</blockquote>
+<p>【2】如果CAPWAP链路个数没有增加，说明CAPWAP链路创建失败或没有创建。此时，执行命令display capwap configuration检查CAPWAP的配置信息是否正确。重点关注如下配置是否正确：</p>
+<ul>
+<li><p>检查AC源接口下是否配置了正确的IP地址，是否被误shutdown。</p>
+</li>
+<li><p>检查CAPWAP心跳检测间隔时间是否小于默认值25。该值小于25可能会影响CAPWAP链路可靠性，使AP无法正常上线，建议使用默认值。</p>
+</li>
+<li><p>检查CAPWAP心跳检测报文次数是否小于默认值6。该值小于6可能会影响CAPWAP链路可靠性，使AP无法正常上线，建议使用默认值。</p>
+</li>
+<li><p>检查控制链路DTLS加密功能是否使能。缺省情况下，设备上使能了控制隧道DTLS加密功能。如果误操作，去使能了该功能，会导致DTLS协商失败，从而使CAPWAP隧道建立失败。</p>
+</li>
+</ul>
+<h2 id="gt-display-capwap-configuration"><a href="#gt-display-capwap-configuration" class="headerlink" title="&gt; display capwap configuration                                        "></a>&gt;<Huawei> display capwap configuration                                        </Huawei></h2><p> Source interface                            : vlanif100      //AC源接口<br> Source ip-address                           : -              //AC源接口的IP地址<br> Echo interval(seconds)                      : 25             //CAPWAP心跳检测间隔时间<br> Echo times                                  : 6              //CAPWAP心跳检测报文次数<br> Control priority(server to client)          : 7<br> Control priority(client to server)          : 7<br> Control-link DTLS encrypt                   : enable         //控制链路DTLS加密功能是否使能<br> DTLS PSK value                              : <strong>**</strong><br> PSK mandatroy match switch                  : disable                        </p>
+<h2 id="IPv6-status-disable"><a href="#IPv6-status-disable" class="headerlink" title=" IPv6 status                                 : disable                        "></a> IPv6 status                                 : disable                        </h2><p> 【3】如果CAPWAP配置都正确，AP还是无法上线，可以执行capwap echo命令，将CAPWAP心跳检测间隔时间和报文次数配置大一些后，重新让AP上线。</p>
+<blockquote>
+<p><Huawei> system-view<br>[Huawei] capwap echo interval 30 times 10  </Huawei></p>
+</blockquote>
+<p>【4】执行命令commit all提交新的配置，重新使AP上线。</p>
+<blockquote>
+<p><Huawei> system-view<br>[Huawei] wlan ac<br>[Huawei-wlan-view] commit all<br>Warning: Committing configuration may cause service interruption, continue?[Y/N]:y  </Huawei></p>
+</blockquote>
+<h3 id="AP认证失败"><a href="#AP认证失败" class="headerlink" title="AP认证失败"></a>AP认证失败</h3><p>在AP上线过程中，AC会对AP的身份进行验证，只有验证通过的AP才允许上线。因此，在配置AP上线时，需要在AC上离线添加AP并配置AP的认证模式。例如，在添加AP时，配置AP的认证模式为MAC认证。当AP上线时，AC将对AP的MAC地址进行认证，等AP认证成功后才可以上线。</p>
+<p>AP有三种认证模式，不认证、MAC地址认证和SN认证。为了降低安全风险，建议使用MAC地址认证或者SN认证。如果出现AP无法上线问题，可以检查下是否因为AP认证失败导致AP上不了线。</p>
+<ul>
+<li><p>如果AP认证模式是MAC地址认证，则在离线添加AP时必须输入AP的MAC地址。</p>
+</li>
+<li><p>如果AP认证模式是SN认证，则在离线添加AP时必须输入AP的SN序列号，您可以在AP设备的外部名牌帖上找到AP的MAC地址和SN信息。</p>
+</li>
+</ul>
+<p>定位步骤</p>
+<p>【1】检查AP的MAC地址是否加入了黑名单中，如果某个AP的MAC地址被加入了黑名单，会导致该AP认证失败。</p>
+<p>在设备上执行命令display ap blacklist查看AP黑名单信息。</p>
+<h2 id="gt-display-ap-blacklist"><a href="#gt-display-ap-blacklist" class="headerlink" title="&gt; display ap blacklist                                                "></a>&gt;<Huawei> display ap blacklist                                                </Huawei></h2><h2 id="ID-MAC"><a href="#ID-MAC" class="headerlink" title="ID     MAC                                                                      "></a>ID     MAC                                                                      </h2><p>0      aaaa-aaaa-aaaa<br>1      bbbb-bbbb-bbbb<br>2      xxxx-xxxx-xxxx<br>3      yyyy-yyyy-yyyy                                                          </p>
+<h2 id="4-zzzz-zzzz-zzzz"><a href="#4-zzzz-zzzz-zzzz" class="headerlink" title="4      zzzz-zzzz-zzzz                                                          "></a>4      zzzz-zzzz-zzzz                                                          </h2><p>Total: 5  </p>
+<p>【2】如果AP的MAC地址在黑名单中，则执行命令undo ap blacklistmac将AP的MAC地址从黑名单中删除。</p>
+<blockquote>
+<p><Huawei> system-view<br>[Huawei] wlan ac<br>[Huawei-wlan-view] undo ap blacklist mac xxxx-xxxx-xxxx   </Huawei></p>
+</blockquote>
+<p>【3】如果是MAC地址认证或者SN认证，但未离线添加AP或未将AP加入白名单中，则AP上线时会认证不通过。</p>
+<p>执行命令<code>display ap unauthorized record</code>查看是否存在未认证通过的AP。</p>
+<blockquote>
+<p><Huawei> display ap unauthorized record<br>Unauthorized AP record:                                                        </Huawei></p>
+<h2 id="Total-number-1"><a href="#Total-number-1" class="headerlink" title="Total number: 1                                                                "></a>Total number: 1                                                                </h2><p>AP type: AP7110SN-GN<br>AP SN: yyyyyyyyyyyyyyyyyyyy<br>AP MAC address: xxxx-xxxx-xxxx<br>AP IP address: 192.168.109.252                                                  </p>
+<h2 id="Record-time-2015-01-22-17-23-17"><a href="#Record-time-2015-01-22-17-23-17" class="headerlink" title="Record time: 2015-01-22 17:23:17                                                "></a>Record time: 2015-01-22 17:23:17                                                </h2></blockquote>
+<p>【4】如果存在未认证通过的AP，则执行命令行ap-confirm all手动允许认证不通过的AP上线或者执行命令ap whitelist，将AP加入白名单中。</p>
+<blockquote>
+<p><Huawei> system-view<br>[Huawei] wlan ac<br>[Huawei-wlan-view] ap-confirm mac xxxx-xxxx-xxxx<Huawei> system-view<br>[Huawei] wlan ac<br>[Huawei-wlan-view] ap whitelist mac xxxx-xxxx-xxxx  </Huawei></Huawei></p>
+</blockquote>
+<p>【5】检查设备上AP的MAC地址、SN信息以及AP型号是否和AP外观名牌帖上的一致。如果不一致，根据名牌帖上的MAC地址、SN信息以及AP型号修改错误的参数。</p>
+<blockquote>
+<p><Huawei> display current-configuration | include ap-id<br>ap-id 0 ap-mac xxxx-xxxx-xxxx ap-sn yyyyyyyyyyyyyyyyyyy  </Huawei></p>
+</blockquote>
+<p>【6】执行命令commit all提交新的配置，重新使AP上线。</p>
+<blockquote>
+<p><Huawei> system-view<br>[Huawei] wlan ac<br>[Huawei-wlan-view] commit all<br>Warning: Committing configuration may cause service interruption, continue?[Y/N]:y  </Huawei></p>
+</blockquote>
+<h3 id="AP类型不匹配"><a href="#AP类型不匹配" class="headerlink" title="AP类型不匹配"></a>AP类型不匹配</h3><p>背景信息</p>
+<p>AR路由器作为AC，下挂FIT AP为用户提供WLAN接入服务时，建议下挂同品牌的AP产品。（一下以华为设备为例）</p>
+<p>定位步骤</p>
+<p>检查设备是否支持当前使用的AP型号。</p>
+<p>在设备上执行display ap-type all命令，查看设备支持的AP型号。不同的AC版本支持的AP型号不同。</p>
+<h2 id="gt-display-ap-type-all"><a href="#gt-display-ap-type-all" class="headerlink" title="&gt; display ap-type all"></a>&gt;<Huawei> display ap-type all</Huawei></h2><h3 id="AP和AC版本不匹配"><a href="#AP和AC版本不匹配" class="headerlink" title="AP和AC版本不匹配"></a>AP和AC版本不匹配</h3><p>背景信息</p>
+<p>AP正常上线的一个前提条件是AP的版本必须与AC的版本匹配。因为在AP上线过程中，AC会检查当前AP的版本是否是AC支持的版本，如果是，则允许上线，否则不允许上线。如果遇到AP无法上线问题，可以查看下AP的版本是否与AC的版本匹配。</p>
+<p>定位步骤</p>
+<p>【1】检查AC与AP之间的版本是否匹配。</p>
+<h1 id="首先登录到AC设备上，执行命令display-version，查看AC当前的版本信息。"><a href="#首先登录到AC设备上，执行命令display-version，查看AC当前的版本信息。" class="headerlink" title="首先登录到AC设备上，执行命令display version，查看AC当前的版本信息。"></a>首先登录到AC设备上，执行命令display version，查看AC当前的版本信息。</h1><blockquote>
+<p><Huawei> display version<br>Huawei Versatile Routing Platform Software<br>VRP (R) software, Version 5.170 (Router v2.10.10sp7)<br>Copyright (C) 2011-2020 HUAWEI TECH CO., LTD<br>Huawei 12 Router uptime is 2 weeks, 0 day, 17 hours, 49 minutes<br>BKP 0 version information:                                                      </Huawei></p>
+<ol>
+<li>PCB      Version  : Router01BAK2B VER.A                                      </li>
+<li>If Supporting PoE : Yes                                                      </li>
+<li>Board    Type     : 12                                                      </li>
+<li>MPU Slot Quantity : 1                                                        </li>
+<li>LPU Slot Quantity : 8<br>……   </li>
+</ol>
+</blockquote>
+<h1 id="Telnet到AP上，执行命令display-version，查看AP当前的版本信息。"><a href="#Telnet到AP上，执行命令display-version，查看AP当前的版本信息。" class="headerlink" title="Telnet到AP上，执行命令display version，查看AP当前的版本信息。"></a>Telnet到AP上，执行命令display version，查看AP当前的版本信息。</h1><blockquote>
+<p><Huawei> display version<br>Huawei Versatile Routing Platform Software<br>VRP (R) software, Version 5.170 (AP4050DN FIT V200R007C20SPCa00)  </Huawei></p>
+</blockquote>
+<p>本例中，AC的版本为V200R010C10SPC700，AP的版本为V200R007C20SPCa00。</p>
+<p>【2】如果无法登录到AP查看其版本信息，也可以在AC上执行命令display trapbuffer，查看AC记录的告警，从而间接获取AP的版本信息。在告警信息中搜索“WLAN/4/AP_SOFTWARE_VERSION_MISMATCH”，其中“APSoftWareVersion”参数即为AP的软件版本。</p>
+<blockquote>
+<p><Huawei> display trapbuffer<br>Trapping buffer configuration and contents: enabled<br>Allowed max buffer size: 1024<br>Actual buffer size: 256<br>Channel number: 3, Channel name: trapbuffer<br>Dropped messages: 0<br>Overwritten messages: 0<br>Current messages: 228   </Huawei></p>
+</blockquote>
+<h3 id="AP数目已达到License支持的最大AP数"><a href="#AP数目已达到License支持的最大AP数" class="headerlink" title="AP数目已达到License支持的最大AP数"></a>AP数目已达到License支持的最大AP数</h3><p>背景信息</p>
+<p>不同款型的AR路由器作为AC时，允许接入的AP个数不同。有些款型不需要加载无线控制器License，就可以接入最大数量的AP；有些款型需要加载无线控制器License后，才可以接入最大数量的AP。至于每个款型最大支持接入多少个AP，可以联系售前工程师咨询。</p>
+<p>对于那些需要加载无线控制器License后才可以接入最大数量AP的款型，在没有加载License的情况下，最多只允许接入4个AP。如果发现AP无法上线，可以查看AC设备上当前上线的AP个数是否已达到了最大值。</p>
+<p>定位步骤</p>
+<p>【1】检查设备上状态为normal的AP的个数。</p>
+<p>在设备上执行命令display ap by-state normal查看已上线AP的个数。</p>
+<blockquote>
+<p><Huawei> display ap by-state normal  </Huawei></p>
+<h2 id="AP-information-State-normal"><a href="#AP-information-State-normal" class="headerlink" title="AP information(State-normal):  "></a>AP information(State-normal):  </h2><h2 id="ID-MAC-Name-Group-IP-Type-State-STA-Uptime-1"><a href="#ID-MAC-Name-Group-IP-Type-State-STA-Uptime-1" class="headerlink" title="ID   MAC            Name   Group     IP              Type            State           STA Uptime  "></a>ID   MAC            Name   Group     IP              Type            State           STA Uptime  </h2><p>0    00e0-fcf6-76a0 area_1 ap-group1 192.168.120.254 AP6010DN-AGN    nor             0   4H:50M:55S  </p>
+<h2 id="1-00e0-fc74-9640-area-2-ap-group1-192-168-120-253-AP5010DN-AGN-nor-0-6H-5M-24S"><a href="#1-00e0-fc74-9640-area-2-ap-group1-192-168-120-253-AP5010DN-AGN-nor-0-6H-5M-24S" class="headerlink" title="1    00e0-fc74-9640 area_2 ap-group1 192.168.120.253 AP5010DN-AGN    nor             0   6H:5M:24S  "></a>1    00e0-fc74-9640 area_2 ap-group1 192.168.120.253 AP5010DN-AGN    nor             0   6H:5M:24S  </h2><p>Total: 2  </p>
+</blockquote>
+<p>【2】访问产品参数介绍网站或者咨询售前工程师，查看当前AC款型支持接入的最大AP个数。</p>
+<p>【3】比较实际上线的AP个数是否达到AC款型允许接入的最大个数。如果没有达到，但是出现了AP数目已达到License支持的最大AP数的问题，则根据AC是否需要加载无线License，进行如下处理：</p>
+<p>如果AC不需要加载无线License即可接入最大数量的AP，但是上线的AP个数未达到AC允许接入的最大个数，此时建议直接联系技术支持人员解决，详细信息请参见收集AP无法上线故障信息的步骤2。<br>如果AC需要License才可以接入最大数量的AP，但是上线的AP个数已经达到4个。此时，如果要接入更多的AP，则需要购买无线控制器License对AP个数进行扩容。</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://blog.hellshan.top/archives/28fc7b36/" data-id="cm22xku3g0082jdo9dlbe869q" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "HellShan"
+        },
+        "headline": "别只会重启了！进来告诉你AP无法上线怎么办",
+        "image": "https://blog.hellshan.top/archives/28fc7b36/1.png",
+        "keywords": "网络",
+        "genre": "学而时习之 拿来主义",
+        "datePublished": "2024-10-10",
+        "dateCreated": "2024-10-10",
+        "dateModified": "2024-10-10",
+        "url": "https://blog.hellshan.top/archives/28fc7b36/",
+        "description": "
+原创：网络工程师俱乐部
+你们好，我的网工朋友。
+作为网工，咱们都知道无线网络的重要性，尤其是对于企业网络来说，无线接入点（AP）就是咱们的前线士兵。但你有没有遇到过这样的窘境：AP突然无法上线，整个无线网络就瘫痪了，让人焦头烂额。
+从AP获取IP地址的DHCP配置，到CAPWAP隧道的建立，再到AP的认证和版本匹配，每一个环节都可能成为AP无法上线的瓶颈。
+这时候可以使用一些实用的命令来应对，比",
+        "wordCount": 3222
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <!-- Valine -->
+    <div class="vcomments"></div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>关注我 :</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/helllllp" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="qq" href="/524311610" target="_blank" rel="noopener">
+                        <i class="icon fa fa-qq"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weixin" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weixin"></i>
+                    </a>
+                </li>
+                
+            
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/archives/3a9089d3/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">上一篇</strong>
+        <p class="article-nav-title">网络trouble-shooting</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/archives/28fc7b36/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/archives/28fc7b36/1.png)" alt="别只会重启了！进来告诉你AP无法上线怎么办" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E6%8B%BF%E6%9D%A5%E4%B8%BB%E4%B9%89/">拿来主义</a></p>
+                            <p class="item-title"><a href="/archives/28fc7b36/" class="title">别只会重启了！进来告诉你AP无法上线怎么办</a></p>
+                            <p class="item-date"><time datetime="2024-10-10T06:10:09.000Z" itemprop="datePublished">2024-10-10</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/archives/3a9089d3/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/archives/3a9089d3/1.png)" alt="网络trouble-shooting" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E5%AE%9E%E8%B7%B5%E9%AA%8C%E8%AF%81%E7%9C%9F%E7%90%86/">实践验证真理</a></p>
+                            <p class="item-title"><a href="/archives/3a9089d3/" class="title">网络trouble-shooting</a></p>
+                            <p class="item-date"><time datetime="2024-10-08T14:00:05.000Z" itemprop="datePublished">2024-10-08</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/archives/c87ff6a5/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/archives/c87ff6a5/1.png)" alt="从秦朝到美国，地形图上的龙兴之地都具备一样的特征" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%96%87%E6%91%98/">文摘</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E6%96%87%E6%91%98/%E5%8E%86%E5%8F%B2/">历史</a></p>
+                            <p class="item-title"><a href="/archives/c87ff6a5/" class="title">从秦朝到美国，地形图上的龙兴之地都具备一样的特征</a></p>
+                            <p class="item-date"><time datetime="2024-08-20T02:48:30.000Z" itemprop="datePublished">2024-08-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/archives/84a1f9e6/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/archives/84a1f9e6/1.png)" alt="《北京宣言》之条件必将实施，巴勒斯坦14个派别建立民族统一战线" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%96%87%E6%91%98/">文摘</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E6%96%87%E6%91%98/%E5%8E%86%E5%8F%B2/">历史</a></p>
+                            <p class="item-title"><a href="/archives/84a1f9e6/" class="title">《北京宣言》之条件必将实施，巴勒斯坦14个派别建立民族统一战线</a></p>
+                            <p class="item-date"><time datetime="2024-07-24T01:56:30.000Z" itemprop="datePublished">2024-07-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/archives/dc365dfe/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/archives/dc365dfe/1.png)" alt="华为AC6605开启Portal认证" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E5%AE%9E%E8%B7%B5%E9%AA%8C%E8%AF%81%E7%9C%9F%E7%90%86/">实践验证真理</a></p>
+                            <p class="item-title"><a href="/archives/dc365dfe/" class="title">华为AC6605开启Portal认证</a></p>
+                            <p class="item-date"><time datetime="2024-02-17T09:06:22.000Z" itemprop="datePublished">2024-02-17</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/">学而时习之</a><span class="category-list-count">33</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E5%AE%9E%E8%B7%B5%E9%AA%8C%E8%AF%81%E7%9C%9F%E7%90%86/">实践验证真理</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E6%8B%BF%E6%9D%A5%E4%B8%BB%E4%B9%89/">拿来主义</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E6%B8%A9%E6%95%85%E8%80%8C%E7%9F%A5%E6%96%B0/">温故而知新</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%87%E6%91%98/">文摘</a><span class="category-list-count">21</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%87%E6%91%98/%E4%BA%BA%E7%89%A9/">人物</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%87%E6%91%98/%E5%8E%86%E5%8F%B2/">历史</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%87%E6%91%98/%E5%9C%B0%E7%90%86/">地理</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%87%E6%91%98/%E6%94%BF%E6%B2%BB/">政治</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%87%E6%91%98/%E7%BB%8F%E6%B5%8E/">经济</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9D%82%E5%BF%97/">杂志</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9D%82%E5%BF%97/%E8%88%AA%E6%8B%8D%E4%B8%AD%E5%9B%BD/">航拍中国</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%83%AD%E7%82%B9/">热点</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%83%AD%E7%82%B9/%E5%B9%B3%E5%8F%B0/">平台</a><span class="category-list-count">2</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">十月 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">八月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">七月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">二月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">十月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">八月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">七月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">十二月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">二月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">一月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">十月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">九月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">八月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">七月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">五月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">四月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">三月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">十二月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">十一月 2020</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a><span class="archive-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">标签</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AD/" rel="tag">AD</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ELK/" rel="tag">ELK</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LLM/" rel="tag">LLM</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WLAN/" rel="tag">WLAN</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/article/" rel="tag">article</a><span class="tag-list-count">21</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cluster/" rel="tag">cluster</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database/" rel="tag">database</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/k8s/" rel="tag">k8s</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kvm/" rel="tag">kvm</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/monitor/" rel="tag">monitor</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/proxy/" rel="tag">proxy</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/seo/" rel="tag">seo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%85%E6%B8%B8/" rel="tag">旅游</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%88%AA%E6%8B%8D/" rel="tag">航拍</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/AD/" style="font-size: 13.33px;">AD</a> <a href="/tags/ELK/" style="font-size: 11.67px;">ELK</a> <a href="/tags/LLM/" style="font-size: 11.67px;">LLM</a> <a href="/tags/WLAN/" style="font-size: 10px;">WLAN</a> <a href="/tags/article/" style="font-size: 20px;">article</a> <a href="/tags/cluster/" style="font-size: 10px;">cluster</a> <a href="/tags/database/" style="font-size: 16.67px;">database</a> <a href="/tags/docker/" style="font-size: 15px;">docker</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/k8s/" style="font-size: 11.67px;">k8s</a> <a href="/tags/kvm/" style="font-size: 13.33px;">kvm</a> <a href="/tags/linux/" style="font-size: 18.33px;">linux</a> <a href="/tags/monitor/" style="font-size: 11.67px;">monitor</a> <a href="/tags/nginx/" style="font-size: 11.67px;">nginx</a> <a href="/tags/nodejs/" style="font-size: 11.67px;">nodejs</a> <a href="/tags/proxy/" style="font-size: 11.67px;">proxy</a> <a href="/tags/seo/" style="font-size: 10px;">seo</a> <a href="/tags/%E6%97%85%E6%B8%B8/" style="font-size: 10px;">旅游</a> <a href="/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 15px;">网络</a> <a href="/tags/%E8%88%AA%E6%8B%8D/" style="font-size: 10px;">航拍</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">链接</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2024 HellShan</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                <p><a href="http://beian.miit.gov.cn/" target="_blank">粤ICP备2020094422号-1</a</p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script src="//unpkg.com/valine"></script>
+    <script>
+        var GUEST = ['nick','mail','link'];
+        var meta = '';
+        meta = meta.split(',').filter(function (item) {
+            return GUEST.indexOf(item)>-1;
+        });
+        var avatarcdn = 'https://gravatar.loli.net/avatar/' == true;
+        new Valine({
+            el: '.vcomments',
+            notify: "",
+            verify: "true",
+            appId: "4O7x2f71OT7FFlrdxFIAJn3v-gzGzoHsz",
+            appKey: "k2d5KmEjtQeLw5IuRficyYsN",
+            placeholder: "Just Do It",
+            avatar:"wavatar",
+            recordIP:"",
+            visitor: "true"
+        });
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
