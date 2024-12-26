@@ -6,7 +6,7 @@
   <link href="https://blog.hellshan.top/atom.xml" rel="self"/>
   
   <link href="https://blog.hellshan.top/"/>
-  <updated>2024-12-18T02:26:38.000Z</updated>
+  <updated>2024-12-26T06:45:25.000Z</updated>
   <id>https://blog.hellshan.top/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>PON网络一文通</title>
+    <link href="https://blog.hellshan.top/archives/b541af11/"/>
+    <id>https://blog.hellshan.top/archives/b541af11/</id>
+    <published>2024-12-26T06:45:33.000Z</published>
+    <updated>2024-12-26T06:45:25.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/archives/b541af11/1.png" alt=" "></p><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>光纤接入网（Optical Access Network，OAN）是指在接入网中采用光纤作为主要传输介质来实现信息传送的网络形式，根据光纤接入网传输设施中是否采用有源器件分为AON有源光网络和PON无源光网络。根据采用的技术不同，PON可以分为APON，即基于ATM技术的无源光网络，后来更名为BPON宽带无源光网络；EPON，基于以太网的无源光网络；GPON吉比特无源光网络，GPON是BPON的扩展。</p><p>AON比PON传输距离长，传输容量大，业务配置灵活，但不足之处是成本高、需要供电系统、维护复杂。而PON结构简单，易于扩容和维护，所以在接入网当中，PON得到越来越广泛的应用。</p><p><img src="/archives/b541af11/2.png" alt=" "></p><h2 id="PON网络组成、拓扑结构"><a href="#PON网络组成、拓扑结构" class="headerlink" title="PON网络组成、拓扑结构"></a>PON网络组成、拓扑结构</h2><p>国际电联ITU-T G.982建议给出了OAN（PON）的功能参考配置，主要包含4个基本功能模块：光线路终端OLT、光网络单元ONU、光分配网络ODN、AN系统管理功能模块。<br>各个模块的功能如下：</p><h3 id="OLT"><a href="#OLT" class="headerlink" title="OLT"></a>OLT</h3><p>OLT：OLT的作用是通过一个或多个ODN光纤分配网与用户侧的ONU通信，OLT与ONU的关系为主从通信关系，OLT对来自ONU的信令和监控信息进行管理。OLT设备一般部署于运营商基站，或业务节点机房。</p><p><img src="/archives/b541af11/3.png" alt="华为MA5800是一台常用OLT"></p><h3 id="ONU-ONT"><a href="#ONU-ONT" class="headerlink" title="ONU/ONT"></a>ONU/ONT</h3><p>ONU：位于ODN光纤分配网和用户之间。ONU的网络侧具有光接口，而用户侧为电接口。一般家庭用户，采用的都是单芯光猫（ONU）。当然，也有使用双芯的，对纤芯资源浪费比较大。</p><p><img src="/archives/b541af11/4.png" alt="光猫是一种典型的ONU"></p><h3 id="ODN"><a href="#ODN" class="headerlink" title="ODN"></a>ODN</h3><p>ODN：是光纤接入网中的传输设施，即光纤网络，为ONU和OLT提供光传输通道，作为两者之间的物理连接。ODN包含光纤、光缆交接箱、光连接器（尾纤）、无源光分路器（Optical Branching Device，OBD）（分光器）和光纤接头等。这些光纤网络的组成部分，都是由无源光器件组成，这也是PON无源光网络名称的来源。</p><p>其中分光器是是一个连接OLT和ONU的无源设备，它的功能是分发下行数据，并集中上行数据。分光器带有一个上行光接口，若干下行光接口。从上行光接口过来的光信号被分配到所有的下行光接口传输出去，从下行光接口过来的光信号被分配到唯一的上行光接口传输出去。只是光信号从上行光接口转到下行光接口的时候，光信号强度/光功率将下降，从下行光接口转到上行光接口的时候，同样如此。各个下行光接口出来的光信号强度可以相同，也可以不同。</p><p>分光器按照制造工艺的不同,分光器主要分为两大类：FBT型(熔融拉锥式分光器)和PLC型(平面光波导功率分光器)。</p><p><img src="/archives/b541af11/5.png" alt="分光器原理"></p><p><img src="/archives/b541af11/6.png" alt="旧楼的盒子里面是典型的分光器"></p><h3 id="AN"><a href="#AN" class="headerlink" title="AN"></a>AN</h3><p>AN管理模块：负责对光纤接入网进行维护管理，包括配置管理、性能管理、故障管理、安全管理及计费管理，这主要指的是网管系统。</p><h3 id="拓扑类型"><a href="#拓扑类型" class="headerlink" title="拓扑类型"></a>拓扑类型</h3><p>PON网络拓扑结构主要分为星形结构、树型结构和总线型结构。在实际工程中，采用比较多的是树形结构，树形结构是星形结构的扩展。连接OLT的第1个分光器OBD将光信号分成n路，下一级连接第2级分光器OBD或直接连接ONU，最后一级的分光器OBD连接n个ONU。</p><p>树形结构的线路维护容易、不存在雷电及电磁干扰，可靠性高。但由于OLT的一个光源提供给所有ONU光功率，光源的功率有限，限制了所连接ONU的数量以及光信号的传输距离。</p><p>根据光网络单元ONU设置的位置不同，光纤接入网可分成不同的类型,主要包括光纤到路边FTTC、光纤到大楼FTTB、光纤到家FTTH或光纤到办公室FTTO等。一般小区覆盖都是采用FTTH的类型。</p><h2 id="EPON技术及特点"><a href="#EPON技术及特点" class="headerlink" title="EPON技术及特点"></a>EPON技术及特点</h2><p>EPON是基于以太网技术的无源光网络，即采用PON的拓扑结构实现以太网帧的接入，EPON的标准为IEEE 802.3ah。</p><p>EPON网络中，设备分无源网络设备和有源网络设备两种：无源网络设备指的是ODN光纤分配网，包括光纤、无源分光器、连接器和光纤接头等。有源网络设备包括OLT、ONU和网管。</p><p>EPON网络采用WDM波分复用技术，实现单纤双向传输。使用2个波长时，下行（OLT到ONU）使用1510nm波长，上行（ONU到OLT）使用1310nm波长，用于分配数据、语音和视频业务。使用3个波长时，下行使用1510nm波长，上行使用1310nm波长，增加一个下行1510nm波长，携带下行CATV业务。也就是说，OLT也可以承载有线电视业务。</p><p>除了WDM技术外，EPON还采用了测距技术和光功率动态调节等技术，确保OLT正确接收各个远近不同的ONU数据。</p><p>在EPON网络中，OLT是一个交换机或路由器，提供面向无源光网络的光纤接口。可提供多个GE和10GE等多个速率的以太网口，可以与多种业务速率相兼容。根据需要可以配置多块PON板，通过分光器与多个ONU连接。</p><p>分光器是一个简单设备（小盒子），它不需要电源，可以置于全天候环境中。分光器的分光比规定为1:8、1:16、1:32、1:64，即理论上最大分光比是1:64。在工程上，一般是1:32。分光器的布放方式中，普遍采用的是一级分光或二级分光。</p><p>EPON的技术特点主要表现在以下几个方面：</p><p>运营成本低，维护简单。由于是无源器件，所以容易敷设，维护简单，可节省长期运营成本和管理成本。</p><p>可提供较高的传输速率。EPON可以提供上下行对称的1.25G的速率，并且可以升级到10G。</p><p>服务范围大，容易扩展。EPON作为一种点到多点网络，可以利用局端单个光模块及光纤资源，服务大量终端用户，而且网络容易扩展。</p><h2 id="GPON技术及特点"><a href="#GPON技术及特点" class="headerlink" title="GPON技术及特点"></a>GPON技术及特点</h2><p>GPON 是由全业务接入网络FSAN组织提出的1G以上速率的PON网络标准，相应的标准是ITU-T  G.984.x系列。GPON是BPON（APON）扩展，相对于其他的PON标准，GPON标准可以提供高达2.5G的下行速率，上、下行速率有对称和不对称两种。</p><p>GPON网络结构、网元与EPON类似，但性能更优，主要技术特点是：<br>业务支持能力强，具有全业务接入能力。可以提供包括E1电路业务、以太网业务、ATM业务、CATV等在内的全业务接入能力、能够提供语音、数据和视频综合业务接入。</p><p>可以提供较高的带宽和较远的覆盖距离。分光比可达1:128，最多可以支持128个ONU，接入层的覆盖半径达到20公里。</p><p>带宽分配灵活、服务质量有保证，安全性高。</p><p>在运营商的实际组网中，一般在汇聚点放置BRAS设备（宽带接入服务器、华为ME60），上联核心路由器CR，下联OLT（华为MA 5680T），通过一级分光、二级分光等ODN光纤分配网，连接至ONU设备，为公众用户提供宽带服务。</p><p><img src="/archives/b541af11/7.png" alt=" "></p><p>SmartAX MA5680T系列光接入设备是华为推出的GPON/P2P/xDSL一体化接入产品，提供大容量、高速率和高带宽的数据、语音和视频业务接入。支持GPON/P2P/xDSL一体化接入业务。</p><p>MA5680T可以作为GPON系统中的OLT设备，和终端ONU设备配合使用， 满足FTTH光纤到户、FTTB光纤到楼、基站传输、IP专线互联、批发等组网需求。 </p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/archives/b541af11/1.png&quot; alt=&quot; &quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;光纤接入网（Optical Acce</summary>
+      
+    
+    
+    
+    <category term="学而时习之" scheme="https://blog.hellshan.top/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/"/>
+    
+    <category term="拿来主义" scheme="https://blog.hellshan.top/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E6%8B%BF%E6%9D%A5%E4%B8%BB%E4%B9%89/"/>
+    
+    
+    <category term="网络" scheme="https://blog.hellshan.top/tags/%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
+  
+  <entry>
     <title>企业网络交换机常用配置</title>
     <link href="https://blog.hellshan.top/archives/c3a78d8f/"/>
     <id>https://blog.hellshan.top/archives/c3a78d8f/</id>
     <published>2024-12-18T01:46:05.000Z</published>
-    <updated>2024-12-18T02:26:38.000Z</updated>
+    <updated>2024-12-18T02:33:28.752Z</updated>
     
     <content type="html"><![CDATA[<p><img src="/archives/c3a78d8f/1.png" alt=" "></p><h2 id="安全典型配置"><a href="#安全典型配置" class="headerlink" title="安全典型配置"></a>安全典型配置</h2><h3 id="端口安全"><a href="#端口安全" class="headerlink" title="端口安全"></a>端口安全</h3><p>典型实例：针对端口限制只能当前一个设备MAC连接，其他设备接入端口则无法通讯</p><p>思科交换机:<br>进入全局端口配置模式</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cisco(config-if)#switchport port-security                      #打开端口安全模式</span><br><span class="line">cisco(config-if)#switchport port-security violation  &#123;protect | restrict | shutdown（默认） &#125;     #针对非法接入计算机，端口处理模式&#123;丢弃数据包，不发警告 | 丢弃数据包，在console发警告 | 关闭端口为err-disable状态，除非管理员手工激活，否则该端口失效。</span><br><span class="line">cisco(config-if)#switchport port-security mac-address sticky   # Sticky安全地址，是允许我们将Port-Security接口通过动态学习到的MAC地址变成“粘滞”的安全地址</span><br><span class="line">cisco(config-if)#switchport port-security maximum 1            #可不配置，端口默认限制数为1</span><br></pre></td></tr></table></figure><p>华为交换机:<br>进入systemview模式</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[huawei-GigabitEthernet0&#x2F;0&#x2F;1]port-security enable</span><br><span class="line">[huawei-GigabitEthernet0&#x2F;0&#x2F;1]port-security protect-action &#123;protect | restrict（默认） | shutdown &#125; </span><br><span class="line">[huawei-GigabitEthernet0&#x2F;0&#x2F;1]port-security mac-address sticky</span><br><span class="line">[huawei-GigabitEthernet0&#x2F;0&#x2F;1]port-security max-mac-num 1         #可不配置，端口默认限制数为1</span><br></pre></td></tr></table></figure><p>需要注意的是，思科默认port-security的模式为shutdown，查看端口状态为err-disabled，如果发现配置后端口无法起来，闪橙色灯，则要手动在端口下shutdown然后no shutdown重新起来。</p>]]></content>
     
@@ -232,9 +259,9 @@
     <category term="实践验证真理" scheme="https://blog.hellshan.top/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E5%AE%9E%E8%B7%B5%E9%AA%8C%E8%AF%81%E7%9C%9F%E7%90%86/"/>
     
     
-    <category term="ELK" scheme="https://blog.hellshan.top/tags/ELK/"/>
-    
     <category term="linux" scheme="https://blog.hellshan.top/tags/linux/"/>
+    
+    <category term="ELK" scheme="https://blog.hellshan.top/tags/ELK/"/>
     
   </entry>
   
