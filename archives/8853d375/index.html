@@ -21,7 +21,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blog.hellshan.top/archives/8853d375/1.jpg">
 <meta property="article:published_time" content="2020-09-29T08:45:05.000Z">
-<meta property="article:modified_time" content="2024-09-25T06:36:55.246Z">
+<meta property="article:modified_time" content="2025-03-30T06:29:03.000Z">
 <meta property="article:author" content="HellShan">
 <meta property="article:tag" content="linux">
 <meta property="article:tag" content="kvm">
@@ -310,7 +310,7 @@
 <p>然后重启smbd服务即可：</p>
 <p><code>systemctl restart smb</code></p>
 <h2 id="Linux-Bash及Vim界面配置"><a href="#Linux-Bash及Vim界面配置" class="headerlink" title="Linux Bash及Vim界面配置"></a>Linux Bash及Vim界面配置</h2><h3 id="Bash配色（针对用户）"><a href="#Bash配色（针对用户）" class="headerlink" title="Bash配色（针对用户）"></a>Bash配色（针对用户）</h3><p>修改~/.bashrc文件：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"># ~&#x2F;.bashrc: executed by bash(1) for non-login shells.</span><br><span class="line"># see &#x2F;usr&#x2F;share&#x2F;doc&#x2F;bash&#x2F;examples&#x2F;startup-files (in the package bash-doc)</span><br><span class="line"># for examples</span><br><span class="line"></span><br><span class="line"># If not running interactively, don&#39;t do anything</span><br><span class="line">#[ -z &quot;$PS1&quot; ] &amp;&amp; return</span><br><span class="line"></span><br><span class="line"># don&#39;t put duplicate lines in the history. See bash(1) for more options</span><br><span class="line"># ... or force ignoredups and ignorespace</span><br><span class="line">HISTCONTROL&#x3D;ignoredups:ignorespace</span><br><span class="line"></span><br><span class="line"># append to the history file, don&#39;t overwrite it</span><br><span class="line">shopt -s histappend</span><br><span class="line"></span><br><span class="line"># for setting history length see HISTSIZE and HISTFILESIZE in bash(1)</span><br><span class="line">HISTSIZE&#x3D;1000</span><br><span class="line">HISTFILESIZE&#x3D;2000</span><br><span class="line"></span><br><span class="line"># check the window size after each command and, if necessary,</span><br><span class="line"># update the values of LINES and COLUMNS.</span><br><span class="line">shopt -s checkwinsize</span><br><span class="line"></span><br><span class="line"># make less more friendly for non-text input files, see lesspipe(1)</span><br><span class="line">[ -x &#x2F;usr&#x2F;bin&#x2F;lesspipe ] &amp;&amp; eval &quot;$(SHELL&#x3D;&#x2F;bin&#x2F;sh lesspipe)&quot;</span><br><span class="line"></span><br><span class="line"># set variable identifying the chroot you work in (used in the prompt below)</span><br><span class="line">if [ -z &quot;$debian_chroot&quot; ] &amp;&amp; [ -r &#x2F;etc&#x2F;debian_chroot ]; then</span><br><span class="line">    debian_chroot&#x3D;$(cat &#x2F;etc&#x2F;debian_chroot)</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line"># shorten current working directory to 2 last components in prompt</span><br><span class="line">PROMPT_DIRTRIM&#x3D;2</span><br><span class="line"></span><br><span class="line"># If this is an xterm set the title to user@host:dir</span><br><span class="line">case &quot;$TERM&quot; in</span><br><span class="line">xterm*|rxvt*)</span><br><span class="line">    PROMPT_COMMAND&#x3D;&#39;echo -ne &quot;\033]0;$&#123;USER&#125;@$&#123;HOSTNAME&#125;: $&#123;PWD&#x2F;$HOME&#x2F;~&#125;\007&quot;&#39;</span><br><span class="line">    ;;</span><br><span class="line">*)</span><br><span class="line">    ;;</span><br><span class="line">esac</span><br><span class="line"></span><br><span class="line">if [ &quot;$TERM&quot; !&#x3D; &quot;dumb&quot; ]; then</span><br><span class="line">    eval &quot;&#96;dircolors -b&#96;&quot;</span><br><span class="line">    alias ls&#x3D;&#39;ls --color&#x3D;auto&#39;</span><br><span class="line">    alias ll&#x3D;&#39;ls --color&#x3D;auto -alF&#39;</span><br><span class="line">    alias la&#x3D;&#39;ls --color&#x3D;auto -A&#39;</span><br><span class="line">    alias l&#x3D;&#39;ls --color&#x3D;auto -CF&#39;</span><br><span class="line">    alias grep&#x3D;&#39;grep --color&#x3D;auto&#39;</span><br><span class="line">    alias fgrep&#x3D;&#39;fgrep --color&#x3D;auto&#39;</span><br><span class="line">    alias egrep&#x3D;&#39;egrep --color&#x3D;auto&#39;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"># ~&#x2F;.bashrc: executed by bash(1) for non-login shells.</span><br><span class="line"># see &#x2F;usr&#x2F;share&#x2F;doc&#x2F;bash&#x2F;examples&#x2F;startup-files (in the package bash-doc)</span><br><span class="line"># for examples</span><br><span class="line">    </span><br><span class="line"># If not running interactively, don&#39;t do anything</span><br><span class="line">#[ -z &quot;$PS1&quot; ] &amp;&amp; return</span><br><span class="line">    </span><br><span class="line"># don&#39;t put duplicate lines in the history. See bash(1) for more options</span><br><span class="line"># ... or force ignoredups and ignorespace</span><br><span class="line">HISTCONTROL&#x3D;ignoredups:ignorespace</span><br><span class="line">    </span><br><span class="line"># append to the history file, don&#39;t overwrite it</span><br><span class="line">shopt -s histappend</span><br><span class="line">    </span><br><span class="line"># for setting history length see HISTSIZE and HISTFILESIZE in bash(1)</span><br><span class="line">HISTSIZE&#x3D;1000</span><br><span class="line">HISTFILESIZE&#x3D;2000</span><br><span class="line">    </span><br><span class="line"># check the window size after each command and, if necessary,</span><br><span class="line"># update the values of LINES and COLUMNS.</span><br><span class="line">shopt -s checkwinsize</span><br><span class="line"></span><br><span class="line"># make less more friendly for non-text input files, see lesspipe(1)</span><br><span class="line">[ -x &#x2F;usr&#x2F;bin&#x2F;lesspipe ] &amp;&amp; eval &quot;$(SHELL&#x3D;&#x2F;bin&#x2F;sh lesspipe)&quot;</span><br><span class="line"></span><br><span class="line"># set variable identifying the chroot you work in (used in the prompt below)</span><br><span class="line">if [ -z &quot;$debian_chroot&quot; ] &amp;&amp; [ -r &#x2F;etc&#x2F;debian_chroot ]; then</span><br><span class="line">    debian_chroot&#x3D;$(cat &#x2F;etc&#x2F;debian_chroot)</span><br><span class="line">fi     </span><br><span class="line">    </span><br><span class="line"># shorten current working directory to 2 last components in prompt</span><br><span class="line">PROMPT_DIRTRIM&#x3D;2</span><br><span class="line"></span><br><span class="line"># If this is an xterm set the title to user@host:dir</span><br><span class="line">case &quot;$TERM&quot; in</span><br><span class="line">xterm*|rxvt*)</span><br><span class="line">    PROMPT_COMMAND&#x3D;&#39;echo -ne &quot;\033]0;$&#123;USER&#125;@$&#123;HOSTNAME&#125;: $&#123;PWD&#x2F;$HOME&#x2F;~&#125;\007&quot;&#39;</span><br><span class="line">    ;;</span><br><span class="line">*)</span><br><span class="line">    ;;</span><br><span class="line">esac</span><br><span class="line"></span><br><span class="line">if [ &quot;$TERM&quot; !&#x3D; &quot;dumb&quot; ]; then</span><br><span class="line">    eval &quot;&#96;dircolors -b&#96;&quot;</span><br><span class="line">    alias ls&#x3D;&#39;ls --color&#x3D;auto&#39;</span><br><span class="line">    alias ll&#x3D;&#39;ls --color&#x3D;auto -alF&#39;</span><br><span class="line">    alias la&#x3D;&#39;ls --color&#x3D;auto -A&#39;</span><br><span class="line">    alias l&#x3D;&#39;ls --color&#x3D;auto -CF&#39;</span><br><span class="line">    alias grep&#x3D;&#39;grep --color&#x3D;auto&#39;</span><br><span class="line">    alias fgrep&#x3D;&#39;fgrep --color&#x3D;auto&#39;</span><br><span class="line">    alias egrep&#x3D;&#39;egrep --color&#x3D;auto&#39;</span><br><span class="line"></span><br><span class="line">    # Set a terminal prompt style (default is fancy color prompt)</span><br><span class="line">    PS1&#x3D;&#39;$&#123;debian_chroot:+($debian_chroot)&#125;\[\033[01;33m\]\u@\h \[\033[01;34m\]\w\[\033[00m\]\$ &#39;</span><br><span class="line">else</span><br><span class="line">    alias ls&#x3D;&quot;ls -F&quot;</span><br><span class="line">    alias ll&#x3D;&#39;ls -alF&#39;</span><br><span class="line">    alias la&#x3D;&#39;ls -A&#39;</span><br><span class="line">    alias l&#x3D;&#39;ls -CF&#39;</span><br><span class="line">    PS1&#x3D;&#39;$&#123;debian_chroot:+($debian_chroot)&#125;\u@\h \w\$ &#39;</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">PATH&#x3D;&#x2F;usr&#x2F;local&#x2F;sbin:&#x2F;usr&#x2F;local&#x2F;bin:&#x2F;usr&#x2F;sbin:&#x2F;usr&#x2F;bin:&#x2F;sbin:&#x2F;bin</span><br><span class="line"></span><br><span class="line">run_scripts()</span><br><span class="line">&#123;</span><br><span class="line">    for script in $1&#x2F;*; do</span><br><span class="line">        [ -x &quot;$script&quot; ] || continue</span><br><span class="line">        . $script</span><br><span class="line">    done</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">run_scripts $HOME&#x2F;.bashrc.d</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <h3 id="修改VIM使用鼠标操作"><a href="#修改VIM使用鼠标操作" class="headerlink" title="修改VIM使用鼠标操作"></a>修改VIM使用鼠标操作</h3><p><code>vim ~/.vimrc</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">source $VIMRUNTIME&#x2F;defaults.vim</span><br><span class="line">set mouse-&#x3D;a</span><br></pre></td></tr></table></figure>
 <p>注意mouse后面有一个“-”</p>
@@ -327,6 +327,18 @@
 <p><code>docker exec --user www-data 4445a44b7918 php occ files:scan --all</code></p>
 <p>格式说明：</p>
 <p><code>docker exec --user www-data &lt;nextcloud-container-name&gt; php occ &lt;your-command&gt;</code></p>
+<h2 id="CentOS系统将UTC时间修改为CST时间"><a href="#CentOS系统将UTC时间修改为CST时间" class="headerlink" title="CentOS系统将UTC时间修改为CST时间"></a>CentOS系统将UTC时间修改为CST时间</h2><p>1.编辑时间配置文件（如有）</p>
+<p><code>vi /etc/sysconfig/clock</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">ZONE&#x3D;&quot;Asia&#x2F;Shanghai&quot;</span><br><span class="line">UTC&#x3D;false                   #设置为false，硬件时钟不于utc时间一致</span><br><span class="line">ARC&#x3D;false</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>2.linux的时区设置为上海时区</p>
+<p><code>ln -sf /usr/share/zoneinfo/Asia/Shanghai    /etc/localtime</code></p>
+<p>3.与xxxx对准时间</p>
+<p><code>ntpdate xxxx</code></p>
+<p>4.设置硬件时间和系统时间一致并校准</p>
+<p><code>/sbin/hwclock --systohc</code></p>
+<p>经过以上步骤,系统时间和计算机硬件时间都是cst时间了，并且都是上海时区。</p>
+<p>注：CentOS Linux默认的bios时间是utc时间</p>
+<h3 id="D将CST时间修改为UTC时间"><a href="#D将CST时间修改为UTC时间" class="headerlink" title="D将CST时间修改为UTC时间"></a>D将CST时间修改为UTC时间</h3><p><code>sudo ln -sf /usr/share/zoneinfo/UTC /etc/localtime</code></p>
 
         </div>
         <footer class="article-footer">
@@ -334,7 +346,7 @@
 
 
 
-    <a data-url="https://blog.hellshan.top/archives/8853d375/" data-id="cm54ymoqb000pito93z9d3dry" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://blog.hellshan.top/archives/8853d375/" data-id="cm8v9gpme007kiqo9de4le8xg" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -410,7 +422,7 @@
         "genre": "学而时习之 温故而知新",
         "datePublished": "2020-09-29",
         "dateCreated": "2020-09-29",
-        "dateModified": "2024-09-25",
+        "dateModified": "2025-03-30",
         "url": "https://blog.hellshan.top/archives/8853d375/",
         "description": "
 安装1.下载proxmox 6.2镜像，基于dabain 10.5 buster（清华大学镜像站）：
@@ -420,7 +432,7 @@ https://mirrors.tuna.tsinghua.edu.cn/proxmox/iso/
 删除虚拟机
 删除local-lvm：lvremove pve/data
 查看",
-        "wordCount": 2413
+        "wordCount": 2626
     }
 </script>
 
@@ -486,22 +498,16 @@ https://mirrors.tuna.tsinghua.edu.cn/proxmox/iso/
         
 <nav id="article-nav">
     
-        <a href="/archives/5018439d/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/archives/d0a90ac1/" id="article-nav-newer" class="article-nav-link-wrap">
         <strong class="article-nav-caption">下一篇</strong>
         <p class="article-nav-title">
         
-            hexo使用记录
+            航拍中国S01E01海南
         
         </p>
         <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
     </a>
     
-    
-        <a href="/archives/d0a90ac1/" id="article-nav-older" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">上一篇</strong>
-        <p class="article-nav-title">航拍中国S01E01海南</p>
-        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
-        </a>
     
 </nav>
 
@@ -694,7 +700,7 @@ https://mirrors.tuna.tsinghua.edu.cn/proxmox/iso/
                 <h1 class="logo-wrap">
                     <a href="/" class="logo"></a>
                 </h1>
-                <p>&copy; 2024 HellShan</p>
+                <p>&copy; 2025 HellShan</p>
                 
                 <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
                 <p><a href="http://beian.miit.gov.cn/" target="_blank">粤ICP备2020094422号-1</a</p>
