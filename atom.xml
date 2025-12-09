@@ -259,9 +259,9 @@
     <category term="实践验证真理" scheme="https://blog.hellshan.top/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E5%AE%9E%E8%B7%B5%E9%AA%8C%E8%AF%81%E7%9C%9F%E7%90%86/"/>
     
     
-    <category term="ELK" scheme="https://blog.hellshan.top/tags/ELK/"/>
-    
     <category term="linux" scheme="https://blog.hellshan.top/tags/linux/"/>
+    
+    <category term="ELK" scheme="https://blog.hellshan.top/tags/ELK/"/>
     
   </entry>
   
@@ -633,9 +633,9 @@
     <category term="实践验证真理" scheme="https://blog.hellshan.top/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E5%AE%9E%E8%B7%B5%E9%AA%8C%E8%AF%81%E7%9C%9F%E7%90%86/"/>
     
     
-    <category term="docker" scheme="https://blog.hellshan.top/tags/docker/"/>
-    
     <category term="linux" scheme="https://blog.hellshan.top/tags/linux/"/>
+    
+    <category term="docker" scheme="https://blog.hellshan.top/tags/docker/"/>
     
   </entry>
   
@@ -1093,9 +1093,9 @@
     <category term="平台" scheme="https://blog.hellshan.top/categories/%E7%83%AD%E7%82%B9/%E5%B9%B3%E5%8F%B0/"/>
     
     
-    <category term="k8s" scheme="https://blog.hellshan.top/tags/k8s/"/>
-    
     <category term="kvm" scheme="https://blog.hellshan.top/tags/kvm/"/>
+    
+    <category term="k8s" scheme="https://blog.hellshan.top/tags/k8s/"/>
     
   </entry>
   
@@ -1632,6 +1632,35 @@
     <category term="hexo" scheme="https://blog.hellshan.top/tags/hexo/"/>
     
     <category term="nodejs" scheme="https://blog.hellshan.top/tags/nodejs/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>自建KEXUE上网</title>
+    <link href="https://blog.hellshan.top/archives/a91ca38e/"/>
+    <id>https://blog.hellshan.top/archives/a91ca38e/</id>
+    <published>2020-09-29T08:45:05.000Z</published>
+    <updated>2025-12-09T03:36:15.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/archives/a91ca38e/1.jpg" alt=" "></p><h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>公司在海外设立了分部，出差给office配置了NAS，又申请了固定IP专线，这下好了，kexue上网的条件基本上满足了，这下可以自建kexue上网。</p><h1 id="条件"><a href="#条件" class="headerlink" title="条件"></a>条件</h1><p>实现kexue上网有很多方式，不限于购买现成的FQ软件、购买订阅使用crash等软件导入，或者自建机场导入。。要想实现自建kexue上网，必须满足几个条件：<br>1、一个带固定IP的主机（该主机可以是实体机、虚拟机、docker等等），且不占用80和443端口<br>2、一个域名，并解析到该固定IP<br>3、一个邮箱地址，用于caddy申请SSL证书，如果不填将不会申请证书，且caddy只监听80端口<br>其原理是模拟http的流量来达到防拦截。</p><h1 id="搭建过程"><a href="#搭建过程" class="headerlink" title="搭建过程"></a>搭建过程</h1><h2 id="购买VPS和预装系统（略）"><a href="#购买VPS和预装系统（略）" class="headerlink" title="购买VPS和预装系统（略）"></a>购买VPS和预装系统（略）</h2><p>购买VPS比较简单，关键是找比较稳定的和性价比高的</p><h2 id="使用NAS搭建"><a href="#使用NAS搭建" class="headerlink" title="使用NAS搭建"></a>使用NAS搭建</h2><p>这里推荐使用已经配置好的docker：<a href="https://github.com/anerg2046/Caddy_V2ray">https://github.com/anerg2046/Caddy_V2ray</a></p><p>此镜像使用vmess协议，配置相对简单，也可以用Trojan，相对复杂，但安全性更改，可以自行搜索其差异</p><p>只需配置好端口及路径即可，但测试中，网络需要选择host模式，不然网络访问异常（开了防火墙也不行，应该是跟NAS系统有关）</p><p>配置好后运行，在后台日志会有类似输出：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">V2ray 配置信息</span><br><span class="line">地址（address）: 123.123.com</span><br><span class="line">端口（port）： 443</span><br><span class="line">用户id（UUID）： a736b1ef-a96e-4f35-8f6b-5b76a050e282</span><br><span class="line">加密方式（security）： 自适应</span><br><span class="line">传输协议（network）： ws</span><br><span class="line">伪装类型（type）： none</span><br><span class="line">路径（不要落下&#x2F;）： &#x2F;8768f5ff9&#x2F;</span><br><span class="line">底层传输安全： tls</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;复制以下内容进行导入&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">vmess:&#x2F;&#x2F;ewogICAgInYiOiAiMiIsCiAgICAicHMiOiAidjIubW9vaW0uY29tIiwKICAgICJhZGQiOiAidjIubW9vaW0uY29tIiwKICAgICJwb3J0IjogIjQ0MyIsCiAgICAiaWQiOiAiYTczNmIxZWYtYTk2ZS00ZjM1LThmNmItNWI3NmEwNTBlMjgyIiwKICAgICJhaWQiOiAiMCIsCiAgICAibmV0IjogIndzIiwKICAgICJ0eXBlIjogIm5vbmUiLAogICAgImhvc3QiOiAidjIubW9vaW0uY29tIiwKICAgICJwYXRoIjogIi84NzY4ZjVmZjkvIiwKICAgICJ0bHMiOiAidGxzIgp9</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;复制以上内容进行导入&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">&#123;&quot;level&quot;:&quot;info&quot;,&quot;ts&quot;:1656863534.6378205,&quot;msg&quot;:&quot;using provided configuration&quot;,&quot;config_file&quot;:&quot;&#x2F;etc&#x2F;caddy&#x2F;Caddyfile&quot;,&quot;config_adapter&quot;:&quot;caddyfile&quot;&#125;</span><br><span class="line">&#123;&quot;level&quot;:&quot;warn&quot;,&quot;ts&quot;:1656863534.6384249,&quot;logger&quot;:&quot;caddyfile&quot;,&quot;msg&quot;:&quot;Unnecessary header_up X-Forwarded-For: the reverse proxy&#39;s default behavior is to pass headers to the upstream&quot;&#125;</span><br><span class="line">.......</span><br></pre></td></tr></table></figure><p>复制vmess开通那段到<a href="https://sub-web.wcc.best/生成crash订阅链接，然后从crash中新建添加订阅链接即可">https://sub-web.wcc.best/生成crash订阅链接，然后从crash中新建添加订阅链接即可</a></p><h2 id="局域网访问"><a href="#局域网访问" class="headerlink" title="局域网访问"></a>局域网访问</h2><p>如果使用一个订阅链接供给局域网使用，可以在crash软件中开启局域网访问，然后需要用到代理的就在系统代理中手动设置。</p><p>更加进阶的方法是，使用一台一直运行的主机（虚拟机）安装linux版脚本，家用的话可以从路由器中安装shellcrash，也就是linux版本的crash：<br><a href="https://github.com/liyaoxuan/ShellClash?tab=readme-ov-file">https://github.com/liyaoxuan/ShellClash?tab=readme-ov-file</a></p><p>安装最新版本，导入自定义的配置，然后建一个脚本（服务器自行更改），双击自动代理：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">@echo off</span><br><span class="line">set PROXY_SERVER&#x3D;192.168.1.200:7890</span><br><span class="line"></span><br><span class="line">echo System proxy is setting with %PROXY_SERVER%...</span><br><span class="line">reg add &quot;HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings&quot; &#x2F;v ProxyEnable &#x2F;t REG_DWORD &#x2F;d 1 &#x2F;f</span><br><span class="line">reg add &quot;HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings&quot; &#x2F;v ProxyServer &#x2F;t REG_SZ &#x2F;d %PROXY_SERVER% &#x2F;f</span><br><span class="line"></span><br><span class="line">:: notice system proxy setting has been changed</span><br><span class="line"></span><br><span class="line">echo The system proxy has been setup successfully !!</span><br><span class="line">echo Now you can close the window .</span><br><span class="line">pause</span><br></pre></td></tr></table></figure><p>关闭代理的脚本：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@echo off</span><br><span class="line">echo system proxy is closing ...</span><br><span class="line">reg add &quot;HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings&quot; &#x2F;v ProxyEnable &#x2F;t REG_DWORD &#x2F;d 0 &#x2F;f</span><br><span class="line"></span><br><span class="line">:: notice system proxy setting is change</span><br><span class="line"></span><br><span class="line">echo system proxy has been closed ..s</span><br><span class="line">pause</span><br></pre></td></tr></table></figure><p>保存为bat格式，双击运行即可</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/archives/a91ca38e/1.jpg&quot; alt=&quot; &quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h1&gt;&lt;p&gt;公司在海外设立了分部，出差给offi</summary>
+      
+    
+    
+    
+    <category term="学而时习之" scheme="https://blog.hellshan.top/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/"/>
+    
+    <category term="实践验证真理" scheme="https://blog.hellshan.top/categories/%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B/%E5%AE%9E%E8%B7%B5%E9%AA%8C%E8%AF%81%E7%9C%9F%E7%90%86/"/>
+    
+    
+    <category term="linux" scheme="https://blog.hellshan.top/tags/linux/"/>
+    
+    <category term="proxy" scheme="https://blog.hellshan.top/tags/proxy/"/>
     
   </entry>
   
