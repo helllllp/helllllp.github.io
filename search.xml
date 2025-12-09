@@ -29,7 +29,7 @@
   <entry>
     <title>自建KEXUE上网</title>
     <url>/archives/a91ca38e/</url>
-    <content><![CDATA[<p><img src="/archives/a91ca38e/1.jpg" alt=" "></p>
+    <content><![CDATA[<p><img src="/archives/a91ca38e/1.png" alt=" "></p>
 <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>公司在海外设立了分部，出差给office配置了NAS，又申请了固定IP专线，这下好了，kexue上网的条件基本上满足了，这下可以自建kexue上网。</p>
 <h1 id="条件"><a href="#条件" class="headerlink" title="条件"></a>条件</h1><p>实现kexue上网有很多方式，不限于购买现成的FQ软件、购买订阅使用crash等软件导入，或者自建机场导入。。要想实现自建kexue上网，必须满足几个条件：<br>1、一个带固定IP的主机（该主机可以是实体机、虚拟机、docker等等），且不占用80和443端口<br>2、一个域名，并解析到该固定IP<br>3、一个邮箱地址，用于caddy申请SSL证书，如果不填将不会申请证书，且caddy只监听80端口<br>其原理是模拟http的流量来达到防拦截。</p>
 <h1 id="搭建过程"><a href="#搭建过程" class="headerlink" title="搭建过程"></a>搭建过程</h1><h2 id="购买VPS和预装系统（略）"><a href="#购买VPS和预装系统（略）" class="headerlink" title="购买VPS和预装系统（略）"></a>购买VPS和预装系统（略）</h2><p>购买VPS比较简单，关键是找比较稳定的和性价比高的</p>
